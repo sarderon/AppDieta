@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#667eea">
+    <title>App Dietista 🥗</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🥗</text></svg>">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .header {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .header h1 {
+            margin: 0 0 10px 0;
+            color: #1f2937;
+            font-size: 28px;
+        }
+
+        .header p {
+            margin: 0;
+            color: #6b7280;
+        }
+
+        button {
+            font-family: inherit;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .btn-primary {
+            background: #10b981;
+            color: white;
+            padding: 15px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            width: 100%;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .btn-secondary {
+            background: #3b82f6;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .btn-back {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 8px 15px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .plan-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+        }
+
+        .plan-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .plan-card h3 {
+            margin: 0 0 5px 0;
+            color: #1f2937;
+        }
+
+        .plan-card p {
+            margin: 0 5px 0 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .plan-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .plan-card-content {
+            flex: 1;
+            cursor: pointer;
+        }
+
+        .plan-card-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #374151;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-container {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .meal-item {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            margin-bottom: 12px;
+        }
+
+        .meal-grid {
+            display: grid;
+            grid-template-columns: 80px 100px 1fr 40px;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: flex-end;
+        }
+
+        .meal-grid > div {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .meal-grid label {
+            font-size: 12px;
+            color: #6b7280;
+            margin-bottom: 5px;
+        }
+
+        .meal-grid input,
+        .meal-grid select {
+            padding: 8px;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .btn-add-meal {
+            background: #e0e7ff;
+            color: #3b82f6;
+            border: 1px dashed #3b82f6;
+            padding: 10px;
+            width: 100%;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .form-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn-cancel {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 12px;
+            font-weight: 500;
+        }
+
+        .plan-detail {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .plan-detail h2 {
+            margin: 0 0 10px 0;
+            color: #1f2937;
+        }
+
+        .plan-detail-info {
+            margin: 0 0 20px 0;
+            color: #6b7280;
+        }
+
+        .plan-detail-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .meal-detail {
+            background: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 15px;
+        }
+
+        .meal-detail h4 {
+            margin: 0 0 8px 0;
+            color: #1f2937;
+        }
+
+        .meal-detail p {
+            margin: 5px 0 0 0;
+            color: #374151;
+            white-space: pre-wrap;
+        }
+
+        .meal-detail-calories {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .empty-state {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            text-align: center;
+            color: #9ca3af;
+            margin-bottom: 15px;
+        }
+
+        .empty-state p {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .meal-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .plan-card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .plan-card-actions {
+                width: 100%;
+            }
+
+            .plan-card-actions button {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🥗 App Dietista</h1>
+            <p>Crea y descarga planes dietéticos en PDF</p>
+        </div>
+
+        <div id="mainView">
+            <button class="btn-primary" onclick="showCreateForm()">
+                ➕ Crear Nuevo Plan
+            </button>
+            <div id="plansList"></div>
+        </div>
+
+        <div id="formView" class="hidden form-container">
+            <h2>Crear Nuevo Plan</h2>
+
+            <div class="form-group">
+                <label>Nombre del Cliente</label>
+                <input type="text" id="clientName" placeholder="Ej: Juan García">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Objetivo</label>
+                    <input type="text" id="objective" placeholder="Ej: Pérdida de peso">
+                </div>
+                <div class="form-group">
+                    <label>Duración (días)</label>
+                    <input type="number" id="days" value="7" min="1">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Fecha de Inicio</label>
+                    <input type="date" id="startDate">
+                </div>
+                <div class="form-group">
+                    <label>Tu Nombre (Dietista)</label>
+                    <input type="text" id="dietitian" value="Tu Nombre">
+                </div>
+            </div>
+
+            <h3 style="margin-top: 20px; color: #1f2937;">Comidas del Plan</h3>
+            <div id="mealsList"></div>
+            <button class="btn-add-meal" onclick="addMeal()">➕ Añadir Comida</button>
+
+            <div class="form-buttons">
+                <button class="btn-cancel" onclick="cancelForm()">Cancelar</button>
+                <button class="btn-primary" onclick="savePlan()">💾 Guardar Plan</button>
+            </div>
+        </div>
+
+        <div id="detailView" class="hidden plan-detail">
+            <button class="btn-back" onclick="showMainView()">← Volver</button>
+            <h2 id="detailClientName"></h2>
+            <p id="detailInfo" class="plan-detail-info"></p>
+            <div class="plan-detail-buttons">
+                <button class="btn-secondary" onclick="downloadCurrentPlan()" style="width: 100%; padding: 12px;">📥 Descargar PDF</button>
+                <button class="btn-danger" onclick="deleteCurrentPlan()" style="width: 100%; padding: 12px;">🗑️ Eliminar Plan</button>
+            </div>
+            <div id="detailMeals"></div>
+        </div>
+    </div>
+
+    <script>
+        function setToday() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('startDate').value = today;
+        }
+
+        let plans = [];
+        let currentPlan = null;
+        let meals = [];
+
+        function loadPlans() {
+            const saved = localStorage.getItem('dietPlans');
+            plans = saved ? JSON.parse(saved) : [];
+            renderPlans();
+        }
+
+        function savePlans() {
+            localStorage.setItem('dietPlans', JSON.stringify(plans));
+        }
+
+        function showMainView() {
+            document.getElementById('mainView').classList.remove('hidden');
+            document.getElementById('formView').classList.add('hidden');
+            document.getElementById('detailView').classList.add('hidden');
+            renderPlans();
+        }
+
+        function showCreateForm() {
+            document.getElementById('mainView').classList.add('hidden');
+            document.getElementById('formView').classList.remove('hidden');
+            document.getElementById('detailView').classList.add('hidden');
+            setToday();
+            meals = [];
+            renderMeals();
+        }
+
+        function cancelForm() {
+            meals = [];
+            showMainView();
+        }
+
+        function showPlanDetail(planId) {
+            currentPlan = plans.find(p => p.id === planId);
+            if (!currentPlan) return;
+
+            document.getElementById('mainView').classList.add('hidden');
+            document.getElementById('formView').classList.add('hidden');
+            document.getElementById('detailView').classList.remove('hidden');
+
+            document.getElementById('detailClientName').textContent = currentPlan.clientName;
+            document.getElementById('detailInfo').textContent = 
+                `${currentPlan.objective} • ${currentPlan.days} días • Inicio: ${currentPlan.startDate}`;
+
+            const mealsHtml = currentPlan.meals.length === 0
+                ? '<p style="color: #9ca3af; text-align: center; padding: 20px;">Sin comidas agregadas</p>'
+                : currentPlan.meals.map(meal => `
+                    <div class="meal-detail">
+                        <h4>Día ${meal.day} - ${meal.type}</h4>
+                        <p>${meal.foods}</p>
+                        ${meal.calories ? `<p class="meal-detail-calories">Calorías: ${meal.calories} kcal</p>` : ''}
+                    </div>
+                `).join('');
+
+            document.getElementById('detailMeals').innerHTML = mealsHtml;
+        }
+
+        function addMeal() {
+            meals.push({
+                day: 1,
+                type: 'Desayuno',
+                foods: '',
+                calories: ''
+            });
+            renderMeals();
+        }
+
+        function removeMeal(index) {
+            meals.splice(index, 1);
+            renderMeals();
+        }
+
+        function updateMeal(index, field, value) {
+            meals[index][field] = value;
+        }
+
+        function renderMeals() {
+            const html = meals.map((meal, idx) => `
+                <div class="meal-item">
+                    <div class="meal-grid">
+                        <div>
+                            <label>Día</label>
+                            <input type="number" value="${meal.day}" min="1" max="31" 
+                                onchange="updateMeal(${idx}, 'day', parseInt(this.value))">
+                        </div>
+                        <div>
+                            <label>Comida</label>
+                            <select onchange="updateMeal(${idx}, 'type', this.value)">
+                                <option ${meal.type === 'Desayuno' ? 'selected' : ''}>Desayuno</option>
+                                <option ${meal.type === 'Almuerzo' ? 'selected' : ''}>Almuerzo</option>
+                                <option ${meal.type === 'Comida' ? 'selected' : ''}>Comida</option>
+                                <option ${meal.type === 'Merienda' ? 'selected' : ''}>Merienda</option>
+                                <option ${meal.type === 'Cena' ? 'selected' : ''}>Cena</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label>Calorías (opcional)</label>
+                            <input type="number" value="${meal.calories}" placeholder="Ej: 500"
+                                onchange="updateMeal(${idx}, 'calories', this.value)">
+                        </div>
+                        <div>
+                            <button class="btn-danger" onclick="removeMeal(${idx})">🗑️</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Alimentos</label>
+                        <textarea placeholder="Ej: Avena, huevos, frutas..."
+                            onchange="updateMeal(${idx}, 'foods', this.value)">${meal.foods}</textarea>
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('mealsList').innerHTML = html;
+        }
+
+        function savePlan() {
+            const clientName = document.getElementById('clientName').value.trim();
+            
+            if (!clientName) {
+                alert('Por favor ingresa el nombre del cliente');
+                return;
+            }
+
+            const plan = {
+                id: Date.now(),
+                clientName,
+                objective: document.getElementById('objective').value,
+                days: parseInt(document.getElementById('days').value),
+                startDate: document.getElementById('startDate').value,
+                dietitian: document.getElementById('dietitian').value,
+                meals: meals,
+                createdDate: new Date().toLocaleDateString('es-ES')
+            };
+
+            plans.unshift(plan);
+            savePlans();
+            meals = [];
+            showMainView();
+        }
+
+        function renderPlans() {
+            const html = plans.length === 0
+                ? '<div class="empty-state"><p>No hay planes creados aún</p><p>¡Crea tu primer plan dietético!</p></div>'
+                : plans.map(plan => `
+                    <div class="plan-card">
+                        <div class="plan-card-header">
+                            <div class="plan-card-content" onclick="showPlanDetail(${plan.id})">
+                                <h3>${plan.clientName}</h3>
+                                <p>${plan.objective || 'Sin objetivo'} • ${plan.meals.length} comidas</p>
+                                <p style="font-size: 12px; color: #9ca3af;">Creado: ${plan.createdDate}</p>
+                            </div>
+                            <div class="plan-card-actions">
+                                <button class="btn-secondary" onclick="downloadPlan(${plan.id})">📥 PDF</button>
+                                <button class="btn-danger" onclick="deletePlan(${plan.id})">🗑️</button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+
+            document.getElementById('plansList').innerHTML = html;
+        }
+
+        function deletePlan(id) {
+            if (confirm('¿Estás seguro de que quieres eliminar este plan?')) {
+                plans = plans.filter(p => p.id !== id);
+                savePlans();
+                renderPlans();
+            }
+        }
+
+        function deleteCurrentPlan() {
+            if (confirm('¿Estás seguro?')) {
+                plans = plans.filter(p => p.id !== currentPlan.id);
+                savePlans();
+                showMainView();
+            }
+        }
+
+        function generatePDF(plan) {
+            const html = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <meta charset="UTF-8">
+                    <style>
+                        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+                        .header { text-align: center; margin-bottom: 30px; border-bottom: 3px solid #3b82f6; padding-bottom: 15px; }
+                        .header h1 { color: #1f2937; margin: 0; }
+                        .info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; background: #f3f4f6; padding: 15px; border-radius: 8px; }
+                        .info-label { font-weight: bold; color: #3b82f6; }
+                        .meal-section { margin-bottom: 25px; }
+                        .meal-title { background: #3b82f6; color: white; padding: 10px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; }
+                        .meal-content { background: #f9fafb; padding: 12px; border-left: 4px solid #3b82f6; }
+                        .calories { font-weight: bold; color: #3b82f6; }
+                        .footer { margin-top: 40px; text-align: center; color: #6b7280; font-size: 12px; border-top: 1px solid #d1d5db; padding-top: 15px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <h1>📋 PLAN DIETÉTICO</h1>
+                    </div>
+                    
+                    <div class="info">
+                        <div>
+                            <div class="info-label">Cliente:</div>
+                            <div>${plan.clientName}</div>
+                        </div>
+                        <div>
+                            <div class="info-label">Objetivo:</div>
+                            <div>${plan.objective || 'No especificado'}</div>
+                        </div>
+                        <div>
+                            <div class="info-label">Duración:</div>
+                            <div>${plan.days} días</div>
+                        </div>
+                        <div>
+                            <div class="info-label">Inicio:</div>
+                            <div>${plan.startDate}</div>
+                        </div>
+                    </div>
+
+                    ${plan.meals.map(meal => `
+                        <div class="meal-section">
+                            <div class="meal-title">
+                                Día ${meal.day} - ${meal.type}
+                            </div>
+                            <div class="meal-content">
+                                <div>${meal.foods || 'Sin alimentos especificados'}</div>
+                                ${meal.calories ? `<div class="calories">Calorías: ${meal.calories} kcal</div>` : ''}
+                            </div>
+                        </div>
+                    `).join('')}
+
+                    <div class="footer">
+                        <p>Plan creado por: ${plan.dietitian}</p>
+                        <p>Fecha de creación: ${plan.createdDate}</p>
+                        <p>⚕️ Consulta con tu dietista antes de iniciar cualquier plan</p>
+                    </div>
+                </body>
+                </html>
+            `;
+
+            const printWindow = window.open('', '_blank');
+            printWindow.document.write(html);
+            printWindow.document.close();
+            
+            setTimeout(() => {
+                printWindow.print();
+            }, 250);
+        }
+
+        function downloadPlan(id) {
+            const plan = plans.find(p => p.id === id);
+            if (plan) generatePDF(plan);
+        }
+
+        function downloadCurrentPlan() {
+            if (currentPlan) generatePDF(currentPlan);
+        }
+
+        window.addEventListener('load', () => {
+            loadPlans();
+            setToday();
+        });
+    </script>
+</body>
+</html>
