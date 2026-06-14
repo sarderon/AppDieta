@@ -6,13 +6,9 @@
     <meta name="theme-color" content="#667eea">
     <title>Dietista Pro 🥗</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🥗</text></svg>">
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
@@ -22,222 +18,102 @@
             line-height: 1.6;
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
+        .container { max-width: 1000px; margin: 0 auto; }
 
         .header {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            background: white; padding: 25px; border-radius: 12px; margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
         }
-
-        .header h1 {
-            color: #2d3748;
-            font-size: 24px;
-        }
+        .header h1 { color: #2d3748; font-size: 24px; }
 
         .btn {
-            background: #667eea;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: background 0.2s;
+            background: #667eea; color: white; padding: 10px 20px; border: none; border-radius: 6px;
+            cursor: pointer; font-weight: bold; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s;
         }
-
-        .btn:hover {
-            background: #5a67d8;
-        }
-
-        .btn-secondary {
-            background: #edf2f7;
-            color: #4a5568;
-        }
-
-        .btn-secondary:hover {
-            background: #e2e8f0;
-        }
-
-        .btn-danger {
-            background: #e53e3e;
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #c53030;
-        }
+        .btn:hover { background: #5a67d8; }
+        .btn-secondary { background: #edf2f7; color: #4a5568; }
+        .btn-secondary:hover { background: #e2e8f0; }
+        .btn-danger { background: #e53e3e; color: white; }
+        .btn-danger:hover { background: #c53030; }
+        .btn-sm { padding: 4px 10px; font-size: 12px; }
 
         .card {
-            background: white;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 20px;
+            background: white; border-radius: 12px; padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin-bottom: 20px;
         }
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
 
-        .grid-4 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-        }
-
-        .form-group {
-            margin-bottom: 15px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            color: #4a5568;
-            font-weight: 600;
-            font-size: 14px;
-        }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; color: #4a5568; font-weight: 600; font-size: 14px; }
 
         .form-control {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #cbd5e0;
-            border-radius: 6px;
-            font-size: 16px;
+            width: 100%; padding: 10px; border: 1px solid #cbd5e0; border-radius: 6px; font-size: 16px;
         }
-
-        .form-control:focus {
-            outline: none;
-            border-color: #667eea;
-            box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
-        }
+        .form-control:focus { outline: none; border-color: #667eea; box-shadow: 0 0 0 3px rgba(102,126,234,0.1); }
 
         .client-list-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px;
-            border-bottom: 1px solid #edf2f7;
-            cursor: pointer;
-            transition: background 0.2s;
+            display: flex; justify-content: space-between; align-items: center; padding: 15px;
+            border-bottom: 1px solid #edf2f7; cursor: pointer; transition: background 0.2s;
         }
+        .client-list-item:hover { background: #f7fafc; }
+        .client-list-item:last-child { border-bottom: none; }
 
-        .client-list-item:hover {
-            background: #f7fafc;
-        }
+        .badge { background: #ebf8ff; color: #2b6cb0; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .badge-green { background: #f0fff4; color: #276749; }
+        .badge-orange { background: #fffaf0; color: #c05621; }
 
-        .client-list-item:last-child {
-            border-bottom: none;
-        }
+        .view-section { display: none; }
+        .view-section.active { display: block; }
 
-        .badge {
-            background: #ebf8ff;
-            color: #2b6cb0;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: bold;
-        }
+        .nav-tabs { display: flex; gap: 10px; border-bottom: 2px solid #edf2f7; margin-bottom: 20px; padding-bottom: 10px; flex-wrap: wrap; }
+        .tab-btn { background: none; border: none; padding: 10px 18px; cursor: pointer; color: #718096; font-weight: 600; border-radius: 6px; }
+        .tab-btn.active { background: #ebf8ff; color: #2b6cb0; }
 
-        .view-section {
-            display: none;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #edf2f7; }
+        th { background: #f7fafc; color: #4a5568; font-size: 13px; }
+        td { font-size: 14px; }
 
-        .view-section.active {
-            display: block;
-        }
-
-        .nav-tabs {
-            display: flex;
-            gap: 10px;
-            border-bottom: 2px solid #edf2f7;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            color: #718096;
-            font-weight: 600;
-            border-radius: 6px;
-        }
-
-        .tab-btn.active {
-            background: #ebf8ff;
-            color: #2b6cb0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #edf2f7;
-        }
-
-        th {
-            background: #f7fafc;
-            color: #4a5568;
-        }
-
-        .section-title {
-            margin: 20px 0 10px 0;
-            padding-bottom: 5px;
-            border-bottom: 1px solid #e2e8f0;
-            color: #2d3748;
-            font-size: 16px;
-        }
+        .section-title { margin: 20px 0 10px 0; padding-bottom: 5px; border-bottom: 1px solid #e2e8f0; color: #2d3748; font-size: 16px; }
 
         .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000; padding: 15px;
         }
+        .modal.active { display: flex; }
+        .modal-content { background: white; padding: 30px; border-radius: 12px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; }
 
-        .modal.active {
-            display: flex;
-        }
+        .actions-cell { display: flex; gap: 5px; }
 
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 100%;
-        }
+        /* ---- Bloques de cálculo ---- */
+        .calc-box { background: #f7fafc; border-radius: 8px; padding: 18px; margin-bottom: 15px; }
+        .calc-result { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px dashed #e2e8f0; font-size: 14px; }
+        .calc-result:last-child { border-bottom: none; }
+        .calc-result strong { color: #2d3748; }
+        .calc-big { font-size: 22px; font-weight: bold; color: #667eea; }
 
-        .actions-cell {
-            display: flex;
-            gap: 5px;
-        }
+        .pill { display:inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: bold; background:#edf2f7; color:#4a5568; }
+
+        /* ---- Buscador de alimentos ---- */
+        .food-search-results { max-height: 320px; overflow-y: auto; border: 1px solid #e2e8f0; border-radius: 8px; margin-top: 10px; }
+        .food-result-item { padding: 10px 12px; border-bottom: 1px solid #edf2f7; cursor: pointer; display:flex; justify-content: space-between; align-items:center; gap:10px; }
+        .food-result-item:hover { background: #ebf8ff; }
+        .food-result-item:last-child { border-bottom: none; }
+        .food-cat { font-size: 11px; color: #718096; }
+
+        .meal-card { border: 1px solid #e2e8f0; border-radius: 10px; padding: 15px; margin-bottom: 15px; }
+        .meal-head { display:flex; justify-content: space-between; align-items:center; margin-bottom: 8px; }
+        .meal-head h4 { color:#2d3748; }
+        .meal-total { font-size: 12px; color:#4a5568; background:#f7fafc; padding:6px 10px; border-radius:6px; }
+
+        .hidden { display: none !important; }
+        .small-note { font-size: 12px; color:#718096; margin-top:4px; }
+        @media (max-width: 640px){ .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
@@ -252,6 +128,7 @@
             </div>
         </div>
 
+        <!-- ===================== LISTADO ===================== -->
         <div id="mainView" class="view-section active">
             <div class="card">
                 <h2 style="margin-bottom: 15px; color: #2d3748;">Mis Pacientes</h2>
@@ -260,12 +137,13 @@
             </div>
         </div>
 
+        <!-- ===================== FORMULARIO CLIENTE ===================== -->
         <div id="clientFormView" class="view-section">
             <div class="card">
                 <h2 id="formTitle" style="margin-bottom: 20px;">Nuevo Paciente</h2>
                 <form id="clientForm" onsubmit="saveClient(event)">
                     <input type="hidden" id="clientId">
-                    
+
                     <div class="section-title">Datos Personales</div>
                     <div class="grid-2">
                         <div class="form-group">
@@ -280,11 +158,11 @@
                     <div class="grid-4">
                         <div class="form-group">
                             <label>Edad</label>
-                            <input type="number" id="clientAge" class="form-control">
+                            <input type="number" id="clientAge" class="form-control" oninput="recalcForm()">
                         </div>
                         <div class="form-group">
                             <label>Sexo</label>
-                            <select id="clientSex" class="form-control">
+                            <select id="clientSex" class="form-control" onchange="onSexChange()">
                                 <option value="Mujer">Mujer</option>
                                 <option value="Hombre">Hombre</option>
                             </select>
@@ -299,70 +177,104 @@
                         </div>
                     </div>
 
+                    <!-- Gestación (solo mujeres) -->
+                    <div id="pregnancyBlock" class="calc-box hidden">
+                        <div class="form-group" style="margin-bottom:10px;">
+                            <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                                <input type="checkbox" id="clientPregnant" style="width:18px;height:18px;" onchange="onPregnantChange()">
+                                ¿Está embarazada?
+                            </label>
+                        </div>
+                        <div id="pregnancyFields" class="grid-3 hidden">
+                            <div class="form-group">
+                                <label>Peso pre-gestacional (kg)</label>
+                                <input type="number" step="0.1" id="clientPregWeight" class="form-control" oninput="recalcForm()">
+                            </div>
+                            <div class="form-group">
+                                <label>Semana de gestación</label>
+                                <input type="number" id="clientPregWeek" class="form-control" oninput="recalcForm()">
+                            </div>
+                            <div class="form-group">
+                                <label>Trimestre</label>
+                                <input type="text" id="clientTrimester" class="form-control" readonly style="background:#edf2f7;font-weight:bold;">
+                            </div>
+                        </div>
+                    </div>
+
                     <div class="section-title">Medidas Antropométricas Iniciales</div>
                     <div class="grid-4">
                         <div class="form-group">
                             <label>Altura (cm)</label>
-                            <input type="number" step="0.1" id="clientHeight" class="form-control" oninput="calculateFormFatPercentage()">
+                            <input type="number" step="0.1" id="clientHeight" class="form-control" oninput="recalcForm()">
                         </div>
                         <div class="form-group">
                             <label>Peso (kg)</label>
-                            <input type="number" step="0.1" id="clientWeight" class="form-control">
+                            <input type="number" step="0.1" id="clientWeight" class="form-control" oninput="recalcForm()">
                         </div>
                         <div class="form-group">
                             <label>Cintura (cm)</label>
-                            <input type="number" step="0.1" id="clientWaist" class="form-control">
+                            <input type="number" step="0.1" id="clientWaist" class="form-control" oninput="recalcForm()">
                         </div>
                         <div class="form-group">
                             <label>Cadera (cm)</label>
-                            <input type="number" step="0.1" id="clientHip" class="form-control">
+                            <input type="number" step="0.1" id="clientHip" class="form-control" oninput="recalcForm()">
                         </div>
                     </div>
 
                     <div class="section-title">Pliegues Corporales (mm)</div>
                     <div class="grid-4">
-                        <div class="form-group">
-                            <label>Tricipital</label>
-                            <input type="number" step="0.1" id="pTricipital" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Subescapular</label>
-                            <input type="number" step="0.1" id="pSubescapular" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Bicipital</label>
-                            <input type="number" step="0.1" id="pBicipital" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Suprailiaco</label>
-                            <input type="number" step="0.1" id="pSuprailiaco" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
+                        <div class="form-group"><label>Tricipital</label><input type="number" step="0.1" id="pTricipital" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Subescapular</label><input type="number" step="0.1" id="pSubescapular" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Bicipital</label><input type="number" step="0.1" id="pBicipital" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Suprailiaco</label><input type="number" step="0.1" id="pSuprailiaco" class="form-control" oninput="recalcForm()"></div>
                     </div>
                     <div class="grid-4">
-                        <div class="form-group">
-                            <label>Supraespinal</label>
-                            <input type="number" step="0.1" id="pSupraespinal" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Abdominal</label>
-                            <input type="number" step="0.1" id="pAbdominal" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Muslo Anterior</label>
-                            <input type="number" step="0.1" id="pMuslo" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
-                        <div class="form-group">
-                            <label>Pierna Medial</label>
-                            <input type="number" step="0.1" id="pPierna" class="form-control pliegue-calc" oninput="calculateFormFatPercentage()">
-                        </div>
+                        <div class="form-group"><label>Supraespinal</label><input type="number" step="0.1" id="pSupraespinal" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Abdominal</label><input type="number" step="0.1" id="pAbdominal" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Muslo Anterior</label><input type="number" step="0.1" id="pMuslo" class="form-control" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Pierna Medial</label><input type="number" step="0.1" id="pPierna" class="form-control" oninput="recalcForm()"></div>
                     </div>
-
                     <div class="grid-2" style="margin-top: 10px;">
                         <div class="form-group">
-                            <label>% Grasa Corporal Calculado</label>
+                            <label>Sumatoria de Pliegues (8)</label>
+                            <input type="number" id="clientSumaPliegues" class="form-control" readonly style="background:#edf2f7;">
+                        </div>
+                        <div class="form-group">
+                            <label>% Grasa Corporal (Durnin-Womersley)</label>
                             <input type="number" step="0.01" id="clientFat" class="form-control" readonly style="background: #edf2f7; font-weight: bold;">
                         </div>
                     </div>
+
+                    <div class="section-title">Grado de Actividad Física (horas al día)</div>
+                    <p class="small-note">Reparte las 24 h del día según el nivel de actividad. El Factor de Actividad (FA) se calcula como media ponderada igual que en el Excel dietético.</p>
+                    <div class="grid-3" style="margin-top:10px;">
+                        <div class="form-group"><label>Reposo (×1)</label><input type="number" step="0.5" id="actReposo" class="form-control" value="0" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Muy ligero (×1.5)</label><input type="number" step="0.5" id="actMuyLigero" class="form-control" value="0" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Ligero (×2.5)</label><input type="number" step="0.5" id="actLigero" class="form-control" value="0" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Moderado (×5)</label><input type="number" step="0.5" id="actModerado" class="form-control" value="0" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Intenso (×7)</label><input type="number" step="0.5" id="actIntenso" class="form-control" value="0" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>Total horas</label><input type="number" id="actTotal" class="form-control" readonly style="background:#edf2f7;font-weight:bold;"></div>
+                    </div>
+
+                    <div class="section-title">Objetivo y Reparto de Macros</div>
+                    <div class="grid-4">
+                        <div class="form-group">
+                            <label>Objetivo</label>
+                            <select id="clientObjetivo" class="form-control" onchange="recalcForm()">
+                                <option value="Mantenimiento">Mantenimiento</option>
+                                <option value="Déficit">Déficit</option>
+                                <option value="Aumento">Aumento</option>
+                            </select>
+                        </div>
+                        <div class="form-group"><label>% Déficit/Aumento</label><input type="number" step="1" id="clientObjPct" class="form-control" value="15" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>% HC</label><input type="number" step="1" id="macroHC" class="form-control" value="55" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>% Lípidos</label><input type="number" step="1" id="macroLip" class="form-control" value="30" oninput="recalcForm()"></div>
+                    </div>
+                    <div class="grid-4">
+                        <div class="form-group"><label>% Proteínas</label><input type="number" step="1" id="macroProt" class="form-control" value="15" oninput="recalcForm()"></div>
+                    </div>
+
+                    <div class="calc-box" id="formCalcSummary" style="margin-top:15px;"></div>
 
                     <div style="margin-top: 20px; display: flex; gap: 10px;">
                         <button type="submit" class="btn">💾 Guardar Cambios</button>
@@ -372,9 +284,10 @@
             </div>
         </div>
 
+        <!-- ===================== DETALLE CLIENTE ===================== -->
         <div id="clientDetailView" class="view-section">
             <div class="card" style="position: relative;">
-                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; flex-wrap:wrap; gap:10px;">
                     <div>
                         <h2 id="detailName" style="color: #2d3748;">Nombre del Paciente</h2>
                         <p id="detailContact" style="color: #718096; font-size: 14px;">Contacto</p>
@@ -386,10 +299,13 @@
                 </div>
 
                 <div class="nav-tabs">
-                    <button class="tab-btn active" onclick="switchTab('antropometria')">Antropometría y Ficha</button>
-                    <button class="tab-btn" onclick="switchTab('seguimiento')">Seguimientos y Citas</button>
+                    <button class="tab-btn active" onclick="switchTab('antropometria')">Antropometría</button>
+                    <button class="tab-btn" onclick="switchTab('calculos')">Cálculos Energéticos</button>
+                    <button class="tab-btn" onclick="switchTab('plan')">Plan de Dieta</button>
+                    <button class="tab-btn" onclick="switchTab('seguimiento')">Seguimientos</button>
                 </div>
 
+                <!-- TAB ANTROPOMETRÍA -->
                 <div id="tab-antropometria" class="tab-content">
                     <div class="grid-4" style="background: #f7fafc; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
                         <div><strong>Edad:</strong> <span id="valEdad">-</span> años</div>
@@ -397,7 +313,6 @@
                         <div><strong>Altura:</strong> <span id="valAltura">-</span> cm</div>
                         <div><strong>IMC Actual:</strong> <span id="valIMC" class="badge">-</span></div>
                     </div>
-                    
                     <div class="grid-2">
                         <div>
                             <div class="section-title">Últimas Medidas Registradas</div>
@@ -405,6 +320,8 @@
                                 <tr><td>Peso Actual</td><td><strong id="valPeso">-</strong> kg</td></tr>
                                 <tr><td>Perímetro Cintura</td><td><span id="valCintura">-</span> cm</td></tr>
                                 <tr><td>Perímetro Cadera</td><td><span id="valCadera">-</span> cm</td></tr>
+                                <tr><td>Índice Cintura/Cadera</td><td><span id="valICC">-</span></td></tr>
+                                <tr><td>Sumatoria Pliegues (8)</td><td><span id="valSuma">-</span> mm</td></tr>
                                 <tr><td>% Grasa Corporal</td><td><strong id="valGrasa">-</strong> %</td></tr>
                             </table>
                         </div>
@@ -424,22 +341,33 @@
                     </div>
                 </div>
 
+                <!-- TAB CÁLCULOS -->
+                <div id="tab-calculos" class="tab-content" style="display:none;">
+                    <div id="calculosContent"></div>
+                </div>
+
+                <!-- TAB PLAN DE DIETA -->
+                <div id="tab-plan" class="tab-content" style="display:none;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; flex-wrap:wrap; gap:10px;">
+                        <h3>Plan de Dieta</h3>
+                        <div id="planTargetBadge"></div>
+                    </div>
+                    <div id="planMealsContainer"></div>
+                    <div class="calc-box" id="planDayTotals" style="margin-top:10px;"></div>
+                </div>
+
+                <!-- TAB SEGUIMIENTO -->
                 <div id="tab-seguimiento" class="tab-content" style="display: none;">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3>Historial de Evaluaciones Basadas en Planing</h3>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap:wrap; gap:10px;">
+                        <h3>Historial de Evaluaciones</h3>
                         <button class="btn" onclick="openSeguimientoModal()">＋ Añadir Control Técnico</button>
                     </div>
-                    <div id="seguimientoContainer">
+                    <div id="seguimientoContainer" style="overflow-x:auto;">
                         <table id="tableSeguimientos">
                             <thead>
                                 <tr>
-                                    <th>Fecha</th>
-                                    <th>Peso (kg)</th>
-                                    <th>% Grasa</th>
-                                    <th>Sum. Pliegues</th>
-                                    <th>Observaciones</th>
-                                    <th>Acciones</th>
-                                    </tr>
+                                    <th>Fecha</th><th>Peso (kg)</th><th>IMC</th><th>% Grasa</th><th>Sum. Pliegues</th><th>Observaciones</th><th>Acciones</th>
+                                </tr>
                             </thead>
                             <tbody id="seguimientoListBody"></tbody>
                         </table>
@@ -449,45 +377,32 @@
         </div>
     </div>
 
+    <!-- ===================== MODAL SEGUIMIENTO ===================== -->
     <div id="seguimientoModal" class="modal">
-        <div class="modal-content" style="max-width: 600px;">
+        <div class="modal-content" style="max-width: 640px;">
             <h3 style="margin-bottom: 15px;">Nuevo Registro de Seguimiento</h3>
             <form id="seguimientoForm" onsubmit="saveSeguimiento(event)">
                 <div class="grid-2">
-                    <div class="form-group">
-                        <label>Fecha</label>
-                        <input type="date" id="segFecha" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Peso Corporal (kg)</label>
-                        <input type="number" step="0.1" id="segPeso" class="form-control" required>
-                    </div>
+                    <div class="form-group"><label>Fecha</label><input type="date" id="segFecha" class="form-control" required></div>
+                    <div class="form-group"><label>Peso Corporal (kg)</label><input type="number" step="0.1" id="segPeso" class="form-control" required oninput="calculateSegFatPercentage()"></div>
                 </div>
 
                 <div class="section-title">Pliegues en esta Sesión (mm)</div>
                 <div class="grid-4">
-                    <div class="form-group">
-                        <label>Tricipital</label>
-                        <input type="number" step="0.1" id="segPliegueTricipital" class="form-control seg-pliegue-calc" oninput="calculateSegFatPercentage()">
-                    </div>
-                    <div class="form-group">
-                        <label>Subescapular</label>
-                        <input type="number" step="0.1" id="segPliegueSubescapular" class="form-control seg-pliegue-calc" oninput="calculateSegFatPercentage()">
-                    </div>
-                    <div class="form-group">
-                        <label>Bicipital</label>
-                        <input type="number" step="0.1" id="segPliegueBicipital" class="form-control seg-pliegue-calc" oninput="calculateSegFatPercentage()">
-                    </div>
-                    <div class="form-group">
-                        <label>Suprailiaco</label>
-                        <input type="number" step="0.1" id="segPliegueSuprailiaco" class="form-control seg-pliegue-calc" oninput="calculateSegFatPercentage()">
-                    </div>
+                    <div class="form-group"><label>Tricipital</label><input type="number" step="0.1" id="segPliegueTricipital" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Subescapular</label><input type="number" step="0.1" id="segPliegueSubescapular" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Bicipital</label><input type="number" step="0.1" id="segPliegueBicipital" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Suprailiaco</label><input type="number" step="0.1" id="segPliegueSuprailiaco" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                </div>
+                <div class="grid-4">
+                    <div class="form-group"><label>Supraespinal</label><input type="number" step="0.1" id="segPliegueSupraespinal" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Abdominal</label><input type="number" step="0.1" id="segPliegueAbdominal" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Muslo Anterior</label><input type="number" step="0.1" id="segPliegueMuslo" class="form-control" oninput="calculateSegFatPercentage()"></div>
+                    <div class="form-group"><label>Pierna Medial</label><input type="number" step="0.1" id="segPlieguePierna" class="form-control" oninput="calculateSegFatPercentage()"></div>
                 </div>
                 <div class="grid-2">
-                    <div class="form-group">
-                        <label>% Grasa Calculado Automáticamente</label>
-                        <input type="number" step="0.01" id="segGrasa" class="form-control" readonly style="background: #edf2f7; font-weight: bold;">
-                    </div>
+                    <div class="form-group"><label>Sumatoria Pliegues (8)</label><input type="number" id="segSuma" class="form-control" readonly style="background:#edf2f7;"></div>
+                    <div class="form-group"><label>% Grasa Calculado</label><input type="number" step="0.01" id="segGrasa" class="form-control" readonly style="background: #edf2f7; font-weight: bold;"></div>
                 </div>
 
                 <div class="form-group">
@@ -503,12 +418,24 @@
         </div>
     </div>
 
+    <!-- ===================== MODAL BUSCADOR ALIMENTOS ===================== -->
+    <div id="foodModal" class="modal">
+        <div class="modal-content" style="max-width: 620px;">
+            <h3 style="margin-bottom: 5px;">Buscar Alimento</h3>
+            <p class="small-note" id="foodModalMeal" style="margin-bottom:12px;"></p>
+            <input type="text" id="foodSearchInput" class="form-control" placeholder="Escribe un alimento (ej: arroz, pollo, manzana)..." oninput="renderFoodResults()" autocomplete="off">
+            <div id="foodSearchResults" class="food-search-results"></div>
+            <div style="display:flex; justify-content:flex-end; margin-top:15px;">
+                <button class="btn btn-secondary" onclick="closeFoodModal()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL IMPORTAR ===================== -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
             <h3 style="margin-bottom: 15px;">Importar Backup del Sistema</h3>
-            <div class="form-group">
-                <input type="file" id="uploadInput" accept=".json" class="form-control">
-            </div>
+            <div class="form-group"><input type="file" id="uploadInput" accept=".json" class="form-control"></div>
             <div style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn btn-secondary" onclick="closeUploadModal()">Cancelar</button>
                 <button class="btn" onclick="confirmUpload()">Restaurar</button>
@@ -517,394 +444,906 @@
     </div>
 
     <script>
-        let clients = [];
-        let currentClientId = null;
-        let pendingFile = null;
+/* ============================================================
+   DIETISTA PRO - Lógica de aplicación
+   Modelo de cálculo replicado del Excel Dietético (hoja Cálculos,
+   Medidas Antropométricas y Gestación).
+   ============================================================ */
 
-        // ===== GESTIÓN DE VISTAS (SPA) =====
-        function showMainView() {
-            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('mainView').classList.add('active');
-            currentClientId = null;
-            renderClientList();
-        }
+let clients = [];
+let currentClientId = null;
+let pendingFile = null;
 
-        function showNewClientForm() {
-            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('clientFormView').classList.add('active');
-            document.getElementById('formTitle').innerText = "Nuevo Paciente";
-            document.getElementById('clientForm').reset();
-            document.getElementById('clientId').value = "";
-        }
+let FOODS = {};            // base de datos cargada de alimentos.json
+let FOODS_FLAT = [];       // lista plana para el buscador
+let foodsLoaded = false;
+let currentMealKey = null; // comida activa al buscar alimentos
 
-        function showEditClientForm(id) {
-            const client = clients.find(c => c.id === id);
-            if (!client) return;
+const MEALS = [
+    { key: 'desayuno',   label: 'Desayuno',     pct: 0.25 },
+    { key: 'mediaManana',label: 'Media mañana', pct: 0.05 },
+    { key: 'almuerzo',   label: 'Almuerzo',     pct: 0.35 },
+    { key: 'merienda',   label: 'Merienda',     pct: 0.10 },
+    { key: 'cena',       label: 'Cena',         pct: 0.25 },
+    { key: 'recena',     label: 'Re-cena',      pct: 0.00 }
+];
 
-            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('clientFormView').classList.add('active');
-            document.getElementById('formTitle').innerText = "Editar Ficha de " + client.name;
+const ACTIVIDAD = [
+    { key: 'reposo',    factor: 1   },
+    { key: 'muyLigero', factor: 1.5 },
+    { key: 'ligero',    factor: 2.5 },
+    { key: 'moderado',  factor: 5   },
+    { key: 'intenso',   factor: 7   }
+];
 
-            document.getElementById('clientId').value = client.id;
-            document.getElementById('clientName').value = client.name || '';
-            document.getElementById('clientLastName').value = client.lastName || '';
-            document.getElementById('clientAge').value = client.age || '';
-            document.getElementById('clientSex').value = client.sex || 'Mujer';
-            document.getElementById('clientPhone').value = client.phone || '';
-            document.getElementById('clientEmail').value = client.email || '';
-            document.getElementById('clientHeight').value = client.height || '';
-            document.getElementById('clientWeight').value = client.weight || '';
-            document.getElementById('clientWaist').value = client.waist || '';
-            document.getElementById('clientHip').value = client.hip || '';
-            document.getElementById('clientFat').value = client.fat || '';
+/* ============================================================
+   MOTOR DE CÁLCULO
+   ============================================================ */
 
-            // Cargar pliegues
-            document.getElementById('pTricipital').value = client.pTricipital || '';
-            document.getElementById('pSubescapular').value = client.pSubescapular || '';
-            document.getElementById('pBicipital').value = client.pBicipital || '';
-            document.getElementById('pSuprailiaco').value = client.pSuprailiaco || '';
-            document.getElementById('pSupraespinal').value = client.pSupraespinal || '';
-            document.getElementById('pAbdominal').value = client.pAbdominal || '';
-            document.getElementById('pMuslo').value = client.pMuslo || '';
-            document.getElementById('pPierna').value = client.pPierna || '';
-        }
+// Gasto Energético Basal (Harris-Benedict, igual que el Excel)
+function calcGEB(sex, peso, talla, edad) {
+    peso = parseFloat(peso) || 0;
+    talla = parseFloat(talla) || 0;
+    edad = parseFloat(edad) || 0;
+    if (!peso || !talla || !edad) return 0;
+    if (sex === 'Mujer') return 655.1 + (9.56 * peso) + (1.85 * talla) - (4.68 * edad);
+    return 66.47 + (13.75 * peso) + (5 * talla) - (6.74 * edad);
+}
 
-        function cancelClientForm() {
-            if (currentClientId) {
-                showClientDetail(currentClientId); // CAMBIO CLAVE: Al cancelar vuelve a la ficha si ya existía
-            } else {
-                showMainView();
-            }
-        }
+// Factor de Actividad = media ponderada por horas (Σ factor*horas / Σ horas)
+function calcFA(horas) {
+    let totalH = 0, comp = 0;
+    ACTIVIDAD.forEach(a => {
+        const h = parseFloat(horas[a.key]) || 0;
+        totalH += h;
+        comp += h * a.factor;
+    });
+    return { fa: totalH > 0 ? comp / totalH : 0, totalH };
+}
 
-        function showClientDetail(id) {
-            const client = clients.find(c => c.id === id);
-            if (!client) return;
+// Densidad corporal (Durnin-Womersley por sexo y edad) — usa los 8 pliegues
+function calcDensidad(sex, edad, suma) {
+    if (suma <= 0) return 0;
+    const log = Math.log10(suma);
+    edad = parseFloat(edad) || 0;
+    if (sex === 'Hombre') {
+        if (edad >= 17 && edad <= 19) return 1.162  - 0.063  * log;
+        if (edad <= 29)               return 1.1631 - 0.0632 * log;
+        if (edad <= 39)               return 1.1422 - 0.0544 * log;
+        if (edad <= 49)               return 1.162  - 0.07   * log;
+        return 1.162 - 0.063 * log;
+    } else {
+        if (edad >= 17 && edad <= 19) return 1.1549 - 0.0678 * log;
+        if (edad <= 29)               return 1.1599 - 0.0717 * log;
+        if (edad <= 39)               return 1.1423 - 0.0632 * log;
+        if (edad <= 49)               return 1.1333 - 0.0612 * log;
+        return 1.1339 - 0.0645 * log;
+    }
+}
 
-            currentClientId = id;
-            document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
-            document.getElementById('clientDetailView').classList.add('active');
+// % Grasa (Siri) a partir de la SUMA DE LOS 8 PLIEGUES
+function calcGrasa(sex, edad, pliegues8) {
+    const suma = pliegues8.reduce((a, b) => a + (parseFloat(b) || 0), 0);
+    if (suma <= 0 || !edad) return { suma: suma, grasa: 0 };
+    const dens = calcDensidad(sex, edad, suma);
+    if (dens <= 0) return { suma: suma, grasa: 0 };
+    const grasa = (495 / dens) - 450;
+    return { suma: suma, grasa: grasa, densidad: dens };
+}
 
-            // Set up button link dynamically
-            document.getElementById('editClientBtn').onclick = () => showEditClientForm(id);
+function calcIMC(peso, talla) {
+    peso = parseFloat(peso) || 0; talla = parseFloat(talla) || 0;
+    if (!peso || !talla) return 0;
+    return (peso / Math.pow(talla / 100, 2));
+}
 
-            // Mapeo de datos básicos
-            document.getElementById('detailName').innerText = `${client.name} ${client.lastName || ''}`;
-            document.getElementById('detailContact').innerText = `📞 Tlf: ${client.phone || 'N/A'} | ✉️ Email: ${client.email || 'N/A'}`;
-            
-            document.getElementById('valEdad').innerText = client.age || '-';
-            document.getElementById('valSexo').innerText = client.sex || '-';
-            document.getElementById('valAltura').innerText = client.height || '-';
-            document.getElementById('valPeso').innerText = client.weight || '-';
-            document.getElementById('valCintura').innerText = client.waist || '-';
-            document.getElementById('valCadera').innerText = client.hip || '-';
-            document.getElementById('valGrasa').innerText = client.fat ? parseFloat(client.fat).toFixed(1) : '-';
+function trimestreFromWeek(week) {
+    week = parseFloat(week) || 0;
+    if (week <= 0) return '';
+    if (week <= 12) return 'Primer';
+    if (week <= 26) return 'Segundo';
+    return 'Tercer';
+}
+function kcalTrimestre(tri) {
+    if (tri === 'Segundo') return 250;
+    if (tri === 'Tercer') return 500;
+    return 0; // Primer
+}
 
-            // Mapeo visual de pliegues
-            document.getElementById('lblTricipital').innerText = (client.pTricipital || '0') + " mm";
-            document.getElementById('lblSubescapular').innerText = (client.pSubescapular || '0') + " mm";
-            document.getElementById('lblBicipital').innerText = (client.pBicipital || '0') + " mm";
-            document.getElementById('lblSuprailiaco').innerText = (client.pSuprailiaco || '0') + " mm";
-            document.getElementById('lblSupraespinal').innerText = (client.pSupraespinal || '0') + " mm";
-            document.getElementById('lblAbdominal').innerText = (client.pAbdominal || '0') + " mm";
-            document.getElementById('lblMuslo').innerText = (client.pMuslo || '0') + " mm";
-            document.getElementById('lblPierna').innerText = (client.pPierna || '0') + " mm";
+// Motor completo: devuelve todos los valores energéticos y de macros
+function computeNutrition(c) {
+    const sex = c.sex || 'Mujer';
+    const edad = parseFloat(c.age) || 0;
+    const talla = parseFloat(c.height) || 0;
+    const horas = c.actividad || {};
+    const { fa } = calcFA(horas);
 
-            // Cálculo IMC
-            if (client.weight && client.height) {
-                const heightM = client.height / 100;
-                const imc = (client.weight / (heightM * heightM)).toFixed(1);
-                document.getElementById('valIMC').innerText = `IMC: ${imc}`;
-            } else {
-                document.getElementById('valIMC').innerText = '-';
-            }
+    let pesoBase = parseFloat(c.weight) || 0;
+    let geb, get, getMod, objetivoTxt;
 
-            switchTab('antropometria');
-            renderSeguimientos();
-        }
+    if (c.pregnant) {
+        // Gestación: usa peso pre-gestacional y ajuste por trimestre
+        pesoBase = parseFloat(c.pregWeight) || pesoBase;
+        const tri = trimestreFromWeek(c.pregWeek);
+        geb = calcGEB(sex, pesoBase, talla, edad);
+        const ade = (geb * fa) * 10 / 100;
+        get = geb * fa + ade;
+        getMod = get + kcalTrimestre(tri);
+        objetivoTxt = 'Gestación (' + (tri || '—') + ')';
+        var ade_v = ade;
+    } else {
+        geb = calcGEB(sex, pesoBase, talla, edad);
+        const ade = (geb * fa) * 10 / 100;
+        get = geb * fa + ade;
+        const pct = (parseFloat(c.objPct) || 0) / 100;
+        const obj = c.objetivo || 'Mantenimiento';
+        if (obj === 'Déficit') getMod = get - get * pct;
+        else if (obj === 'Aumento') getMod = get + get * pct;
+        else getMod = get;
+        objetivoTxt = obj;
+        var ade_v = ade;
+    }
 
-        function switchTab(tabName) {
-            document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            
-            document.getElementById(`tab-${tabName}`).style.display = 'block';
-            event.currentTarget.classList.add('active');
-        }
+    // Reparto de macros (% configurables; en gestación por defecto 50/25/25)
+    let pHC = parseFloat(c.macroHC), pLip = parseFloat(c.macroLip), pProt = parseFloat(c.macroProt);
+    if (c.pregnant && (isNaN(pHC) || (pHC === 55 && pLip === 30 && pProt === 15))) {
+        pHC = 50; pLip = 25; pProt = 25;
+    }
+    pHC = (isNaN(pHC) ? 55 : pHC) / 100;
+    pLip = (isNaN(pLip) ? 30 : pLip) / 100;
+    pProt = (isNaN(pProt) ? 15 : pProt) / 100;
 
-        // ===== OPERACIONES DE CÁLCULO DIRECTO DEL% DE GRASA =====
-        function calculateFormFatPercentage() {
-            const tri = parseFloat(document.getElementById('pTricipital').value) || 0;
-            const sub = parseFloat(document.getElementById('pSubescapular').value) || 0;
-            const bic = parseFloat(document.getElementById('pBicipital').value) || 0;
-            const sup = parseFloat(document.getElementById('pSuprailiaco').value) || 0;
-            
-            const suma4 = tri + sub + bic + sup;
-            if(suma4 > 0) {
-                // Ecuación general de Faulkner adaptada al entorno dietético
-                const pctGrasa = (suma4 * 0.153) + 5.783;
-                document.getElementById('clientFat').value = pctGrasa.toFixed(2);
-            }
-        }
+    const kcalHC = getMod * pHC,  grHC = kcalHC / 4;
+    const kcalLip = getMod * pLip, grLip = kcalLip / 9;
+    const kcalProt = getMod * pProt, grProt = kcalProt / 4;
 
-        function calculateSegFatPercentage() {
-            const tri = parseFloat(document.getElementById('segPliegueTricipital').value) || 0;
-            const sub = parseFloat(document.getElementById('segPliegueSubescapular').value) || 0;
-            const bic = parseFloat(document.getElementById('segPliegueBicipital').value) || 0;
-            const sup = parseFloat(document.getElementById('segPliegueSuprailiaco').value) || 0;
-            
-            const suma4 = tri + sub + bic + sup;
-            if(suma4 > 0) {
-                const pctGrasa = (suma4 * 0.153) + 5.783;
-                document.getElementById('segGrasa').value = pctGrasa.toFixed(2);
-            }
-        }
+    const fibra = getMod / 1000 * 20;   // 20 g por 1000 kcal
+    const agua = getMod / 1000;          // litros
 
-        // ===== CRUD OPERATIVO LOCALSTORAGE =====
-        function saveClient(e) {
-            e.preventDefault();
-            const id = document.getElementById('clientId').value;
-            
-            const clientData = {
-                id: id || 'c_' + Date.now(),
-                name: document.getElementById('clientName').value,
-                lastName: document.getElementById('clientLastName').value,
-                age: document.getElementById('clientAge').value,
-                sex: document.getElementById('clientSex').value,
-                phone: document.getElementById('clientPhone').value,
-                email: document.getElementById('clientEmail').value,
-                height: parseFloat(document.getElementById('clientHeight').value) || '',
-                weight: parseFloat(document.getElementById('clientWeight').value) || '',
-                waist: parseFloat(document.getElementById('clientWaist').value) || '',
-                hip: parseFloat(document.getElementById('clientHip').value) || '',
-                fat: parseFloat(document.getElementById('clientFat').value) || '',
-                
-                pTricipital: parseFloat(document.getElementById('pTricipital').value) || 0,
-                pSubescapular: parseFloat(document.getElementById('pSubescapular').value) || 0,
-                pBicipital: parseFloat(document.getElementById('pBicipital').value) || 0,
-                pSuprailiaco: parseFloat(document.getElementById('pSuprailiaco').value) || 0,
-                pSupraespinal: parseFloat(document.getElementById('pSupraespinal').value) || 0,
-                pAbdominal: parseFloat(document.getElementById('pAbdominal').value) || 0,
-                pMuslo: parseFloat(document.getElementById('pMuslo').value) || 0,
-                pPierna: parseFloat(document.getElementById('pPierna').value) || 0,
-                seguimientos: id ? (clients.find(c => c.id === id).seguimientos || []) : []
-            };
+    return {
+        geb, fa, ade: ade_v, get, getMod, objetivoTxt,
+        macros: {
+            hc:   { pct: pHC,  kcal: kcalHC,   gr: grHC },
+            lip:  { pct: pLip, kcal: kcalLip,  gr: grLip },
+            prot: { pct: pProt,kcal: kcalProt, gr: grProt }
+        },
+        fibra, agua
+    };
+}
 
-            if (id) {
-                const index = clients.findIndex(c => c.id === id);
-                clients[index] = clientData;
-            } else {
-                clients.push(clientData);
-            }
+const fmt = (n, d = 1) => (isFinite(n) ? Number(n).toFixed(d) : '-');
 
-            saveClientsToStorage();
-            showClientDetail(clientData.id); // CAMBIO CRUCIAL: Mantiene al usuario en la página del cliente editado/creado
-        }
+/* ============================================================
+   GESTIÓN DE VISTAS (SPA)
+   ============================================================ */
+function showMainView() {
+    document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('mainView').classList.add('active');
+    currentClientId = null;
+    renderClientList();
+}
 
-        function deleteClient(id, event) {
-            event.stopPropagation();
-            if(confirm('¿Seguro que deseas eliminar este registro de paciente de forma permanente?')) {
-                clients = clients.filter(c => c.id !== id);
+function showNewClientForm() {
+    document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('clientFormView').classList.add('active');
+    document.getElementById('formTitle').innerText = "Nuevo Paciente";
+    document.getElementById('clientForm').reset();
+    document.getElementById('clientId').value = "";
+    document.getElementById('macroHC').value = 55;
+    document.getElementById('macroLip').value = 30;
+    document.getElementById('macroProt').value = 15;
+    document.getElementById('clientObjPct').value = 15;
+    onSexChange();
+    recalcForm();
+}
+
+function showEditClientForm(id) {
+    const client = clients.find(c => c.id === id);
+    if (!client) return;
+    document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('clientFormView').classList.add('active');
+    document.getElementById('formTitle').innerText = "Editar Ficha de " + client.name;
+
+    document.getElementById('clientId').value = client.id;
+    document.getElementById('clientName').value = client.name || '';
+    document.getElementById('clientLastName').value = client.lastName || '';
+    document.getElementById('clientAge').value = client.age || '';
+    document.getElementById('clientSex').value = client.sex || 'Mujer';
+    document.getElementById('clientPhone').value = client.phone || '';
+    document.getElementById('clientEmail').value = client.email || '';
+    document.getElementById('clientHeight').value = client.height || '';
+    document.getElementById('clientWeight').value = client.weight || '';
+    document.getElementById('clientWaist').value = client.waist || '';
+    document.getElementById('clientHip').value = client.hip || '';
+
+    document.getElementById('pTricipital').value = client.pTricipital || '';
+    document.getElementById('pSubescapular').value = client.pSubescapular || '';
+    document.getElementById('pBicipital').value = client.pBicipital || '';
+    document.getElementById('pSuprailiaco').value = client.pSuprailiaco || '';
+    document.getElementById('pSupraespinal').value = client.pSupraespinal || '';
+    document.getElementById('pAbdominal').value = client.pAbdominal || '';
+    document.getElementById('pMuslo').value = client.pMuslo || '';
+    document.getElementById('pPierna').value = client.pPierna || '';
+
+    const act = client.actividad || {};
+    document.getElementById('actReposo').value = act.reposo || 0;
+    document.getElementById('actMuyLigero').value = act.muyLigero || 0;
+    document.getElementById('actLigero').value = act.ligero || 0;
+    document.getElementById('actModerado').value = act.moderado || 0;
+    document.getElementById('actIntenso').value = act.intenso || 0;
+
+    document.getElementById('clientObjetivo').value = client.objetivo || 'Mantenimiento';
+    document.getElementById('clientObjPct').value = (client.objPct != null ? client.objPct : 15);
+    document.getElementById('macroHC').value = (client.macroHC != null ? client.macroHC : 55);
+    document.getElementById('macroLip').value = (client.macroLip != null ? client.macroLip : 30);
+    document.getElementById('macroProt').value = (client.macroProt != null ? client.macroProt : 15);
+
+    document.getElementById('clientPregnant').checked = !!client.pregnant;
+    document.getElementById('clientPregWeight').value = client.pregWeight || '';
+    document.getElementById('clientPregWeek').value = client.pregWeek || '';
+
+    onSexChange();
+    recalcForm();
+}
+
+function cancelClientForm() {
+    if (currentClientId) showClientDetail(currentClientId);
+    else showMainView();
+}
+
+function onSexChange() {
+    const sex = document.getElementById('clientSex').value;
+    document.getElementById('pregnancyBlock').classList.toggle('hidden', sex !== 'Mujer');
+    if (sex !== 'Mujer') document.getElementById('clientPregnant').checked = false;
+    onPregnantChange();
+}
+
+function onPregnantChange() {
+    const preg = document.getElementById('clientPregnant').checked;
+    document.getElementById('pregnancyFields').classList.toggle('hidden', !preg);
+    recalcForm();
+}
+
+// Recalcula en vivo todo el bloque del formulario
+function recalcForm() {
+    const sex = document.getElementById('clientSex').value;
+    const edad = document.getElementById('clientAge').value;
+
+    // % Grasa (8 pliegues)
+    const pl = [
+        'pTricipital','pSubescapular','pBicipital','pSuprailiaco',
+        'pSupraespinal','pAbdominal','pMuslo','pPierna'
+    ].map(id => document.getElementById(id).value);
+    const g = calcGrasa(sex, edad, pl);
+    document.getElementById('clientSumaPliegues').value = g.suma ? fmt(g.suma, 1) : '';
+    document.getElementById('clientFat').value = g.grasa ? fmt(g.grasa, 2) : '';
+
+    // Actividad
+    const horas = {
+        reposo: document.getElementById('actReposo').value,
+        muyLigero: document.getElementById('actMuyLigero').value,
+        ligero: document.getElementById('actLigero').value,
+        moderado: document.getElementById('actModerado').value,
+        intenso: document.getElementById('actIntenso').value
+    };
+    const fa = calcFA(horas);
+    const totalEl = document.getElementById('actTotal');
+    totalEl.value = fmt(fa.totalH, 1);
+    totalEl.style.color = (fa.totalH === 24) ? '#276749' : '#c05621';
+
+    // Trimestre
+    const week = document.getElementById('clientPregWeek').value;
+    document.getElementById('clientTrimester').value = trimestreFromWeek(week) || '';
+
+    // Resumen energético en vivo
+    const tmp = buildClientObjFromForm();
+    const n = computeNutrition(tmp);
+    const warn = (fa.totalH !== 24 && fa.totalH > 0)
+        ? `<div class="small-note" style="color:#c05621;">⚠️ Las horas de actividad suman ${fmt(fa.totalH,1)} h (deberían sumar 24 h).</div>` : '';
+    document.getElementById('formCalcSummary').innerHTML = `
+        <div class="calc-result"><span>GEB (Harris-Benedict)</span><strong>${fmt(n.geb,0)} kcal</strong></div>
+        <div class="calc-result"><span>Factor de Actividad (FA)</span><strong>${fmt(n.fa,3)}</strong></div>
+        <div class="calc-result"><span>ADE (termogénesis)</span><strong>${fmt(n.ade,0)} kcal</strong></div>
+        <div class="calc-result"><span>GET</span><strong>${fmt(n.get,0)} kcal</strong></div>
+        <div class="calc-result"><span>GET según objetivo (${n.objetivoTxt})</span><span class="calc-big">${fmt(n.getMod,0)} kcal</span></div>
+        ${warn}
+    `;
+}
+
+function buildClientObjFromForm() {
+    return {
+        sex: document.getElementById('clientSex').value,
+        age: document.getElementById('clientAge').value,
+        height: document.getElementById('clientHeight').value,
+        weight: document.getElementById('clientWeight').value,
+        actividad: {
+            reposo: document.getElementById('actReposo').value,
+            muyLigero: document.getElementById('actMuyLigero').value,
+            ligero: document.getElementById('actLigero').value,
+            moderado: document.getElementById('actModerado').value,
+            intenso: document.getElementById('actIntenso').value
+        },
+        objetivo: document.getElementById('clientObjetivo').value,
+        objPct: document.getElementById('clientObjPct').value,
+        macroHC: document.getElementById('macroHC').value,
+        macroLip: document.getElementById('macroLip').value,
+        macroProt: document.getElementById('macroProt').value,
+        pregnant: document.getElementById('clientPregnant').checked,
+        pregWeight: document.getElementById('clientPregWeight').value,
+        pregWeek: document.getElementById('clientPregWeek').value
+    };
+}
+
+/* ============================================================
+   DETALLE DEL CLIENTE
+   ============================================================ */
+function showClientDetail(id) {
+    const client = clients.find(c => c.id === id);
+    if (!client) return;
+    currentClientId = id;
+    document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
+    document.getElementById('clientDetailView').classList.add('active');
+    document.getElementById('editClientBtn').onclick = () => showEditClientForm(id);
+
+    document.getElementById('detailName').innerText = `${client.name} ${client.lastName || ''}`;
+    document.getElementById('detailContact').innerText = `📞 Tlf: ${client.phone || 'N/A'} | ✉️ Email: ${client.email || 'N/A'}`;
+
+    document.getElementById('valEdad').innerText = client.age || '-';
+    document.getElementById('valSexo').innerText = (client.sex || '-') + (client.pregnant ? ' (gestante)' : '');
+    document.getElementById('valAltura').innerText = client.height || '-';
+    document.getElementById('valPeso').innerText = client.weight || '-';
+    document.getElementById('valCintura').innerText = client.waist || '-';
+    document.getElementById('valCadera').innerText = client.hip || '-';
+    document.getElementById('valGrasa').innerText = client.fat ? parseFloat(client.fat).toFixed(1) : '-';
+    document.getElementById('valSuma').innerText = client.sumaPliegues ? parseFloat(client.sumaPliegues).toFixed(1) : '-';
+
+    const icc = (client.waist && client.hip) ? (client.waist / client.hip) : 0;
+    document.getElementById('valICC').innerText = icc ? icc.toFixed(2) : '-';
+
+    document.getElementById('lblTricipital').innerText = (client.pTricipital || '0') + " mm";
+    document.getElementById('lblSubescapular').innerText = (client.pSubescapular || '0') + " mm";
+    document.getElementById('lblBicipital').innerText = (client.pBicipital || '0') + " mm";
+    document.getElementById('lblSuprailiaco').innerText = (client.pSuprailiaco || '0') + " mm";
+    document.getElementById('lblSupraespinal').innerText = (client.pSupraespinal || '0') + " mm";
+    document.getElementById('lblAbdominal').innerText = (client.pAbdominal || '0') + " mm";
+    document.getElementById('lblMuslo').innerText = (client.pMuslo || '0') + " mm";
+    document.getElementById('lblPierna').innerText = (client.pPierna || '0') + " mm";
+
+    const imc = calcIMC(client.weight, client.height);
+    document.getElementById('valIMC').innerText = imc ? `IMC: ${imc.toFixed(1)}` : '-';
+
+    forceTab('antropometria');
+    renderSeguimientos();
+    renderCalculos();
+    renderDietPlan();
+}
+
+function switchTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(`tab-${tabName}`).style.display = 'block';
+    if (event && event.currentTarget) event.currentTarget.classList.add('active');
+}
+function forceTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(`tab-${tabName}`).style.display = 'block';
+    document.querySelectorAll('.tab-btn').forEach(b => {
+        if (b.getAttribute('onclick') && b.getAttribute('onclick').includes(`'${tabName}'`)) b.classList.add('active');
+    });
+}
+
+/* ============================================================
+   TAB CÁLCULOS ENERGÉTICOS
+   ============================================================ */
+function renderCalculos() {
+    const client = clients.find(c => c.id === currentClientId);
+    const cont = document.getElementById('calculosContent');
+    if (!client) { cont.innerHTML = ''; return; }
+    const n = computeNutrition(client);
+    const m = n.macros;
+
+    let mealRows = MEALS.map(meal => {
+        const pct = (client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct;
+        return { ...meal, pct };
+    });
+
+    cont.innerHTML = `
+        <div class="grid-2">
+            <div class="calc-box">
+                <div class="section-title" style="margin-top:0;">Gasto Energético</div>
+                <div class="calc-result"><span>Peso de cálculo</span><strong>${fmt(client.pregnant ? (client.pregWeight||client.weight) : client.weight,1)} kg</strong></div>
+                <div class="calc-result"><span>GEB (Harris-Benedict)</span><strong>${fmt(n.geb,0)} kcal</strong></div>
+                <div class="calc-result"><span>Factor de Actividad</span><strong>${fmt(n.fa,3)}</strong></div>
+                <div class="calc-result"><span>ADE</span><strong>${fmt(n.ade,0)} kcal</strong></div>
+                <div class="calc-result"><span>GET</span><strong>${fmt(n.get,0)} kcal</strong></div>
+                <div class="calc-result"><span><strong>GET (${n.objetivoTxt})</strong></span><span class="calc-big">${fmt(n.getMod,0)} kcal</span></div>
+            </div>
+            <div class="calc-box">
+                <div class="section-title" style="margin-top:0;">Reparto de Macronutrientes</div>
+                <div class="calc-result"><span>Hidratos (${fmt(m.hc.pct*100,0)}%)</span><strong>${fmt(m.hc.kcal,0)} kcal · ${fmt(m.hc.gr,0)} g</strong></div>
+                <div class="calc-result"><span>Lípidos (${fmt(m.lip.pct*100,0)}%)</span><strong>${fmt(m.lip.kcal,0)} kcal · ${fmt(m.lip.gr,0)} g</strong></div>
+                <div class="calc-result"><span>Proteínas (${fmt(m.prot.pct*100,0)}%)</span><strong>${fmt(m.prot.kcal,0)} kcal · ${fmt(m.prot.gr,0)} g</strong></div>
+                <div class="calc-result"><span>Fibra recomendada</span><strong>${fmt(n.fibra,0)} g</strong></div>
+                <div class="calc-result"><span>Agua recomendada</span><strong>${fmt(n.agua,1)} L</strong></div>
+            </div>
+        </div>
+        <div class="calc-box">
+            <div class="section-title" style="margin-top:0;">Reparto por Comidas (objetivo ${fmt(n.getMod,0)} kcal)</div>
+            <div style="overflow-x:auto;">
+            <table>
+                <thead><tr><th>Comida</th><th>%</th><th>Kcal</th><th>HC (g)</th><th>Líp (g)</th><th>Prot (g)</th></tr></thead>
+                <tbody>
+                ${mealRows.map(meal => {
+                    const k = n.getMod * meal.pct;
+                    return `<tr>
+                        <td>${meal.label}</td>
+                        <td>${fmt(meal.pct*100,0)}%</td>
+                        <td>${fmt(k,0)}</td>
+                        <td>${fmt(k*m.hc.pct/4,0)}</td>
+                        <td>${fmt(k*m.lip.pct/9,0)}</td>
+                        <td>${fmt(k*m.prot.pct/4,0)}</td>
+                    </tr>`;
+                }).join('')}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    `;
+}
+
+/* ============================================================
+   CÁLCULO % GRASA EN SEGUIMIENTOS (8 pliegues)
+   ============================================================ */
+function calculateSegFatPercentage() {
+    const client = clients.find(c => c.id === currentClientId);
+    const sex = client ? client.sex : 'Mujer';
+    const edad = client ? client.age : 0;
+    const pl = [
+        'segPliegueTricipital','segPliegueSubescapular','segPliegueBicipital','segPliegueSuprailiaco',
+        'segPliegueSupraespinal','segPliegueAbdominal','segPliegueMuslo','segPlieguePierna'
+    ].map(id => document.getElementById(id).value);
+    const g = calcGrasa(sex, edad, pl);
+    document.getElementById('segSuma').value = g.suma ? fmt(g.suma, 1) : '';
+    document.getElementById('segGrasa').value = g.grasa ? fmt(g.grasa, 2) : '';
+}
+
+/* ============================================================
+   CRUD CLIENTES
+   ============================================================ */
+function saveClient(e) {
+    e.preventDefault();
+    const id = document.getElementById('clientId').value;
+    const existing = id ? clients.find(c => c.id === id) : null;
+
+    const pl = [
+        'pTricipital','pSubescapular','pBicipital','pSuprailiaco',
+        'pSupraespinal','pAbdominal','pMuslo','pPierna'
+    ].map(idp => parseFloat(document.getElementById(idp).value) || 0);
+    const sex = document.getElementById('clientSex').value;
+    const age = document.getElementById('clientAge').value;
+    const g = calcGrasa(sex, age, pl);
+
+    const clientData = {
+        id: id || 'c_' + Date.now(),
+        name: document.getElementById('clientName').value,
+        lastName: document.getElementById('clientLastName').value,
+        age: document.getElementById('clientAge').value,
+        sex: sex,
+        phone: document.getElementById('clientPhone').value,
+        email: document.getElementById('clientEmail').value,
+        height: parseFloat(document.getElementById('clientHeight').value) || '',
+        weight: parseFloat(document.getElementById('clientWeight').value) || '',
+        waist: parseFloat(document.getElementById('clientWaist').value) || '',
+        hip: parseFloat(document.getElementById('clientHip').value) || '',
+        fat: g.grasa ? parseFloat(g.grasa.toFixed(2)) : '',
+        sumaPliegues: g.suma ? parseFloat(g.suma.toFixed(1)) : '',
+
+        pTricipital: pl[0], pSubescapular: pl[1], pBicipital: pl[2], pSuprailiaco: pl[3],
+        pSupraespinal: pl[4], pAbdominal: pl[5], pMuslo: pl[6], pPierna: pl[7],
+
+        actividad: {
+            reposo: parseFloat(document.getElementById('actReposo').value) || 0,
+            muyLigero: parseFloat(document.getElementById('actMuyLigero').value) || 0,
+            ligero: parseFloat(document.getElementById('actLigero').value) || 0,
+            moderado: parseFloat(document.getElementById('actModerado').value) || 0,
+            intenso: parseFloat(document.getElementById('actIntenso').value) || 0
+        },
+        objetivo: document.getElementById('clientObjetivo').value,
+        objPct: parseFloat(document.getElementById('clientObjPct').value) || 0,
+        macroHC: parseFloat(document.getElementById('macroHC').value) || 0,
+        macroLip: parseFloat(document.getElementById('macroLip').value) || 0,
+        macroProt: parseFloat(document.getElementById('macroProt').value) || 0,
+
+        pregnant: document.getElementById('clientPregnant').checked,
+        pregWeight: parseFloat(document.getElementById('clientPregWeight').value) || '',
+        pregWeek: parseFloat(document.getElementById('clientPregWeek').value) || '',
+
+        seguimientos: existing ? (existing.seguimientos || []) : [],
+        plan: existing ? (existing.plan || {}) : {},
+        reparto: existing ? (existing.reparto || null) : null
+    };
+
+    if (id) clients[clients.findIndex(c => c.id === id)] = clientData;
+    else clients.push(clientData);
+
+    saveClientsToStorage();
+    showClientDetail(clientData.id);
+}
+
+function deleteClient(id, ev) {
+    ev.stopPropagation();
+    if (confirm('¿Seguro que deseas eliminar este registro de paciente de forma permanente?')) {
+        clients = clients.filter(c => c.id !== id);
+        saveClientsToStorage();
+        showMainView();
+    }
+}
+
+/* ============================================================
+   SEGUIMIENTOS
+   ============================================================ */
+function openSeguimientoModal() {
+    document.getElementById('seguimientoModal').classList.add('active');
+    document.getElementById('seguimientoForm').reset();
+    document.getElementById('segFecha').value = new Date().toISOString().split('T')[0];
+    const client = clients.find(c => c.id === currentClientId);
+    if (client) {
+        document.getElementById('segPeso').value = client.weight || '';
+        document.getElementById('segPliegueTricipital').value = client.pTricipital || '';
+        document.getElementById('segPliegueSubescapular').value = client.pSubescapular || '';
+        document.getElementById('segPliegueBicipital').value = client.pBicipital || '';
+        document.getElementById('segPliegueSuprailiaco').value = client.pSuprailiaco || '';
+        document.getElementById('segPliegueSupraespinal').value = client.pSupraespinal || '';
+        document.getElementById('segPliegueAbdominal').value = client.pAbdominal || '';
+        document.getElementById('segPliegueMuslo').value = client.pMuslo || '';
+        document.getElementById('segPlieguePierna').value = client.pPierna || '';
+        calculateSegFatPercentage();
+    }
+}
+function closeSeguimientoModal() { document.getElementById('seguimientoModal').classList.remove('active'); }
+
+function saveSeguimiento(e) {
+    e.preventDefault();
+    const clientIndex = clients.findIndex(c => c.id === currentClientId);
+    if (clientIndex === -1) return;
+
+    const nPeso = parseFloat(document.getElementById('segPeso').value);
+    const nGrasa = parseFloat(document.getElementById('segGrasa').value) || '';
+    const p = {
+        pTri: parseFloat(document.getElementById('segPliegueTricipital').value) || 0,
+        pSub: parseFloat(document.getElementById('segPliegueSubescapular').value) || 0,
+        pBic: parseFloat(document.getElementById('segPliegueBicipital').value) || 0,
+        pSup: parseFloat(document.getElementById('segPliegueSuprailiaco').value) || 0,
+        pSupes: parseFloat(document.getElementById('segPliegueSupraespinal').value) || 0,
+        pAbd: parseFloat(document.getElementById('segPliegueAbdominal').value) || 0,
+        pMuslo: parseFloat(document.getElementById('segPliegueMuslo').value) || 0,
+        pPierna: parseFloat(document.getElementById('segPlieguePierna').value) || 0
+    };
+    const suma = Object.values(p).reduce((a, b) => a + b, 0);
+    const imc = calcIMC(nPeso, clients[clientIndex].height);
+
+    const nuevoSeg = {
+        id: 'seg_' + Date.now(),
+        fecha: document.getElementById('segFecha').value,
+        peso: nPeso,
+        imc: imc ? parseFloat(imc.toFixed(1)) : '',
+        grasa: nGrasa,
+        sumaPliegues: suma,
+        obs: document.getElementById('segObs').value,
+        pliegues: p
+    };
+
+    if (!clients[clientIndex].seguimientos) clients[clientIndex].seguimientos = [];
+    clients[clientIndex].seguimientos.push(nuevoSeg);
+
+    // Actualizar ficha con los datos del control
+    clients[clientIndex].weight = nPeso;
+    clients[clientIndex].fat = nGrasa;
+    clients[clientIndex].sumaPliegues = suma ? parseFloat(suma.toFixed(1)) : '';
+    clients[clientIndex].pTricipital = p.pTri;
+    clients[clientIndex].pSubescapular = p.pSub;
+    clients[clientIndex].pBicipital = p.pBic;
+    clients[clientIndex].pSuprailiaco = p.pSup;
+    clients[clientIndex].pSupraespinal = p.pSupes;
+    clients[clientIndex].pAbdominal = p.pAbd;
+    clients[clientIndex].pMuslo = p.pMuslo;
+    clients[clientIndex].pPierna = p.pPierna;
+
+    saveClientsToStorage();
+    closeSeguimientoModal();
+    showClientDetail(currentClientId);
+}
+
+function deleteSeguimiento(segId) {
+    if (!confirm('¿Eliminar este registro de control histórico?')) return;
+    const i = clients.findIndex(c => c.id === currentClientId);
+    if (i === -1) return;
+    clients[i].seguimientos = clients[i].seguimientos.filter(s => s.id !== segId);
+    saveClientsToStorage();
+    showClientDetail(currentClientId);
+}
+
+function renderSeguimientos() {
+    const tbody = document.getElementById('seguimientoListBody');
+    tbody.innerHTML = "";
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client || !client.seguimientos || client.seguimientos.length === 0) {
+        tbody.innerHTML = "<tr><td colspan='7' style='text-align:center; color:#718096;'>Sin controles de seguimiento registrados.</td></tr>";
+        return;
+    }
+    const ordenados = [...client.seguimientos].sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
+    ordenados.forEach(s => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td><strong>${s.fecha}</strong></td>
+            <td>${s.peso} kg</td>
+            <td>${s.imc ? s.imc : '-'}</td>
+            <td>${s.grasa ? parseFloat(s.grasa).toFixed(2) + '%' : '-'}</td>
+            <td>${s.sumaPliegues ? s.sumaPliegues.toFixed(1) + ' mm' : '-'}</td>
+            <td style="font-size:13px; color:#4a5568;">${s.obs || ''}</td>
+            <td><button class="btn btn-danger btn-sm" onclick="deleteSeguimiento('${s.id}')">🗑️</button></td>
+        `;
+        tbody.appendChild(tr);
+    });
+}
+
+/* ============================================================
+   PLAN DE DIETA + BUSCADOR DE ALIMENTOS
+   ============================================================ */
+function renderDietPlan() {
+    const client = clients.find(c => c.id === currentClientId);
+    const cont = document.getElementById('planMealsContainer');
+    if (!client) { cont.innerHTML = ''; return; }
+    if (!client.plan) client.plan = {};
+
+    const n = computeNutrition(client);
+    document.getElementById('planTargetBadge').innerHTML =
+        `<span class="pill">Objetivo: ${fmt(n.getMod,0)} kcal/día</span>`;
+
+    if (!foodsLoaded) {
+        cont.innerHTML = `<div class="calc-box">⏳ Cargando base de datos de alimentos...
+            <div class="small-note">Si no carga, asegúrate de que <strong>alimentos.json</strong> está subido junto al index.html y de abrir la web vía https (GitHub Pages), no como archivo local.</div></div>`;
+    }
+
+    let dayTot = { kcal:0, prot:0, hc:0, lip:0, fibra:0 };
+
+    cont.innerHTML = MEALS.map(meal => {
+        const items = client.plan[meal.key] || [];
+        let mt = { kcal:0, prot:0, hc:0, lip:0 };
+        const rows = items.map((it, idx) => {
+            mt.kcal += it.kcal; mt.prot += it.proteinas; mt.hc += it.hcTotales; mt.lip += it.lipidos;
+            return `<tr>
+                <td>${it.name}</td>
+                <td><input type="number" value="${it.gramos}" min="0" step="5" class="form-control" style="width:80px;padding:5px;font-size:13px;"
+                     onchange="updateFoodGrams('${meal.key}',${idx},this.value)"> g</td>
+                <td>${fmt(it.kcal,0)}</td>
+                <td>${fmt(it.proteinas,1)}</td>
+                <td>${fmt(it.hcTotales,1)}</td>
+                <td>${fmt(it.lipidos,1)}</td>
+                <td><button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button></td>
+            </tr>`;
+        }).join('');
+
+        dayTot.kcal += mt.kcal; dayTot.prot += mt.prot; dayTot.hc += mt.hc; dayTot.lip += mt.lip;
+
+        const targetKcal = n.getMod * ((client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct);
+        return `
+        <div class="meal-card">
+            <div class="meal-head">
+                <h4>${meal.label}</h4>
+                <div style="display:flex; gap:8px; align-items:center;">
+                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,0)} HC:${fmt(mt.hc,0)} L:${fmt(mt.lip,0)} g</span>
+                    <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')" ${!foodsLoaded?'disabled':''}>＋ Alimento</button>
+                </div>
+            </div>
+            ${items.length ? `<div style="overflow-x:auto;"><table>
+                <thead><tr><th>Alimento</th><th>Cantidad</th><th>Kcal</th><th>Prot</th><th>HC</th><th>Líp</th><th></th></tr></thead>
+                <tbody>${rows}</tbody></table></div>`
+                : `<p class="small-note">Sin alimentos. Pulsa "＋ Alimento" para buscar en la base de datos.</p>`}
+        </div>`;
+    }).join('');
+
+    document.getElementById('planDayTotals').innerHTML = `
+        <div class="section-title" style="margin-top:0;">Totales del Día</div>
+        <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
+        <div class="calc-result"><span>Proteínas</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g)</span></div>
+        <div class="calc-result"><span>Hidratos</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g)</span></div>
+        <div class="calc-result"><span>Lípidos</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g)</span></div>
+    `;
+}
+
+function openFoodModal(mealKey) {
+    currentMealKey = mealKey;
+    const meal = MEALS.find(m => m.key === mealKey);
+    document.getElementById('foodModalMeal').innerText = 'Añadiendo a: ' + (meal ? meal.label : '');
+    document.getElementById('foodSearchInput').value = '';
+    document.getElementById('foodModal').classList.add('active');
+    renderFoodResults();
+    setTimeout(() => document.getElementById('foodSearchInput').focus(), 50);
+}
+function closeFoodModal() { document.getElementById('foodModal').classList.remove('active'); }
+
+function normalize(str) {
+    return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function renderFoodResults() {
+    const q = normalize(document.getElementById('foodSearchInput').value.trim());
+    const cont = document.getElementById('foodSearchResults');
+    let results;
+    if (!q) {
+        results = FOODS_FLAT.slice(0, 40);
+    } else {
+        results = FOODS_FLAT.filter(f => normalize(f.name).includes(q)).slice(0, 60);
+    }
+    if (results.length === 0) {
+        cont.innerHTML = "<div class='food-result-item'>Sin resultados.</div>";
+        return;
+    }
+    cont.innerHTML = results.map((f, i) => `
+        <div class="food-result-item" onclick="addFoodToMeal(${f._idx})">
+            <div>
+                <strong>${f.name}</strong>
+                <div class="food-cat">${f.categoria} · ${fmt(f.kcal,0)} kcal/100g · P:${fmt(f.proteinas,1)} HC:${fmt(f.hcTotales,1)} L:${fmt(f.lipidos,1)}</div>
+            </div>
+            <span class="pill">＋</span>
+        </div>`).join('');
+}
+
+function scaleFood(food, gramos) {
+    const factor = gramos / (food.gramos || 100);
+    const keys = ['kcal','proteinas','pVegetales','pAnimales','hcTotales','almidon','azucares','fibra','lipidos','ags','agm','agp','colesterol','na'];
+    const out = { name: food.name, categoria: food.categoria, gramos: gramos };
+    keys.forEach(k => out[k] = (parseFloat(food[k]) || 0) * factor);
+    return out;
+}
+
+function addFoodToMeal(flatIdx) {
+    const food = FOODS_FLAT[flatIdx];
+    if (!food || !currentMealKey) return;
+    let g = prompt(`Cantidad en gramos de "${food.name}":`, '100');
+    if (g === null) return;
+    g = parseFloat(g);
+    if (!g || g <= 0) { alert('Introduce una cantidad válida en gramos.'); return; }
+
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client.plan) client.plan = {};
+    if (!client.plan[currentMealKey]) client.plan[currentMealKey] = [];
+    client.plan[currentMealKey].push(scaleFood(food, g));
+
+    saveClientsToStorage();
+    closeFoodModal();
+    renderDietPlan();
+}
+
+function updateFoodGrams(mealKey, idx, value) {
+    const g = parseFloat(value);
+    const client = clients.find(c => c.id === currentClientId);
+    const item = client.plan[mealKey][idx];
+    if (!item || !g || g <= 0) return;
+    // Reescalar desde el alimento base original buscándolo por nombre+categoría
+    const base = FOODS_FLAT.find(f => f.name === item.name && f.categoria === item.categoria);
+    if (base) client.plan[mealKey][idx] = scaleFood(base, g);
+    else { // fallback proporcional
+        const factor = g / item.gramos;
+        ['kcal','proteinas','pVegetales','pAnimales','hcTotales','almidon','azucares','fibra','lipidos','ags','agm','agp','colesterol','na']
+            .forEach(k => item[k] = (item[k] || 0) * factor);
+        item.gramos = g;
+    }
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+function removeFood(mealKey, idx) {
+    const client = clients.find(c => c.id === currentClientId);
+    client.plan[mealKey].splice(idx, 1);
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+/* ============================================================
+   LISTADO Y BÚSQUEDA
+   ============================================================ */
+function renderClientList() {
+    const container = document.getElementById('clientList');
+    container.innerHTML = "";
+    if (clients.length === 0) {
+        container.innerHTML = "<p style='color:#718096; text-align:center; padding:20px;'>No hay pacientes registrados todavía.</p>";
+        return;
+    }
+    clients.forEach(c => {
+        const div = document.createElement('div');
+        div.className = "client-list-item";
+        div.onclick = () => showClientDetail(c.id);
+        div.innerHTML = `
+            <div>
+                <strong>${c.name} ${c.lastName || ''}</strong>
+                <div style="font-size:12px; color:#718096;">📞 ${c.phone || 'Sin Tlf'} | Peso: ${c.weight || '-'}kg</div>
+            </div>
+            <div class="actions-cell">
+                <span class="badge">%Grasa: ${c.fat ? parseFloat(c.fat).toFixed(1) : 'N/A'}%</span>
+                <button class="btn btn-secondary btn-sm" onclick="event.stopPropagation(); showEditClientForm('${c.id}')">✏️</button>
+                <button class="btn btn-danger btn-sm" onclick="deleteClient('${c.id}', event)">🗑️</button>
+            </div>`;
+        container.appendChild(div);
+    });
+}
+
+function filterClients() {
+    const query = document.getElementById('searchBar').value.toLowerCase();
+    document.querySelectorAll('.client-list-item').forEach(item => {
+        item.style.display = item.innerText.toLowerCase().includes(query) ? 'flex' : 'none';
+    });
+}
+
+/* ============================================================
+   ALMACENAMIENTO Y BACKUP
+   ============================================================ */
+function saveClientsToStorage() { localStorage.setItem('dietista_pacientes', JSON.stringify(clients)); }
+
+function loadAllData() {
+    const local = localStorage.getItem('dietista_pacientes');
+    if (local) { try { clients = JSON.parse(local); } catch(e){ clients = []; } }
+    renderClientList();
+    loadFoods();
+}
+
+async function loadFoods() {
+    try {
+        const res = await fetch('alimentos.json');
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        FOODS = await res.json();
+        FOODS_FLAT = [];
+        Object.keys(FOODS).forEach(cat => {
+            (FOODS[cat] || []).forEach(item => {
+                const f = { ...item, categoria: cat.trim(), _idx: FOODS_FLAT.length };
+                FOODS_FLAT.push(f);
+            });
+        });
+        foodsLoaded = true;
+        if (currentClientId) renderDietPlan();
+    } catch (e) {
+        foodsLoaded = false;
+        console.warn('No se pudo cargar alimentos.json:', e);
+        if (currentClientId) renderDietPlan();
+    }
+}
+
+function exportData() {
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ clients: clients }));
+    const a = document.createElement('a');
+    a.setAttribute("href", dataStr);
+    a.setAttribute("download", `Backup_DietistaPro_${new Date().toISOString().split('T')[0]}.json`);
+    document.body.appendChild(a); a.click(); a.remove();
+}
+
+function openUploadModal() { document.getElementById('uploadModal').classList.add('active'); }
+function closeUploadModal() {
+    document.getElementById('uploadModal').classList.remove('active');
+    document.getElementById('uploadInput').value = '';
+}
+function confirmUpload() {
+    const fileInput = document.getElementById('uploadInput');
+    if (!fileInput.files[0]) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+        try {
+            const backup = JSON.parse(e.target.result);
+            if (backup.clients && Array.isArray(backup.clients)) {
+                clients = backup.clients;
                 saveClientsToStorage();
+                closeUploadModal();
                 showMainView();
-            }
-        }
+                alert('✅ Backup restaurado exitosamente');
+            } else { alert('❌ Estructura de archivo JSON no válida'); }
+        } catch (error) { alert('❌ Error al procesar el archivo'); }
+    };
+    reader.readAsText(fileInput.files[0]);
+}
 
-        // ===== CONTROL DE SEGUIMIENTOS CON ACTUALIZACIÓN EN LA FICHA PRINCIPAL =====
-        function openSeguimientoModal() {
-            document.getElementById('seguimientoModal').classList.add('active');
-            document.getElementById('seguimientoForm').reset();
-            document.getElementById('segFecha').value = new Date().toISOString().split('T')[0];
-            
-            // Auto-rellenar con los datos actuales para facilitar edición rápida
-            const client = clients.find(c => c.id === currentClientId);
-            if(client) {
-                document.getElementById('segPeso').value = client.weight || '';
-                document.getElementById('segPliegueTricipital').value = client.pTricipital || '';
-                document.getElementById('segPliegueSubescapular').value = client.pSubescapular || '';
-                document.getElementById('segPliegueBicipital').value = client.pBicipital || '';
-                document.getElementById('segPliegueSuprailiaco').value = client.pSuprailiaco || '';
-                calculateSegFatPercentage();
-            }
-        }
+window.addEventListener('load', loadAllData);
 
-        function closeSeguimientoModal() {
-            document.getElementById('seguimientoModal').classList.remove('active');
-        }
-
-        function saveSeguimiento(e) {
-            e.preventDefault();
-            const clientIndex = clients.findIndex(c => c.id === currentClientId);
-            if (clientIndex === -1) return;
-
-            const nPeso = parseFloat(document.getElementById('segPeso').value);
-            const nGrasa = parseFloat(document.getElementById('segGrasa').value) || '';
-            const pTri = parseFloat(document.getElementById('segPliegueTricipital').value) || 0;
-            const pSub = parseFloat(document.getElementById('segPliegueSubescapular').value) || 0;
-            const pBic = parseFloat(document.getElementById('segPliegueBicipital').value) || 0;
-            const pSup = parseFloat(document.getElementById('segPliegueSuprailiaco').value) || 0;
-
-            const nuevoSeg = {
-                id: 'seg_' + Date.now(),
-                fecha: document.getElementById('segFecha').value,
-                peso: nPeso,
-                grasa: nGrasa,
-                sumaPliegues: pTri + pSub + pBic + pSup,
-                obs: document.getElementById('segObs').value,
-                pliegues: { pTri, pSub, pBic, pSup }
-            };
-
-            // 1. Añadir al array de seguimientos del paciente
-            if(!clients[clientIndex].seguimientos) clients[clientIndex].seguimientos = [];
-            clients[clientIndex].seguimientos.push(nuevoSeg);
-
-            // 2. ACTUALIZACIÓN AUTOMÁTICA DE LA FICHA DEL CLIENTE CON ESTOS DATOS DE CONTROL
-            clients[clientIndex].weight = nPeso;
-            clients[clientIndex].fat = nGrasa;
-            clients[clientIndex].pTricipital = pTri;
-            clients[clientIndex].pSubescapular = pSub;
-            clients[clientIndex].pBicipital = pBic;
-            clients[clientIndex].pSuprailiaco = pSup;
-
-            saveClientsToStorage();
-            closeSeguimientoModal();
-            showClientDetail(currentClientId); // CAMBIO CRUCIAL: Se refresca la vista y permanece en la ficha propia
-        }
-
-        function deleteSeguimiento(segId) {
-            if(!confirm('¿Eliminar este registro de control histórico?')) return;
-            const clientIndex = clients.findIndex(c => c.id === currentClientId);
-            if (clientIndex === -1) return;
-
-            clients[clientIndex].seguimientos = clients[clientIndex].seguimientos.filter(s => s.id !== segId);
-            saveClientsToStorage();
-            showClientDetail(currentClientId);
-        }
-
-        // ===== RENDERIZADO DE COMPONENTES DE INTERFAZ =====
-        function renderClientList() {
-            const container = document.getElementById('clientList');
-            container.innerHTML = "";
-            
-            if(clients.length === 0) {
-                container.innerHTML = "<p style='color:#718096; text-align:center; padding:20px;'>No hay pacientes registrados todavía.</p>";
-                return;
-            }
-
-            clients.forEach(c => {
-                const div = document.createElement('div');
-                div.className = "client-list-item";
-                div.onclick = () => showClientDetail(c.id);
-                div.innerHTML = `
-                    <div>
-                        <strong>${c.name} ${c.lastName || ''}</strong>
-                        <div style="font-size:12px; color:#718096;">📞 ${c.phone || 'Sin Tlf'} | Peso: ${c.weight || '-'}kg</div>
-                    </div>
-                    <div class="actions-cell">
-                        <span class="badge">%Grasa: ${c.fat ? parseFloat(c.fat).toFixed(1) : 'N/A'}%</span>
-                        <button class="btn btn-secondary" style="padding:4px 8px; font-size:12px;" onclick="event.stopPropagation(); showEditClientForm('${c.id}')">✏️</button>
-                        <button class="btn btn-danger" style="padding:4px 8px; font-size:12px;" onclick="deleteClient('${c.id}', event)">🗑️</button>
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function renderSeguimientos() {
-            const tbody = document.getElementById('seguimientoListBody');
-            tbody.innerHTML = "";
-            const client = clients.find(c => c.id === currentClientId);
-            
-            if(!client || !client.seguimientos || client.seguimientos.length === 0) {
-                tbody.innerHTML = "<tr><td colspan='6' style='text-align:center; color:#718096;'>Sin controles de seguimiento registrados.</td></tr>";
-                return;
-            }
-
-            // Ordenar por fecha descendente
-            const ordenados = [...client.seguimientos].sort((a,b) => new Date(b.fecha) - new Date(a.fecha));
-
-            ordenados.forEach(s => {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `
-                    <td><strong>${s.fecha}</strong></td>
-                    <td>${s.peso} kg</td>
-                    <td>${s.grasa ? parseFloat(s.grasa).toFixed(2) + '%' : '-'}</td>
-                    <td>${s.sumaPliegues ? s.sumaPliegues.toFixed(1) + ' mm' : '-'}</td>
-                    <td style="font-size:13px; color:#4a5568;">${s.obs || ''}</td>
-                    <td>
-                        <button class="btn btn-danger" style="padding:2px 6px; font-size:11px;" onclick="deleteSeguimiento('${s.id}')">🗑️</button>
-                    </td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-
-        function filterClients() {
-            const query = document.getElementById('searchBar').value.toLowerCase();
-            const items = document.querySelectorAll('.client-list-item');
-            
-            items.forEach(item => {
-                const text = item.innerText.toLowerCase();
-                item.style.display = text.includes(query) ? 'flex' : 'none';
-            });
-        }
-
-        // ===== BACKUP SYSTEM =====
-        function saveClientsToStorage() {
-            localStorage.setItem('dietista_pacientes', JSON.stringify(clients));
-        }
-
-        function loadAllData() {
-            const local = localStorage.getItem('dietista_pacientes');
-            if(local) {
-                clients = JSON.parse(local);
-            }
-            renderClientList();
-        }
-
-        function exportData() {
-            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ clients: clients }));
-            const downloadAnchor = document.createElement('a');
-            downloadAnchor.setAttribute("href", dataStr);
-            downloadAnchor.setAttribute("download", `Backup_DietistaPro_${new Date().toISOString().split('T')[0]}.json`);
-            document.body.appendChild(downloadAnchor);
-            downloadAnchor.click();
-            downloadAnchor.remove();
-        }
-
-        function openUploadModal() {
-            document.getElementById('uploadModal').classList.add('active');
-        }
-
-        function closeUploadModal() {
-            document.getElementById('uploadModal').classList.remove('active');
-            document.getElementById('uploadInput').value = '';
-        }
-
-        function confirmUpload() {
-            const fileInput = document.getElementById('uploadInput');
-            if (!fileInput.files[0]) return;
-
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                try {
-                    const backup = JSON.parse(e.target.result);
-                    if (backup.clients && Array.isArray(backup.clients)) {
-                        clients = backup.clients;
-                        saveClientsToStorage();
-                        closeUploadModal();
-                        showMainView();
-                        alert('✅ Backup restaurado exitosamente');
-                    } else {
-                        alert('❌ Estructura de archivo JSON no válida');
-                    }
-                } catch (error) {
-                    alert('❌ Error al procesar el archivo');
-                }
-            };
-            reader.readAsText(fileInput.files[0]);
-        }
-
-        window.addEventListener('load', loadAllData);
     </script>
 </body>
 </html>
