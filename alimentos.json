@@ -1,0 +1,6680 @@
+{
+  "Cereales y derivados": [
+    {
+      "name": "Almendarado",
+      "gramos": 100.0,
+      "kcal": 431.0,
+      "proteinas": 9.0,
+      "hc": 57.0,
+      "lipidos": 18.1
+    },
+    {
+      "name": "Arroz blanco",
+      "gramos": 100.0,
+      "kcal": 381.0,
+      "proteinas": 7.0,
+      "hc": 86.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "arroz blanco cocción rapida",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 6.9,
+      "hc": 78.2,
+      "lipidos": 0.61
+    },
+    {
+      "name": "arroz blanco hervido",
+      "gramos": 100.0,
+      "kcal": 117.0,
+      "proteinas": 2.3,
+      "hc": 26.3,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Arroz inflado chocolateado",
+      "gramos": 100.0,
+      "kcal": 381.0,
+      "proteinas": 5.3,
+      "hc": 87.4,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Arroz integral",
+      "gramos": 100.0,
+      "kcal": 351.0,
+      "proteinas": 8.0,
+      "hc": 73.4,
+      "lipidos": 2.2
+    },
+    {
+      "name": "Arroz integral hervido",
+      "gramos": 100.0,
+      "kcal": 118.0,
+      "proteinas": 2.5,
+      "hc": 24.6,
+      "lipidos": 0.75
+    },
+    {
+      "name": "Arroz salvaje",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 14.7,
+      "hc": 72.1,
+      "lipidos": 1.08
+    },
+    {
+      "name": "Arroz salvaje cocido",
+      "gramos": 100.0,
+      "kcal": 105.0,
+      "proteinas": 4.0,
+      "hc": 20.5,
+      "lipidos": 0.34
+    },
+    {
+      "name": "Avena",
+      "gramos": 100.0,
+      "kcal": 361.0,
+      "proteinas": 11.7,
+      "hc": 59.8,
+      "lipidos": 7.1
+    },
+    {
+      "name": "Barrita de cereales",
+      "gramos": 100.0,
+      "kcal": 427.0,
+      "proteinas": 7.0,
+      "hc": 70.0,
+      "lipidos": 13.0
+    },
+    {
+      "name": "Barrita de cereales integrales",
+      "gramos": 100.0,
+      "kcal": 393.0,
+      "proteinas": 8.0,
+      "hc": 76.0,
+      "lipidos": 6.0
+    },
+    {
+      "name": "Barrita de cereales ricos en fibra",
+      "gramos": 100.0,
+      "kcal": 414.0,
+      "proteinas": 7.0,
+      "hc": 51.0,
+      "lipidos": 16.0
+    },
+    {
+      "name": "Base de pizza",
+      "gramos": 100.0,
+      "kcal": 273.0,
+      "proteinas": 6.7,
+      "hc": 43.9,
+      "lipidos": 7.4
+    },
+    {
+      "name": "Biscotes",
+      "gramos": 100.0,
+      "kcal": 387.0,
+      "proteinas": 10.0,
+      "hc": 73.6,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Bizcocho",
+      "gramos": 100.0,
+      "kcal": 426.0,
+      "proteinas": 4.8,
+      "hc": 53.7,
+      "lipidos": 18.6
+    },
+    {
+      "name": "Bizcocho de soletilla",
+      "gramos": 100.0,
+      "kcal": 351.0,
+      "proteinas": 7.6,
+      "hc": 71.8,
+      "lipidos": 3.7
+    },
+    {
+      "name": "Bolleria",
+      "gramos": 100.0,
+      "kcal": 450.0,
+      "proteinas": 7.0,
+      "hc": 52.8,
+      "lipidos": 23.0
+    },
+    {
+      "name": "Bollo con crema de cacao",
+      "gramos": 100.0,
+      "kcal": 421.0,
+      "proteinas": 3.7,
+      "hc": 59.6,
+      "lipidos": 17.0
+    },
+    {
+      "name": "Bulgur",
+      "gramos": 100.0,
+      "kcal": 379.0,
+      "proteinas": 12.3,
+      "hc": 70.2,
+      "lipidos": 1.33
+    },
+    {
+      "name": "Bulgur cocido",
+      "gramos": 100.0,
+      "kcal": 92.0,
+      "proteinas": 3.1,
+      "hc": 17.1,
+      "lipidos": 0.24
+    },
+    {
+      "name": "Canelones (Pasta)",
+      "gramos": 100.0,
+      "kcal": 371.0,
+      "proteinas": 11.9,
+      "hc": 74.8,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Cebada en granos",
+      "gramos": 100.0,
+      "kcal": 389.0,
+      "proteinas": 12.5,
+      "hc": 70.8,
+      "lipidos": 2.3
+    },
+    {
+      "name": "Cebada perlada, cocida",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 2.3,
+      "hc": 27.5,
+      "lipidos": 0.44
+    },
+    {
+      "name": "Cebada perlada, cruda",
+      "gramos": 100.0,
+      "kcal": 383.0,
+      "proteinas": 9.9,
+      "hc": 75.5,
+      "lipidos": 1.16
+    },
+    {
+      "name": "Cereales (almohadillas ricas en fibra)",
+      "gramos": 100.0,
+      "kcal": 393.0,
+      "proteinas": 10.0,
+      "hc": 62.0,
+      "lipidos": 9.0
+    },
+    {
+      "name": "Cereales (arroz inflado chocolateado)",
+      "gramos": 100.0,
+      "kcal": 384.0,
+      "proteinas": 5.0,
+      "hc": 84.0,
+      "lipidos": 2.5
+    },
+    {
+      "name": "Cereales arroz inflado",
+      "gramos": 100.0,
+      "kcal": 384.0,
+      "proteinas": 7.0,
+      "hc": 85.0,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Cereales copos de maíz tostados y azucarados",
+      "gramos": 100.0,
+      "kcal": 375.0,
+      "proteinas": 4.5,
+      "hc": 87.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Cereales (Copos de maíz tostado)",
+      "gramos": 100.0,
+      "kcal": 378.0,
+      "proteinas": 7.0,
+      "hc": 84.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "Cereales (copos ricos en fibra)",
+      "gramos": 100.0,
+      "kcal": 356.0,
+      "proteinas": 10.0,
+      "hc": 67.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Cereales (palitos ricos en fibra)",
+      "gramos": 100.0,
+      "kcal": 334.0,
+      "proteinas": 14.0,
+      "hc": 48.0,
+      "lipidos": 3.5
+    },
+    {
+      "name": "Cereales (Trigo inflado con miel)",
+      "gramos": 100.0,
+      "kcal": 381.0,
+      "proteinas": 6.0,
+      "hc": 84.0,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Cereales con miel (bolitas)",
+      "gramos": 100.0,
+      "kcal": 383.0,
+      "proteinas": 5.0,
+      "hc": 88.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Cereales de desayuno",
+      "gramos": 100.0,
+      "kcal": 378.0,
+      "proteinas": 7.0,
+      "hc": 84.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "Cereales integrales en copos",
+      "gramos": 100.0,
+      "kcal": 379.0,
+      "proteinas": 15.0,
+      "hc": 75.0,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Churros",
+      "gramos": 100.0,
+      "kcal": 361.0,
+      "proteinas": 4.6,
+      "hc": 40.0,
+      "lipidos": 20.0
+    },
+    {
+      "name": "Copos de avena",
+      "gramos": 100.0,
+      "kcal": 379.0,
+      "proteinas": 13.2,
+      "hc": 61.9,
+      "lipidos": 6.52
+    },
+    {
+      "name": "Cruasán",
+      "gramos": 100.0,
+      "kcal": 370.0,
+      "proteinas": 8.3,
+      "hc": 38.3,
+      "lipidos": 19.8
+    },
+    {
+      "name": "Donuts",
+      "gramos": 100.0,
+      "kcal": 426.0,
+      "proteinas": 6.1,
+      "hc": 47.2,
+      "lipidos": 23.0
+    },
+    {
+      "name": "Ensaimada",
+      "gramos": 100.0,
+      "kcal": 477.0,
+      "proteinas": 7.0,
+      "hc": 52.8,
+      "lipidos": 26.0
+    },
+    {
+      "name": "Espaguetis",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 12.0,
+      "hc": 74.1,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Fideos",
+      "gramos": 100.0,
+      "kcal": 38.0,
+      "proteinas": 12.9,
+      "hc": 78.0,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Fideos de soba, japoneses",
+      "gramos": 100.0,
+      "kcal": 336.0,
+      "proteinas": 14.4,
+      "hc": 68.0,
+      "lipidos": 0.71
+    },
+    {
+      "name": "Galletas",
+      "gramos": 100.0,
+      "kcal": 450.0,
+      "proteinas": 7.0,
+      "hc": 71.5,
+      "lipidos": 14.0
+    },
+    {
+      "name": "Galletas cubiertas de chocolate",
+      "gramos": 100.0,
+      "kcal": 525.0,
+      "proteinas": 5.7,
+      "hc": 62.4,
+      "lipidos": 27.6
+    },
+    {
+      "name": "Galletas de mantequilla",
+      "gramos": 100.0,
+      "kcal": 471.0,
+      "proteinas": 6.1,
+      "hc": 68.9,
+      "lipidos": 18.8
+    },
+    {
+      "name": "Galletas cookies",
+      "gramos": 100.0,
+      "kcal": 485.0,
+      "proteinas": 7.0,
+      "hc": 64.5,
+      "lipidos": 21.0
+    },
+    {
+      "name": "Galletas digestive",
+      "gramos": 100.0,
+      "kcal": 469.0,
+      "proteinas": 6.3,
+      "hc": 63.0,
+      "lipidos": 20.3
+    },
+    {
+      "name": "Galletas tipo Maria",
+      "gramos": 100.0,
+      "kcal": 414.0,
+      "proteinas": 7.0,
+      "hc": 76.0,
+      "lipidos": 8.0
+    },
+    {
+      "name": "Galletas tipo sandwich",
+      "gramos": 100.0,
+      "kcal": 510.0,
+      "proteinas": 5.0,
+      "hc": 66.8,
+      "lipidos": 24.5
+    },
+    {
+      "name": "Gérmen de trigo",
+      "gramos": 100.0,
+      "kcal": 347.0,
+      "proteinas": 26.6,
+      "hc": 30.6,
+      "lipidos": 9.2
+    },
+    {
+      "name": "Gofio Canario, tostado",
+      "gramos": 100.0,
+      "kcal": 357.0,
+      "proteinas": 10.1,
+      "hc": 64.8,
+      "lipidos": 2.74
+    },
+    {
+      "name": "Harina de Centeno",
+      "gramos": 100.0,
+      "kcal": 326.0,
+      "proteinas": 10.0,
+      "hc": 59.7,
+      "lipidos": 1.93
+    },
+    {
+      "name": "Harina de Maíz",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 8.7,
+      "hc": 76.0,
+      "lipidos": 2.7
+    },
+    {
+      "name": "Harina de Trigo blanco",
+      "gramos": 100.0,
+      "kcal": 375.0,
+      "proteinas": 9.3,
+      "hc": 80.0,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Harina de Trigo integral",
+      "gramos": 100.0,
+      "kcal": 359.0,
+      "proteinas": 11.5,
+      "hc": 68.8,
+      "lipidos": 2.2
+    },
+    {
+      "name": "Lasaña (pasta)",
+      "gramos": 100.0,
+      "kcal": 371.0,
+      "proteinas": 11.9,
+      "hc": 74.8,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Macarrones",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 2.0,
+      "hc": 74.1,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Magdalena",
+      "gramos": 100.0,
+      "kcal": 388.0,
+      "proteinas": 6.1,
+      "hc": 39.9,
+      "lipidos": 22.4
+    },
+    {
+      "name": "Maíz desgrasado en conserva",
+      "gramos": 100.0,
+      "kcal": 73.0,
+      "proteinas": 2.9,
+      "hc": 10.7,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Maíz en mazorca, cocida, congelada",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 3.1,
+      "hc": 18.7,
+      "lipidos": 0.74
+    },
+    {
+      "name": "Maíz en mazorca, cruda, congelada",
+      "gramos": 100.0,
+      "kcal": 104.0,
+      "proteinas": 3.3,
+      "hc": 19.5,
+      "lipidos": 0.78
+    },
+    {
+      "name": "Maíz, copos",
+      "gramos": 100.0,
+      "kcal": 372.0,
+      "proteinas": 7.0,
+      "hc": 83.0,
+      "lipidos": 0.8
+    },
+    {
+      "name": "Maíz, copos tostados y azucarados",
+      "gramos": 100.0,
+      "kcal": 372.0,
+      "proteinas": 5.3,
+      "hc": 86.6,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Medias noches",
+      "gramos": 100.0,
+      "kcal": 283.0,
+      "proteinas": 6.5,
+      "hc": 52.3,
+      "lipidos": 4.7
+    },
+    {
+      "name": "Mijo",
+      "gramos": 100.0,
+      "kcal": 357.0,
+      "proteinas": 11.0,
+      "hc": 64.4,
+      "lipidos": 4.7
+    },
+    {
+      "name": "Milhojas con nata y crema",
+      "gramos": 100.0,
+      "kcal": 285.0,
+      "proteinas": 4.5,
+      "hc": 33.0,
+      "lipidos": 14.8
+    },
+    {
+      "name": "Muesli",
+      "gramos": 100.0,
+      "kcal": 399.0,
+      "proteinas": 10.5,
+      "hc": 67.1,
+      "lipidos": 8.1
+    },
+    {
+      "name": "Noodles de arroz",
+      "gramos": 100.0,
+      "kcal": 357.0,
+      "proteinas": 3.4,
+      "hc": 83.8,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Palmeras",
+      "gramos": 100.0,
+      "kcal": 513.0,
+      "proteinas": 7.0,
+      "hc": 52.8,
+      "lipidos": 30.0
+    },
+    {
+      "name": "Pan blanco de molde",
+      "gramos": 100.0,
+      "kcal": 287.0,
+      "proteinas": 8.0,
+      "hc": 52.0,
+      "lipidos": 4.5
+    },
+    {
+      "name": "Pan blanco de trigo",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 7.8,
+      "hc": 58.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Pan blanco de trigo sin sal",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 7.8,
+      "hc": 58.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Pan blanco tostado",
+      "gramos": 100.0,
+      "kcal": 309.0,
+      "proteinas": 10.1,
+      "hc": 59.2,
+      "lipidos": 2.5
+    },
+    {
+      "name": "Pan blanco tostado sin sal",
+      "gramos": 100.0,
+      "kcal": 309.0,
+      "proteinas": 10.1,
+      "hc": 59.2,
+      "lipidos": 2.5
+    },
+    {
+      "name": "Pan de centeno",
+      "gramos": 100.0,
+      "kcal": 230.0,
+      "proteinas": 6.2,
+      "hc": 45.8,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Pan de pasas",
+      "gramos": 100.0,
+      "kcal": 328.0,
+      "proteinas": 8.1,
+      "hc": 45.0,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Pan de trigo y centeno",
+      "gramos": 100.0,
+      "kcal": 243.0,
+      "proteinas": 6.7,
+      "hc": 49.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Pan integral de molde",
+      "gramos": 100.0,
+      "kcal": 251.0,
+      "proteinas": 9.0,
+      "hc": 44.0,
+      "lipidos": 3.0
+    },
+    {
+      "name": "Pan integral de trigo",
+      "gramos": 100.0,
+      "kcal": 258.0,
+      "proteinas": 8.0,
+      "hc": 49.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Pan integral tostado",
+      "gramos": 100.0,
+      "kcal": 282.0,
+      "proteinas": 10.8,
+      "hc": 48.7,
+      "lipidos": 2.9
+    },
+    {
+      "name": "Pan multicereales",
+      "gramos": 100.0,
+      "kcal": 280.0,
+      "proteinas": 13.4,
+      "hc": 43.3,
+      "lipidos": 4.23
+    },
+    {
+      "name": "Pan rallado",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 7.8,
+      "hc": 58.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Panecillo hechos con aceite de oliva",
+      "gramos": 100.0,
+      "kcal": 293.0,
+      "proteinas": 8.0,
+      "hc": 53.6,
+      "lipidos": 4.5
+    },
+    {
+      "name": "Pasta",
+      "gramos": 100.0,
+      "kcal": 375.0,
+      "proteinas": 12.0,
+      "hc": 75.8,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Pasta al huevo",
+      "gramos": 100.0,
+      "kcal": 383.0,
+      "proteinas": 12.1,
+      "hc": 71.7,
+      "lipidos": 4.2
+    },
+    {
+      "name": "Pasta al huevo hervida",
+      "gramos": 100.0,
+      "kcal": 126.0,
+      "proteinas": 4.7,
+      "hc": 22.9,
+      "lipidos": 1.49
+    },
+    {
+      "name": "Pasta hervida",
+      "gramos": 100.0,
+      "kcal": 120.0,
+      "proteinas": 4.0,
+      "hc": 22.2,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Pasta integral",
+      "gramos": 100.0,
+      "kcal": 353.0,
+      "proteinas": 13.1,
+      "hc": 63.7,
+      "lipidos": 2.9
+    },
+    {
+      "name": "Pasta rellena con carne hervida",
+      "gramos": 100.0,
+      "kcal": 104.0,
+      "proteinas": 4.7,
+      "hc": 12.7,
+      "lipidos": 3.37
+    },
+    {
+      "name": "Pasta rellena con queso hervida",
+      "gramos": 100.0,
+      "kcal": 151.0,
+      "proteinas": 9.5,
+      "hc": 16.3,
+      "lipidos": 5.1
+    },
+    {
+      "name": "Pastas de té",
+      "gramos": 100.0,
+      "kcal": 344.0,
+      "proteinas": 8.9,
+      "hc": 58.3,
+      "lipidos": 8.3
+    },
+    {
+      "name": "Pasteles y otros dulces",
+      "gramos": 100.0,
+      "kcal": 402.0,
+      "proteinas": 5.2,
+      "hc": 49.2,
+      "lipidos": 20.2
+    },
+    {
+      "name": "Picatostes",
+      "gramos": 100.0,
+      "kcal": 308.0,
+      "proteinas": 10.1,
+      "hc": 57.9,
+      "lipidos": 2.99
+    },
+    {
+      "name": "Porras",
+      "gramos": 100.0,
+      "kcal": 322.0,
+      "proteinas": 2.3,
+      "hc": 36.1,
+      "lipidos": 18.5
+    },
+    {
+      "name": "Quinoa",
+      "gramos": 100.0,
+      "kcal": 318.0,
+      "proteinas": 13.8,
+      "hc": 49.2,
+      "lipidos": 5.6
+    },
+    {
+      "name": "Salvado de avena",
+      "gramos": 100.0,
+      "kcal": 246.0,
+      "proteinas": 17.3,
+      "hc": 20.7,
+      "lipidos": 7.03
+    },
+    {
+      "name": "Salvado de trigo",
+      "gramos": 100.0,
+      "kcal": 292.0,
+      "proteinas": 14.1,
+      "hc": 26.8,
+      "lipidos": 5.5
+    },
+    {
+      "name": "Sémola de trigo",
+      "gramos": 100.0,
+      "kcal": 363.0,
+      "proteinas": 12.5,
+      "hc": 73.6,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Sobaos",
+      "gramos": 100.0,
+      "kcal": 432.0,
+      "proteinas": 8.8,
+      "hc": 56.3,
+      "lipidos": 19.1
+    },
+    {
+      "name": "Suizo",
+      "gramos": 100.0,
+      "kcal": 404.0,
+      "proteinas": 9.9,
+      "hc": 40.5,
+      "lipidos": 21.9
+    },
+    {
+      "name": "Tartas",
+      "gramos": 100.0,
+      "kcal": 402.0,
+      "proteinas": 5.2,
+      "hc": 49.2,
+      "lipidos": 20.2
+    },
+    {
+      "name": "Tortas de aceite (tipo Inés Rosales)",
+      "gramos": 100.0,
+      "kcal": 496.0,
+      "proteinas": 6.5,
+      "hc": 67.8,
+      "lipidos": 22.0
+    },
+    {
+      "name": "Tortas de maíz",
+      "gramos": 100.0,
+      "kcal": 231.0,
+      "proteinas": 5.7,
+      "hc": 42.4,
+      "lipidos": 2.85
+    },
+    {
+      "name": "Tortitas de harina trigo para burritos listas para hornear o freír",
+      "gramos": 100.0,
+      "kcal": 332.0,
+      "proteinas": 8.7,
+      "hc": 56.6,
+      "lipidos": 7.1
+    },
+    {
+      "name": "Trigo, Gluten para preparara seitán",
+      "gramos": 100.0,
+      "kcal": 371.0,
+      "proteinas": 75.2,
+      "hc": 13.2,
+      "lipidos": 1.85
+    }
+  ],
+  "Lácteos": [
+    {
+      "name": "Arroz con leche",
+      "gramos": 100.0,
+      "kcal": 110.0,
+      "proteinas": 3.0,
+      "hc": 20.2,
+      "lipidos": 1.9
+    },
+    {
+      "name": "Batido de cacao",
+      "gramos": 100.0,
+      "kcal": 98.0,
+      "proteinas": 3.8,
+      "hc": 10.9,
+      "lipidos": 4.3
+    },
+    {
+      "name": "Batido de fresa",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 2.8,
+      "hc": 11.2,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Batido de vainilla",
+      "gramos": 100.0,
+      "kcal": 62.0,
+      "proteinas": 2.9,
+      "hc": 10.3,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Batidos lácteos",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 3.8,
+      "hc": 10.9,
+      "lipidos": 4.6
+    },
+    {
+      "name": "Crema catalana",
+      "gramos": 100.0,
+      "kcal": 178.0,
+      "proteinas": 3.6,
+      "hc": 20.5,
+      "lipidos": 9.1
+    },
+    {
+      "name": "Cuajada",
+      "gramos": 100.0,
+      "kcal": 94.0,
+      "proteinas": 4.8,
+      "hc": 6.7,
+      "lipidos": 5.3
+    },
+    {
+      "name": "Flan de huevo",
+      "gramos": 100.0,
+      "kcal": 127.0,
+      "proteinas": 4.9,
+      "hc": 21.6,
+      "lipidos": 2.3
+    },
+    {
+      "name": "Flan de vainilla",
+      "gramos": 100.0,
+      "kcal": 105.0,
+      "proteinas": 3.0,
+      "hc": 19.1,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Flan instantáneo en polvo para reconstituir",
+      "gramos": 100.0,
+      "kcal": 366.0,
+      "proteinas": 0.0,
+      "hc": 91.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Helado cremoso",
+      "gramos": 100.0,
+      "kcal": 199.0,
+      "proteinas": 2.8,
+      "hc": 26.2,
+      "lipidos": 9.2
+    },
+    {
+      "name": "Helados",
+      "gramos": 100.0,
+      "kcal": 211.0,
+      "proteinas": 4.5,
+      "hc": 25.4,
+      "lipidos": 10.1
+    },
+    {
+      "name": "Kéfir",
+      "gramos": 100.0,
+      "kcal": 64.0,
+      "proteinas": 3.3,
+      "hc": 4.8,
+      "lipidos": 3.5
+    },
+    {
+      "name": "Leche concentrada",
+      "gramos": 100.0,
+      "kcal": 152.0,
+      "proteinas": 8.2,
+      "hc": 10.0,
+      "lipidos": 8.8
+    },
+    {
+      "name": "Leche condensada entera",
+      "gramos": 100.0,
+      "kcal": 343.0,
+      "proteinas": 8.8,
+      "hc": 56.0,
+      "lipidos": 9.3
+    },
+    {
+      "name": "Leche condensada desnatada",
+      "gramos": 100.0,
+      "kcal": 287.0,
+      "proteinas": 10.0,
+      "hc": 60.0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Leche de cabra",
+      "gramos": 100.0,
+      "kcal": 67.0,
+      "proteinas": 3.4,
+      "hc": 4.5,
+      "lipidos": 3.9
+    },
+    {
+      "name": "Leche de oveja",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 5.6,
+      "hc": 5.0,
+      "lipidos": 6.35
+    },
+    {
+      "name": "Leche de vaca desnatada",
+      "gramos": 100.0,
+      "kcal": 35.0,
+      "proteinas": 3.4,
+      "hc": 5.0,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Leche de vaca entera",
+      "gramos": 100.0,
+      "kcal": 66.0,
+      "proteinas": 3.3,
+      "hc": 5.0,
+      "lipidos": 3.6
+    },
+    {
+      "name": "Leche de vaca semidesnatada",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 3.0,
+      "hc": 4.4,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Leche desnatada en polvo sin diluir",
+      "gramos": 100.0,
+      "kcal": 371.0,
+      "proteinas": 37.6,
+      "hc": 53.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Leche entera en polvo sin diluir",
+      "gramos": 100.0,
+      "kcal": 490.0,
+      "proteinas": 26.0,
+      "hc": 38.0,
+      "lipidos": 26.0
+    },
+    {
+      "name": "Leche evaporada entera",
+      "gramos": 100.0,
+      "kcal": 135.0,
+      "proteinas": 6.8,
+      "hc": 10.0,
+      "lipidos": 7.56
+    },
+    {
+      "name": "Leche fermentada con lactobacillus acidophilus",
+      "gramos": 100.0,
+      "kcal": 99.0,
+      "proteinas": 3.1,
+      "hc": 14.1,
+      "lipidos": 3.3
+    },
+    {
+      "name": "Leche fermentada con lactobacillus casei",
+      "gramos": 100.0,
+      "kcal": 98.0,
+      "proteinas": 3.0,
+      "hc": 14.1,
+      "lipidos": 3.3
+    },
+    {
+      "name": "Leche fermentada tipo bio con frutas",
+      "gramos": 100.0,
+      "kcal": 87.0,
+      "proteinas": 4.0,
+      "hc": 14.0,
+      "lipidos": 1.7
+    },
+    {
+      "name": "Leche fermentada tipo bio desnatada con frutas",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 4.7,
+      "hc": 6.4,
+      "lipidos": 0.021
+    },
+    {
+      "name": "Leche fermentada tipo bio desnatada natural",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 4.9,
+      "hc": 5.5,
+      "lipidos": 0.3
+    },
+    {
+      "name": "AlimentoLeche fermentada tipo bio natural",
+      "gramos": 100.0,
+      "kcal": 63.0,
+      "proteinas": 3.6,
+      "hc": 4.4,
+      "lipidos": 3.4
+    },
+    {
+      "name": "Mousse de chocolate",
+      "gramos": 100.0,
+      "kcal": 190.0,
+      "proteinas": 5.1,
+      "hc": 22.7,
+      "lipidos": 8.8
+    },
+    {
+      "name": "Nata",
+      "gramos": 100.0,
+      "kcal": 448.0,
+      "proteinas": 1.5,
+      "hc": 2.0,
+      "lipidos": 48.2
+    },
+    {
+      "name": "Nata líquida para cocinar(18%grasa)",
+      "gramos": 100.0,
+      "kcal": 204.0,
+      "proteinas": 2.5,
+      "hc": 3.4,
+      "lipidos": 19.99
+    },
+    {
+      "name": "Nata líquida para cocinar(35%grasa)",
+      "gramos": 100.0,
+      "kcal": 330.0,
+      "proteinas": 2.2,
+      "hc": 3.9,
+      "lipidos": 33.99
+    },
+    {
+      "name": "Nata montada",
+      "gramos": 100.0,
+      "kcal": 331.0,
+      "proteinas": 2.1,
+      "hc": 10.1,
+      "lipidos": 31.4
+    },
+    {
+      "name": "Natillas",
+      "gramos": 100.0,
+      "kcal": 120.0,
+      "proteinas": 3.8,
+      "hc": 16.8,
+      "lipidos": 4.2
+    },
+    {
+      "name": "Natillas de chocolate",
+      "gramos": 100.0,
+      "kcal": 135.0,
+      "proteinas": 3.6,
+      "hc": 20.6,
+      "lipidos": 4.2
+    },
+    {
+      "name": "Petit suisse natural azucarado",
+      "gramos": 100.0,
+      "kcal": 120.0,
+      "proteinas": 7.3,
+      "hc": 13.7,
+      "lipidos": 4.0
+    },
+    {
+      "name": "Queso azul",
+      "gramos": 100.0,
+      "kcal": 353.0,
+      "proteinas": 21.1,
+      "hc": 0.0,
+      "lipidos": 29.8
+    },
+    {
+      "name": "Queso brie",
+      "gramos": 100.0,
+      "kcal": 320.0,
+      "proteinas": 19.3,
+      "hc": 0.1,
+      "lipidos": 26.9
+    },
+    {
+      "name": "Queso camembert",
+      "gramos": 100.0,
+      "kcal": 285.0,
+      "proteinas": 21.0,
+      "hc": 0.1,
+      "lipidos": 22.3
+    },
+    {
+      "name": "Queso cheddar",
+      "gramos": 100.0,
+      "kcal": 393.0,
+      "proteinas": 25.4,
+      "hc": 0.36,
+      "lipidos": 32.2
+    },
+    {
+      "name": "Queso de  bola",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 29.0,
+      "hc": 2.0,
+      "lipidos": 25.0
+    },
+    {
+      "name": "Queso de Burgos",
+      "gramos": 100.0,
+      "kcal": 175.0,
+      "proteinas": 15.0,
+      "hc": 4.0,
+      "lipidos": 11.0
+    },
+    {
+      "name": "Queso de cabra curado",
+      "gramos": 100.0,
+      "kcal": 467.0,
+      "proteinas": 27.6,
+      "hc": 0.0,
+      "lipidos": 39.6
+    },
+    {
+      "name": "Queso de cabra tierno",
+      "gramos": 100.0,
+      "kcal": 199.0,
+      "proteinas": 13.1,
+      "hc": 1.0,
+      "lipidos": 15.8
+    },
+    {
+      "name": "Queso de Cabrales",
+      "gramos": 100.0,
+      "kcal": 389.0,
+      "proteinas": 21.0,
+      "hc": 2.0,
+      "lipidos": 33.0
+    },
+    {
+      "name": "Queso de tetilla",
+      "gramos": 100.0,
+      "kcal": 398.0,
+      "proteinas": 22.0,
+      "hc": 0.0,
+      "lipidos": 34.5
+    },
+    {
+      "name": "Queso edam",
+      "gramos": 100.0,
+      "kcal": 356.0,
+      "proteinas": 25.0,
+      "hc": 1.4,
+      "lipidos": 27.8
+    },
+    {
+      "name": "Queso emmental",
+      "gramos": 100.0,
+      "kcal": 380.0,
+      "proteinas": 28.0,
+      "hc": 0.2,
+      "lipidos": 29.7
+    },
+    {
+      "name": "Queso en lonchas",
+      "gramos": 100.0,
+      "kcal": 383.0,
+      "proteinas": 29.0,
+      "hc": 2.0,
+      "lipidos": 28.8
+    },
+    {
+      "name": "Queso en porciones",
+      "gramos": 100.0,
+      "kcal": 312.0,
+      "proteinas": 18.0,
+      "hc": 2.5,
+      "lipidos": 25.5
+    },
+    {
+      "name": "Queso en porciones descremado",
+      "gramos": 100.0,
+      "kcal": 136.0,
+      "proteinas": 16.0,
+      "hc": 5.5,
+      "lipidos": 5.5
+    },
+    {
+      "name": "Queso feta",
+      "gramos": 100.0,
+      "kcal": 255.0,
+      "proteinas": 14.2,
+      "hc": 4.1,
+      "lipidos": 21.3
+    },
+    {
+      "name": "Queso gallego",
+      "gramos": 100.0,
+      "kcal": 357.0,
+      "proteinas": 23.0,
+      "hc": 2.0,
+      "lipidos": 28.5
+    },
+    {
+      "name": "Queso gorgonzola",
+      "gramos": 100.0,
+      "kcal": 361.0,
+      "proteinas": 19.4,
+      "hc": 0.62,
+      "lipidos": 31.2
+    },
+    {
+      "name": "Queso gouda",
+      "gramos": 100.0,
+      "kcal": 331.0,
+      "proteinas": 25.5,
+      "hc": 0.0,
+      "lipidos": 25.4
+    },
+    {
+      "name": "Queso gruyer",
+      "gramos": 100.0,
+      "kcal": 401.0,
+      "proteinas": 29.0,
+      "hc": 1.5,
+      "lipidos": 31.0
+    },
+    {
+      "name": "Queso Idiazabal",
+      "gramos": 100.0,
+      "kcal": 443.0,
+      "proteinas": 23.3,
+      "hc": 0.0,
+      "lipidos": 38.9
+    },
+    {
+      "name": "Queso Mahón",
+      "gramos": 100.0,
+      "kcal": 411.0,
+      "proteinas": 26.9,
+      "hc": 0.0,
+      "lipidos": 33.7
+    },
+    {
+      "name": "Queso manchego curado",
+      "gramos": 100.0,
+      "kcal": 420.0,
+      "proteinas": 32.0,
+      "hc": 1.0,
+      "lipidos": 32.0
+    },
+    {
+      "name": "Queso manchego en aceite",
+      "gramos": 100.0,
+      "kcal": 470.0,
+      "proteinas": 26.5,
+      "hc": 0.0,
+      "lipidos": 40.5
+    },
+    {
+      "name": "Queso manchego fresco",
+      "gramos": 100.0,
+      "kcal": 333.0,
+      "proteinas": 26.0,
+      "hc": 0.0,
+      "lipidos": 25.4
+    },
+    {
+      "name": "Queso manchego semicurado",
+      "gramos": 100.0,
+      "kcal": 376.0,
+      "proteinas": 29.0,
+      "hc": 0.5,
+      "lipidos": 28.7
+    },
+    {
+      "name": "Queso mozzarella",
+      "gramos": 100.0,
+      "kcal": 223.0,
+      "proteinas": 19.5,
+      "hc": 0.0,
+      "lipidos": 16.1
+    },
+    {
+      "name": "Queso para untar",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 13.5,
+      "hc": 4.4,
+      "lipidos": 22.8
+    },
+    {
+      "name": "Queso para untar light",
+      "gramos": 100.0,
+      "kcal": 187.0,
+      "proteinas": 7.8,
+      "hc": 3.4,
+      "lipidos": 16.0
+    },
+    {
+      "name": "Queso parmesano",
+      "gramos": 100.0,
+      "kcal": 420.0,
+      "proteinas": 40.0,
+      "hc": 0.0,
+      "lipidos": 28.9
+    },
+    {
+      "name": "Queso quark 20%Mg en materia seca",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 7.8,
+      "hc": 3.5,
+      "lipidos": 2.9
+    },
+    {
+      "name": "Queso quark descremado",
+      "gramos": 100.0,
+      "kcal": 68.0,
+      "proteinas": 13.2,
+      "hc": 3.2,
+      "lipidos": 0.25
+    },
+    {
+      "name": "Queso raclette",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 25.0,
+      "hc": 0.69,
+      "lipidos": 29.6
+    },
+    {
+      "name": "Queso rallado",
+      "gramos": 100.0,
+      "kcal": 422.0,
+      "proteinas": 40.0,
+      "hc": 0.5,
+      "lipidos": 28.9
+    },
+    {
+      "name": "Queso ricotta",
+      "gramos": 100.0,
+      "kcal": 161.0,
+      "proteinas": 11.5,
+      "hc": 3.75,
+      "lipidos": 10.5
+    },
+    {
+      "name": "Queso roquefort",
+      "gramos": 100.0,
+      "kcal": 380.0,
+      "proteinas": 23.0,
+      "hc": 0.0,
+      "lipidos": 32.0
+    },
+    {
+      "name": "Queso San Simón",
+      "gramos": 100.0,
+      "kcal": 385.0,
+      "proteinas": 24.9,
+      "hc": 0.0,
+      "lipidos": 31.7
+    },
+    {
+      "name": "Queso Torta del Casar",
+      "gramos": 100.0,
+      "kcal": 399.0,
+      "proteinas": 26.3,
+      "hc": 0.0,
+      "lipidos": 32.6
+    },
+    {
+      "name": "Queso zamorano",
+      "gramos": 100.0,
+      "kcal": 438.0,
+      "proteinas": 25.3,
+      "hc": 0.0,
+      "lipidos": 37.45
+    },
+    {
+      "name": "Requesón",
+      "gramos": 100.0,
+      "kcal": 98.0,
+      "proteinas": 13.6,
+      "hc": 1.8,
+      "lipidos": 4.0
+    },
+    {
+      "name": "yogur desnatado con cereales",
+      "gramos": 100.0,
+      "kcal": 59.2,
+      "proteinas": 4.6,
+      "hc": 6.9,
+      "lipidos": 1.1
+    },
+    {
+      "name": "Yogur denatado natural",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 4.3,
+      "hc": 6.3,
+      "lipidos": 0.32
+    },
+    {
+      "name": "Yogur desnatado natural con azúcar",
+      "gramos": 100.0,
+      "kcal": 76.0,
+      "proteinas": 4.5,
+      "hc": 13.8,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Yogur entero con cereales",
+      "gramos": 100.0,
+      "kcal": 92.7,
+      "proteinas": 3.9,
+      "hc": 9.1,
+      "lipidos": 3.78
+    },
+    {
+      "name": "Yogur entero con fruta",
+      "gramos": 100.0,
+      "kcal": 95.0,
+      "proteinas": 3.8,
+      "hc": 14.3,
+      "lipidos": 2.3
+    },
+    {
+      "name": "Yogur entero de sabores",
+      "gramos": 100.0,
+      "kcal": 115.0,
+      "proteinas": 5.4,
+      "hc": 15.6,
+      "lipidos": 3.4
+    },
+    {
+      "name": "Yogur entero natural",
+      "gramos": 100.0,
+      "kcal": 57.0,
+      "proteinas": 3.7,
+      "hc": 4.4,
+      "lipidos": 2.7
+    },
+    {
+      "name": "Yogur entero natural azucarado",
+      "gramos": 100.0,
+      "kcal": 86.0,
+      "proteinas": 3.3,
+      "hc": 13.7,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Yogur griego",
+      "gramos": 100.0,
+      "kcal": 139.0,
+      "proteinas": 6.4,
+      "hc": 5.4,
+      "lipidos": 10.2
+    },
+    {
+      "name": "Yogur líquido con pulpa de fruta",
+      "gramos": 100.0,
+      "kcal": 82.0,
+      "proteinas": 2.8,
+      "hc": 14.3,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Yogur líquido de sabores",
+      "gramos": 100.0,
+      "kcal": 75.0,
+      "proteinas": 2.9,
+      "hc": 12.8,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Yogur líquido natural azucarado",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 3.0,
+      "hc": 11.6,
+      "lipidos": 1.2
+    }
+  ],
+  "Huevos": [
+    {
+      "name": "Clara de huevo",
+      "gramos": 100.0,
+      "kcal": 49.0,
+      "proteinas": 11.0,
+      "hc": 0.7,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Huevo de codorniz",
+      "gramos": 100.0,
+      "kcal": 155.0,
+      "proteinas": 13.1,
+      "hc": 0.41,
+      "lipidos": 11.2
+    },
+    {
+      "name": "Huevo de gallina",
+      "gramos": 100.0,
+      "kcal": 150.0,
+      "proteinas": 12.5,
+      "hc": 0,
+      "lipidos": 11.1
+    },
+    {
+      "name": "Huevo de pato",
+      "gramos": 100.0,
+      "kcal": 184.0,
+      "proteinas": 13.0,
+      "hc": 0.7,
+      "lipidos": 14.4
+    },
+    {
+      "name": "Yema de huevo",
+      "gramos": 100.0,
+      "kcal": 363.0,
+      "proteinas": 16.0,
+      "hc": 0.6,
+      "lipidos": 33.0
+    }
+  ],
+  "Azúcares y dulce": [
+    {
+      "name": "Azucar blanco",
+      "gramos": 100.0,
+      "kcal": 398.0,
+      "proteinas": 0.0,
+      "hc": 99.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Azucar moreno",
+      "gramos": 100.0,
+      "kcal": 386.0,
+      "proteinas": 0.1,
+      "hc": 96.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Bombones",
+      "gramos": 100.0,
+      "kcal": 474.0,
+      "proteinas": 4.8,
+      "hc": 66.0,
+      "lipidos": 21.2
+    },
+    {
+      "name": "Cacao en polvo azucarado (2,5% grasa)",
+      "gramos": 100.0,
+      "kcal": 330.0,
+      "proteinas": 9.8,
+      "hc": 67.1,
+      "lipidos": 2.5
+    },
+    {
+      "name": "Cacao en polvo azucarado (8% grasa)",
+      "gramos": 100.0,
+      "kcal": 381.0,
+      "proteinas": 9.8,
+      "hc": 67.1,
+      "lipidos": 8.1
+    },
+    {
+      "name": "Caramelos",
+      "gramos": 100.0,
+      "kcal": 380.0,
+      "proteinas": 0.8,
+      "hc": 94.0,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Chicle con azucar",
+      "gramos": 100.0,
+      "kcal": 381.0,
+      "proteinas": 0.0,
+      "hc": 95.2,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Chicle sin azucar",
+      "gramos": 100.0,
+      "kcal": 270.0,
+      "proteinas": 0.2,
+      "hc": 66.6,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Chocolate (a)",
+      "gramos": 100.0,
+      "kcal": 532.0,
+      "proteinas": 7.8,
+      "hc": 56.4,
+      "lipidos": 30.6
+    },
+    {
+      "name": "Chocolcate blanco",
+      "gramos": 100.0,
+      "kcal": 543.0,
+      "proteinas": 8.0,
+      "hc": 58.3,
+      "lipidos": 30.9
+    },
+    {
+      "name": "Chocolate con leche",
+      "gramos": 100.0,
+      "kcal": 553.0,
+      "proteinas": 8.4,
+      "hc": 60.0,
+      "lipidos": 31.0
+    },
+    {
+      "name": "Chocolate con leche y almendras",
+      "gramos": 100.0,
+      "kcal": 561.0,
+      "proteinas": 8.7,
+      "hc": 51.5,
+      "lipidos": 34.9
+    },
+    {
+      "name": "Chocolate en polvo",
+      "gramos": 100.0,
+      "kcal": 324.0,
+      "proteinas": 9.8,
+      "hc": 67.1,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Chocolate negro",
+      "gramos": 100.0,
+      "kcal": 543.0,
+      "proteinas": 6.3,
+      "hc": 43.6,
+      "lipidos": 35.5
+    },
+    {
+      "name": "Chocolate negro (45%-59% cacao)",
+      "gramos": 100.0,
+      "kcal": 560.0,
+      "proteinas": 4.9,
+      "hc": 61.2,
+      "lipidos": 31.3
+    },
+    {
+      "name": "Chocolate negro (60%-69% cacao)",
+      "gramos": 100.0,
+      "kcal": 595.0,
+      "proteinas": 6.1,
+      "hc": 52.4,
+      "lipidos": 38.3
+    },
+    {
+      "name": "Chocolate negro (70%-85% cacao)",
+      "gramos": 100.0,
+      "kcal": 620.0,
+      "proteinas": 7.8,
+      "hc": 45.9,
+      "lipidos": 42.6
+    },
+    {
+      "name": "Compota de manzana",
+      "gramos": 100.0,
+      "kcal": 81.0,
+      "proteinas": 0.2,
+      "hc": 19.1,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Confitura baja en calorias",
+      "gramos": 100.0,
+      "kcal": 39.0,
+      "proteinas": 0.6,
+      "hc": 9.3,
+      "lipidos": 0
+    },
+    {
+      "name": "Crema de cacao y avellanas",
+      "gramos": 100.0,
+      "kcal": 550.0,
+      "proteinas": 5.5,
+      "hc": 58.3,
+      "lipidos": 32.5
+    },
+    {
+      "name": "Crema pastelera",
+      "gramos": 100.0,
+      "kcal": 158.0,
+      "proteinas": 4.9,
+      "hc": 22.3,
+      "lipidos": 5.37
+    },
+    {
+      "name": "Dulce de membrillo",
+      "gramos": 100.0,
+      "kcal": 235.0,
+      "proteinas": 0.2,
+      "hc": 57.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Edulcorante aspartamo (E-951)",
+      "gramos": 100.0,
+      "kcal": 52.0,
+      "proteinas": 13.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Edulcorante liquido",
+      "gramos": 100.0,
+      "kcal": 4.0,
+      "proteinas": 0.0,
+      "hc": 1.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Fructosa",
+      "gramos": 100.0,
+      "kcal": 399.0,
+      "proteinas": 0.0,
+      "hc": 99.8,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Granadina, jarabe",
+      "gramos": 100.0,
+      "kcal": 268.0,
+      "proteinas": 0.0,
+      "hc": 66.9,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Jaleas",
+      "gramos": 100.0,
+      "kcal": 261.0,
+      "proteinas": 0.2,
+      "hc": 65.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Jarabe",
+      "gramos": 100.0,
+      "kcal": 297.0,
+      "proteinas": 0.1,
+      "hc": 74.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Mazapan",
+      "gramos": 100.0,
+      "kcal": 472.0,
+      "proteinas": 9.0,
+      "hc": 52.0,
+      "lipidos": 24.0
+    },
+    {
+      "name": "Mermelada",
+      "gramos": 100.0,
+      "kcal": 282.0,
+      "proteinas": 0.2,
+      "hc": 70.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Mermelada baja en calorias",
+      "gramos": 100.0,
+      "kcal": 154.0,
+      "proteinas": 0.4,
+      "hc": 38.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Miel",
+      "gramos": 100.0,
+      "kcal": 314.0,
+      "proteinas": 0.5,
+      "hc": 78.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Polo (helado de hielo)",
+      "gramos": 100.0,
+      "kcal": 134.0,
+      "proteinas": 1.0,
+      "hc": 29.5,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Regaliz",
+      "gramos": 100.0,
+      "kcal": 325.0,
+      "proteinas": 3.9,
+      "hc": 71.5,
+      "lipidos": 2.2
+    },
+    {
+      "name": "Sacarina",
+      "gramos": 100.0,
+      "kcal": 0.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Trufa de chocolate",
+      "gramos": 100.0,
+      "kcal": 513.0,
+      "proteinas": 6.2,
+      "hc": 44.9,
+      "lipidos": 33.76
+    },
+    {
+      "name": "Turron",
+      "gramos": 100.0,
+      "kcal": 499.0,
+      "proteinas": 10.0,
+      "hc": 57.4,
+      "lipidos": 23.9
+    },
+    {
+      "name": "Turron de Alicante duro",
+      "gramos": 100.0,
+      "kcal": 496.0,
+      "proteinas": 13.0,
+      "hc": 44.9,
+      "lipidos": 28.1
+    },
+    {
+      "name": "Turron de Jijona (blando)",
+      "gramos": 100.0,
+      "kcal": 504.0,
+      "proteinas": 13.0,
+      "hc": 43.5,
+      "lipidos": 29.2
+    }
+  ],
+  "Aceites y grasa": [
+    {
+      "name": "Aceite de cacahuete",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de coco",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de colza",
+      "gramos": 100.0,
+      "kcal": 900.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 100.0
+    },
+    {
+      "name": "Aceite de girasol",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de maíz",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de nuez",
+      "gramos": 100.0,
+      "kcal": 898.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.79
+    },
+    {
+      "name": "Aceite de oliva",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de oliva virgen",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de palma",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de semilla de uva",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Aceite de sésamo",
+      "gramos": 100.0,
+      "kcal": 900.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 100.0
+    },
+    {
+      "name": "Aceite de soja",
+      "gramos": 100.0,
+      "kcal": 899.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 99.9
+    },
+    {
+      "name": "Manteca de cerdo",
+      "gramos": 100.0,
+      "kcal": 896.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 99.5
+    },
+    {
+      "name": "Mantequilla",
+      "gramos": 100.0,
+      "kcal": 749.0,
+      "proteinas": 0.6,
+      "hc": 0,
+      "lipidos": 83.0
+    },
+    {
+      "name": "Mantequilla salada",
+      "gramos": 100.0,
+      "kcal": 749.0,
+      "proteinas": 0.6,
+      "hc": 0,
+      "lipidos": 83.0
+    },
+    {
+      "name": "Margarina",
+      "gramos": 100.0,
+      "kcal": 732.0,
+      "proteinas": 0.3,
+      "hc": 1.0,
+      "lipidos": 80.7
+    },
+    {
+      "name": "Margarina baja en calorias",
+      "gramos": 100.0,
+      "kcal": 378.0,
+      "proteinas": 0.7,
+      "hc": 0.5,
+      "lipidos": 41.5
+    }
+  ],
+  "Verduras y Hortalizas": [
+    {
+      "name": "Acedera",
+      "gramos": 100.0,
+      "kcal": 33.0,
+      "proteinas": 2.0,
+      "hc": 3.2,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Acelgas congeladas",
+      "gramos": 100.0,
+      "kcal": 41.0,
+      "proteinas": 2.0,
+      "hc": 4.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Acelgas frescas",
+      "gramos": 100.0,
+      "kcal": 41.0,
+      "proteinas": 2.0,
+      "hc": 4.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Achicoria",
+      "gramos": 100.0,
+      "kcal": 36.0,
+      "proteinas": 1.7,
+      "hc": 4.7,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Ajo",
+      "gramos": 100.0,
+      "kcal": 118.0,
+      "proteinas": 5.3,
+      "hc": 23.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Alcachofas congeladas",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 2.3,
+      "hc": 7.5,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Alcachofas en conserva",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 2.3,
+      "hc": 7.5,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Alcachofas frescas",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 2.3,
+      "hc": 7.5,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Algas kombu desecadas",
+      "gramos": 100.0,
+      "kcal": 160.0,
+      "proteinas": 7.1,
+      "hc": 0,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Algas musgo de Irlanda fresca",
+      "gramos": 100.0,
+      "kcal": 32.0,
+      "proteinas": 1.5,
+      "hc": 0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Algas nori desecadas",
+      "gramos": 100.0,
+      "kcal": 225.0,
+      "proteinas": 30.7,
+      "hc": 0,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Algas wakame desecadas",
+      "gramos": 100.0,
+      "kcal": 165.0,
+      "proteinas": 12.4,
+      "hc": 0,
+      "lipidos": 2.4
+    },
+    {
+      "name": "Algas wakame frescas",
+      "gramos": 100.0,
+      "kcal": 54.0,
+      "proteinas": 3.0,
+      "hc": 8.7,
+      "lipidos": 0.64
+    },
+    {
+      "name": "Apio",
+      "gramos": 100.0,
+      "kcal": 16.0,
+      "proteinas": 1.3,
+      "hc": 1.3,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Apio en conserva en salmuera",
+      "gramos": 100.0,
+      "kcal": 13.0,
+      "proteinas": 0.8,
+      "hc": 1.3,
+      "lipidos": 0
+    },
+    {
+      "name": "Batata",
+      "gramos": 100.0,
+      "kcal": 101.0,
+      "proteinas": 1.2,
+      "hc": 21.5,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Berenjena",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 1.2,
+      "hc": 4.4,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Berros",
+      "gramos": 100.0,
+      "kcal": 29.0,
+      "proteinas": 3.0,
+      "hc": 0.4,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Boniato",
+      "gramos": 100.0,
+      "kcal": 101.0,
+      "proteinas": 1.2,
+      "hc": 21.5,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Borraja",
+      "gramos": 100.0,
+      "kcal": 28.0,
+      "proteinas": 1.8,
+      "hc": 3.1,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Brecol",
+      "gramos": 100.0,
+      "kcal": 38.0,
+      "proteinas": 4.4,
+      "hc": 1.8,
+      "lipidos": 0.9
+    },
+    {
+      "name": "Brotes de bambu en conserva",
+      "gramos": 100.0,
+      "kcal": 26.0,
+      "proteinas": 1.7,
+      "hc": 3.2,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Brotes de bambú frescos",
+      "gramos": 100.0,
+      "kcal": 38.0,
+      "proteinas": 2.6,
+      "hc": 5.2,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Calabacín",
+      "gramos": 100.0,
+      "kcal": 14.0,
+      "proteinas": 0.6,
+      "hc": 2.2,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Calabaza",
+      "gramos": 100.0,
+      "kcal": 15.0,
+      "proteinas": 0.7,
+      "hc": 2.2,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Canónigos",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 1.8,
+      "hc": 0.7,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Cardo",
+      "gramos": 100.0,
+      "kcal": 23.0,
+      "proteinas": 1.4,
+      "hc": 3.5,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Cardo en conserva",
+      "gramos": 100.0,
+      "kcal": 23.0,
+      "proteinas": 1.4,
+      "hc": 3.5,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Cebollas blanca",
+      "gramos": 100.0,
+      "kcal": 23.0,
+      "proteinas": 1.4,
+      "hc": 3.5,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Cebolleta",
+      "gramos": 100.0,
+      "kcal": 29.0,
+      "proteinas": 1.4,
+      "hc": 5.1,
+      "lipidos": 0
+    },
+    {
+      "name": "Cebollino",
+      "gramos": 100.0,
+      "kcal": 29.0,
+      "proteinas": 3.0,
+      "hc": 1.9,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Chalota, escalonia",
+      "gramos": 100.0,
+      "kcal": 85.0,
+      "proteinas": 2.5,
+      "hc": 16.8,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Champiñon",
+      "gramos": 100.0,
+      "kcal": 31.0,
+      "proteinas": 1.8,
+      "hc": 4.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Champiñon en conseva",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 2.3,
+      "hc": 0.07,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Chirivía",
+      "gramos": 100.0,
+      "kcal": 70.0,
+      "proteinas": 1.8,
+      "hc": 11.1,
+      "lipidos": 1.1
+    },
+    {
+      "name": "Chucrut en conserva",
+      "gramos": 100.0,
+      "kcal": 23.0,
+      "proteinas": 1.5,
+      "hc": 2.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Col china",
+      "gramos": 100.0,
+      "kcal": 33.0,
+      "proteinas": 1.7,
+      "hc": 5.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Col rizada",
+      "gramos": 100.0,
+      "kcal": 35.0,
+      "proteinas": 2.1,
+      "hc": 3.9,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Coles",
+      "gramos": 100.0,
+      "kcal": 36.0,
+      "proteinas": 3.3,
+      "hc": 3.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Coles de Bruselas",
+      "gramos": 100.0,
+      "kcal": 51.0,
+      "proteinas": 3.5,
+      "hc": 4.1,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Coles de Bruselas congeladas",
+      "gramos": 100.0,
+      "kcal": 51.0,
+      "proteinas": 3.5,
+      "hc": 4.1,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Coliflor",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 2.2,
+      "hc": 3.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Coliflor congelada",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 2.2,
+      "hc": 3.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Endibia",
+      "gramos": 100.0,
+      "kcal": 12.9,
+      "proteinas": 1.2,
+      "hc": 0.95,
+      "lipidos": 0.23
+    },
+    {
+      "name": "Escarola",
+      "gramos": 100.0,
+      "kcal": 18.0,
+      "proteinas": 1.4,
+      "hc": 0.95,
+      "lipidos": 0.25
+    },
+    {
+      "name": "Espárrago blanco en conserva",
+      "gramos": 100.0,
+      "kcal": 26.0,
+      "proteinas": 1.9,
+      "hc": 3.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Espárrago blanco fresco",
+      "gramos": 100.0,
+      "kcal": 18.0,
+      "proteinas": 2.7,
+      "hc": 1.1,
+      "lipidos": 0
+    },
+    {
+      "name": "Espárrago verde fresco",
+      "gramos": 100.0,
+      "kcal": 28.0,
+      "proteinas": 2.9,
+      "hc": 2.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Espinacas",
+      "gramos": 100.0,
+      "kcal": 31.0,
+      "proteinas": 2.6,
+      "hc": 1.2,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Espinacas congeladas",
+      "gramos": 100.0,
+      "kcal": 31.0,
+      "proteinas": 2.6,
+      "hc": 1.2,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Espinacas en conserva",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 2.2,
+      "hc": 0.52,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Fécula de patata",
+      "gramos": 100.0,
+      "kcal": 375.0,
+      "proteinas": 6.9,
+      "hc": 83.1,
+      "lipidos": 0.34
+    },
+    {
+      "name": "Grelos",
+      "gramos": 100.0,
+      "kcal": 19.0,
+      "proteinas": 2.7,
+      "hc": 0.1,
+      "lipidos": 0
+    },
+    {
+      "name": "Hojas de parra",
+      "gramos": 100.0,
+      "kcal": 133.0,
+      "proteinas": 5.6,
+      "hc": 17.3,
+      "lipidos": 2.12
+    },
+    {
+      "name": "Hongos desecados, shiitake",
+      "gramos": 100.0,
+      "kcal": 372.0,
+      "proteinas": 9.6,
+      "hc": 75.4,
+      "lipidos": 0.99
+    },
+    {
+      "name": "Judías verdes",
+      "gramos": 100.0,
+      "kcal": 37.0,
+      "proteinas": 2.3,
+      "hc": 5.0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Judías verdes congeladas",
+      "gramos": 100.0,
+      "kcal": 37.0,
+      "proteinas": 2.3,
+      "hc": 5.0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Lechuga",
+      "gramos": 100.0,
+      "kcal": 13.6,
+      "proteinas": 1.34,
+      "hc": 1.4,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Lechuga romana",
+      "gramos": 100.0,
+      "kcal": 18.2,
+      "proteinas": 1.0,
+      "hc": 1.28,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Lechuga tipo iceberg",
+      "gramos": 100.0,
+      "kcal": 14.0,
+      "proteinas": 0.9,
+      "hc": 2.97,
+      "lipidos": 0.14
+    },
+    {
+      "name": "Lechuga, cogollos",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 1.5,
+      "hc": 1.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Lombarda",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 1.1,
+      "hc": 3.7,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Menestra congelada",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 3.3,
+      "hc": 6.6,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Nabizas",
+      "gramos": 100.0,
+      "kcal": 19.0,
+      "proteinas": 2.7,
+      "hc": 0.1,
+      "lipidos": 0
+    },
+    {
+      "name": "Nabos",
+      "gramos": 100.0,
+      "kcal": 32.0,
+      "proteinas": 0.8,
+      "hc": 5.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Níscalos",
+      "gramos": 100.0,
+      "kcal": 24.0,
+      "proteinas": 1.6,
+      "hc": 0.2,
+      "lipidos": 0.8
+    },
+    {
+      "name": "Palmito en conserva",
+      "gramos": 100.0,
+      "kcal": 53.0,
+      "proteinas": 2.8,
+      "hc": 8.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Patata (b)",
+      "gramos": 100.0,
+      "kcal": 88.0,
+      "proteinas": 2.5,
+      "hc": 18.0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Patata nueva (mayo a septiembre)",
+      "gramos": 100.0,
+      "kcal": 77.0,
+      "proteinas": 1.7,
+      "hc": 16.1,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Patata vieja (febrero a junio)",
+      "gramos": 100.0,
+      "kcal": 82.0,
+      "proteinas": 2.1,
+      "hc": 17.2,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Pepino",
+      "gramos": 100.0,
+      "kcal": 13.0,
+      "proteinas": 0.7,
+      "hc": 1.9,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Pimiento morrón",
+      "gramos": 100.0,
+      "kcal": 40.0,
+      "proteinas": 1.1,
+      "hc": 7.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Pimiento rojo",
+      "gramos": 100.0,
+      "kcal": 37.0,
+      "proteinas": 1.0,
+      "hc": 6.4,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Pimiento verde",
+      "gramos": 100.0,
+      "kcal": 23.0,
+      "proteinas": 0.9,
+      "hc": 3.7,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Puerro",
+      "gramos": 100.0,
+      "kcal": 48.0,
+      "proteinas": 2.0,
+      "hc": 7.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Puero en conserva",
+      "gramos": 100.0,
+      "kcal": 26.0,
+      "proteinas": 1.2,
+      "hc": 2.6,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Puré de patata en escamas sin reconstituir",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 9.1,
+      "hc": 73.2,
+      "lipidos": 0.8
+    },
+    {
+      "name": "Puré de patata reconstituido con agua",
+      "gramos": 100.0,
+      "kcal": 66.0,
+      "proteinas": 1.5,
+      "hc": 13.5,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Puré de patata reconstituido con leche",
+      "gramos": 100.0,
+      "kcal": 85.0,
+      "proteinas": 2.4,
+      "hc": 14.8,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Rábamos",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 1.0,
+      "hc": 2.7,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Remolacha",
+      "gramos": 100.0,
+      "kcal": 37.0,
+      "proteinas": 1.3,
+      "hc": 6.4,
+      "lipidos": 0
+    },
+    {
+      "name": "Remolacha en conserva",
+      "gramos": 100.0,
+      "kcal": 34.0,
+      "proteinas": 1.2,
+      "hc": 5.6,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Repollo",
+      "gramos": 100.0,
+      "kcal": 36.0,
+      "proteinas": 3.3,
+      "hc": 3.4,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Repollo chino",
+      "gramos": 100.0,
+      "kcal": 19.0,
+      "proteinas": 0.8,
+      "hc": 2.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Rúcula",
+      "gramos": 100.0,
+      "kcal": 34.0,
+      "proteinas": 2.6,
+      "hc": 3.7,
+      "lipidos": 0.66
+    },
+    {
+      "name": "Setas",
+      "gramos": 100.0,
+      "kcal": 31.0,
+      "proteinas": 1.8,
+      "hc": 4.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Tapioca (harina)",
+      "gramos": 100.0,
+      "kcal": 382.0,
+      "proteinas": 0.5,
+      "hc": 94.3,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Tomate",
+      "gramos": 100.0,
+      "kcal": 22.0,
+      "proteinas": 1.0,
+      "hc": 3.5,
+      "lipidos": 0.11
+    },
+    {
+      "name": "Tomate al natural enlatado",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 1.1,
+      "hc": 2.3,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Tomate cherry",
+      "gramos": 100.0,
+      "kcal": 29.4,
+      "proteinas": 0.8,
+      "hc": 5.0,
+      "lipidos": 0.8
+    },
+    {
+      "name": "Trufa cruda",
+      "gramos": 100.0,
+      "kcal": 126.0,
+      "proteinas": 9.0,
+      "hc": 13.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Wasabi, raíz",
+      "gramos": 100.0,
+      "kcal": 135.0,
+      "proteinas": 4.8,
+      "hc": 23.5,
+      "lipidos": 0.63
+    },
+    {
+      "name": "Yuca, mandioca, casava",
+      "gramos": 100.0,
+      "kcal": 164.0,
+      "proteinas": 1.4,
+      "hc": 38.1,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Zanahoria",
+      "gramos": 100.0,
+      "kcal": 40.0,
+      "proteinas": 0.9,
+      "hc": 7.3,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Zanahoria en conserva",
+      "gramos": 100.0,
+      "kcal": 29.0,
+      "proteinas": 0.6,
+      "hc": 4.4,
+      "lipidos": 0.4
+    }
+  ],
+  "Legumbres": [
+    {
+      "name": "Altramuces",
+      "gramos": 100.0,
+      "kcal": 394.0,
+      "proteinas": 36.2,
+      "hc": 40.4,
+      "lipidos": 9.74
+    },
+    {
+      "name": "Alubias",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 19.0,
+      "hc": 52.5,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Arveja",
+      "gramos": 100.0,
+      "kcal": 342.0,
+      "proteinas": 24.6,
+      "hc": 45.4,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Brotes de lenteja",
+      "gramos": 100.0,
+      "kcal": 129.0,
+      "proteinas": 9.0,
+      "hc": 22.1,
+      "lipidos": 0.55
+    },
+    {
+      "name": "Frijol negro",
+      "gramos": 100.0,
+      "kcal": 364.0,
+      "proteinas": 22.7,
+      "hc": 55.6,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Frijol rojo o poroto",
+      "gramos": 100.0,
+      "kcal": 368.0,
+      "proteinas": 22.5,
+      "hc": 59.5,
+      "lipidos": 1.1
+    },
+    {
+      "name": "Garbanzo",
+      "gramos": 100.0,
+      "kcal": 373.0,
+      "proteinas": 19.4,
+      "hc": 55.0,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Garrofón seco",
+      "gramos": 100.0,
+      "kcal": 384.0,
+      "proteinas": 21.5,
+      "hc": 63.4,
+      "lipidos": 0.69
+    },
+    {
+      "name": "Guisante congelado",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 5.3,
+      "hc": 10.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Guisante en conserva",
+      "gramos": 100.0,
+      "kcal": 72.0,
+      "proteinas": 5.6,
+      "hc": 9.7,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Guisante fresco con vaina",
+      "gramos": 100.0,
+      "kcal": 91.0,
+      "proteinas": 6.0,
+      "hc": 13.1,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Guisante fresco desgranado",
+      "gramos": 100.0,
+      "kcal": 91.0,
+      "proteinas": 6.0,
+      "hc": 13.1,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Guisante  seco",
+      "gramos": 100.0,
+      "kcal": 365.0,
+      "proteinas": 21.6,
+      "hc": 56.0,
+      "lipidos": 2.3
+    },
+    {
+      "name": "Habas frescas con vaina",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 4.6,
+      "hc": 8.6,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Habas frescas  desgranadas",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 4.6,
+      "hc": 8.6,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Habas secas",
+      "gramos": 100.0,
+      "kcal": 372.0,
+      "proteinas": 23.0,
+      "hc": 56.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Harina de algarrobo",
+      "gramos": 100.0,
+      "kcal": 459.0,
+      "proteinas": 4.6,
+      "hc": 88.9,
+      "lipidos": 0.65
+    },
+    {
+      "name": "Harina d Soja",
+      "gramos": 100.0,
+      "kcal": 475.0,
+      "proteinas": 36.8,
+      "hc": 23.5,
+      "lipidos": 23.5
+    },
+    {
+      "name": "Judías blancas en conserva",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 6.7,
+      "hc": 15.7,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Judías blancas, judías pintas",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 19.0,
+      "hc": 52.5,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Leche de Soja",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 32.0,
+      "hc": 0.8,
+      "lipidos": 1.9
+    },
+    {
+      "name": "Lenteja",
+      "gramos": 100.0,
+      "kcal": 351.0,
+      "proteinas": 23.8,
+      "hc": 54.0,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Lenteja en conserva",
+      "gramos": 100.0,
+      "kcal": 83.0,
+      "proteinas": 6.3,
+      "hc": 11.4,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Miso",
+      "gramos": 100.0,
+      "kcal": 218.0,
+      "proteinas": 11.7,
+      "hc": 26.5,
+      "lipidos": 6.01
+    },
+    {
+      "name": "Salsicha vegetales",
+      "gramos": 100.0,
+      "kcal": 283.0,
+      "proteinas": 18.5,
+      "hc": 9.8,
+      "lipidos": 18.16
+    },
+    {
+      "name": "Soja seca",
+      "gramos": 100.0,
+      "kcal": 406.0,
+      "proteinas": 35.9,
+      "hc": 15.8,
+      "lipidos": 18.6
+    },
+    {
+      "name": "Soja, brotes, en conserva",
+      "gramos": 100.0,
+      "kcal": 55.0,
+      "proteinas": 5.5,
+      "hc": 4.7,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Tempeh",
+      "gramos": 100.0,
+      "kcal": 209.0,
+      "proteinas": 18.5,
+      "hc": 9.4,
+      "lipidos": 10.8
+    },
+    {
+      "name": "Tofu",
+      "gramos": 100.0,
+      "kcal": 74.0,
+      "proteinas": 8.1,
+      "hc": 0.7,
+      "lipidos": 4.2
+    }
+  ],
+  "Frutas ": [
+    {
+      "name": "Aguacate",
+      "gramos": 100.0,
+      "kcal": 141.0,
+      "proteinas": 1.5,
+      "hc": 5.9,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Albaricoque",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 0.8,
+      "hc": 9.5,
+      "lipidos": 0
+    },
+    {
+      "name": "Arándano",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.6,
+      "hc": 6.1,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Caqui, kaki o palosanto",
+      "gramos": 100.0,
+      "kcal": 73.0,
+      "proteinas": 0.7,
+      "hc": 16.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Cerezas, guindas",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 0.8,
+      "hc": 13.5,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Chirimoya",
+      "gramos": 100.0,
+      "kcal": 90.0,
+      "proteinas": 1.0,
+      "hc": 20.0,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Ciruela",
+      "gramos": 100.0,
+      "kcal": 51.0,
+      "proteinas": 0.6,
+      "hc": 11.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Ciruela amarilla",
+      "gramos": 100.0,
+      "kcal": 61.8,
+      "proteinas": 0.72,
+      "hc": 12.4,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Ciruela Claudia",
+      "gramos": 100.0,
+      "kcal": 48.7,
+      "proteinas": 0.8,
+      "hc": 9.6,
+      "lipidos": 0.28
+    },
+    {
+      "name": "Frambuesa",
+      "gramos": 100.0,
+      "kcal": 40.0,
+      "proteinas": 1.4,
+      "hc": 4.6,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Fresa, fresón",
+      "gramos": 100.0,
+      "kcal": 40.0,
+      "proteinas": 0.7,
+      "hc": 7.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Granada",
+      "gramos": 100.0,
+      "kcal": 34.0,
+      "proteinas": 0.7,
+      "hc": 7.5,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Grosella negra",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 1.3,
+      "hc": 6.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Grosella roja",
+      "gramos": 100.0,
+      "kcal": 32.0,
+      "proteinas": 1.1,
+      "hc": 4.8,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Guayaba",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.9,
+      "hc": 5.8,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Higos, brevas",
+      "gramos": 100.0,
+      "kcal": 74.0,
+      "proteinas": 1.2,
+      "hc": 16.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Kiwi",
+      "gramos": 100.0,
+      "kcal": 55.0,
+      "proteinas": 1.1,
+      "hc": 10.6,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Lichi",
+      "gramos": 100.0,
+      "kcal": 75.0,
+      "proteinas": 0.8,
+      "hc": 16.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Lichi en conserva",
+      "gramos": 100.0,
+      "kcal": 121.0,
+      "proteinas": 0.9,
+      "hc": 27.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Lichi, pulpa, crudo",
+      "gramos": 100.0,
+      "kcal": 69.4,
+      "proteinas": 0.815,
+      "hc": 14.0,
+      "lipidos": 0.42
+    },
+    {
+      "name": "Lima",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 0.5,
+      "hc": 1.9,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Limón",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 0.7,
+      "hc": 9.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Mandarina",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 0.8,
+      "hc": 9.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Mango",
+      "gramos": 100.0,
+      "kcal": 67.0,
+      "proteinas": 0.7,
+      "hc": 14.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Manzana",
+      "gramos": 100.0,
+      "kcal": 53.0,
+      "proteinas": 0.3,
+      "hc": 12.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Manzana al horno(con piel)",
+      "gramos": 100.0,
+      "kcal": 54.0,
+      "proteinas": 0.5,
+      "hc": 12.9,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Maracuyá (fruta de la pasión)",
+      "gramos": 100.0,
+      "kcal": 54.0,
+      "proteinas": 2.4,
+      "hc": 9.5,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Melocotón",
+      "gramos": 100.0,
+      "kcal": 41.0,
+      "proteinas": 0.6,
+      "hc": 9.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Melón",
+      "gramos": 100.0,
+      "kcal": 28.0,
+      "proteinas": 0.6,
+      "hc": 6.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Melón tipo Cantaloupe",
+      "gramos": 100.0,
+      "kcal": 35.0,
+      "proteinas": 0.7,
+      "hc": 7.4,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Membrillo",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.4,
+      "hc": 6.8,
+      "lipidos": 0
+    },
+    {
+      "name": "Mora",
+      "gramos": 100.0,
+      "kcal": 39.0,
+      "proteinas": 0.9,
+      "hc": 5.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Naranja",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.8,
+      "hc": 8.6,
+      "lipidos": 0
+    },
+    {
+      "name": "Nectarina",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 1.4,
+      "hc": 9.0,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Níspero",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 0.4,
+      "hc": 10.6,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Papaya",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 0.5,
+      "hc": 8.8,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Pera",
+      "gramos": 100.0,
+      "kcal": 49.0,
+      "proteinas": 0.4,
+      "hc": 10.6,
+      "lipidos": 0
+    },
+    {
+      "name": "Picotas",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 0.8,
+      "hc": 13.5,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Piña",
+      "gramos": 100.0,
+      "kcal": 50.0,
+      "proteinas": 0.5,
+      "hc": 11.5,
+      "lipidos": 0
+    },
+    {
+      "name": "Plátano",
+      "gramos": 100.0,
+      "kcal": 94.0,
+      "proteinas": 1.2,
+      "hc": 20.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Plátano macho o hartón",
+      "gramos": 100.0,
+      "kcal": 141.0,
+      "proteinas": 1.3,
+      "hc": 31.9,
+      "lipidos": 0.37
+    },
+    {
+      "name": "Pomelo",
+      "gramos": 100.0,
+      "kcal": 35.0,
+      "proteinas": 0.8,
+      "hc": 6.8,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Sandía",
+      "gramos": 100.0,
+      "kcal": 21.0,
+      "proteinas": 0.4,
+      "hc": 4.5,
+      "lipidos": 0
+    },
+    {
+      "name": "Tamarindo",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 2.8,
+      "hc": 62.5,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Tamarindo, pulpa",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 2.8,
+      "hc": 62.5,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Uvas blancas",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 0.6,
+      "hc": 16.1,
+      "lipidos": 0
+    },
+    {
+      "name": "Uvas negras",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 0.6,
+      "hc": 15.5,
+      "lipidos": 0
+    },
+    {
+      "name": "Conservas de frutas",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Macedonia de frutas en almibar",
+      "gramos": 100.0,
+      "kcal": 63.0,
+      "proteinas": 0.4,
+      "hc": 14.8,
+      "lipidos": 0
+    },
+    {
+      "name": "Macedonia de frutas en su jugo",
+      "gramos": 100.0,
+      "kcal": 32.0,
+      "proteinas": 0.4,
+      "hc": 7.2,
+      "lipidos": 0
+    },
+    {
+      "name": "Melocotón en almibar",
+      "gramos": 100.0,
+      "kcal": 92.0,
+      "proteinas": 0.4,
+      "hc": 22.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Pera en almibar",
+      "gramos": 100.0,
+      "kcal": 67.0,
+      "proteinas": 0.3,
+      "hc": 16.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Piña en almibar",
+      "gramos": 100.0,
+      "kcal": 87.0,
+      "proteinas": 0.3,
+      "hc": 21.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Piña enlatada en su jugo",
+      "gramos": 100.0,
+      "kcal": 52.0,
+      "proteinas": 0.3,
+      "hc": 12.2,
+      "lipidos": 0
+    },
+    {
+      "name": "Frutas desecadas",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Albaricoque desecado (orejones)",
+      "gramos": 100.0,
+      "kcal": 2.42,
+      "proteinas": 4.8,
+      "hc": 43.4,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Ciruela seca con hueso",
+      "gramos": 100.0,
+      "kcal": 201.0,
+      "proteinas": 2.3,
+      "hc": 40.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Ciruela seca sin hueso",
+      "gramos": 100.0,
+      "kcal": 201.0,
+      "proteinas": 2.3,
+      "hc": 40.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Dátil seco con hueso",
+      "gramos": 100.0,
+      "kcal": 314.0,
+      "proteinas": 2.2,
+      "hc": 71.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Dátil seco sin hueso",
+      "gramos": 100.0,
+      "kcal": 314.0,
+      "proteinas": 2.2,
+      "hc": 71.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Higos secos",
+      "gramos": 100.0,
+      "kcal": 281.0,
+      "proteinas": 3.5,
+      "hc": 53.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Pasas",
+      "gramos": 100.0,
+      "kcal": 286.0,
+      "proteinas": 1.4,
+      "hc": 66.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Frutos secos y semillas",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Almendra frita salada",
+      "gramos": 100.0,
+      "kcal": 628.0,
+      "proteinas": 19.0,
+      "hc": 4.5,
+      "lipidos": 55.96
+    },
+    {
+      "name": "Almendra sin cáscara",
+      "gramos": 100.0,
+      "kcal": 604.0,
+      "proteinas": 19.0,
+      "hc": 4.5,
+      "lipidos": 53.5
+    },
+    {
+      "name": "Almendra tostada",
+      "gramos": 100.0,
+      "kcal": 648.0,
+      "proteinas": 21.2,
+      "hc": 6.6,
+      "lipidos": 56.7
+    },
+    {
+      "name": "Anacardo sin cáscara",
+      "gramos": 100.0,
+      "kcal": 584.0,
+      "proteinas": 17.5,
+      "hc": 32.0,
+      "lipidos": 42.2
+    },
+    {
+      "name": "avellana sin cáscara",
+      "gramos": 100.0,
+      "kcal": 587.0,
+      "proteinas": 14.1,
+      "hc": 5.3,
+      "lipidos": 54.4
+    },
+    {
+      "name": "cacahuete cubierto de chocolate",
+      "gramos": 100.0,
+      "kcal": 514.0,
+      "proteinas": 9.36,
+      "hc": 60.5,
+      "lipidos": 25.4
+    },
+    {
+      "name": "cacahuete sin cáscara",
+      "gramos": 100.0,
+      "kcal": 599.0,
+      "proteinas": 27.0,
+      "hc": 8.5,
+      "lipidos": 49.0
+    },
+    {
+      "name": "cacahuete tostado y salado, sin cáscara",
+      "gramos": 100.0,
+      "kcal": 598.0,
+      "proteinas": 27.3,
+      "hc": 9.7,
+      "lipidos": 47.4
+    },
+    {
+      "name": "Crema de cacahuete",
+      "gramos": 100.0,
+      "kcal": 619.0,
+      "proteinas": 25.5,
+      "hc": 11.2,
+      "lipidos": 50.9
+    },
+    {
+      "name": "castaña",
+      "gramos": 100.0,
+      "kcal": 209.0,
+      "proteinas": 3.0,
+      "hc": 40.0,
+      "lipidos": 2.6
+    },
+    {
+      "name": "castaña asada",
+      "gramos": 100.0,
+      "kcal": 237.0,
+      "proteinas": 4.0,
+      "hc": 39.7,
+      "lipidos": 5.3
+    },
+    {
+      "name": "castaña, puré",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 2.0,
+      "hc": 27.8,
+      "lipidos": 1.38
+    },
+    {
+      "name": "chufa",
+      "gramos": 100.0,
+      "kcal": 443.0,
+      "proteinas": 6.1,
+      "hc": 42.5,
+      "lipidos": 23.7
+    },
+    {
+      "name": "coco fresco",
+      "gramos": 100.0,
+      "kcal": 373.0,
+      "proteinas": 3.2,
+      "hc": 3.7,
+      "lipidos": 36.0
+    },
+    {
+      "name": "coco rallado",
+      "gramos": 100.0,
+      "kcal": 648.0,
+      "proteinas": 5.6,
+      "hc": 6.4,
+      "lipidos": 62.0
+    },
+    {
+      "name": "coco, agua",
+      "gramos": 100.0,
+      "kcal": 17.0,
+      "proteinas": 0.7,
+      "hc": 2.6,
+      "lipidos": 0.2
+    },
+    {
+      "name": "coco, leche",
+      "gramos": 100.0,
+      "kcal": 241.0,
+      "proteinas": 2.3,
+      "hc": 3.3,
+      "lipidos": 23.8
+    },
+    {
+      "name": "frutos secos, mezcla",
+      "gramos": 100.0,
+      "kcal": 625.0,
+      "proteinas": 22.9,
+      "hc": 7.9,
+      "lipidos": 54.1
+    },
+    {
+      "name": "nueces con cascara",
+      "gramos": 100.0,
+      "kcal": 611.0,
+      "proteinas": 14.0,
+      "hc": 3.3,
+      "lipidos": 59.0
+    },
+    {
+      "name": "nueces de brazil sin cascara",
+      "gramos": 100.0,
+      "kcal": 697.0,
+      "proteinas": 14.4,
+      "hc": 2.73,
+      "lipidos": 68.2
+    },
+    {
+      "name": "nueces de macadamia sin cascara",
+      "gramos": 100.0,
+      "kcal": 744.0,
+      "proteinas": 7.9,
+      "hc": 4.8,
+      "lipidos": 75.8
+    },
+    {
+      "name": "nueces pecanas sin cascara",
+      "gramos": 100.0,
+      "kcal": 737.0,
+      "proteinas": 9.3,
+      "hc": 2.94,
+      "lipidos": 73.8
+    },
+    {
+      "name": "nueces sin cascara",
+      "gramos": 100.0,
+      "kcal": 611.0,
+      "proteinas": 14.0,
+      "hc": 3.3,
+      "lipidos": 59.0
+    },
+    {
+      "name": "piñones sin cascara",
+      "gramos": 100.0,
+      "kcal": 693.0,
+      "proteinas": 14.0,
+      "hc": 4.0,
+      "lipidos": 68.6
+    },
+    {
+      "name": "pipas de calabaza seca con cascaras",
+      "gramos": 100.0,
+      "kcal": 617.0,
+      "proteinas": 30.2,
+      "hc": 10.7,
+      "lipidos": 49.1
+    },
+    {
+      "name": "pipas de calabaza sin cascara tostadas sin sal",
+      "gramos": 100.0,
+      "kcal": 633.0,
+      "proteinas": 29.9,
+      "hc": 14.7,
+      "lipidos": 49.1
+    },
+    {
+      "name": "pipas de girasol con cascara",
+      "gramos": 100.0,
+      "kcal": 580.0,
+      "proteinas": 27.0,
+      "hc": 20.0,
+      "lipidos": 43.0
+    },
+    {
+      "name": "pipas de girasol sin cascara",
+      "gramos": 100.0,
+      "kcal": 580.0,
+      "proteinas": 27.0,
+      "hc": 20.0,
+      "lipidos": 43.0
+    },
+    {
+      "name": "pistachos con cascara",
+      "gramos": 100.0,
+      "kcal": 611.0,
+      "proteinas": 17.6,
+      "hc": 15.7,
+      "lipidos": 51.6
+    },
+    {
+      "name": "pistachos tostado, salado, cascara",
+      "gramos": 100.0,
+      "kcal": 616.0,
+      "proteinas": 18.0,
+      "hc": 12.6,
+      "lipidos": 53.0
+    },
+    {
+      "name": "sesamo, semilla ajonjoli",
+      "gramos": 100.0,
+      "kcal": 614.0,
+      "proteinas": 18.2,
+      "hc": 0.9,
+      "lipidos": 58.0
+    },
+    {
+      "name": "tahine o pasta de sesamo",
+      "gramos": 100.0,
+      "kcal": 642.0,
+      "proteinas": 17.4,
+      "hc": 21.5,
+      "lipidos": 53.0
+    },
+    {
+      "name": "Semilla de chía",
+      "gramos": 100.0,
+      "kcal": 486.0,
+      "proteinas": 16.54,
+      "hc": 42.12,
+      "lipidos": 30.74
+    }
+  ],
+  "Carnes y productos cárnicos": [
+    {
+      "name": "CERDO",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Beicon o panceta ahumada",
+      "gramos": 100.0,
+      "kcal": 301.0,
+      "proteinas": 16.0,
+      "hc": 0.5,
+      "lipidos": 26.1
+    },
+    {
+      "name": "Cerdo, carne madra",
+      "gramos": 100.0,
+      "kcal": 155.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 8.3
+    },
+    {
+      "name": "Cerdo, carne semigrasa",
+      "gramos": 100.0,
+      "kcal": 273.0,
+      "proteinas": 16.6,
+      "hc": 0.0,
+      "lipidos": 23.0
+    },
+    {
+      "name": "Cerdo, chuleta",
+      "gramos": 100.0,
+      "kcal": 327.0,
+      "proteinas": 15.4,
+      "hc": 0.0,
+      "lipidos": 29.5
+    },
+    {
+      "name": "Cerdo, lomo (3% grasa)",
+      "gramos": 100.0,
+      "kcal": 104.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 2.65
+    },
+    {
+      "name": "Cerdo, lomo (9% grasa)",
+      "gramos": 100.0,
+      "kcal": 152.0,
+      "proteinas": 18.0,
+      "hc": 0.0,
+      "lipidos": 8.85
+    },
+    {
+      "name": "Cerdo, paletilla",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 21.5,
+      "hc": 0.0,
+      "lipidos": 29.2
+    },
+    {
+      "name": "Cerdo, solomillo",
+      "gramos": 100.0,
+      "kcal": 130.0,
+      "proteinas": 21.0,
+      "hc": 0.0,
+      "lipidos": 5.1
+    },
+    {
+      "name": "Panceta",
+      "gramos": 100.0,
+      "kcal": 469.0,
+      "proteinas": 12.5,
+      "hc": 0.0,
+      "lipidos": 46.6
+    },
+    {
+      "name": "Tocino",
+      "gramos": 100.0,
+      "kcal": 673.0,
+      "proteinas": 8.4,
+      "hc": 0.0,
+      "lipidos": 71.0
+    },
+    {
+      "name": "CORDERO",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Cordero, chuleta",
+      "gramos": 100.0,
+      "kcal": 225.0,
+      "proteinas": 18.0,
+      "hc": 0.0,
+      "lipidos": 17.0
+    },
+    {
+      "name": "Cordero, otras piezas",
+      "gramos": 100.0,
+      "kcal": 357.0,
+      "proteinas": 15.6,
+      "hc": 0.0,
+      "lipidos": 32.7
+    },
+    {
+      "name": "Cordero, pierna  paletilla",
+      "gramos": 100.0,
+      "kcal": 240.0,
+      "proteinas": 17.9,
+      "hc": 0.0,
+      "lipidos": 18.7
+    },
+    {
+      "name": "VACUNO",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Buey, solomillo",
+      "gramos": 100.0,
+      "kcal": 104.0,
+      "proteinas": 18.2,
+      "hc": 0.0,
+      "lipidos": 3.5
+    },
+    {
+      "name": "Rabo de toro",
+      "gramos": 100.0,
+      "kcal": 200.0,
+      "proteinas": 18.6,
+      "hc": 0.0,
+      "lipidos": 14.0
+    },
+    {
+      "name": "Ternera, carne magra",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 20.7,
+      "hc": 0.0,
+      "lipidos": 5.4
+    },
+    {
+      "name": "Ternera, carne semigrasa",
+      "gramos": 100.0,
+      "kcal": 256.0,
+      "proteinas": 16.7,
+      "hc": 0.0,
+      "lipidos": 21.0
+    },
+    {
+      "name": "Ternera, chuleta",
+      "gramos": 100.0,
+      "kcal": 253.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 20.5
+    },
+    {
+      "name": "AVES",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Avestruz, filete",
+      "gramos": 100.0,
+      "kcal": 117.0,
+      "proteinas": 22.1,
+      "hc": 0.0,
+      "lipidos": 3.19
+    },
+    {
+      "name": "Capón asado",
+      "gramos": 100.0,
+      "kcal": 221.0,
+      "proteinas": 29.0,
+      "hc": 0.0,
+      "lipidos": 11.7
+    },
+    {
+      "name": "Codorniz",
+      "gramos": 100.0,
+      "kcal": 106.0,
+      "proteinas": 23.0,
+      "hc": 0.0,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Gallina",
+      "gramos": 100.0,
+      "kcal": 167.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 9.7
+    },
+    {
+      "name": "Oca, deshuesada, sin piel",
+      "gramos": 100.0,
+      "kcal": 155.0,
+      "proteinas": 22.8,
+      "hc": 0.0,
+      "lipidos": 7.13
+    },
+    {
+      "name": "Oca, entera",
+      "gramos": 100.0,
+      "kcal": 366.0,
+      "proteinas": 15.9,
+      "hc": 0.0,
+      "lipidos": 33.6
+    },
+    {
+      "name": "Paloma",
+      "gramos": 100.0,
+      "kcal": 288.0,
+      "proteinas": 18.65,
+      "hc": 0.0,
+      "lipidos": 23.8
+    },
+    {
+      "name": "Pato",
+      "gramos": 100.0,
+      "kcal": 214.0,
+      "proteinas": 22.0,
+      "hc": 0.0,
+      "lipidos": 14.0
+    },
+    {
+      "name": "Pavo, deshuesado, sin piel",
+      "gramos": 100.0,
+      "kcal": 107.0,
+      "proteinas": 21.9,
+      "hc": 0.0,
+      "lipidos": 2.2
+    },
+    {
+      "name": "Pavo, muslo con piel",
+      "gramos": 100.0,
+      "kcal": 151.0,
+      "proteinas": 18.9,
+      "hc": 0.0,
+      "lipidos": 8.36
+    },
+    {
+      "name": "Pavo, pechuga sin piel",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 21.9,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Pavo, sin piel",
+      "gramos": 100.0,
+      "kcal": 109.0,
+      "proteinas": 21.9,
+      "hc": 0.0,
+      "lipidos": 2.4
+    },
+    {
+      "name": "Perdiz",
+      "gramos": 100.0,
+      "kcal": 106.0,
+      "proteinas": 23.0,
+      "hc": 0.0,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Pollo",
+      "gramos": 100.0,
+      "kcal": 167.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 9.7
+    },
+    {
+      "name": "Pollo, pechuga",
+      "gramos": 100.0,
+      "kcal": 112.0,
+      "proteinas": 21.8,
+      "hc": 0.0,
+      "lipidos": 2.8
+    },
+    {
+      "name": "OTRAS CARNES",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Ballena, carne de",
+      "gramos": 100.0,
+      "kcal": 123.0,
+      "proteinas": 23.2,
+      "hc": 0.0,
+      "lipidos": 3.38
+    },
+    {
+      "name": "Caballo, carne de",
+      "gramos": 100.0,
+      "kcal": 93.0,
+      "proteinas": 21.0,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Cabrito",
+      "gramos": 100.0,
+      "kcal": 113.0,
+      "proteinas": 19.3,
+      "hc": 0.0,
+      "lipidos": 4.0
+    },
+    {
+      "name": "Carne de venado magra deshuesada",
+      "gramos": 100.0,
+      "kcal": 103.0,
+      "proteinas": 22.2,
+      "hc": 0.0,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Carne picada",
+      "gramos": 100.0,
+      "kcal": 245.0,
+      "proteinas": 15.2,
+      "hc": 0.0,
+      "lipidos": 20.5
+    },
+    {
+      "name": "Conejo, liebre",
+      "gramos": 100.0,
+      "kcal": 133.0,
+      "proteinas": 23.0,
+      "hc": 0.0,
+      "lipidos": 4.6
+    },
+    {
+      "name": "Jabalí, carne de",
+      "gramos": 100.0,
+      "kcal": 109.0,
+      "proteinas": 19.5,
+      "hc": 0.0,
+      "lipidos": 3.4
+    },
+    {
+      "name": "VISCERAS Y DESPOJOS",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Callos de ternera",
+      "gramos": 100.0,
+      "kcal": 81.0,
+      "proteinas": 14.6,
+      "hc": 0.0,
+      "lipidos": 2.5
+    },
+    {
+      "name": "Hígado de cerdo",
+      "gramos": 100.0,
+      "kcal": 135.0,
+      "proteinas": 21.0,
+      "hc": 1.5,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Hígado de ternera",
+      "gramos": 100.0,
+      "kcal": 132.0,
+      "proteinas": 20.5,
+      "hc": 1.6,
+      "lipidos": 4.8
+    },
+    {
+      "name": "Lengua de ternera",
+      "gramos": 100.0,
+      "kcal": 190.0,
+      "proteinas": 16.8,
+      "hc": 0.0,
+      "lipidos": 23.6
+    },
+    {
+      "name": "Mollejas de cordero",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 15.3,
+      "hc": 0.0,
+      "lipidos": 7.8
+    },
+    {
+      "name": "Riñones",
+      "gramos": 100.0,
+      "kcal": 110.0,
+      "proteinas": 16.0,
+      "hc": 0.0,
+      "lipidos": 5.1
+    },
+    {
+      "name": "Sangre de cerdo",
+      "gramos": 100.0,
+      "kcal": 81.0,
+      "proteinas": 18.0,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Sesos de cordero",
+      "gramos": 100.0,
+      "kcal": 113.0,
+      "proteinas": 10.3,
+      "hc": 0.0,
+      "lipidos": 8.0
+    },
+    {
+      "name": "EMBUTIDOS Y OTROS PRODUCTOS CÁRNICOS",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Butifarra",
+      "gramos": 100.0,
+      "kcal": 265.0,
+      "proteinas": 15.0,
+      "hc": 5.5,
+      "lipidos": 20.3
+    },
+    {
+      "name": "Cabeza de cerdo",
+      "gramos": 100.0,
+      "kcal": 540.0,
+      "proteinas": 20.4,
+      "hc": 0.8,
+      "lipidos": 50.6
+    },
+    {
+      "name": "Cabeza de jabalí",
+      "gramos": 100.0,
+      "kcal": 540.0,
+      "proteinas": 20.4,
+      "hc": 0.8,
+      "lipidos": 50.6
+    },
+    {
+      "name": "Chicharrones",
+      "gramos": 100.0,
+      "kcal": 540.0,
+      "proteinas": 20.4,
+      "hc": 0.8,
+      "lipidos": 50.6
+    },
+    {
+      "name": "Chistorra",
+      "gramos": 100.0,
+      "kcal": 514.0,
+      "proteinas": 17.4,
+      "hc": 0.9,
+      "lipidos": 49.0
+    },
+    {
+      "name": "Chóped",
+      "gramos": 100.0,
+      "kcal": 311.0,
+      "proteinas": 14.0,
+      "hc": 3.0,
+      "lipidos": 27.0
+    },
+    {
+      "name": "Chorizo (21% grasa)",
+      "gramos": 100.0,
+      "kcal": 285.0,
+      "proteinas": 22.0,
+      "hc": 2.0,
+      "lipidos": 21.0
+    },
+    {
+      "name": "Chorizo (32% grasa)",
+      "gramos": 100.0,
+      "kcal": 385.0,
+      "proteinas": 22.0,
+      "hc": 2.0,
+      "lipidos": 32.1
+    },
+    {
+      "name": "Foie-gras de hígado de cerdo (30% grasa) (f)",
+      "gramos": 100.0,
+      "kcal": 342.0,
+      "proteinas": 14.0,
+      "hc": 5.0,
+      "lipidos": 29.5
+    },
+    {
+      "name": "Foie-gras de hígado de cerdo (42% grasa) (f)",
+      "gramos": 100.0,
+      "kcal": 454.0,
+      "proteinas": 14.0,
+      "hc": 5.0,
+      "lipidos": 42.0
+    },
+    {
+      "name": "Fuet",
+      "gramos": 100.0,
+      "kcal": 400.0,
+      "proteinas": 30.2,
+      "hc": 0.0,
+      "lipidos": 31.0
+    },
+    {
+      "name": "Jamón cocido (York, dulce, etc.)",
+      "gramos": 100.0,
+      "kcal": 175.0,
+      "proteinas": 18.4,
+      "hc": 1.0,
+      "lipidos": 10.8
+    },
+    {
+      "name": "Jamón ibérico",
+      "gramos": 100.0,
+      "kcal": 254.0,
+      "proteinas": 30.5,
+      "hc": 0.0,
+      "lipidos": 14.7
+    },
+    {
+      "name": "Jamón serrano",
+      "gramos": 100.0,
+      "kcal": 241.0,
+      "proteinas": 31.0,
+      "hc": 0.0,
+      "lipidos": 13.0
+    },
+    {
+      "name": "Jamón serrano magro",
+      "gramos": 100.0,
+      "kcal": 163.0,
+      "proteinas": 30.5,
+      "hc": 0.0,
+      "lipidos": 4.5
+    },
+    {
+      "name": "Lacón",
+      "gramos": 100.0,
+      "kcal": 349.0,
+      "proteinas": 21.5,
+      "hc": 0.0,
+      "lipidos": 29.2
+    },
+    {
+      "name": "Lomo embuchado",
+      "gramos": 100.0,
+      "kcal": 386.0,
+      "proteinas": 50.0,
+      "hc": 0.0,
+      "lipidos": 20.7
+    },
+    {
+      "name": "Morcilla",
+      "gramos": 100.0,
+      "kcal": 446.0,
+      "proteinas": 19.5,
+      "hc": 3.0,
+      "lipidos": 39.5
+    },
+    {
+      "name": "Mortadela",
+      "gramos": 100.0,
+      "kcal": 311.0,
+      "proteinas": 14.0,
+      "hc": 3.0,
+      "lipidos": 27.0
+    },
+    {
+      "name": "Paté de hígado de cerdo (30% grasa) (f)",
+      "gramos": 100.0,
+      "kcal": 342.0,
+      "proteinas": 14.0,
+      "hc": 5.0,
+      "lipidos": 29.5
+    },
+    {
+      "name": "Paté de hígado de cerdo (42% grasa) (f)",
+      "gramos": 100.0,
+      "kcal": 454.0,
+      "proteinas": 14.0,
+      "hc": 5.0,
+      "lipidos": 42.0
+    },
+    {
+      "name": "Pavo, pechuga sin piel",
+      "gramos": 100.0,
+      "kcal": 96.0,
+      "proteinas": 21.8,
+      "hc": 0.0,
+      "lipidos": 0.99
+    },
+    {
+      "name": "Salami",
+      "gramos": 100.0,
+      "kcal": 459.0,
+      "proteinas": 18.5,
+      "hc": 1.8,
+      "lipidos": 42.0
+    },
+    {
+      "name": "Salchichas frescas",
+      "gramos": 100.0,
+      "kcal": 295.0,
+      "proteinas": 12.9,
+      "hc": 0.0,
+      "lipidos": 27.0
+    },
+    {
+      "name": "Salchichas tipo Frankfurt (20% grasa)",
+      "gramos": 100.0,
+      "kcal": 236.0,
+      "proteinas": 12.0,
+      "hc": 3.0,
+      "lipidos": 19.5
+    },
+    {
+      "name": "Salchichas tipo Frankfurt (27% grasa)",
+      "gramos": 100.0,
+      "kcal": 303.0,
+      "proteinas": 12.0,
+      "hc": 3.0,
+      "lipidos": 27.0
+    },
+    {
+      "name": "Salchichón",
+      "gramos": 100.0,
+      "kcal": 454.0,
+      "proteinas": 25.8,
+      "hc": 2.0,
+      "lipidos": 38.1
+    },
+    {
+      "name": "Sobrasada",
+      "gramos": 100.0,
+      "kcal": 650.0,
+      "proteinas": 10.5,
+      "hc": 0.0,
+      "lipidos": 67.5
+    }
+  ],
+  "Pescados": [
+    {
+      "name": "Abadejo",
+      "gramos": 100.0,
+      "kcal": 76.0,
+      "proteinas": 17.4,
+      "hc": 0.0,
+      "lipidos": 0.75
+    },
+    {
+      "name": "Anchoas",
+      "gramos": 100.0,
+      "kcal": 127.0,
+      "proteinas": 17.6,
+      "hc": 0.0,
+      "lipidos": 6.3
+    },
+    {
+      "name": "Anguila",
+      "gramos": 100.0,
+      "kcal": 205.0,
+      "proteinas": 16.3,
+      "hc": 0.0,
+      "lipidos": 15.5
+    },
+    {
+      "name": "Angula",
+      "gramos": 100.0,
+      "kcal": 205.0,
+      "proteinas": 16.3,
+      "hc": 0.0,
+      "lipidos": 15.5
+    },
+    {
+      "name": "Arenque",
+      "gramos": 100.0,
+      "kcal": 153.0,
+      "proteinas": 18.0,
+      "hc": 0.0,
+      "lipidos": 9.0
+    },
+    {
+      "name": "Atún",
+      "gramos": 100.0,
+      "kcal": 200.0,
+      "proteinas": 23.0,
+      "hc": 0.0,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Bacaladilla",
+      "gramos": 100.0,
+      "kcal": 76.0,
+      "proteinas": 17.4,
+      "hc": 0.0,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Bacalo fresco",
+      "gramos": 100.0,
+      "kcal": 74.0,
+      "proteinas": 17.7,
+      "hc": 0.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Besugo",
+      "gramos": 100.0,
+      "kcal": 86.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Bonito",
+      "gramos": 100.0,
+      "kcal": 138.0,
+      "proteinas": 21.0,
+      "hc": 0.0,
+      "lipidos": 6.0
+    },
+    {
+      "name": "Boquerón",
+      "gramos": 100.0,
+      "kcal": 127.0,
+      "proteinas": 17.6,
+      "hc": 0.0,
+      "lipidos": 6.3
+    },
+    {
+      "name": "Breca",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 15.4,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Caballa",
+      "gramos": 100.0,
+      "kcal": 150.0,
+      "proteinas": 15.0,
+      "hc": 0.0,
+      "lipidos": 10.0
+    },
+    {
+      "name": "Cabracho",
+      "gramos": 100.0,
+      "kcal": 91.0,
+      "proteinas": 19.0,
+      "hc": 0.0,
+      "lipidos": 1.7
+    },
+    {
+      "name": "Caviar",
+      "gramos": 100.0,
+      "kcal": 277.0,
+      "proteinas": 25.0,
+      "hc": 4.0,
+      "lipidos": 17.9
+    },
+    {
+      "name": "Chanquete y otros pescaditos pequeños",
+      "gramos": 100.0,
+      "kcal": 73.0,
+      "proteinas": 11.4,
+      "hc": 0.0,
+      "lipidos": 3.0
+    },
+    {
+      "name": "Chicharro",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 15.7,
+      "hc": 0.0,
+      "lipidos": 6.8
+    },
+    {
+      "name": "Congrio",
+      "gramos": 100.0,
+      "kcal": 101.0,
+      "proteinas": 19.0,
+      "hc": 0.0,
+      "lipidos": 2.8
+    },
+    {
+      "name": "Dorada",
+      "gramos": 100.0,
+      "kcal": 77.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Emperador",
+      "gramos": 100.0,
+      "kcal": 107.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 4.3
+    },
+    {
+      "name": "Faneca",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 15.4,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Gallo",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 15.8,
+      "hc": 0.0,
+      "lipidos": 1.9
+    },
+    {
+      "name": "Gulas refrigeradas/congeladas",
+      "gramos": 100.0,
+      "kcal": 70.0,
+      "proteinas": 10.0,
+      "hc": 6.6,
+      "lipidos": 0.4
+    },
+    {
+      "name": "halibut o fletán",
+      "gramos": 100.0,
+      "kcal": 103.0,
+      "proteinas": 21.5,
+      "hc": 0.0,
+      "lipidos": 1.9
+    },
+    {
+      "name": "halibut o fletán en filetes",
+      "gramos": 100.0,
+      "kcal": 103.0,
+      "proteinas": 21.5,
+      "hc": 0.0,
+      "lipidos": 1.9
+    },
+    {
+      "name": "Huevas frescas",
+      "gramos": 100.0,
+      "kcal": 113.0,
+      "proteinas": 24.3,
+      "hc": 0.0,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Japuta",
+      "gramos": 100.0,
+      "kcal": 125.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Jurel",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 15.7,
+      "hc": 0.0,
+      "lipidos": 6.8
+    },
+    {
+      "name": "Lampuja",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 18.5,
+      "hc": 0.0,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Lampuja en fietes",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 18.5,
+      "hc": 0.0,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Lenguado",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 16.5,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Lenguado en filete",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 16.5,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Lubina",
+      "gramos": 100.0,
+      "kcal": 84.0,
+      "proteinas": 18.0,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Merluza",
+      "gramos": 100.0,
+      "kcal": 89.0,
+      "proteinas": 15.9,
+      "hc": 0.0,
+      "lipidos": 2.8
+    },
+    {
+      "name": "Merluza congelada, lomo, corazones",
+      "gramos": 100.0,
+      "kcal": 89.0,
+      "proteinas": 15.9,
+      "hc": 0.0,
+      "lipidos": 2.8
+    },
+    {
+      "name": "Merluza en filete si piel",
+      "gramos": 100.0,
+      "kcal": 89.0,
+      "proteinas": 15.9,
+      "hc": 0.0,
+      "lipidos": 2.8
+    },
+    {
+      "name": "Mero",
+      "gramos": 100.0,
+      "kcal": 92.0,
+      "proteinas": 17.8,
+      "hc": 0.0,
+      "lipidos": 2.3
+    },
+    {
+      "name": "Mujol, pardete",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 15.8,
+      "hc": 0.0,
+      "lipidos": 6.8
+    },
+    {
+      "name": "Palitos de camgrejo congelados",
+      "gramos": 100.0,
+      "kcal": 70.0,
+      "proteinas": 10.0,
+      "hc": 6.6,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Palometas",
+      "gramos": 100.0,
+      "kcal": 125.0,
+      "proteinas": 20.0,
+      "hc": 0.0,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Panga, filete",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 16.5,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Perca, filete",
+      "gramos": 100.0,
+      "kcal": 86.0,
+      "proteinas": 19.4,
+      "hc": 0.0,
+      "lipidos": 0.92
+    },
+    {
+      "name": "Pescadilla",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 16.0,
+      "hc": 0.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Pescadilla en filete sin piel",
+      "gramos": 100.0,
+      "kcal": 69.0,
+      "proteinas": 16.0,
+      "hc": 0.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Pez espada",
+      "gramos": 100.0,
+      "kcal": 107.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 4.3
+    },
+    {
+      "name": "Rape",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 18.7,
+      "hc": 0.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Raya",
+      "gramos": 100.0,
+      "kcal": 77.0,
+      "proteinas": 17.1,
+      "hc": 0.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "Reo",
+      "gramos": 100.0,
+      "kcal": 182.0,
+      "proteinas": 18.4,
+      "hc": 0.0,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Rodaballo",
+      "gramos": 100.0,
+      "kcal": 97.0,
+      "proteinas": 16.1,
+      "hc": 0.0,
+      "lipidos": 3.6
+    },
+    {
+      "name": "Salmón",
+      "gramos": 100.0,
+      "kcal": 182.0,
+      "proteinas": 18.4,
+      "hc": 0.0,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Salmonete",
+      "gramos": 100.0,
+      "kcal": 90.0,
+      "proteinas": 14.1,
+      "hc": 0.0,
+      "lipidos": 3.7
+    },
+    {
+      "name": "Sardina",
+      "gramos": 100.0,
+      "kcal": 140.0,
+      "proteinas": 18.1,
+      "hc": 0.0,
+      "lipidos": 7.5
+    },
+    {
+      "name": "Sargo",
+      "gramos": 100.0,
+      "kcal": 100.0,
+      "proteinas": 15.0,
+      "hc": 0.0,
+      "lipidos": 4.4
+    },
+    {
+      "name": "Trucha",
+      "gramos": 100.0,
+      "kcal": 90.0,
+      "proteinas": 15.7,
+      "hc": 0.0,
+      "lipidos": 3.0
+    },
+    {
+      "name": "MOLUSCOS Y CRUSTACEOS",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Amejas",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Ancas de ranas",
+      "gramos": 100.0,
+      "kcal": 68.0,
+      "proteinas": 16.4,
+      "hc": 0.0,
+      "lipidos": 0.3
+    },
+    {
+      "name": "Berberechos",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Bígaro hervido",
+      "gramos": 100.0,
+      "kcal": 94.0,
+      "proteinas": 20.8,
+      "hc": 0.0,
+      "lipidos": 1.2
+    },
+    {
+      "name": "Bogavante",
+      "gramos": 100.0,
+      "kcal": 91.0,
+      "proteinas": 18.3,
+      "hc": 0.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Calamar aros congelados",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Calamares y similares",
+      "gramos": 100.0,
+      "kcal": 80.0,
+      "proteinas": 17.0,
+      "hc": 0.0,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Cangrejos y similares",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 19.5,
+      "hc": 0.0,
+      "lipidos": 5.1
+    },
+    {
+      "name": "Caracoles",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 16.3,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Centollo",
+      "gramos": 100.0,
+      "kcal": 127.0,
+      "proteinas": 20.1,
+      "hc": 0.0,
+      "lipidos": 5.2
+    },
+    {
+      "name": "Chipiron",
+      "gramos": 100.0,
+      "kcal": 82.0,
+      "proteinas": 16.3,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Chirlas",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Cigalas",
+      "gramos": 100.0,
+      "kcal": 93.0,
+      "proteinas": 20.1,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Gambas",
+      "gramos": 100.0,
+      "kcal": 93.0,
+      "proteinas": 20.1,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Gambas congeladas, peladas",
+      "gramos": 100.0,
+      "kcal": 93.0,
+      "proteinas": 20.1,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Langosta",
+      "gramos": 100.0,
+      "kcal": 91.0,
+      "proteinas": 18.3,
+      "hc": 0.0,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Langostino",
+      "gramos": 100.0,
+      "kcal": 93.0,
+      "proteinas": 20.1,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Mejillon",
+      "gramos": 100.0,
+      "kcal": 60.0,
+      "proteinas": 10.8,
+      "hc": 0.0,
+      "lipidos": 1.9
+    },
+    {
+      "name": "Necoras y similares",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 19.5,
+      "hc": 0.0,
+      "lipidos": 5.1
+    },
+    {
+      "name": "Ostras",
+      "gramos": 100.0,
+      "kcal": 53.0,
+      "proteinas": 10.2,
+      "hc": 0.0,
+      "lipidos": 1.4
+    },
+    {
+      "name": "Percebes",
+      "gramos": 100.0,
+      "kcal": 59.0,
+      "proteinas": 13.6,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Pulpo",
+      "gramos": 100.0,
+      "kcal": 51.0,
+      "proteinas": 10.6,
+      "hc": 0.0,
+      "lipidos": 1.0
+    },
+    {
+      "name": "Quisquilla, camarón",
+      "gramos": 100.0,
+      "kcal": 82.0,
+      "proteinas": 17.6,
+      "hc": 1.5,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Sepia",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 16.1,
+      "hc": 0.0,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Vieira",
+      "gramos": 100.0,
+      "kcal": 84.0,
+      "proteinas": 19.0,
+      "hc": 0.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "CONSERVAS DE PESCADO, MOLUSCOS Y CRUSTÁCEOS",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Pescados salados o ahumados",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Arenques y otros pescados ricos en grasa, salados o ahumados",
+      "gramos": 100.0,
+      "kcal": 202.0,
+      "proteinas": 21.0,
+      "hc": 0.0,
+      "lipidos": 13.1
+    },
+    {
+      "name": "Bacalao salado remojado",
+      "gramos": 100.0,
+      "kcal": 108.0,
+      "proteinas": 26.0,
+      "hc": 0.0,
+      "lipidos": 0.4
+    },
+    {
+      "name": "Bacalao y otros pescados pobres en grasa salados o ahumados",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 31.6,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Salmon ahumado",
+      "gramos": 100.0,
+      "kcal": 142.0,
+      "proteinas": 25.4,
+      "hc": 0.0,
+      "lipidos": 4.5
+    },
+    {
+      "name": "Sardinas saladas o ahumadas",
+      "gramos": 100.0,
+      "kcal": 202.0,
+      "proteinas": 21.0,
+      "hc": 0.0,
+      "lipidos": 13.1
+    },
+    {
+      "name": "Pescados en aceite",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Anchoas en aceite",
+      "gramos": 100.0,
+      "kcal": 195.0,
+      "proteinas": 27.4,
+      "hc": 0.4,
+      "lipidos": 9.3
+    },
+    {
+      "name": "Atun en aceite",
+      "gramos": 100.0,
+      "kcal": 317.0,
+      "proteinas": 24.0,
+      "hc": 0.0,
+      "lipidos": 24.5
+    },
+    {
+      "name": "Bonito en aceite",
+      "gramos": 100.0,
+      "kcal": 317.0,
+      "proteinas": 24.0,
+      "hc": 0.0,
+      "lipidos": 24.5
+    },
+    {
+      "name": "Caballa y otros pescados en aceite",
+      "gramos": 100.0,
+      "kcal": 171.0,
+      "proteinas": 15.0,
+      "hc": 0.8,
+      "lipidos": 24.5
+    },
+    {
+      "name": "Sardinas en aceite",
+      "gramos": 100.0,
+      "kcal": 224.0,
+      "proteinas": 22.22,
+      "hc": 0.0,
+      "lipidos": 15.0
+    },
+    {
+      "name": "Pescados en escabeche",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Atun en escabeche",
+      "gramos": 100.0,
+      "kcal": 171.0,
+      "proteinas": 15.0,
+      "hc": 0.8,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Bonito en escabeche",
+      "gramos": 100.0,
+      "kcal": 171.0,
+      "proteinas": 15.0,
+      "hc": 0.8,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Caballa y otros pescados en escabeche",
+      "gramos": 100.0,
+      "kcal": 171.0,
+      "proteinas": 15.0,
+      "hc": 0.8,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Sardinas en escabeche",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 15.0,
+      "hc": 0.8,
+      "lipidos": 7.5
+    },
+    {
+      "name": "Pescados en salsa de tomate",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Sardinas en salsa de tomate",
+      "gramos": 100.0,
+      "kcal": 260.0,
+      "proteinas": 16.8,
+      "hc": 0.5,
+      "lipidos": 21.2
+    },
+    {
+      "name": "Moluscos y crustaceos en conserva",
+      "gramos": 100,
+      "kcal": 0,
+      "proteinas": 0,
+      "hc": 0,
+      "lipidos": 0
+    },
+    {
+      "name": "Almejas y similares, en conserva al natural",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 12.0
+    },
+    {
+      "name": "Atun en conserva, al natural escurrido",
+      "gramos": 100.0,
+      "kcal": 108.0,
+      "proteinas": 24.5,
+      "hc": 0.0,
+      "lipidos": 1.1
+    },
+    {
+      "name": "Berberecho o similares, en conserva o al natural",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Calamares o similares en conserva",
+      "gramos": 100.0,
+      "kcal": 88.0,
+      "proteinas": 17.0,
+      "hc": 1.5,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Mejillon en conserva, al natural",
+      "gramos": 100.0,
+      "kcal": 82.0,
+      "proteinas": 12.0,
+      "hc": 2.0,
+      "lipidos": 2.9
+    },
+    {
+      "name": "Mejillon en escabeche",
+      "gramos": 100.0,
+      "kcal": 169.0,
+      "proteinas": 10.7,
+      "hc": 0.0,
+      "lipidos": 14.0
+    }
+  ],
+  "Bebidas alcohólicas": [
+    {
+      "name": "Aguardiente",
+      "gramos": 100.0,
+      "kcal": 390.0,
+      "proteinas": 0.0,
+      "hc": 27.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Anises",
+      "gramos": 100.0,
+      "kcal": 390.0,
+      "proteinas": 0.0,
+      "hc": 27.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Biter",
+      "gramos": 100.0,
+      "kcal": 152.0,
+      "proteinas": 0.0,
+      "hc": 16.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Cava",
+      "gramos": 100.0,
+      "kcal": 87.0,
+      "proteinas": 0.3,
+      "hc": 1.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Cerveza",
+      "gramos": 100.0,
+      "kcal": 33.0,
+      "proteinas": 0.3,
+      "hc": 2.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Cerveza baja en alcohol",
+      "gramos": 100.0,
+      "kcal": 13.0,
+      "proteinas": 0.2,
+      "hc": 2.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Cerveza oscura",
+      "gramos": 100.0,
+      "kcal": 66.5,
+      "proteinas": 0.6,
+      "hc": 5.3,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Coñac",
+      "gramos": 100.0,
+      "kcal": 233.0,
+      "proteinas": 0,
+      "hc": 0.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Champagne",
+      "gramos": 100.0,
+      "kcal": 87.0,
+      "proteinas": 0.3,
+      "hc": 1.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Ginebra",
+      "gramos": 100.0,
+      "kcal": 233.0,
+      "proteinas": 0,
+      "hc": 0.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Licores",
+      "gramos": 100.0,
+      "kcal": 390.0,
+      "proteinas": 0.0,
+      "hc": 27.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Ron",
+      "gramos": 100.0,
+      "kcal": 233.0,
+      "proteinas": 0,
+      "hc": 0.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Sangría",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 0.2,
+      "hc": 3.8,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Sidra",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 0,
+      "hc": 4.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Tequila",
+      "gramos": 100.0,
+      "kcal": 266.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vermú",
+      "gramos": 100.0,
+      "kcal": 134.0,
+      "proteinas": 0.1,
+      "hc": 10.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vino de mesa (tinto blanco o rosado)",
+      "gramos": 100.0,
+      "kcal": 77.6,
+      "proteinas": 0.1,
+      "hc": 1.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vinos dulces (Málaga,Oporto,moscatel)",
+      "gramos": 100.0,
+      "kcal": 16.0,
+      "proteinas": 0.2,
+      "hc": 13.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vino fino",
+      "gramos": 100.0,
+      "kcal": 124.0,
+      "proteinas": 0.1,
+      "hc": 3.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vodka",
+      "gramos": 100.0,
+      "kcal": 235.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Whisky",
+      "gramos": 100.0,
+      "kcal": 233.0,
+      "proteinas": 0,
+      "hc": 0.4,
+      "lipidos": 0.0
+    }
+  ],
+  "Bebidas sin alcohol": [
+    {
+      "name": "AGUA",
+      "gramos": 100.0,
+      "kcal": 0.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "BATIDO FERMENTADO DE SOJA",
+      "gramos": 100.0,
+      "kcal": 83.0,
+      "proteinas": 5.0,
+      "hc": 3.9,
+      "lipidos": 5.25
+    },
+    {
+      "name": "BEBIDA ISOTÓNICA",
+      "gramos": 100.0,
+      "kcal": 33.0,
+      "proteinas": 0.0,
+      "hc": 8.2,
+      "lipidos": 0.0
+    },
+    {
+      "name": "BÍTER SIN ALCOHOL",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.0,
+      "hc": 10.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "CAFEO SOLUBLE EN POLVO",
+      "gramos": 100.0,
+      "kcal": 102.0,
+      "proteinas": 14.0,
+      "hc": 11.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "CAFÉ,INFUSION",
+      "gramos": 100.0,
+      "kcal": 4.0,
+      "proteinas": 0.3,
+      "hc": 0.8,
+      "lipidos": 0.0
+    },
+    {
+      "name": "CEREALES MALTEADOS EN POLVO",
+      "gramos": 100.0,
+      "kcal": 110.0,
+      "proteinas": 12.3,
+      "hc": 2.6,
+      "lipidos": 5.6
+    },
+    {
+      "name": "CERVEZA SIN ALCOHOL",
+      "gramos": 100.0,
+      "kcal": 8.0,
+      "proteinas": 0.4,
+      "hc": 1.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "COLAS",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.0,
+      "hc": 10.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "COLAS SIN CALORIAS",
+      "gramos": 100.0,
+      "kcal": 0.32,
+      "proteinas": 0.01,
+      "hc": 0.07,
+      "lipidos": 0.0
+    },
+    {
+      "name": "GASEOSAS",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.0,
+      "hc": 10.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "GASEOSAS SIN CALORIAS",
+      "gramos": 100.0,
+      "kcal": 0.32,
+      "proteinas": 0.01,
+      "hc": 0.07,
+      "lipidos": 0.0
+    },
+    {
+      "name": "HORCHATA DE CHUFA",
+      "gramos": 100.0,
+      "kcal": 84.7,
+      "proteinas": 1.1,
+      "hc": 13.5,
+      "lipidos": 2.9
+    },
+    {
+      "name": "LECHE DE ARROZ",
+      "gramos": 100.0,
+      "kcal": 48.0,
+      "proteinas": 0.3,
+      "hc": 9.2,
+      "lipidos": 0.97
+    },
+    {
+      "name": "LECHE DE AVENA",
+      "gramos": 100.0,
+      "kcal": 47.0,
+      "proteinas": 1.0,
+      "hc": 8.7,
+      "lipidos": 0.7
+    },
+    {
+      "name": "NECTAR DE FRUTAS, ENVASADOS",
+      "gramos": 100.0,
+      "kcal": 54.0,
+      "proteinas": 0.4,
+      "hc": 13.2,
+      "lipidos": 0.0
+    },
+    {
+      "name": "RESFRESCOS",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.0,
+      "hc": 10.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "REFRESCOS SIN CALORIAS",
+      "gramos": 100.0,
+      "kcal": 0.32,
+      "proteinas": 0.01,
+      "hc": 0.07,
+      "lipidos": 0.0
+    },
+    {
+      "name": "SORBETE DE LIMON",
+      "gramos": 100.0,
+      "kcal": 140.0,
+      "proteinas": 0.9,
+      "hc": 34.2,
+      "lipidos": 0.0
+    },
+    {
+      "name": "TE,INFUISION SIN AZÚCAR",
+      "gramos": 100.0,
+      "kcal": 0.0,
+      "proteinas": 0.1,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "TÓNICA",
+      "gramos": 100.0,
+      "kcal": 38.0,
+      "proteinas": 0.0,
+      "hc": 9.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE CITRICOS",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 0.3,
+      "hc": 10.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE FRUTA NO CITRICAS",
+      "gramos": 100.0,
+      "kcal": 48.0,
+      "proteinas": 0.4,
+      "hc": 11.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE LIMA",
+      "gramos": 100.0,
+      "kcal": 37.0,
+      "proteinas": 0.4,
+      "hc": 8.4,
+      "lipidos": 0.07
+    },
+    {
+      "name": "ZUMO DE LIMON",
+      "gramos": 100.0,
+      "kcal": 8.0,
+      "proteinas": 0.3,
+      "hc": 1.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE MANDARINA",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 0.5,
+      "hc": 10.1,
+      "lipidos": 0.2
+    },
+    {
+      "name": "ZUMO DE MANZANA",
+      "gramos": 100.0,
+      "kcal": 48.0,
+      "proteinas": 0.1,
+      "hc": 11.8,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE MELOCOTON",
+      "gramos": 100.0,
+      "kcal": 65.0,
+      "proteinas": 1.1,
+      "hc": 14.9,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE NARANJA",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 0.5,
+      "hc": 10.2,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE NARANJA NATURAL",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 0.6,
+      "hc": 10.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE PIÑA",
+      "gramos": 100.0,
+      "kcal": 51.0,
+      "proteinas": 0.4,
+      "hc": 12.1,
+      "lipidos": 0.1
+    },
+    {
+      "name": "ZUMO DE POMELO",
+      "gramos": 100.0,
+      "kcal": 35.0,
+      "proteinas": 0.4,
+      "hc": 8.3,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE TOMATE",
+      "gramos": 100.0,
+      "kcal": 16.0,
+      "proteinas": 0.8,
+      "hc": 3.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE UVA",
+      "gramos": 100.0,
+      "kcal": 66.0,
+      "proteinas": 0.4,
+      "hc": 16.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "ZUMO DE ZANAHORIA",
+      "gramos": 100.0,
+      "kcal": 24.0,
+      "proteinas": 0.6,
+      "hc": 4.8,
+      "lipidos": 0.2
+    },
+    {
+      "name": "Batido de proteina CHOCO BLANCO/COCO",
+      "gramos": 100.0,
+      "kcal": 373.0,
+      "proteinas": 77.0,
+      "hc": 6.2,
+      "lipidos": 4.5
+    }
+  ],
+  "Salsas, condimentos y especias": [
+    {
+      "name": "Albahaca fresca",
+      "gramos": 100.0,
+      "kcal": 25.0,
+      "proteinas": 2.5,
+      "hc": 0.44,
+      "lipidos": 0.61
+    },
+    {
+      "name": "Albahaca seca",
+      "gramos": 100.0,
+      "kcal": 256.0,
+      "proteinas": 14.4,
+      "hc": 20.5,
+      "lipidos": 3.98
+    },
+    {
+      "name": "Alcaparra",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 2.4,
+      "hc": 4.0,
+      "lipidos": 0.9
+    },
+    {
+      "name": "Alcaravera, semillas",
+      "gramos": 100.0,
+      "kcal": 486.0,
+      "proteinas": 19.8,
+      "hc": 49.9,
+      "lipidos": 14.59
+    },
+    {
+      "name": "Alioli",
+      "gramos": 100.0,
+      "kcal": 796.0,
+      "proteinas": 0.5,
+      "hc": 2.8,
+      "lipidos": 86.9
+    },
+    {
+      "name": "Ajo en Polvo",
+      "gramos": 100.0,
+      "kcal": 331.0,
+      "proteinas": 16.6,
+      "hc": 72.7,
+      "lipidos": 0.73
+    },
+    {
+      "name": "Azafrán",
+      "gramos": 100.0,
+      "kcal": 345.0,
+      "proteinas": 11.4,
+      "hc": 61.5,
+      "lipidos": 5.9
+    },
+    {
+      "name": "Caldo en cubitos",
+      "gramos": 100.0,
+      "kcal": 207.0,
+      "proteinas": 20.2,
+      "hc": 0,
+      "lipidos": 14.0
+    },
+    {
+      "name": "Canela molida",
+      "gramos": 100.0,
+      "kcal": 44.0,
+      "proteinas": 3.9,
+      "hc": 3.2,
+      "lipidos": 3.2
+    },
+    {
+      "name": "Cardamomo, semillas",
+      "gramos": 100.0,
+      "kcal": 433.0,
+      "proteinas": 10.8,
+      "hc": 68.5,
+      "lipidos": 6.7
+    },
+    {
+      "name": "Cebolla deshidratada en copos",
+      "gramos": 100.0,
+      "kcal": 391.0,
+      "proteinas": 9.0,
+      "hc": 83.3,
+      "lipidos": 0.46
+    },
+    {
+      "name": "Chile Jalapeño",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 1.2,
+      "hc": 5.3,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Chile picante",
+      "gramos": 100.0,
+      "kcal": 4.0,
+      "proteinas": 1.9,
+      "hc": 8.0,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Cilantro fresco",
+      "gramos": 100.0,
+      "kcal": 57.0,
+      "proteinas": 3.3,
+      "hc": 8.0,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Clavo",
+      "gramos": 100.0,
+      "kcal": 454.0,
+      "proteinas": 6.0,
+      "hc": 57.4,
+      "lipidos": 20.1
+    },
+    {
+      "name": "Comino",
+      "gramos": 100.0,
+      "kcal": 438.0,
+      "proteinas": 17.8,
+      "hc": 45.4,
+      "lipidos": 18.2
+    },
+    {
+      "name": "Curri",
+      "gramos": 100.0,
+      "kcal": 435.0,
+      "proteinas": 15.0,
+      "hc": 60.0,
+      "lipidos": 15.0
+    },
+    {
+      "name": "Eneldo",
+      "gramos": 100.0,
+      "kcal": 340.0,
+      "proteinas": 19.9,
+      "hc": 42.2,
+      "lipidos": 4.4
+    },
+    {
+      "name": "Gelatina en polvo",
+      "gramos": 100.0,
+      "kcal": 338.0,
+      "proteinas": 84.4,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Gelatina en tarrina",
+      "gramos": 100.0,
+      "kcal": 62.0,
+      "proteinas": 1.22,
+      "hc": 14.4,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Guindilla en polvo",
+      "gramos": 100.0,
+      "kcal": 331.0,
+      "proteinas": 12.0,
+      "hc": 31.7,
+      "lipidos": 17.3
+    },
+    {
+      "name": "Hinojo fresco",
+      "gramos": 100.0,
+      "kcal": 20.0,
+      "proteinas": 1.1,
+      "hc": 2.3,
+      "lipidos": 0
+    },
+    {
+      "name": "Jengibre fresco",
+      "gramos": 100.0,
+      "kcal": 55.0,
+      "proteinas": 1.7,
+      "hc": 9.5,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Jengibre en polvo",
+      "gramos": 100.0,
+      "kcal": 371.0,
+      "proteinas": 9.1,
+      "hc": 64.0,
+      "lipidos": 5.95
+    },
+    {
+      "name": "Ketchup",
+      "gramos": 100.0,
+      "kcal": 104.0,
+      "proteinas": 2.1,
+      "hc": 24.0,
+      "lipidos": 0
+    },
+    {
+      "name": "Laurel",
+      "gramos": 100.0,
+      "kcal": 300.0,
+      "proteinas": 7.6,
+      "hc": 48.6,
+      "lipidos": 8.4
+    },
+    {
+      "name": "Levadura de panadería fresca",
+      "gramos": 100.0,
+      "kcal": 95.0,
+      "proteinas": 13.2,
+      "hc": 6.0,
+      "lipidos": 0.5
+    },
+    {
+      "name": "Levadura de panadería seca",
+      "gramos": 100.0,
+      "kcal": 209.0,
+      "proteinas": 35.6,
+      "hc": 3.5,
+      "lipidos": 1.5
+    },
+    {
+      "name": "Levadura química en polvo",
+      "gramos": 100.0,
+      "kcal": 72.0,
+      "proteinas": 5.2,
+      "hc": 37.8,
+      "lipidos": 0
+    },
+    {
+      "name": "Mayonesa comercial",
+      "gramos": 100.0,
+      "kcal": 718.0,
+      "proteinas": 1.8,
+      "hc": 0.1,
+      "lipidos": 78.9
+    },
+    {
+      "name": "Mayonesa comercial ligera",
+      "gramos": 100.0,
+      "kcal": 354.0,
+      "proteinas": 0.2,
+      "hc": 9.4,
+      "lipidos": 35.0
+    },
+    {
+      "name": "Mejorana seca",
+      "gramos": 100.0,
+      "kcal": 437.0,
+      "proteinas": 1.7,
+      "hc": 60.6,
+      "lipidos": 7.04
+    },
+    {
+      "name": "Menta, yerbabuena fresca",
+      "gramos": 100.0,
+      "kcal": 43.0,
+      "proteinas": 3.8,
+      "hc": 5.3,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Mostaza",
+      "gramos": 100.0,
+      "kcal": 84.0,
+      "proteinas": 4.7,
+      "hc": 6.4,
+      "lipidos": 4.4
+    },
+    {
+      "name": "Nuez Moscada",
+      "gramos": 100.0,
+      "kcal": 350.0,
+      "proteinas": 5.8,
+      "hc": 0,
+      "lipidos": 36.3
+    },
+    {
+      "name": "Orégano fresco",
+      "gramos": 100.0,
+      "kcal": 66.0,
+      "proteinas": 2.2,
+      "hc": 9.7,
+      "lipidos": 2.0
+    },
+    {
+      "name": "Orégano seco",
+      "gramos": 100.0,
+      "kcal": 335.0,
+      "proteinas": 11.0,
+      "hc": 49.5,
+      "lipidos": 10.3
+    },
+    {
+      "name": "Perejil fresco",
+      "gramos": 100.0,
+      "kcal": 45.0,
+      "proteinas": 3.0,
+      "hc": 2.7,
+      "lipidos": 1.3
+    },
+    {
+      "name": "Pimentón",
+      "gramos": 100.0,
+      "kcal": 316.0,
+      "proteinas": 14.8,
+      "hc": 34.9,
+      "lipidos": 13.0
+    },
+    {
+      "name": "Pimienta blanca",
+      "gramos": 100.0,
+      "kcal": 61.0,
+      "proteinas": 10.4,
+      "hc": 0,
+      "lipidos": 2.1
+    },
+    {
+      "name": "Pimienta negra",
+      "gramos": 100.0,
+      "kcal": 74.0,
+      "proteinas": 11.0,
+      "hc": 0,
+      "lipidos": 3.3
+    },
+    {
+      "name": "Romero seco",
+      "gramos": 100.0,
+      "kcal": 391.0,
+      "proteinas": 5.0,
+      "hc": 46.4,
+      "lipidos": 15.2
+    },
+    {
+      "name": "Sal fina de mesa",
+      "gramos": 100.0,
+      "kcal": 0.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Sal yodada de mesa",
+      "gramos": 100.0,
+      "kcal": 0.0,
+      "proteinas": 0.0,
+      "hc": 0.0,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Salsa agridulce",
+      "gramos": 100.0,
+      "kcal": 121.0,
+      "proteinas": 0.5,
+      "hc": 24.0,
+      "lipidos": 2.4
+    },
+    {
+      "name": "Salsa al curry",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 1.5,
+      "hc": 6.8,
+      "lipidos": 5.0
+    },
+    {
+      "name": "Salsa barbacoa",
+      "gramos": 100.0,
+      "kcal": 71.0,
+      "proteinas": 1.8,
+      "hc": 11.6,
+      "lipidos": 1.8
+    },
+    {
+      "name": "Salsa bechamel",
+      "gramos": 100.0,
+      "kcal": 159.0,
+      "proteinas": 3.9,
+      "hc": 10.8,
+      "lipidos": 11.0
+    },
+    {
+      "name": "Salsa carbonara",
+      "gramos": 100.0,
+      "kcal": 307.0,
+      "proteinas": 7.5,
+      "hc": 2.0,
+      "lipidos": 29.9
+    },
+    {
+      "name": "Salsa césar",
+      "gramos": 100.0,
+      "kcal": 544.0,
+      "proteinas": 2.2,
+      "hc": 3.3,
+      "lipidos": 57.85
+    },
+    {
+      "name": "Salsa de soja",
+      "gramos": 100.0,
+      "kcal": 66.0,
+      "proteinas": 8.7,
+      "hc": 6.7,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Salsa de tabasco",
+      "gramos": 100.0,
+      "kcal": 16.0,
+      "proteinas": 1.3,
+      "hc": 0.8,
+      "lipidos": 0.76
+    },
+    {
+      "name": "Salsa holandesa",
+      "gramos": 100.0,
+      "kcal": 289.0,
+      "proteinas": 2.7,
+      "hc": 0.6,
+      "lipidos": 30.6
+    },
+    {
+      "name": "Salsa inglesa, perrins, Worcestershir o Worcester",
+      "gramos": 100.0,
+      "kcal": 78.0,
+      "proteinas": 0.0,
+      "hc": 19.5,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Salsa picante",
+      "gramos": 100.0,
+      "kcal": 13.0,
+      "proteinas": 0.5,
+      "hc": 1.8,
+      "lipidos": 0.37
+    },
+    {
+      "name": "Salsa rosa",
+      "gramos": 100.0,
+      "kcal": 131.0,
+      "proteinas": 1.4,
+      "hc": 28.2,
+      "lipidos": 10.5
+    },
+    {
+      "name": "Salsa tamari",
+      "gramos": 100.0,
+      "kcal": 67.0,
+      "proteinas": 10.5,
+      "hc": 5.6,
+      "lipidos": 0.1
+    },
+    {
+      "name": "Salsa tártara",
+      "gramos": 100.0,
+      "kcal": 209.0,
+      "proteinas": 1.0,
+      "hc": 13.3,
+      "lipidos": 16.7
+    },
+    {
+      "name": "Salsa verde",
+      "gramos": 100.0,
+      "kcal": 42.0,
+      "proteinas": 1.1,
+      "hc": 6.4,
+      "lipidos": 0.89
+    },
+    {
+      "name": "Salsa vinagreta",
+      "gramos": 100.0,
+      "kcal": 648.0,
+      "proteinas": 0.2,
+      "hc": 0.2,
+      "lipidos": 71.8
+    },
+    {
+      "name": "Tomate frito",
+      "gramos": 100.0,
+      "kcal": 76.0,
+      "proteinas": 1.0,
+      "hc": 3.3,
+      "lipidos": 5.9
+    },
+    {
+      "name": "Tomillo seco",
+      "gramos": 100.0,
+      "kcal": 369.0,
+      "proteinas": 9.1,
+      "hc": 57.1,
+      "lipidos": 7.4
+    },
+    {
+      "name": "Vainilla, estracto",
+      "gramos": 100.0,
+      "kcal": 52.0,
+      "proteinas": 0.1,
+      "hc": 12.7,
+      "lipidos": 0.06
+    },
+    {
+      "name": "Vinagre",
+      "gramos": 100.0,
+      "kcal": 4.0,
+      "proteinas": 0.4,
+      "hc": 0.6,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vinagre balsámico",
+      "gramos": 100.0,
+      "kcal": 70.0,
+      "proteinas": 0.5,
+      "hc": 17.1,
+      "lipidos": 0.0
+    },
+    {
+      "name": "Vinagre de sidra",
+      "gramos": 100.0,
+      "kcal": 4.0,
+      "proteinas": 0.0,
+      "hc": 0.9,
+      "lipidos": 0.0
+    }
+  ],
+  "Precocinados": [
+    {
+      "name": "Albóndigas preparadas enlatadas",
+      "gramos": 100.0,
+      "kcal": 305.0,
+      "proteinas": 13.2,
+      "hc": 10.6,
+      "lipidos": 23.2
+    },
+    {
+      "name": "Arroz tres delicias crudo congelado",
+      "gramos": 100.0,
+      "kcal": 125.0,
+      "proteinas": 3.4,
+      "hc": 22.6,
+      "lipidos": 1.6
+    },
+    {
+      "name": "Calamares a la romana congelados",
+      "gramos": 100.0,
+      "kcal": 121.0,
+      "proteinas": 5.7,
+      "hc": 6.4,
+      "lipidos": 7.9
+    },
+    {
+      "name": "Caldo de carne",
+      "gramos": 100.0,
+      "kcal": 7.0,
+      "proteinas": 1.1,
+      "hc": 0.04,
+      "lipidos": 0.22
+    },
+    {
+      "name": "Caldo de pescado",
+      "gramos": 100.0,
+      "kcal": 15.0,
+      "proteinas": 2.0,
+      "hc": 0.4,
+      "lipidos": 0.6
+    },
+    {
+      "name": "Caldo de pollo",
+      "gramos": 100.0,
+      "kcal": 5.0,
+      "proteinas": 0.4,
+      "hc": 0.4,
+      "lipidos": 0.21
+    },
+    {
+      "name": "Caldo de verduras",
+      "gramos": 100.0,
+      "kcal": 31.0,
+      "proteinas": 0.9,
+      "hc": 4.9,
+      "lipidos": 0.79
+    },
+    {
+      "name": "Canelones de carne congelado",
+      "gramos": 100.0,
+      "kcal": 132.0,
+      "proteinas": 6.2,
+      "hc": 13.5,
+      "lipidos": 5.4
+    },
+    {
+      "name": "Carne empanada y pasteles de carne",
+      "gramos": 100.0,
+      "kcal": 142.0,
+      "proteinas": 19.0,
+      "hc": 3.5,
+      "lipidos": 5.8
+    },
+    {
+      "name": "Cremas desecadas (esparragos champiñon etc)",
+      "gramos": 100.0,
+      "kcal": 382.0,
+      "proteinas": 10.3,
+      "hc": 61.6,
+      "lipidos": 9.4
+    },
+    {
+      "name": "Croquetas congeladas",
+      "gramos": 100.0,
+      "kcal": 116.0,
+      "proteinas": 8.1,
+      "hc": 4.5,
+      "lipidos": 7.3
+    },
+    {
+      "name": "Empanadillas congeladas",
+      "gramos": 100.0,
+      "kcal": 303.0,
+      "proteinas": 11.9,
+      "hc": 38.0,
+      "lipidos": 11.1
+    },
+    {
+      "name": "Fabada en conserva",
+      "gramos": 100.0,
+      "kcal": 173.0,
+      "proteinas": 6.1,
+      "hc": 13.4,
+      "lipidos": 8.8
+    },
+    {
+      "name": "Hamburguesa cocinada",
+      "gramos": 100.0,
+      "kcal": 253.0,
+      "proteinas": 15.2,
+      "hc": 5.3,
+      "lipidos": 19.0
+    },
+    {
+      "name": "Hojaldre congelado",
+      "gramos": 100.0,
+      "kcal": 391.0,
+      "proteinas": 5.7,
+      "hc": 37.0,
+      "lipidos": 24.0
+    },
+    {
+      "name": "Lasaña de carne con bechamel",
+      "gramos": 100.0,
+      "kcal": 139.0,
+      "proteinas": 6.3,
+      "hc": 10.3,
+      "lipidos": 7.95
+    },
+    {
+      "name": "Nachos",
+      "gramos": 100.0,
+      "kcal": 374.0,
+      "proteinas": 5.2,
+      "hc": 36.4,
+      "lipidos": 22.17
+    },
+    {
+      "name": "Papas prefritas congeladas",
+      "gramos": 100.0,
+      "kcal": 423.0,
+      "proteinas": 6.8,
+      "hc": 66.8,
+      "lipidos": 14.1
+    },
+    {
+      "name": "Pescado empanado y pasteles de pascado",
+      "gramos": 100.0,
+      "kcal": 182.0,
+      "proteinas": 12.6,
+      "hc": 16.1,
+      "lipidos": 7.5
+    },
+    {
+      "name": "Pizza cocinada",
+      "gramos": 100.0,
+      "kcal": 244.0,
+      "proteinas": 9.4,
+      "hc": 24.8,
+      "lipidos": 11.5
+    },
+    {
+      "name": "Pizza precocinada congelada",
+      "gramos": 100.0,
+      "kcal": 209.0,
+      "proteinas": 9.4,
+      "hc": 24.8,
+      "lipidos": 7.6
+    },
+    {
+      "name": "Pollo empanado congelado",
+      "gramos": 100.0,
+      "kcal": 242.0,
+      "proteinas": 18.0,
+      "hc": 13.5,
+      "lipidos": 12.7
+    },
+    {
+      "name": "Rollitos de primavera conelados",
+      "gramos": 100.0,
+      "kcal": 146.0,
+      "proteinas": 5.8,
+      "hc": 5.8,
+      "lipidos": 10.5
+    },
+    {
+      "name": "Rollitos de primavera fritos",
+      "gramos": 100.0,
+      "kcal": 146.0,
+      "proteinas": 5.8,
+      "hc": 5.8,
+      "lipidos": 10.51
+    },
+    {
+      "name": "San Jacobo Congelado",
+      "gramos": 100.0,
+      "kcal": 246.0,
+      "proteinas": 4.1,
+      "hc": 25.2,
+      "lipidos": 13.3
+    },
+    {
+      "name": "Sopas desecadas (pescados cebolla etc)",
+      "gramos": 100.0,
+      "kcal": 330.0,
+      "proteinas": 10.6,
+      "hc": 61.0,
+      "lipidos": 4.4
+    }
+  ],
+  "Aperitivos": [
+    {
+      "name": "Aceitunas con hueso",
+      "gramos": 100.0,
+      "kcal": 196.0,
+      "proteinas": 0.8,
+      "hc": 1.0,
+      "lipidos": 20.0
+    },
+    {
+      "name": "Aceitunas rellenas",
+      "gramos": 100.0,
+      "kcal": 146.0,
+      "proteinas": 2.09,
+      "hc": 0,
+      "lipidos": 100.0
+    },
+    {
+      "name": "Aceitunas sin hueso",
+      "gramos": 100.0,
+      "kcal": 196.0,
+      "proteinas": 0.8,
+      "hc": 1.0,
+      "lipidos": 20.0
+    },
+    {
+      "name": "Berenjenas encurtidas",
+      "gramos": 100.0,
+      "kcal": 54.0,
+      "proteinas": 0.9,
+      "hc": 9.8,
+      "lipidos": 0.7
+    },
+    {
+      "name": "Corteza de trigo",
+      "gramos": 100.0,
+      "kcal": 495.0,
+      "proteinas": 10.3,
+      "hc": 52.2,
+      "lipidos": 25.8
+    },
+    {
+      "name": "Galletas saladasAlimento",
+      "gramos": 100.0,
+      "kcal": 358.0,
+      "proteinas": 10.8,
+      "hc": 49.0,
+      "lipidos": 12.5
+    },
+    {
+      "name": "Galletas tipo cracker",
+      "gramos": 100.0,
+      "kcal": 442.0,
+      "proteinas": 14.3,
+      "hc": 64.4,
+      "lipidos": 13.4
+    },
+    {
+      "name": "Ganchitos",
+      "gramos": 100.0,
+      "kcal": 487.0,
+      "proteinas": 9.1,
+      "hc": 50.9,
+      "lipidos": 26.2
+    },
+    {
+      "name": "Maíz en grano para hacer palomitas",
+      "gramos": 100.0,
+      "kcal": 404.0,
+      "proteinas": 10.9,
+      "hc": 74.0,
+      "lipidos": 4.31
+    },
+    {
+      "name": "Palomitas de maíz, con aceite y sal",
+      "gramos": 100.0,
+      "kcal": 533.0,
+      "proteinas": 9.0,
+      "hc": 47.4,
+      "lipidos": 32.0
+    },
+    {
+      "name": "Palomitas de máiz, sin aceite, sin sal",
+      "gramos": 100.0,
+      "kcal": 367.0,
+      "proteinas": 12.0,
+      "hc": 62.9,
+      "lipidos": 4.2
+    },
+    {
+      "name": "Pan de gambas",
+      "gramos": 100.0,
+      "kcal": 529.0,
+      "proteinas": 2.0,
+      "hc": 59.0,
+      "lipidos": 31.2
+    },
+    {
+      "name": "Patatas fritas de bolsa(h)",
+      "gramos": 100.0,
+      "kcal": 472.0,
+      "proteinas": 6.8,
+      "hc": 66.8,
+      "lipidos": 19.5
+    },
+    {
+      "name": "Pepinillos en vinagre",
+      "gramos": 100.0,
+      "kcal": 27.0,
+      "proteinas": 1.7,
+      "hc": 4.5,
+      "lipidos": 0.0
+    }
+  ]
+}

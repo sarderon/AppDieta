@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#667eea">
-    <title>App Dietista 🥗</title>
+    <title>Dietista Pro 🥗</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🥗</text></svg>">
     
     <style>
@@ -23,7 +23,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
@@ -33,17 +33,23 @@
             border-radius: 12px;
             margin-bottom: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .header h1 {
-            margin: 0 0 10px 0;
+            margin: 0;
             color: #1f2937;
             font-size: 28px;
         }
 
-        .header p {
-            margin: 0;
-            color: #6b7280;
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         button {
@@ -62,15 +68,12 @@
         .btn-primary {
             background: #10b981;
             color: white;
-            padding: 15px 20px;
-            font-size: 16px;
+            padding: 12px 20px;
+            font-size: 14px;
             font-weight: bold;
-            width: 100%;
-            margin-bottom: 20px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .btn-secondary {
@@ -95,7 +98,14 @@
             font-weight: 500;
         }
 
-        .plan-card {
+        .btn-backup {
+            background: #f59e0b;
+            color: white;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+
+        .client-card {
             background: white;
             padding: 20px;
             border-radius: 8px;
@@ -104,38 +114,29 @@
             transition: all 0.2s;
         }
 
-        .plan-card:hover {
+        .client-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
 
-        .plan-card h3 {
-            margin: 0 0 5px 0;
+        .client-card h3 {
+            margin: 0 0 10px 0;
             color: #1f2937;
         }
 
-        .plan-card p {
-            margin: 0 5px 0 0;
-            color: #6b7280;
+        .client-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
             font-size: 14px;
+            color: #6b7280;
         }
 
-        .plan-card-header {
+        .client-card-actions {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
+            gap: 10px;
             flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .plan-card-content {
-            flex: 1;
-            cursor: pointer;
-        }
-
-        .plan-card-actions {
-            display: flex;
-            gap: 10px;
         }
 
         .form-group {
@@ -147,6 +148,7 @@
             margin-bottom: 5px;
             color: #374151;
             font-weight: 500;
+            font-size: 14px;
         }
 
         .form-group input,
@@ -160,14 +162,15 @@
             font-family: inherit;
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 60px;
-        }
-
         .form-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
             gap: 15px;
         }
 
@@ -178,52 +181,139 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        .meal-item {
+        .calculation-box {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #3b82f6;
+            margin-bottom: 20px;
+        }
+
+        .calculation-box h4 {
+            margin: 0 0 10px 0;
+            color: #1f2937;
+        }
+
+        .calculation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 14px;
+        }
+
+        .calc-item {
+            background: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        .calc-label {
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .calc-value {
+            color: #3b82f6;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .plan-item {
             background: #f9fafb;
             padding: 15px;
             border-radius: 6px;
             border: 1px solid #e5e7eb;
-            margin-bottom: 12px;
-        }
-
-        .meal-grid {
-            display: grid;
-            grid-template-columns: 80px 100px 1fr 40px;
-            gap: 10px;
             margin-bottom: 10px;
-            align-items: flex-end;
         }
 
-        .meal-grid > div {
+        .plan-item h4 {
+            margin: 0 0 8px 0;
+            color: #1f2937;
+        }
+
+        .plan-item p {
+            margin: 5px 0;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .food-search {
+            margin-bottom: 20px;
+        }
+
+        .search-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr auto;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .search-box input,
+        .search-box select {
+            padding: 10px;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .food-list {
+            background: #f9fafb;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .food-item {
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background 0.2s;
         }
 
-        .meal-grid label {
+        .food-item:hover {
+            background: #e5e7eb;
+        }
+
+        .food-item:last-child {
+            border-bottom: none;
+        }
+
+        .food-info {
+            flex: 1;
+        }
+
+        .food-name {
+            font-weight: 500;
+            color: #1f2937;
+        }
+
+        .food-details {
             font-size: 12px;
             color: #6b7280;
-            margin-bottom: 5px;
         }
 
-        .meal-grid input,
-        .meal-grid select {
-            padding: 8px;
+        .meal-item {
+            background: white;
+            padding: 15px;
             border: 1px solid #d1d5db;
-            border-radius: 4px;
-            font-size: 13px;
+            border-radius: 6px;
+            margin-bottom: 10px;
         }
 
-        .btn-add-meal {
-            background: #e0e7ff;
-            color: #3b82f6;
-            border: 1px dashed #3b82f6;
-            padding: 10px;
-            width: 100%;
-            font-weight: 500;
+        .meal-item-header {
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .meal-item-header h5 {
+            margin: 0;
+            color: #1f2937;
         }
 
         .form-buttons {
@@ -240,52 +330,8 @@
             font-weight: 500;
         }
 
-        .plan-detail {
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .plan-detail h2 {
-            margin: 0 0 10px 0;
-            color: #1f2937;
-        }
-
-        .plan-detail-info {
-            margin: 0 0 20px 0;
-            color: #6b7280;
-        }
-
-        .plan-detail-buttons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .meal-detail {
-            background: #f9fafb;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 4px solid #3b82f6;
-            margin-bottom: 15px;
-        }
-
-        .meal-detail h4 {
-            margin: 0 0 8px 0;
-            color: #1f2937;
-        }
-
-        .meal-detail p {
-            margin: 5px 0 0 0;
-            color: #374151;
-            white-space: pre-wrap;
-        }
-
-        .meal-detail-calories {
-            color: #3b82f6;
-            font-weight: bold;
+        .hidden {
+            display: none !important;
         }
 
         .empty-state {
@@ -294,7 +340,6 @@
             border-radius: 8px;
             text-align: center;
             color: #9ca3af;
-            margin-bottom: 15px;
         }
 
         .empty-state p {
@@ -302,33 +347,90 @@
             margin-bottom: 10px;
         }
 
-        .hidden {
-            display: none !important;
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e5e7eb;
+        }
+
+        .tab {
+            padding: 12px 20px;
+            background: transparent;
+            color: #6b7280;
+            border: none;
+            border-bottom: 3px solid transparent;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .tab.active {
+            color: #3b82f6;
+            border-bottom-color: #3b82f6;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal h2 {
+            margin: 0 0 20px 0;
+            color: #1f2937;
+        }
+
+        .modal-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 20px;
         }
 
         @media (max-width: 600px) {
-            .form-row {
+            .form-row, .form-row-3 {
                 grid-template-columns: 1fr;
             }
 
-            .meal-grid {
+            .client-info {
                 grid-template-columns: 1fr;
             }
 
-            .meal-grid > div:last-child button {
-                margin-top: 0;
+            .search-box {
+                grid-template-columns: 1fr;
             }
 
-            .plan-card-header {
+            .header {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
-            .plan-card-actions {
+            .header-actions {
                 width: 100%;
             }
 
-            .plan-card-actions button {
+            .header-actions button {
                 flex: 1;
             }
         }
@@ -338,365 +440,587 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <h1>🥗 App Dietista</h1>
-            <p>Crea y descarga planes dietéticos en PDF</p>
+            <h1>🥗 Dietista Pro</h1>
+            <div class="header-actions">
+                <button class="btn-backup" onclick="downloadBackup()">💾 Descargar Backup</button>
+                <button class="btn-backup" onclick="document.getElementById('uploadInput').click()">📤 Restaurar Backup</button>
+                <input type="file" id="uploadInput" accept=".json" style="display: none;" onchange="uploadBackup()">
+            </div>
         </div>
 
-        <!-- Main View -->
+        <!-- Main View - Clientes -->
         <div id="mainView">
-            <button class="btn-primary" onclick="showCreateForm()">
-                ➕ Crear Nuevo Plan
+            <button class="btn-primary" onclick="showNewClientForm()" style="width: 100%; margin-bottom: 20px;">
+                ➕ Nuevo Cliente
             </button>
 
-            <div id="plansList"></div>
+            <div id="clientsList"></div>
         </div>
 
-        <!-- Create Form -->
-        <div id="formView" class="hidden form-container">
-            <h2>Crear Nuevo Plan</h2>
+        <!-- New Client Form -->
+        <div id="newClientForm" class="hidden form-container">
+            <button class="btn-back" onclick="showMainView()">← Volver</button>
+            <h2>Crear Nuevo Cliente</h2>
 
             <div class="form-group">
-                <label>Nombre del Cliente</label>
-                <input type="text" id="clientName" placeholder="Ej: Juan García">
+                <label>Nombre Completo</label>
+                <input type="text" id="clientFullName" placeholder="Ej: Juan García López">
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Sexo</label>
-                    <select id="gender">
+                    <select id="clientGender" onchange="calculateMetabolicData()">
                         <option value="">Seleccionar</option>
-                        <option value="Masculino">Masculino</option>
-                        <option value="Femenino">Femenino</option>
-                        <option value="Otro">Otro</option>
+                        <option value="M">Masculino</option>
+                        <option value="F">Femenino</option>
                     </select>
                 </div>
                 <div class="form-group">
+                    <label>Edad (años)</label>
+                    <input type="number" id="clientAge" min="1" max="150" onchange="calculateMetabolicData()" placeholder="Ej: 35">
+                </div>
+            </div>
+
+            <div class="form-row-3">
+                <div class="form-group">
                     <label>Altura (cm)</label>
-                    <input type="number" id="height" placeholder="Ej: 175">
+                    <input type="number" id="clientHeight" min="100" max="250" onchange="calculateMetabolicData()" placeholder="Ej: 175">
+                </div>
+                <div class="form-group">
+                    <label>Peso (kg)</label>
+                    <input type="number" id="clientWeight" step="0.1" onchange="calculateMetabolicData()" placeholder="Ej: 75">
+                </div>
+                <div class="form-group">
+                    <label>% Grasa Corporal</label>
+                    <input type="number" id="clientBodyFat" step="0.1" onchange="calculateMetabolicData()" placeholder="Ej: 22">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
-                    <label>Peso (kg)</label>
-                    <input type="number" id="weight" placeholder="Ej: 70" step="0.1">
+                    <label>Talla (Ropa)</label>
+                    <input type="text" id="clientClothing" placeholder="Ej: M, L, XL">
                 </div>
                 <div class="form-group">
-                    <label>% Grasa Corporal</label>
-                    <input type="number" id="bodyFat" placeholder="Ej: 25" step="0.1">
+                    <label>Nivel de Actividad</label>
+                    <select id="clientActivityLevel" onchange="calculateMetabolicData()">
+                        <option value="">Seleccionar</option>
+                        <option value="0">Sedentario</option>
+                        <option value="30">Actividad Ligera</option>
+                        <option value="60">Actividad Moderada</option>
+                        <option value="90">Actividad Pesada</option>
+                    </select>
                 </div>
+            </div>
+
+            <!-- Cálculos Automáticos -->
+            <div class="calculation-box" id="metabolicBox" style="display: none;">
+                <h4>📊 Cálculos Metabólicos (Harris-Benedict)</h4>
+                <div class="calculation-grid">
+                    <div class="calc-item">
+                        <div class="calc-label">IMC</div>
+                        <div class="calc-value" id="calcIMC">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">GEB (Kcal/día)</div>
+                        <div class="calc-value" id="calcGEB">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">Ajuste por Actividad</div>
+                        <div class="calc-value" id="calcActivity">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">GET (Kcal/día)</div>
+                        <div class="calc-value" id="calcGET">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">Proteínas (g)</div>
+                        <div class="calc-value" id="calcProtein">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">H.C. (g)</div>
+                        <div class="calc-value" id="calcCarbs">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Alergias/Restricciones</label>
+                <textarea id="clientAllergies" placeholder="Ej: Maní, lácteos, gluten..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>Comidas que NO le gustan</label>
+                <textarea id="clientDislikes" placeholder="Ej: Champiñones, calamar..."></textarea>
+            </div>
+
+            <div class="form-buttons">
+                <button class="btn-cancel" onclick="showMainView()">Cancelar</button>
+                <button class="btn-primary" onclick="saveNewClient()">💾 Guardar Cliente</button>
+            </div>
+        </div>
+
+        <!-- Client Detail -->
+        <div id="clientDetailView" class="hidden form-container">
+            <button class="btn-back" onclick="showMainView()">← Volver</button>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 15px;">
+                <div>
+                    <h2 id="detailClientName"></h2>
+                    <p id="detailClientInfo" style="color: #6b7280;"></p>
+                </div>
+                <button class="btn-danger" onclick="deleteCurrentClient()">🗑️ Eliminar Cliente</button>
+            </div>
+
+            <!-- Información Metabólica -->
+            <div class="calculation-box">
+                <h4>📊 Información Metabólica</h4>
+                <div class="calculation-grid">
+                    <div class="calc-item">
+                        <div class="calc-label">IMC</div>
+                        <div class="calc-value" id="detailIMC">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">GEB (Kcal/día)</div>
+                        <div class="calc-value" id="detailGEB">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">GET (Kcal/día)</div>
+                        <div class="calc-value" id="detailGET">-</div>
+                    </div>
+                    <div class="calc-item">
+                        <div class="calc-label">% Grasa</div>
+                        <div class="calc-value" id="detailBodyFat">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Restricciones -->
+            <div id="restrictionsBox" style="display: none; background: #fef2f2; padding: 15px; border-radius: 8px; border-left: 4px solid #ef4444; margin-bottom: 20px;">
+                <h4 style="margin: 0 0 10px 0; color: #1f2937;">⚠️ Alergias/Restricciones</h4>
+                <p id="detailAllergies" style="margin: 0; color: #374151;"></p>
+            </div>
+
+            <div id="dislikesBox" style="display: none; background: #fef3c7; padding: 15px; border-radius: 8px; border-left: 4px solid #f59e0b; margin-bottom: 20px;">
+                <h4 style="margin: 0 0 10px 0; color: #1f2937;">🚫 No le gustan</h4>
+                <p id="detailDislikes" style="margin: 0; color: #374151;"></p>
+            </div>
+
+            <!-- Tabs para Planes y Seguimientos -->
+            <div class="tabs">
+                <button class="tab active" onclick="switchTab('plans')">📋 Planes Dietéticos</button>
+                <button class="tab" onclick="switchTab('tracking')">📈 Seguimientos</button>
+            </div>
+
+            <!-- Plans Tab -->
+            <div id="plansTab">
+                <button class="btn-primary" onclick="showNewPlanForm()" style="width: 100%; margin-bottom: 20px;">
+                    ➕ Crear Nuevo Plan
+                </button>
+                <div id="plansList"></div>
+            </div>
+
+            <!-- Tracking Tab -->
+            <div id="trackingTab" class="hidden">
+                <p style="color: #6b7280; text-align: center; padding: 40px;">Próximamente: Seguimiento de peso, medidas y progreso</p>
+            </div>
+        </div>
+
+        <!-- New Plan Form -->
+        <div id="newPlanForm" class="hidden form-container">
+            <button class="btn-back" onclick="showClientDetail(currentClient.id)">← Volver</button>
+            <h2>Crear Nuevo Plan Dietético</h2>
+
+            <div class="form-group">
+                <label>Nombre del Plan</label>
+                <input type="text" id="planName" placeholder="Ej: Plan de Reducción de Peso">
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Objetivo</label>
-                    <input type="text" id="objective" placeholder="Ej: Pérdida de peso">
+                    <input type="text" id="planObjective" placeholder="Ej: Pérdida de peso">
                 </div>
                 <div class="form-group">
                     <label>Duración (días)</label>
-                    <input type="number" id="days" value="7" min="1">
+                    <input type="number" id="planDuration" value="7" min="1">
                 </div>
             </div>
 
             <div class="form-row">
                 <div class="form-group">
                     <label>Fecha de Inicio</label>
-                    <input type="date" id="startDate">
+                    <input type="date" id="planStartDate">
                 </div>
                 <div class="form-group">
-                    <label>Tu Nombre (Dietista)</label>
-                    <input type="text" id="dietitian" value="Tu Nombre">
+                    <label>Calorías Objetivo (Kcal/día)</label>
+                    <input type="number" id="planCalories" placeholder="Ej: 2000">
                 </div>
             </div>
 
-            <div class="form-group">
-                <label>Alergias</label>
-                <textarea id="allergies" placeholder="Ej: Maní, lácteos, gluten..."></textarea>
+            <h3 style="margin-top: 20px; color: #1f2937;">Búsqueda y Añadido de Alimentos</h3>
+            
+            <div class="food-search">
+                <div class="search-box">
+                    <input type="text" id="foodSearch" placeholder="Buscar alimento..." onkeyup="searchFoods()">
+                    <select id="categoryFilter" onchange="searchFoods()">
+                        <option value="">Todas las categorías</option>
+                    </select>
+                    <button class="btn-secondary" onclick="toggleFoodList()">🔍 Buscar</button>
+                </div>
+
+                <div id="foodListContainer" class="hidden">
+                    <div class="food-list" id="foodSearchResults"></div>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label>Comidas que NO le gustan</label>
-                <textarea id="dislikedFoods" placeholder="Ej: Champiñones, calamar, cebolla..."></textarea>
-            </div>
-
-            <h3 style="margin-top: 20px; color: #1f2937;">Comidas del Plan</h3>
-            <div id="mealsList"></div>
-            <button class="btn-add-meal" onclick="addMeal()">➕ Añadir Comida</button>
+            <h3 style="color: #1f2937; margin-top: 20px;">Comidas del Plan</h3>
+            <div id="planMealsList"></div>
+            <button class="btn-secondary" onclick="addMealToPlan()" style="width: 100%; margin-top: 10px;">➕ Añadir Comida</button>
 
             <div class="form-buttons">
-                <button class="btn-cancel" onclick="cancelForm()">Cancelar</button>
+                <button class="btn-cancel" onclick="showClientDetail(currentClient.id)">Cancelar</button>
                 <button class="btn-primary" onclick="savePlan()">💾 Guardar Plan</button>
             </div>
         </div>
+    </div>
 
-        <!-- Plan Detail View -->
-        <div id="detailView" class="hidden plan-detail">
-            <button class="btn-back" onclick="showMainView()">← Volver</button>
-            <h2 id="detailClientName"></h2>
-            <p id="detailInfo" class="plan-detail-info"></p>
-            <div class="plan-detail-buttons">
-                <button class="btn-secondary" onclick="downloadCurrentPlan()" style="width: 100%; padding: 12px;">📥 Descargar PDF</button>
-                <button class="btn-danger" onclick="deleteCurrentPlan()" style="width: 100%; padding: 12px;">🗑️ Eliminar Plan</button>
+    <!-- Modal para subir archivo -->
+    <div class="modal-overlay" id="uploadModal">
+        <div class="modal">
+            <h2>⚠️ Restaurar Backup</h2>
+            <p>¿Estás seguro? Esto reemplazará todos los datos actuales.</p>
+            <div class="modal-buttons">
+                <button class="btn-cancel" onclick="closeUploadModal()">Cancelar</button>
+                <button class="btn-danger" onclick="confirmUpload()">Restaurar</button>
             </div>
-            <div id="detailMeals"></div>
         </div>
     </div>
 
     <script>
-        // ===== UTILIDADES =====
-        function setToday() {
-            const today = new Date().toISOString().split('T')[0];
-            document.getElementById('startDate').value = today;
-        }
-
-        // ===== DATOS =====
-        let plans = [];
+        // ===== DATOS GLOBALES =====
+        let foodsDatabase = {};
+        let clients = [];
+        let currentClient = null;
         let currentPlan = null;
-        let meals = [];
+        let currentMeals = [];
+        let selectedFoods = [];
+        let pendingFile = null;
 
-        // Cargar datos
-        function loadPlans() {
-            const saved = localStorage.getItem('dietPlans');
-            plans = saved ? JSON.parse(saved) : [];
-            renderPlans();
+        // ===== CARGAR DATOS =====
+        async function loadAllData() {
+    // Cargar base de datos de alimentos
+    try {
+        const response = await fetch('./alimentos.json');  // ← CAMBIA AQUÍ (añade el ./)
+        foodsDatabase = await response.json();
+        populateCategoryFilter();
+    } catch (e) {
+        console.log('Nota: alimentos.json no disponible. Modo offline.');
+    }
+
+            // Cargar clientes
+            const saved = localStorage.getItem('dietClients');
+            clients = saved ? JSON.parse(saved) : [];
+            renderClients();
         }
 
-        // Guardar datos
-        function savePlans() {
-            localStorage.setItem('dietPlans', JSON.stringify(plans));
+        function populateCategoryFilter() {
+            const select = document.getElementById('categoryFilter');
+            Object.keys(foodsDatabase).forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category;
+                select.appendChild(option);
+            });
         }
 
-        // ===== VISTAS =====
+        function saveClients() {
+            localStorage.setItem('dietClients', JSON.stringify(clients));
+        }
+
+        // ===== NAVEGACIÓN =====
         function showMainView() {
             document.getElementById('mainView').classList.remove('hidden');
-            document.getElementById('formView').classList.add('hidden');
-            document.getElementById('detailView').classList.add('hidden');
-            renderPlans();
+            document.getElementById('newClientForm').classList.add('hidden');
+            document.getElementById('clientDetailView').classList.add('hidden');
+            renderClients();
         }
 
-        function showCreateForm() {
+        function showNewClientForm() {
             document.getElementById('mainView').classList.add('hidden');
-            document.getElementById('formView').classList.remove('hidden');
-            document.getElementById('detailView').classList.add('hidden');
-            setToday();
-            meals = [];
-            renderMeals();
+            document.getElementById('newClientForm').classList.remove('hidden');
+            document.getElementById('clientDetailView').classList.add('hidden');
+            setToday('clientStartDate');
         }
 
-        function cancelForm() {
-            meals = [];
+        function showClientDetail(clientId) {
+            currentClient = clients.find(c => c.id === clientId);
+            if (!currentClient) return;
+
+            document.getElementById('mainView').classList.add('hidden');
+            document.getElementById('newClientForm').classList.add('hidden');
+            document.getElementById('clientDetailView').classList.remove('hidden');
+            document.getElementById('newPlanForm').classList.add('hidden');
+
+            renderClientDetail();
+            renderPlansList();
+        }
+
+        function showNewPlanForm() {
+            document.getElementById('clientDetailView').classList.add('hidden');
+            document.getElementById('newPlanForm').classList.remove('hidden');
+            
+            currentMeals = [];
+            selectedFoods = [];
+            setToday('planStartDate');
+            renderPlanMeals();
+            renderFoodSearch();
+        }
+
+        function switchTab(tab) {
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            document.getElementById('plansTab').classList.add('hidden');
+            document.getElementById('trackingTab').classList.add('hidden');
+
+            if (tab === 'plans') {
+                document.getElementById('plansTab').classList.remove('hidden');
+                tabs[0].classList.add('active');
+            } else {
+                document.getElementById('trackingTab').classList.remove('hidden');
+                tabs[1].classList.add('active');
+            }
+        }
+
+        // ===== CÁLCULOS METABÓLICOS =====
+        function calculateMetabolicData() {
+            const gender = document.getElementById('clientGender').value;
+            const age = parseInt(document.getElementById('clientAge').value) || 0;
+            const height = parseInt(document.getElementById('clientHeight').value) || 0;
+            const weight = parseFloat(document.getElementById('clientWeight').value) || 0;
+            const activity = parseInt(document.getElementById('clientActivityLevel').value) || 0;
+
+            if (!gender || !age || !height || !weight) {
+                document.getElementById('metabolicBox').style.display = 'none';
+                return;
+            }
+
+            // Cálculo IMC
+            const imc = weight / ((height / 100) ** 2);
+
+            // Harris-Benedict GEB
+            let geb;
+            if (gender === 'M') {
+                geb = 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age);
+            } else {
+                geb = 665.10 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
+            }
+
+            // Actividad
+            const activityCal = (geb * activity) / 100;
+            const get = geb + activityCal + (geb * 0.1); // +10% por termodinámica
+
+            // Macronutrientes
+            const proteins = weight * 1.6; // 1.6g por kg
+            const carbsPercentage = (get * 0.5) / 4; // 50% de calorías, 4 kcal por gramo
+            const fatsPercentage = (get * 0.3) / 9; // 30% de calorías, 9 kcal por gramo
+
+            // Mostrar resultados
+            document.getElementById('metabolicBox').style.display = 'block';
+            document.getElementById('calcIMC').textContent = imc.toFixed(1);
+            document.getElementById('calcGEB').textContent = Math.round(geb);
+            document.getElementById('calcActivity').textContent = Math.round(activityCal);
+            document.getElementById('calcGET').textContent = Math.round(get);
+            document.getElementById('calcProtein').textContent = proteins.toFixed(0);
+            document.getElementById('calcCarbs').textContent = carbsPercentage.toFixed(0);
+
+            // Guardar en el cliente
+            currentClient = currentClient || {};
+            currentClient.metabolic = {
+                imc: imc.toFixed(1),
+                geb: Math.round(geb),
+                activity: Math.round(activityCal),
+                get: Math.round(get),
+                proteins: Math.round(proteins),
+                carbs: Math.round(carbsPercentage),
+                fats: Math.round(fatsPercentage)
+            };
+        }
+
+        // ===== GESTIÓN DE CLIENTES =====
+        function saveNewClient() {
+            const name = document.getElementById('clientFullName').value.trim();
+            const gender = document.getElementById('clientGender').value;
+            const age = parseInt(document.getElementById('clientAge').value);
+            const height = parseInt(document.getElementById('clientHeight').value);
+            const weight = parseFloat(document.getElementById('clientWeight').value);
+            const bodyFat = parseFloat(document.getElementById('clientBodyFat').value);
+            const clothing = document.getElementById('clientClothing').value;
+            const allergies = document.getElementById('clientAllergies').value;
+            const dislikes = document.getElementById('clientDislikes').value;
+
+            if (!name || !gender || !age || !height || !weight) {
+                alert('Por favor completa todos los campos obligatorios');
+                return;
+            }
+
+            const client = {
+                id: Date.now(),
+                name,
+                gender,
+                age,
+                height,
+                weight,
+                bodyFat,
+                clothing,
+                allergies,
+                dislikes,
+                metabolic: currentClient?.metabolic || {},
+                plans: [],
+                createdDate: new Date().toLocaleDateString('es-ES')
+            };
+
+            clients.unshift(client);
+            saveClients();
+            
+            // Limpiar formulario
+            document.getElementById('newClientForm').reset();
+            document.getElementById('metabolicBox').style.display = 'none';
             showMainView();
         }
 
-        function calculateDailyCalories() {
-            const dailyCalories = {};
-            currentPlan.meals.forEach(meal => {
-                if (!dailyCalories[meal.day]) {
-                    dailyCalories[meal.day] = 0;
-                }
-                if (meal.calories) {
-                    dailyCalories[meal.day] += parseInt(meal.calories) || 0;
-                }
-            });
-            return dailyCalories;
+        function deleteCurrentClient() {
+            if (confirm('¿Estás seguro de que quieres eliminar este cliente y todos sus planes?')) {
+                clients = clients.filter(c => c.id !== currentClient.id);
+                saveClients();
+                showMainView();
+            }
         }
 
-        function getTotalCalories() {
-            const dailyCalories = calculateDailyCalories();
-            return Object.values(dailyCalories).reduce((a, b) => a + b, 0);
-        }
-
-        function showPlanDetail(planId) {
-            currentPlan = plans.find(p => p.id === planId);
-            if (!currentPlan) return;
-
-            document.getElementById('mainView').classList.add('hidden');
-            document.getElementById('formView').classList.add('hidden');
-            document.getElementById('detailView').classList.remove('hidden');
-
-            document.getElementById('detailClientName').textContent = currentPlan.clientName;
-            
-            let detailInfo = `${currentPlan.objective} • ${currentPlan.days} días • Inicio: ${currentPlan.startDate}`;
-            if (currentPlan.gender) {
-                detailInfo += ` | ${currentPlan.gender}`;
-            }
-            document.getElementById('detailInfo').textContent = detailInfo;
-
-            const dailyCalories = calculateDailyCalories();
-            const totalCalories = getTotalCalories();
-
-            let clientInfoHtml = '';
-            if (currentPlan.gender || currentPlan.height || currentPlan.weight || currentPlan.bodyFat) {
-                clientInfoHtml = `
-                    <div style="background: #f0f9ff; padding: 15px; border-radius: 6px; border-left: 4px solid #3b82f6; margin-bottom: 20px;">
-                        <h4 style="margin: 0 0 10px 0; color: #1f2937;">Información del Cliente</h4>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 14px;">
-                            ${currentPlan.gender ? `<div><strong>Sexo:</strong> ${currentPlan.gender}</div>` : ''}
-                            ${currentPlan.height ? `<div><strong>Altura:</strong> ${currentPlan.height} cm</div>` : ''}
-                            ${currentPlan.weight ? `<div><strong>Peso:</strong> ${currentPlan.weight} kg</div>` : ''}
-                            ${currentPlan.bodyFat ? `<div><strong>% Grasa:</strong> ${currentPlan.bodyFat}%</div>` : ''}
-                        </div>
-                    </div>
-                `;
-            }
-
-            let allergiesHtml = '';
-            if (currentPlan.allergies) {
-                allergiesHtml = `
-                    <div style="background: #fef2f2; padding: 15px; border-radius: 6px; border-left: 4px solid #ef4444; margin-bottom: 20px;">
-                        <h4 style="margin: 0 0 5px 0; color: #1f2937;">⚠️ Alergias</h4>
-                        <p style="margin: 0; color: #374151;">${currentPlan.allergies}</p>
-                    </div>
-                `;
-            }
-
-            let dislikedHtml = '';
-            if (currentPlan.dislikedFoods) {
-                dislikedHtml = `
-                    <div style="background: #fef3c7; padding: 15px; border-radius: 6px; border-left: 4px solid #f59e0b; margin-bottom: 20px;">
-                        <h4 style="margin: 0 0 5px 0; color: #1f2937;">🚫 No le gustan</h4>
-                        <p style="margin: 0; color: #374151;">${currentPlan.dislikedFoods}</p>
-                    </div>
-                `;
-            }
-
-            let caloriesInfoHtml = '';
-            if (totalCalories > 0) {
-                caloriesInfoHtml = `
-                    <div style="background: #ecfdf5; padding: 15px; border-radius: 6px; border-left: 4px solid #10b981; margin-bottom: 20px;">
-                        <h4 style="margin: 0 0 10px 0; color: #1f2937;">📊 Resumen Calórico</h4>
-                        <div style="font-size: 14px;">
-                            <strong>Total de calorías del plan: ${totalCalories} kcal</strong>
-                            <div style="margin-top: 10px; font-size: 13px; color: #6b7280;">
-                                ${Object.entries(dailyCalories).sort((a, b) => a[0] - b[0]).map(([day, cals]) => 
-                                    `<div>Día ${day}: ${cals} kcal</div>`
-                                ).join('')}
+        function renderClients() {
+            const html = clients.length === 0
+                ? '<div class="empty-state"><p>No hay clientes registrados</p><p>¡Crea tu primer cliente!</p></div>'
+                : clients.map(client => `
+                    <div class="client-card">
+                        <h3>${client.name}</h3>
+                        <div class="client-info">
+                            <div>
+                                <strong>Edad:</strong> ${client.age} años | 
+                                <strong>Sexo:</strong> ${client.gender === 'M' ? 'Masculino' : 'Femenino'}
+                            </div>
+                            <div>
+                                <strong>Altura:</strong> ${client.height} cm | 
+                                <strong>Peso:</strong> ${client.weight} kg
+                            </div>
+                            <div>
+                                <strong>Planes:</strong> ${client.plans?.length || 0}
                             </div>
                         </div>
-                    </div>
-                `;
-            }
-
-            const mealsHtml = currentPlan.meals.length === 0
-                ? '<p style="color: #9ca3af; text-align: center; padding: 20px;">Sin comidas agregadas</p>'
-                : currentPlan.meals.map(meal => `
-                    <div class="meal-detail">
-                        <h4>Día ${meal.day} - ${meal.type}</h4>
-                        <p>${meal.foods}</p>
-                        ${meal.calories ? `<p class="meal-detail-calories">Calorías: ${meal.calories} kcal</p>` : ''}
+                        <div class="client-card-actions">
+                            <button class="btn-secondary" onclick="showClientDetail(${client.id})">Ver Detalles</button>
+                            <button class="btn-danger" onclick="if(confirm('¿Eliminar este cliente?')) { clients = clients.filter(c => c.id !== ${client.id}); saveClients(); renderClients(); }">🗑️</button>
+                        </div>
                     </div>
                 `).join('');
 
-            document.getElementById('detailMeals').innerHTML = clientInfoHtml + allergiesHtml + dislikedHtml + caloriesInfoHtml + mealsHtml;
+            document.getElementById('clientsList').innerHTML = html;
         }
 
-        // ===== GESTIÓN DE COMIDAS =====
-        function addMeal() {
-            meals.push({
-                day: 1,
-                type: 'Desayuno',
-                foods: '',
-                calories: ''
-            });
-            renderMeals();
+        function renderClientDetail() {
+            const c = currentClient;
+
+            document.getElementById('detailClientName').textContent = c.name;
+            document.getElementById('detailClientInfo').textContent = 
+                `${c.age} años | ${c.height} cm | ${c.weight} kg | % Grasa: ${c.bodyFat || '-'}`;
+
+            if (c.metabolic) {
+                document.getElementById('detailIMC').textContent = c.metabolic.imc || '-';
+                document.getElementById('detailGEB').textContent = c.metabolic.geb || '-';
+                document.getElementById('detailGET').textContent = c.metabolic.get || '-';
+                document.getElementById('detailBodyFat').textContent = (c.bodyFat || '-') + '%';
+            }
+
+            if (c.allergies) {
+                document.getElementById('detailAllergies').textContent = c.allergies;
+                document.getElementById('restrictionsBox').style.display = 'block';
+            } else {
+                document.getElementById('restrictionsBox').style.display = 'none';
+            }
+
+            if (c.dislikes) {
+                document.getElementById('detailDislikes').textContent = c.dislikes;
+                document.getElementById('dislikesBox').style.display = 'block';
+            } else {
+                document.getElementById('dislikesBox').style.display = 'none';
+            }
+
+            // Resetear tabs
+            switchTab('plans');
         }
 
-        function removeMeal(index) {
-            meals.splice(index, 1);
-            renderMeals();
-        }
-
-        function updateMeal(index, field, value) {
-            meals[index][field] = value;
-        }
-
-        function renderMeals() {
-            const html = meals.map((meal, idx) => `
-                <div class="meal-item">
-                    <div class="meal-grid">
-                        <div>
-                            <label>Día</label>
-                            <input type="number" value="${meal.day}" min="1" max="31" 
-                                onchange="updateMeal(${idx}, 'day', parseInt(this.value))">
-                        </div>
-                        <div>
-                            <label>Comida</label>
-                            <select onchange="updateMeal(${idx}, 'type', this.value)">
-                                <option ${meal.type === 'Desayuno' ? 'selected' : ''}>Desayuno</option>
-                                <option ${meal.type === 'Almuerzo' ? 'selected' : ''}>Almuerzo</option>
-                                <option ${meal.type === 'Comida' ? 'selected' : ''}>Comida</option>
-                                <option ${meal.type === 'Merienda' ? 'selected' : ''}>Merienda</option>
-                                <option ${meal.type === 'Cena' ? 'selected' : ''}>Cena</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label>Calorías (opcional)</label>
-                            <input type="number" value="${meal.calories}" placeholder="Ej: 500"
-                                onchange="updateMeal(${idx}, 'calories', this.value)">
-                        </div>
-                        <div>
-                            <button class="btn-danger" onclick="removeMeal(${idx})">🗑️</button>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label>Alimentos</label>
-                        <textarea placeholder="Ej: Avena, huevos, frutas..."
-                            onchange="updateMeal(${idx}, 'foods', this.value)">${meal.foods}</textarea>
-                    </div>
-                </div>
-            `).join('');
-
-            document.getElementById('mealsList').innerHTML = html;
-        }
-
-        // ===== GUARDAR PLAN =====
+        // ===== GESTIÓN DE PLANES =====
         function savePlan() {
-            const clientName = document.getElementById('clientName').value.trim();
-            
-            if (!clientName) {
-                alert('Por favor ingresa el nombre del cliente');
+            const name = document.getElementById('planName').value.trim();
+            const objective = document.getElementById('planObjective').value;
+            const duration = parseInt(document.getElementById('planDuration').value);
+            const startDate = document.getElementById('planStartDate').value;
+            const caloriesTarget = parseInt(document.getElementById('planCalories').value);
+
+            if (!name || !startDate) {
+                alert('Por favor completa los datos del plan');
                 return;
             }
 
             const plan = {
                 id: Date.now(),
-                clientName,
-                gender: document.getElementById('gender').value,
-                height: document.getElementById('height').value,
-                weight: document.getElementById('weight').value,
-                bodyFat: document.getElementById('bodyFat').value,
-                objective: document.getElementById('objective').value,
-                days: parseInt(document.getElementById('days').value),
-                startDate: document.getElementById('startDate').value,
-                dietitian: document.getElementById('dietitian').value,
-                allergies: document.getElementById('allergies').value,
-                dislikedFoods: document.getElementById('dislikedFoods').value,
-                meals: meals,
+                name,
+                objective,
+                duration,
+                startDate,
+                caloriesTarget,
+                meals: currentMeals,
                 createdDate: new Date().toLocaleDateString('es-ES')
             };
 
-            plans.unshift(plan);
-            savePlans();
-            meals = [];
-            showMainView();
+            if (!currentClient.plans) currentClient.plans = [];
+            currentClient.plans.unshift(plan);
+            
+            // Actualizar en el array de clientes
+            const index = clients.findIndex(c => c.id === currentClient.id);
+            if (index >= 0) clients[index] = currentClient;
+            
+            saveClients();
+            currentMeals = [];
+            selectedFoods = [];
+            
+            showClientDetail(currentClient.id);
         }
 
-        // ===== RENDERIZAR PLANES =====
-        function renderPlans() {
+        function deleteCurrentPlan() {
+            if (confirm('¿Estás seguro de que quieres eliminar este plan?')) {
+                currentClient.plans = currentClient.plans.filter(p => p.id !== currentPlan.id);
+                const index = clients.findIndex(c => c.id === currentClient.id);
+                if (index >= 0) clients[index] = currentClient;
+                saveClients();
+                showClientDetail(currentClient.id);
+            }
+        }
+
+        function renderPlansList() {
+            const plans = currentClient.plans || [];
             const html = plans.length === 0
-                ? '<div class="empty-state"><p>No hay planes creados aún</p><p>¡Crea tu primer plan dietético!</p></div>'
+                ? '<p style="color: #9ca3af; text-align: center; padding: 20px;">No hay planes creados</p>'
                 : plans.map(plan => `
-                    <div class="plan-card">
-                        <div class="plan-card-header">
-                            <div class="plan-card-content" onclick="showPlanDetail(${plan.id})">
-                                <h3>${plan.clientName}</h3>
-                                <p>${plan.objective || 'Sin objetivo'} • ${plan.meals.length} comidas</p>
-                                <p style="font-size: 12px; color: #9ca3af;">Creado: ${plan.createdDate}</p>
-                            </div>
-                            <div class="plan-card-actions">
-                                <button class="btn-secondary" onclick="downloadPlan(${plan.id})">📥 PDF</button>
-                                <button class="btn-danger" onclick="deletePlan(${plan.id})">🗑️</button>
-                            </div>
+                    <div class="plan-item">
+                        <h4>${plan.name}</h4>
+                        <p><strong>Objetivo:</strong> ${plan.objective || '-'}</p>
+                        <p><strong>Duración:</strong> ${plan.duration} días | <strong>Calorías:</strong> ${plan.caloriesTarget || '-'} kcal</p>
+                        <p><strong>Comidas:</strong> ${plan.meals?.length || 0} | <strong>Creado:</strong> ${plan.createdDate}</p>
+                        <div style="display: flex; gap: 10px; margin-top: 10px;">
+                            <button class="btn-secondary" onclick="viewPlan(${plan.id})">👁️ Ver</button>
+                            <button class="btn-danger" onclick="if(confirm('¿Eliminar este plan?')) { currentClient.plans = currentClient.plans.filter(p => p.id !== ${plan.id}); let idx = clients.findIndex(c => c.id === currentClient.id); if(idx >= 0) clients[idx] = currentClient; saveClients(); renderPlansList(); }">🗑️</button>
                         </div>
                     </div>
                 `).join('');
@@ -704,162 +1028,242 @@
             document.getElementById('plansList').innerHTML = html;
         }
 
-        // ===== ELIMINAR PLAN =====
-        function deletePlan(id) {
-            if (confirm('¿Estás seguro de que quieres eliminar este plan?')) {
-                plans = plans.filter(p => p.id !== id);
-                savePlans();
-                renderPlans();
+        function viewPlan(planId) {
+            currentPlan = currentClient.plans.find(p => p.id === planId);
+            // TODO: Mostrar vista detallada del plan
+            alert(`Plan: ${currentPlan.name}\nMeals: ${currentPlan.meals.length}`);
+        }
+
+        // ===== BÚSQUEDA Y ALIMENTOS =====
+        function renderFoodSearch() {
+            let totalResults = 0;
+            let resultsHtml = '';
+
+            if (Object.keys(foodsDatabase).length > 0) {
+                const category = document.getElementById('categoryFilter').value;
+                const search = document.getElementById('foodSearch').value.toLowerCase();
+
+                const categoriesToSearch = category 
+                    ? [category] 
+                    : Object.keys(foodsDatabase);
+
+                categoriesToSearch.forEach(cat => {
+                    const foods = foodsDatabase[cat] || [];
+                    const filtered = foods.filter(f => 
+                        !search || f.name.toLowerCase().includes(search)
+                    );
+
+                    if (filtered.length > 0) {
+                        resultsHtml += `<div style="padding: 10px 0; border-bottom: 1px solid #d1d5db;">
+                            <div style="font-weight: bold; padding: 5px 10px; background: #f3f4f6; color: #374151;">
+                                ${cat} (${filtered.length})
+                            </div>`;
+
+                        filtered.slice(0, 10).forEach(food => {
+                            resultsHtml += `
+                                <div class="food-item" onclick="addFoodToMeal({
+                                    name: '${food.name.replace(/'/g, "\\'")}',
+                                    kcal: ${food.kcal},
+                                    gramos: ${food.gramos},
+                                    proteinas: ${food.proteinas},
+                                    hc: ${food.hc},
+                                    lipidos: ${food.lipidos}
+                                })">
+                                    <div class="food-info">
+                                        <div class="food-name">${food.name}</div>
+                                        <div class="food-details">${food.kcal} kcal · ${food.gramos}g · P: ${food.proteinas}g · HC: ${food.hc}g · L: ${food.lipidos}g</div>
+                                    </div>
+                                    <div style="color: #10b981; font-weight: bold;">+</div>
+                                </div>
+                            `;
+                        });
+
+                        resultsHtml += '</div>';
+                        totalResults += filtered.length;
+                    }
+                });
+            } else {
+                resultsHtml = '<p style="padding: 20px; text-align: center; color: #9ca3af;">Cargando base de datos de alimentos...</p>';
+            }
+
+            document.getElementById('foodSearchResults').innerHTML = resultsHtml || 
+                '<p style="padding: 20px; text-align: center; color: #9ca3af;">No se encontraron alimentos</p>';
+        }
+
+        function searchFoods() {
+            renderFoodSearch();
+        }
+
+        function toggleFoodList() {
+            const container = document.getElementById('foodListContainer');
+            container.classList.toggle('hidden');
+            if (!container.classList.contains('hidden')) {
+                renderFoodSearch();
             }
         }
 
-        function deleteCurrentPlan() {
-            if (confirm('¿Estás seguro?')) {
-                plans = plans.filter(p => p.id !== currentPlan.id);
-                savePlans();
-                showMainView();
+        function addFoodToMeal(food) {
+            const quantity = prompt(`¿Cuántos gramos de "${food.name}"?`, food.gramos);
+            if (quantity === null) return;
+
+            const grams = parseFloat(quantity);
+            if (isNaN(grams) || grams <= 0) {
+                alert('Cantidad inválida');
+                return;
             }
+
+            const ratio = grams / food.gramos;
+            const mealItem = {
+                id: Date.now(),
+                food: food.name,
+                gramos: grams,
+                kcal: Math.round(food.kcal * ratio),
+                proteinas: (food.proteinas * ratio).toFixed(1),
+                hc: (food.hc * ratio).toFixed(1),
+                lipidos: (food.lipidos * ratio).toFixed(1)
+            };
+
+            if (!currentMeals[currentMeals.length - 1]?.foods) {
+                addMealToPlan();
+            }
+
+            currentMeals[currentMeals.length - 1].foods.push(mealItem);
+            renderPlanMeals();
         }
 
-        // ===== DESCARGAR PDF =====
-        function generatePDF(plan) {
-            const dailyCalories = {};
-            plan.meals.forEach(meal => {
-                if (!dailyCalories[meal.day]) {
-                    dailyCalories[meal.day] = 0;
-                }
-                if (meal.calories) {
-                    dailyCalories[meal.day] += parseInt(meal.calories) || 0;
-                }
+        // ===== COMIDAS DEL PLAN =====
+        function addMealToPlan() {
+            currentMeals.push({
+                id: Date.now(),
+                type: 'Desayuno',
+                day: 1,
+                foods: []
             });
-            const totalCalories = Object.values(dailyCalories).reduce((a, b) => a + b, 0);
-
-            const html = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <meta charset="UTF-8">
-                    <style>
-                        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
-                        .header { text-align: center; margin-bottom: 30px; border-bottom: 3px solid #3b82f6; padding-bottom: 15px; }
-                        .header h1 { color: #1f2937; margin: 0; }
-                        .info { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; background: #f3f4f6; padding: 15px; border-radius: 8px; }
-                        .info-label { font-weight: bold; color: #3b82f6; }
-                        .section-title { background: #667eea; color: white; padding: 10px; margin: 20px 0 10px 0; border-radius: 5px; font-weight: bold; }
-                        .alert-section { border-left: 4px solid #ef4444; padding: 12px; margin: 15px 0; background: #fef2f2; }
-                        .warning-section { border-left: 4px solid #f59e0b; padding: 12px; margin: 15px 0; background: #fef3c7; }
-                        .meal-section { margin-bottom: 25px; }
-                        .meal-title { background: #3b82f6; color: white; padding: 10px; border-radius: 5px; font-weight: bold; margin-bottom: 10px; }
-                        .meal-content { background: #f9fafb; padding: 12px; border-left: 4px solid #3b82f6; }
-                        .calories { font-weight: bold; color: #3b82f6; }
-                        .footer { margin-top: 40px; text-align: center; color: #6b7280; font-size: 12px; border-top: 1px solid #d1d5db; padding-top: 15px; }
-                    </style>
-                </head>
-                <body>
-                    <div class="header">
-                        <h1>📋 PLAN DIETÉTICO</h1>
-                    </div>
-                    
-                    <div class="info">
-                        <div>
-                            <div class="info-label">Cliente:</div>
-                            <div>${plan.clientName}</div>
-                        </div>
-                        <div>
-                            <div class="info-label">Objetivo:</div>
-                            <div>${plan.objective || 'No especificado'}</div>
-                        </div>
-                        <div>
-                            <div class="info-label">Duración:</div>
-                            <div>${plan.days} días</div>
-                        </div>
-                        <div>
-                            <div class="info-label">Inicio:</div>
-                            <div>${plan.startDate}</div>
-                        </div>
-                    </div>
-
-                    ${plan.gender || plan.height || plan.weight || plan.bodyFat ? `
-                        <div class="section-title">📊 Información del Cliente</div>
-                        <div class="info" style="background: #f0f9ff;">
-                            ${plan.gender ? `<div><strong>Sexo:</strong> ${plan.gender}</div>` : ''}
-                            ${plan.height ? `<div><strong>Altura:</strong> ${plan.height} cm</div>` : ''}
-                            ${plan.weight ? `<div><strong>Peso:</strong> ${plan.weight} kg</div>` : ''}
-                            ${plan.bodyFat ? `<div><strong>% Grasa Corporal:</strong> ${plan.bodyFat}%</div>` : ''}
-                        </div>
-                    ` : ''}
-
-                    ${plan.allergies ? `
-                        <div class="section-title">⚠️ ALERGIAS</div>
-                        <div class="alert-section">
-                            ${plan.allergies}
-                        </div>
-                    ` : ''}
-
-                    ${plan.dislikedFoods ? `
-                        <div class="section-title">🚫 COMIDAS QUE NO LE GUSTAN</div>
-                        <div class="warning-section">
-                            ${plan.dislikedFoods}
-                        </div>
-                    ` : ''}
-
-                    ${totalCalories > 0 ? `
-                        <div class="section-title">🔥 RESUMEN CALÓRICO</div>
-                        <div class="info">
-                            <div><strong>TOTAL DEL PLAN:</strong> ${totalCalories} kcal</div>
-                            <div><strong>Promedio por día:</strong> ${Math.round(totalCalories / plan.days)} kcal</div>
-                        </div>
-                        <div style="background: #f0fdf4; padding: 12px; border-left: 4px solid #10b981; margin: 15px 0;">
-                            ${Object.entries(dailyCalories).sort((a, b) => a[0] - b[0]).map(([day, cals]) => 
-                                `<div>Día ${day}: ${cals} kcal</div>`
-                            ).join('')}
-                        </div>
-                    ` : ''}
-
-                    <div class="section-title">🍽️ PLAN DE COMIDAS</div>
-                    ${plan.meals.map(meal => `
-                        <div class="meal-section">
-                            <div class="meal-title">
-                                Día ${meal.day} - ${meal.type}
-                            </div>
-                            <div class="meal-content">
-                                <div>${meal.foods || 'Sin alimentos especificados'}</div>
-                                ${meal.calories ? `<div class="calories">Calorías: ${meal.calories} kcal</div>` : ''}
-                            </div>
-                        </div>
-                    `).join('')}
-
-                    <div class="footer">
-                        <p>Plan creado por: ${plan.dietitian}</p>
-                        <p>Fecha de creación: ${plan.createdDate}</p>
-                        <p style="margin-top: 15px; font-style: italic;">⚕️ IMPORTANTE: Consulta con tu dietista antes de iniciar cualquier plan. Este documento es confidencial y está destinado únicamente al cliente.</p>
-                    </div>
-                </body>
-                </html>
-            `;
-
-            const printWindow = window.open('', '_blank');
-            printWindow.document.write(html);
-            printWindow.document.close();
-            
-            setTimeout(() => {
-                printWindow.print();
-            }, 250);
+            renderPlanMeals();
         }
 
-        function downloadPlan(id) {
-            const plan = plans.find(p => p.id === id);
-            if (plan) generatePDF(plan);
+        function removeMealFromPlan(mealIndex) {
+            currentMeals.splice(mealIndex, 1);
+            renderPlanMeals();
         }
 
-        function downloadCurrentPlan() {
-            if (currentPlan) generatePDF(currentPlan);
+        function removeFoodFromMeal(mealIndex, foodIndex) {
+            currentMeals[mealIndex].foods.splice(foodIndex, 1);
+            renderPlanMeals();
+        }
+
+        function renderPlanMeals() {
+            const html = currentMeals.map((meal, idx) => {
+                const totalKcal = meal.foods.reduce((sum, f) => sum + f.kcal, 0);
+                const totalProteins = meal.foods.reduce((sum, f) => sum + parseFloat(f.proteinas), 0);
+                const totalCarbs = meal.foods.reduce((sum, f) => sum + parseFloat(f.hc), 0);
+                const totalFats = meal.foods.reduce((sum, f) => sum + parseFloat(f.lipidos), 0);
+
+                return `
+                    <div class="meal-item">
+                        <div class="meal-item-header">
+                            <div>
+                                <select onchange="currentMeals[${idx}].type = this.value" style="padding: 8px;">
+                                    <option ${meal.type === 'Desayuno' ? 'selected' : ''}>Desayuno</option>
+                                    <option ${meal.type === 'Almuerzo' ? 'selected' : ''}>Almuerzo</option>
+                                    <option ${meal.type === 'Comida' ? 'selected' : ''}>Comida</option>
+                                    <option ${meal.type === 'Merienda' ? 'selected' : ''}>Merienda</option>
+                                    <option ${meal.type === 'Cena' ? 'selected' : ''}>Cena</option>
+                                </select>
+                                <input type="number" min="1" max="31" value="${meal.day}" onchange="currentMeals[${idx}].day = parseInt(this.value)" placeholder="Día" style="width: 60px; padding: 8px; margin-left: 10px;">
+                            </div>
+                            <button class="btn-danger" onclick="removeMealFromPlan(${idx})">🗑️</button>
+                        </div>
+
+                        <div style="background: #f9fafb; padding: 10px; border-radius: 4px; margin-bottom: 10px; font-size: 13px;">
+                            <strong>Total:</strong> ${totalKcal} kcal | P: ${totalProteins.toFixed(1)}g | HC: ${totalCarbs.toFixed(1)}g | L: ${totalFats.toFixed(1)}g
+                        </div>
+
+                        ${meal.foods.length === 0 
+                            ? '<p style="color: #9ca3af; text-align: center; padding: 10px;">Sin alimentos</p>'
+                            : meal.foods.map((food, foodIdx) => `
+                                <div style="background: white; padding: 8px; border-radius: 4px; margin-bottom: 5px; font-size: 13px; display: flex; justify-content: space-between; align-items: center;">
+                                    <div>
+                                        <strong>${food.food}</strong> (${food.gramos}g)<br>
+                                        ${food.kcal} kcal | P: ${food.proteinas}g | HC: ${food.hc}g | L: ${food.lipidos}g
+                                    </div>
+                                    <button class="btn-danger" style="padding: 5px 10px;" onclick="removeFoodFromMeal(${idx}, ${foodIdx})">✕</button>
+                                </div>
+                            `).join('')
+                        }
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('planMealsList').innerHTML = html || '<p style="color: #9ca3af;">Sin comidas</p>';
+        }
+
+        // ===== BACKUP Y RESTAURACIÓN =====
+        function downloadBackup() {
+            const backup = {
+                clients: clients,
+                exportDate: new Date().toISOString(),
+                version: '1.0'
+            };
+
+            const json = JSON.stringify(backup, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `DietistaPro_Backup_${new Date().toLocaleDateString('es-ES').replace(/\//g, '-')}.json`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function uploadBackup() {
+            const file = document.getElementById('uploadInput').files[0];
+            if (!file) return;
+
+            pendingFile = file;
+            document.getElementById('uploadModal').classList.add('active');
+        }
+
+        function confirmUpload() {
+            if (!pendingFile) return;
+
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                try {
+                    const backup = JSON.parse(e.target.result);
+                    if (backup.clients && Array.isArray(backup.clients)) {
+                        clients = backup.clients;
+                        saveClients();
+                        closeUploadModal();
+                        showMainView();
+                        alert('✅ Backup restaurado exitosamente');
+                    } else {
+                        alert('❌ Formato de archivo inválido');
+                    }
+                } catch (error) {
+                    alert('❌ Error al leer el archivo: ' + error.message);
+                }
+            };
+
+            reader.readAsText(pendingFile);
+            pendingFile = null;
+        }
+
+        function closeUploadModal() {
+            document.getElementById('uploadModal').classList.remove('active');
+            document.getElementById('uploadInput').value = '';
+        }
+
+        // ===== UTILIDADES =====
+        function setToday(inputId) {
+            const today = new Date().toISOString().split('T')[0];
+            const input = document.getElementById(inputId);
+            if (input) input.value = today;
         }
 
         // ===== INICIALIZAR =====
         window.addEventListener('load', () => {
-            loadPlans();
-            setToday();
+            loadAllData();
         });
     </script>
 </body>
