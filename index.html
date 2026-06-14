@@ -1433,10 +1433,23 @@ function deleteCurrentDia() {
 }
 
 function diaTotals(dia) {
-    let t = { kcal:0, prot:0, hc:0, lip:0, fibra:0 };
+    let t = { kcal:0, prot:0, pVeg:0, pAni:0, hc:0, almidon:0, azucares:0, fibra:0, lip:0, ags:0, agm:0, agp:0, col:0, na:0 };
     MEALS.forEach(meal => {
         (dia.meals[meal.key] || []).forEach(it => {
-            t.kcal += it.kcal; t.prot += it.proteinas; t.hc += it.hcTotales; t.lip += it.lipidos; t.fibra += (it.fibra || 0);
+            t.kcal     += it.kcal         || 0;
+            t.prot     += it.proteinas    || 0;
+            t.pVeg     += it.pVegetales   || 0;
+            t.pAni     += it.pAnimales    || 0;
+            t.hc       += it.hcTotales    || 0;
+            t.almidon  += it.almidon      || 0;
+            t.azucares += it.azucares     || 0;
+            t.fibra    += it.fibra        || 0;
+            t.lip      += it.lipidos      || 0;
+            t.ags      += it.ags          || 0;
+            t.agm      += it.agm          || 0;
+            t.agp      += it.agp          || 0;
+            t.col      += it.colesterol   || 0;
+            t.na       += it.na           || 0;
         });
     });
     return t;
@@ -1477,21 +1490,44 @@ function renderDietPlan() {
         return;
     }
 
-    let dayTot = { kcal:0, prot:0, hc:0, lip:0 };
+    let dayTot = { kcal:0, prot:0, pVeg:0, pAni:0, hc:0, almidon:0, azucares:0, fibra:0, lip:0, ags:0, agm:0, agp:0, col:0, na:0 };
 
     cont.innerHTML = MEALS.map(meal => {
         const items = dia.meals[meal.key] || [];
-        let mt = { kcal:0, prot:0, hc:0, lip:0 };
+        let mt = { kcal:0, prot:0, pVeg:0, pAni:0, hc:0, almidon:0, azucares:0, fibra:0, lip:0, ags:0, agm:0, agp:0, col:0, na:0 };
         const rows = items.map((it, idx) => {
-            mt.kcal += it.kcal; mt.prot += it.proteinas; mt.hc += it.hcTotales; mt.lip += it.lipidos;
+            mt.kcal     += it.kcal         || 0;
+            mt.prot     += it.proteinas    || 0;
+            mt.pVeg     += it.pVegetales   || 0;
+            mt.pAni     += it.pAnimales    || 0;
+            mt.hc       += it.hcTotales    || 0;
+            mt.almidon  += it.almidon      || 0;
+            mt.azucares += it.azucares     || 0;
+            mt.fibra    += it.fibra        || 0;
+            mt.lip      += it.lipidos      || 0;
+            mt.ags      += it.ags          || 0;
+            mt.agm      += it.agm          || 0;
+            mt.agp      += it.agp          || 0;
+            mt.col      += it.colesterol   || 0;
+            mt.na       += it.na           || 0;
             return `<tr>
                 <td>${it.name}</td>
-                <td><input type="number" value="${it.gramos}" min="0" step="5" class="form-control" style="width:80px;padding:5px;font-size:13px;"
+                <td><input type="number" value="${it.gramos}" min="0" step="5" class="form-control" style="width:75px;padding:5px;font-size:12px;"
                      onchange="updateFoodGrams('${meal.key}',${idx},this.value)"> g</td>
                 <td>${fmt(it.kcal,0)}</td>
                 <td>${fmt(it.proteinas,1)}</td>
+                <td style="color:#555;">${fmt(it.pVegetales,1)}</td>
+                <td style="color:#555;">${fmt(it.pAnimales,1)}</td>
                 <td>${fmt(it.hcTotales,1)}</td>
+                <td style="color:#555;">${fmt(it.almidon,1)}</td>
+                <td style="color:#555;">${fmt(it.azucares,1)}</td>
+                <td style="color:#555;">${fmt(it.fibra,1)}</td>
                 <td>${fmt(it.lipidos,1)}</td>
+                <td style="color:#555;">${fmt(it.ags,1)}</td>
+                <td style="color:#555;">${fmt(it.agm,1)}</td>
+                <td style="color:#555;">${fmt(it.agp,1)}</td>
+                <td style="color:#555;">${fmt(it.colesterol,0)}</td>
+                <td style="color:#555;">${fmt(it.na,0)}</td>
                 <td class="actions-cell">
                     <button class="btn btn-secondary btn-sm" title="Ver todos los detalles" onclick="showFoodDetailItem('${meal.key}',${idx})">ℹ️</button>
                     <button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button>
@@ -1499,7 +1535,13 @@ function renderDietPlan() {
             </tr>`;
         }).join('');
 
-        dayTot.kcal += mt.kcal; dayTot.prot += mt.prot; dayTot.hc += mt.hc; dayTot.lip += mt.lip;
+        dayTot.kcal     += mt.kcal;     dayTot.prot    += mt.prot;
+        dayTot.pVeg     += mt.pVeg;     dayTot.pAni    += mt.pAni;
+        dayTot.hc       += mt.hc;       dayTot.almidon += mt.almidon;
+        dayTot.azucares += mt.azucares; dayTot.fibra   += mt.fibra;
+        dayTot.lip      += mt.lip;      dayTot.ags     += mt.ags;
+        dayTot.agm      += mt.agm;      dayTot.agp     += mt.agp;
+        dayTot.col      += mt.col;      dayTot.na      += mt.na;
 
         const targetKcal = n.getMod * ((client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct);
         return `
@@ -1507,13 +1549,50 @@ function renderDietPlan() {
             <div class="meal-head">
                 <h4>${meal.label}</h4>
                 <div style="display:flex; gap:8px; align-items:center;">
-                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,0)} HC:${fmt(mt.hc,0)} L:${fmt(mt.lip,0)} g</span>
+                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,1)} HC:${fmt(mt.hc,1)} L:${fmt(mt.lip,1)} g</span>
                     <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
                 </div>
             </div>
-            ${items.length ? `<div style="overflow-x:auto;"><table>
-                <thead><tr><th>Alimento</th><th>Cantidad</th><th>Kcal</th><th>Prot</th><th>HC</th><th>Líp</th><th></th></tr></thead>
-                <tbody>${rows}</tbody></table></div>`
+            ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
+                <thead>
+                  <tr>
+                    <th rowspan="2">Alimento</th>
+                    <th rowspan="2">Cantidad</th>
+                    <th rowspan="2">Kcal</th>
+                    <th colspan="3" style="text-align:center;background:#eef2fb;">Proteínas (g)</th>
+                    <th colspan="4" style="text-align:center;background:#f0faf3;">HC (g)</th>
+                    <th colspan="4" style="text-align:center;background:#fdf6ec;">Lípidos (g)</th>
+                    <th rowspan="2">Col<br>(mg)</th>
+                    <th rowspan="2">Na<br>(mg)</th>
+                    <th rowspan="2"></th>
+                  </tr>
+                  <tr>
+                    <th style="background:#eef2fb;">Tot</th>
+                    <th style="background:#eef2fb;color:#555;">Veg</th>
+                    <th style="background:#eef2fb;color:#555;">Ani</th>
+                    <th style="background:#f0faf3;">Tot</th>
+                    <th style="background:#f0faf3;color:#555;">Alm</th>
+                    <th style="background:#f0faf3;color:#555;">Azu</th>
+                    <th style="background:#f0faf3;color:#555;">Fib</th>
+                    <th style="background:#fdf6ec;">Tot</th>
+                    <th style="background:#fdf6ec;color:#555;">AGS</th>
+                    <th style="background:#fdf6ec;color:#555;">AGM</th>
+                    <th style="background:#fdf6ec;color:#555;">AGP</th>
+                  </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+                <tfoot>
+                  <tr style="background:#f7fafc;font-weight:bold;">
+                    <td>Subtotal</td><td></td>
+                    <td>${fmt(mt.kcal,0)}</td>
+                    <td>${fmt(mt.prot,1)}</td><td style="color:#555;">${fmt(mt.pVeg,1)}</td><td style="color:#555;">${fmt(mt.pAni,1)}</td>
+                    <td>${fmt(mt.hc,1)}</td><td style="color:#555;">${fmt(mt.almidon,1)}</td><td style="color:#555;">${fmt(mt.azucares,1)}</td><td style="color:#555;">${fmt(mt.fibra,1)}</td>
+                    <td>${fmt(mt.lip,1)}</td><td style="color:#555;">${fmt(mt.ags,1)}</td><td style="color:#555;">${fmt(mt.agm,1)}</td><td style="color:#555;">${fmt(mt.agp,1)}</td>
+                    <td style="color:#555;">${fmt(mt.col,0)}</td><td style="color:#555;">${fmt(mt.na,0)}</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+                </table></div>`
                 : `<p class="small-note">Sin alimentos. Pulsa "＋ Alimento" para buscar en la base de datos.</p>`}
         </div>`;
     }).join('');
@@ -1521,9 +1600,11 @@ function renderDietPlan() {
     document.getElementById('planDayTotals').innerHTML = `
         <div class="section-title" style="margin-top:0;">Totales · ${plan.nombre} › ${dia.nombre}</div>
         <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
-        <div class="calc-result"><span>Proteínas</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g)</span></div>
-        <div class="calc-result"><span>Hidratos</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g)</span></div>
-        <div class="calc-result"><span>Lípidos</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g)</span></div>
+        <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Veg: ${fmt(dayTot.pVeg,1)} g · Ani: ${fmt(dayTot.pAni,1)} g</span></div>
+        <div class="calc-result"><span>Hidratos totales</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g) · Almidón: ${fmt(dayTot.almidon,1)} g · Azúcares: ${fmt(dayTot.azucares,1)} g · Fibra: ${fmt(dayTot.fibra,1)} g</span></div>
+        <div class="calc-result"><span>Lípidos totales</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g) · AGS: ${fmt(dayTot.ags,1)} g · AGM: ${fmt(dayTot.agm,1)} g · AGP: ${fmt(dayTot.agp,1)} g</span></div>
+        <div class="calc-result"><span>Colesterol</span><strong>${fmt(dayTot.col,0)} mg</strong></div>
+        <div class="calc-result"><span>Sodio (Na)</span><strong>${fmt(dayTot.na,0)} mg</strong></div>
     `;
 }
 
