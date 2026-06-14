@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#667eea">
-    <title>DietiCori 🥗</title>
+    <title>Dietista Pro 🥗</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75'>🥗</text></svg>">
 
     <style>
@@ -132,7 +132,7 @@
 
     <div class="container">
         <div class="header">
-            <h1 onclick="showMainView()" style="cursor: pointer;">DietiCori 🥗 </h1>
+            <h1 onclick="showMainView()" style="cursor: pointer;">Dietista Pro 🥗</h1>
             <div id="headerActions">
                 <button class="btn btn-secondary" onclick="exportData()">💾 Exportar Backup</button>
                 <button class="btn btn-secondary" onclick="openUploadModal()">📂 Importar Backup</button>
@@ -288,6 +288,38 @@
 
                     <div class="calc-box" id="formCalcSummary" style="margin-top:15px;"></div>
 
+                    <div class="section-title">Historia Clínica y Preferencias</div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Alimentos que le gustan</label>
+                            <textarea id="clientGustos" class="form-control" rows="3" placeholder="Ej: pollo, pescado azul, fruta, legumbres..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Alimentos que NO le gustan</label>
+                            <textarea id="clientDisgustos" class="form-control" rows="3" placeholder="Ej: brócoli, hígado, cilantro..."></textarea>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Enfermedades / Patologías</label>
+                            <textarea id="clientEnfermedades" class="form-control" rows="3" placeholder="Ej: hipertensión, diabetes tipo 2, hipotiroidismo..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Medicación</label>
+                            <textarea id="clientMedicacion" class="form-control" rows="3" placeholder="Ej: metformina, levotiroxina..."></textarea>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label>Alergias e intolerancias</label>
+                            <textarea id="clientAlergias" class="form-control" rows="3" placeholder="Ej: lactosa, gluten, frutos secos..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label>Recomendaciones</label>
+                            <textarea id="clientRecomendaciones" class="form-control" rows="3" placeholder="Indicaciones, hábitos a trabajar, pautas..."></textarea>
+                        </div>
+                    </div>
+
                     <div style="margin-top: 20px; display: flex; gap: 10px;">
                         <button type="submit" class="btn">💾 Guardar Cambios</button>
                         <button type="button" class="btn btn-secondary" onclick="cancelClientForm()">Cancelar</button>
@@ -312,6 +344,7 @@
 
                 <div class="nav-tabs">
                     <button class="tab-btn active" onclick="switchTab('antropometria')">Antropometría</button>
+                    <button class="tab-btn" onclick="switchTab('historia')">Historia Clínica</button>
                     <button class="tab-btn" onclick="switchTab('calculos')">Cálculos Energéticos</button>
                     <button class="tab-btn" onclick="switchTab('plan')">Plan de Dieta</button>
                     <button class="tab-btn" onclick="switchTab('seguimiento')">Seguimientos</button>
@@ -351,6 +384,11 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <!-- TAB HISTORIA CLÍNICA -->
+                <div id="tab-historia" class="tab-content" style="display:none;">
+                    <div id="historiaContent"></div>
                 </div>
 
                 <!-- TAB CÁLCULOS -->
@@ -467,6 +505,16 @@
         </div>
     </div>
 
+    <!-- ===================== MODAL DETALLE ALIMENTO ===================== -->
+    <div id="foodDetailModal" class="modal">
+        <div class="modal-content" style="max-width: 520px;">
+            <div id="foodDetailContent"></div>
+            <div style="display:flex; justify-content:flex-end; margin-top:15px;">
+                <button class="btn btn-secondary" onclick="closeFoodDetail()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
     <!-- ===================== MODAL IMPORTAR ===================== -->
     <div id="uploadModal" class="modal">
         <div class="modal-content">
@@ -512,6 +560,16 @@ const ACTIVIDAD = [
     { key: 'ligero',    factor: 2.5 },
     { key: 'moderado',  factor: 5   },
     { key: 'intenso',   factor: 7   }
+];
+
+// Campos nutricionales completos (de TABLAD) para el detalle de alimentos
+const FOOD_FIELDS = [
+    ['gramos','Gramos','g'], ['kcal','Energía','kcal'],
+    ['proteinas','Proteínas','g'], ['pVegetales','P. Vegetales','g'], ['pAnimales','P. Animales','g'],
+    ['hcTotales','H.C. Totales','g'], ['almidon','Almidón','g'], ['azucares','Azúcares','g'],
+    ['fibra','Fibra','g'], ['lipidos','Lípidos','g'],
+    ['ags','AGS','g'], ['agm','AGM','g'], ['agp','AGP','g'],
+    ['colesterol','Colesterol','mg'], ['na','Sodio (Na)','mg']
 ];
 
 /* ============================================================
@@ -720,6 +778,13 @@ function showEditClientForm(id) {
     document.getElementById('clientPregWeight').value = client.pregWeight || '';
     document.getElementById('clientPregWeek').value = client.pregWeek || '';
 
+    document.getElementById('clientGustos').value = client.gustos || '';
+    document.getElementById('clientDisgustos').value = client.disgustos || '';
+    document.getElementById('clientEnfermedades').value = client.enfermedades || '';
+    document.getElementById('clientMedicacion').value = client.medicacion || '';
+    document.getElementById('clientAlergias').value = client.alergias || '';
+    document.getElementById('clientRecomendaciones').value = client.recomendaciones || '';
+
     onSexChange();
     recalcForm();
 }
@@ -852,6 +917,7 @@ function showClientDetail(id) {
 
     forceTab('antropometria');
     renderSeguimientos();
+    renderHistoria();
     renderCalculos();
     renderDietPlan();
 }
@@ -872,6 +938,37 @@ function forceTab(tabName) {
 }
 
 /* ============================================================
+   TAB HISTORIA CLÍNICA Y PREFERENCIAS
+   ============================================================ */
+function renderHistoria() {
+    const client = clients.find(c => c.id === currentClientId);
+    const cont = document.getElementById('historiaContent');
+    if (!client) { cont.innerHTML = ''; return; }
+    const box = (titulo, valor, icono) => `
+        <div class="calc-box">
+            <div class="section-title" style="margin-top:0;">${icono} ${titulo}</div>
+            <div style="white-space:pre-wrap; color:#4a5568; font-size:14px;">${(valor && String(valor).trim()) ? escapeHtml(valor) : '<span style="color:#a0aec0;">Sin datos registrados</span>'}</div>
+        </div>`;
+    cont.innerHTML = `
+        <div class="grid-2">
+            ${box('Alimentos que le gustan', client.gustos, '✅')}
+            ${box('Alimentos que NO le gustan', client.disgustos, '🚫')}
+        </div>
+        <div class="grid-2">
+            ${box('Enfermedades / Patologías', client.enfermedades, '🩺')}
+            ${box('Medicación', client.medicacion, '💊')}
+        </div>
+        <div class="grid-2">
+            ${box('Alergias e intolerancias', client.alergias, '⚠️')}
+            ${box('Recomendaciones', client.recomendaciones, '📝')}
+        </div>`;
+}
+
+function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, m => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m]));
+}
+
+/* ============================================================
    TAB CÁLCULOS ENERGÉTICOS
    ============================================================ */
 function renderCalculos() {
@@ -885,6 +982,7 @@ function renderCalculos() {
         const pct = (client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct;
         return { ...meal, pct };
     });
+    const sumaPct = mealRows.reduce((a, m) => a + m.pct, 0);
 
     cont.innerHTML = `
         <div class="grid-2">
@@ -907,7 +1005,8 @@ function renderCalculos() {
             </div>
         </div>
         <div class="calc-box">
-            <div class="section-title" style="margin-top:0;">Reparto por Comidas (objetivo ${fmt(n.getMod,0)} kcal)</div>
+            <div class="section-title" style="margin-top:0;">Reparto por Comidas (modificable) · objetivo ${fmt(n.getMod,0)} kcal</div>
+            <p class="small-note">Edita el % de cada comida. Debería sumar 100%. Estos valores se usan también como objetivo por comida en el plan de dieta.</p>
             <div style="overflow-x:auto;">
             <table>
                 <thead><tr><th>Comida</th><th>%</th><th>Kcal</th><th>HC (g)</th><th>Líp (g)</th><th>Prot (g)</th></tr></thead>
@@ -916,7 +1015,9 @@ function renderCalculos() {
                     const k = n.getMod * meal.pct;
                     return `<tr>
                         <td>${meal.label}</td>
-                        <td>${fmt(meal.pct*100,0)}%</td>
+                        <td><input type="number" min="0" max="100" step="1" value="${fmt(meal.pct*100,0)}"
+                             class="form-control" style="width:75px;padding:5px;font-size:13px;"
+                             onchange="updateReparto('${meal.key}', this.value)"> %</td>
                         <td>${fmt(k,0)}</td>
                         <td>${fmt(k*m.hc.pct/4,0)}</td>
                         <td>${fmt(k*m.lip.pct/9,0)}</td>
@@ -924,10 +1025,43 @@ function renderCalculos() {
                     </tr>`;
                 }).join('')}
                 </tbody>
+                <tfoot><tr>
+                    <td><strong>Total</strong></td>
+                    <td style="color:${Math.round(sumaPct*100)===100?'#276749':'#c05621'};"><strong>${fmt(sumaPct*100,0)} %</strong></td>
+                    <td colspan="4">${Math.round(sumaPct*100)===100 ? '✅ correcto' : '⚠️ debería sumar 100%'}</td>
+                </tr></tfoot>
             </table>
             </div>
+            <button class="btn btn-secondary btn-sm" style="margin-top:10px;" onclick="resetReparto()">↺ Restaurar reparto por defecto</button>
         </div>
     `;
+}
+
+/* ============================================================
+   CÁLCULO % GRASA EN SEGUIMIENTOS (8 pliegues)
+   ============================================================ */
+function updateReparto(mealKey, value) {
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client) return;
+    if (!client.reparto) {
+        client.reparto = {};
+        MEALS.forEach(m => client.reparto[m.key] = m.pct);
+    }
+    let v = parseFloat(value);
+    if (isNaN(v) || v < 0) v = 0;
+    client.reparto[mealKey] = v / 100;
+    saveClientsToStorage();
+    renderCalculos();
+    renderDietPlan();
+}
+
+function resetReparto() {
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client) return;
+    client.reparto = null;
+    saveClientsToStorage();
+    renderCalculos();
+    renderDietPlan();
 }
 
 /* ============================================================
@@ -996,6 +1130,13 @@ function saveClient(e) {
         pregnant: document.getElementById('clientPregnant').checked,
         pregWeight: parseFloat(document.getElementById('clientPregWeight').value) || '',
         pregWeek: parseFloat(document.getElementById('clientPregWeek').value) || '',
+
+        gustos: document.getElementById('clientGustos').value,
+        disgustos: document.getElementById('clientDisgustos').value,
+        enfermedades: document.getElementById('clientEnfermedades').value,
+        medicacion: document.getElementById('clientMedicacion').value,
+        alergias: document.getElementById('clientAlergias').value,
+        recomendaciones: document.getElementById('clientRecomendaciones').value,
 
         seguimientos: existing ? (existing.seguimientos || []) : [],
         planes: existing ? (existing.planes || []) : [],
@@ -1351,7 +1492,10 @@ function renderDietPlan() {
                 <td>${fmt(it.proteinas,1)}</td>
                 <td>${fmt(it.hcTotales,1)}</td>
                 <td>${fmt(it.lipidos,1)}</td>
-                <td><button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button></td>
+                <td class="actions-cell">
+                    <button class="btn btn-secondary btn-sm" title="Ver todos los detalles" onclick="showFoodDetailItem('${meal.key}',${idx})">ℹ️</button>
+                    <button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button>
+                </td>
             </tr>`;
         }).join('');
 
@@ -1509,6 +1653,39 @@ function openFoodModal(mealKey) {
 }
 function closeFoodModal() { document.getElementById('foodModal').classList.remove('active'); }
 
+/* ---- Detalle completo de un alimento (15 campos de TABLAD) ---- */
+function renderFoodDetail(food, subtitulo) {
+    const rows = FOOD_FIELDS.map(([key, label, unit]) => {
+        const val = parseFloat(food[key]) || 0;
+        return `<tr>
+            <td>${label}</td>
+            <td style="text-align:right;"><strong>${fmt(val, key === 'kcal' || key === 'gramos' ? 0 : 2)}</strong> ${unit}</td>
+        </tr>`;
+    }).join('');
+    document.getElementById('foodDetailContent').innerHTML = `
+        <h3 style="margin-bottom:2px;">${escapeHtml(food.name)}</h3>
+        <p class="small-note" style="margin-bottom:12px;">${subtitulo}${food.categoria ? ' · ' + escapeHtml(food.categoria) : ''}</p>
+        <table>${rows}</table>`;
+    document.getElementById('foodDetailModal').classList.add('active');
+}
+
+function showFoodDetailByFlat(flatIdx) {
+    const food = FOOD_FLAT_get(flatIdx);
+    if (!food) return;
+    renderFoodDetail(food, 'Valores por ' + fmt(food.gramos || 100, 0) + ' g');
+}
+function FOOD_FLAT_get(i) { return FOODS_FLAT[i]; }
+
+function showFoodDetailItem(mealKey, idx) {
+    const client = clients.find(c => c.id === currentClientId);
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[mealKey][idx];
+    if (!item) return;
+    renderFoodDetail(item, 'Valores para la cantidad del plan (' + fmt(item.gramos, 0) + ' g)');
+}
+
+function closeFoodDetail() { document.getElementById('foodDetailModal').classList.remove('active'); }
+
 function normalize(str) {
     return (str || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
@@ -1527,12 +1704,15 @@ function renderFoodResults() {
         return;
     }
     cont.innerHTML = results.map((f, i) => `
-        <div class="food-result-item" onclick="addFoodToMeal(${f._idx})">
-            <div>
+        <div class="food-result-item">
+            <div onclick="addFoodToMeal(${f._idx})" style="flex:1; cursor:pointer;">
                 <strong>${f.name}</strong>
                 <div class="food-cat">${f.categoria} · ${fmt(f.kcal,0)} kcal/100g · P:${fmt(f.proteinas,1)} HC:${fmt(f.hcTotales,1)} L:${fmt(f.lipidos,1)}</div>
             </div>
-            <span class="pill">＋</span>
+            <div style="display:flex; gap:6px; align-items:center;">
+                <button class="btn btn-secondary btn-sm" title="Ver todos los detalles" onclick="event.stopPropagation(); showFoodDetailByFlat(${f._idx})">ℹ️</button>
+                <span class="pill" onclick="addFoodToMeal(${f._idx})" style="cursor:pointer;">＋</span>
+            </div>
         </div>`).join('');
 }
 
