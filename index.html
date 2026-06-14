@@ -117,6 +117,12 @@
         .plan-tab.active { background:#667eea; color:#fff; border-color:#667eea; }
         .plan-tab .pt-meta { font-size:11px; opacity:.85; display:block; }
 
+        /* ---- Sub-pestañas de días ---- */
+        .dia-tabs { display:flex; gap:6px; flex-wrap:wrap; margin-top:14px; }
+        .dia-tab { padding:6px 12px; border-radius:20px; cursor:pointer; background:#edf2f7; color:#4a5568; font-weight:600; font-size:13px; border:1px solid #e2e8f0; }
+        .dia-tab.active { background:#2b6cb0; color:#fff; border-color:#2b6cb0; }
+        .dia-tab .dt-meta { font-size:10px; opacity:.85; margin-left:5px; }
+
         .hidden { display: none !important; }
         .small-note { font-size: 12px; color:#718096; margin-top:4px; }
         @media (max-width: 640px){ .grid-2 { grid-template-columns: 1fr; } }
@@ -366,9 +372,20 @@
                     <div id="planToolbar" style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:12px 0;">
                         <button class="btn btn-sm" onclick="addNewPlan()">＋ Nuevo plan</button>
                         <button class="btn btn-secondary btn-sm" onclick="duplicateCurrentPlan()">⧉ Duplicar plan</button>
-                        <button class="btn btn-secondary btn-sm" onclick="renameCurrentPlan()">✏️ Renombrar</button>
+                        <button class="btn btn-secondary btn-sm" onclick="renameCurrentPlan()">✏️ Renombrar plan</button>
                         <button class="btn btn-secondary btn-sm" onclick="downloadPlanPDF()">📄 Descargar PDF</button>
                         <button class="btn btn-danger btn-sm" onclick="deleteCurrentPlan()">🗑️ Eliminar plan</button>
+                    </div>
+
+                    <!-- Selector de días dentro del plan -->
+                    <div id="planDiasBar" class="dia-tabs"></div>
+
+                    <!-- Barra de acciones del día activo -->
+                    <div id="diaToolbar" style="display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin:10px 0;">
+                        <button class="btn btn-sm" onclick="addNewDia()">＋ Añadir día</button>
+                        <button class="btn btn-secondary btn-sm" onclick="duplicateCurrentDia()">⧉ Duplicar día</button>
+                        <button class="btn btn-secondary btn-sm" onclick="renameCurrentDia()">✏️ Renombrar día</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteCurrentDia()">🗑️ Eliminar día</button>
                     </div>
 
                     <div id="planMealsContainer"></div>
@@ -1115,18 +1132,31 @@ function renderSeguimientos() {
    PLAN DE DIETA (MULTIPLES PLANES) + BUSCADOR DE ALIMENTOS
    ============================================================ */
 
-// Garantiza la estructura de varios planes y migra el formato antiguo (client.plan)
+// Garantiza la estructura de varios planes con varios días y migra formatos antiguos
 function ensurePlanes(client) {
     if (!Array.isArray(client.planes)) client.planes = [];
-    // Migración del modelo antiguo de un único plan
+    // Migración del modelo más antiguo: un único client.plan con comidas
     if (client.plan && Object.keys(client.plan).length && client.planes.length === 0) {
-        client.planes.push({ id: 'plan_' + Date.now(), nombre: 'Plan 1', meals: client.plan });
+        client.planes.push({ id: 'plan_' + Date.now(), nombre: 'Plan 1',
+            dias: [{ id: 'dia_' + Date.now(), nombre: 'Día 1', meals: client.plan }], activeDiaId: null });
         delete client.plan;
     }
     if (client.planes.length === 0) {
-        client.planes.push({ id: 'plan_' + Date.now(), nombre: 'Plan 1', meals: {} });
+        client.planes.push({ id: 'plan_' + Date.now(), nombre: 'Plan 1', dias: [], activeDiaId: null });
     }
-    client.planes.forEach(p => { if (!p.meals) p.meals = {}; });
+    // Asegurar días en cada plan (migrando plan.meals -> Día 1)
+    client.planes.forEach((p, i) => {
+        if (!Array.isArray(p.dias)) p.dias = [];
+        if (p.meals && Object.keys(p.meals).length && p.dias.length === 0) {
+            p.dias.push({ id: 'dia_' + Date.now() + '_' + i, nombre: 'Día 1', meals: p.meals });
+        }
+        if (p.meals) delete p.meals;
+        if (p.dias.length === 0) {
+            p.dias.push({ id: 'dia_' + Date.now() + '_' + i, nombre: 'Día 1', meals: {} });
+        }
+        p.dias.forEach(d => { if (!d.meals) d.meals = {}; });
+        if (!p.activeDiaId || !p.dias.find(d => d.id === p.activeDiaId)) p.activeDiaId = p.dias[0].id;
+    });
     if (!client.activePlanId || !client.planes.find(p => p.id === client.activePlanId)) {
         client.activePlanId = client.planes[0].id;
     }
@@ -1138,6 +1168,11 @@ function getActivePlan(client) {
     return client.planes.find(p => p.id === client.activePlanId) || client.planes[0];
 }
 
+function getActiveDia(plan) {
+    if (!plan.dias || plan.dias.length === 0) plan.dias = [{ id: 'dia_' + Date.now(), nombre: 'Día 1', meals: {} }];
+    return plan.dias.find(d => d.id === plan.activeDiaId) || plan.dias[0];
+}
+
 function selectPlan(planId) {
     const client = clients.find(c => c.id === currentClientId);
     if (!client) return;
@@ -1146,12 +1181,23 @@ function selectPlan(planId) {
     renderDietPlan();
 }
 
+function selectDia(diaId) {
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client) return;
+    getActivePlan(client).activeDiaId = diaId;
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+/* ---- Gestión de PLANES ---- */
 function addNewPlan() {
     const client = clients.find(c => c.id === currentClientId);
     ensurePlanes(client);
     const nombre = prompt('Nombre del nuevo plan:', 'Plan ' + (client.planes.length + 1));
     if (nombre === null) return;
-    const p = { id: 'plan_' + Date.now(), nombre: nombre.trim() || ('Plan ' + (client.planes.length + 1)), meals: {} };
+    const did = 'dia_' + Date.now();
+    const p = { id: 'plan_' + Date.now(), nombre: nombre.trim() || ('Plan ' + (client.planes.length + 1)),
+        dias: [{ id: did, nombre: 'Día 1', meals: {} }], activeDiaId: did };
     client.planes.push(p);
     client.activePlanId = p.id;
     saveClientsToStorage();
@@ -1163,11 +1209,9 @@ function duplicateCurrentPlan() {
     const src = getActivePlan(client);
     const nombre = prompt('Nombre del plan duplicado:', src.nombre + ' (copia)');
     if (nombre === null) return;
-    const copy = {
-        id: 'plan_' + Date.now(),
-        nombre: nombre.trim() || (src.nombre + ' (copia)'),
-        meals: JSON.parse(JSON.stringify(src.meals || {}))
-    };
+    const copy = JSON.parse(JSON.stringify(src));
+    copy.id = 'plan_' + Date.now();
+    copy.nombre = nombre.trim() || (src.nombre + ' (copia)');
     client.planes.push(copy);
     client.activePlanId = copy.id;
     saveClientsToStorage();
@@ -1189,21 +1233,72 @@ function deleteCurrentPlan() {
     ensurePlanes(client);
     if (client.planes.length <= 1) { alert('Debe existir al menos un plan. Crea otro antes de eliminar este.'); return; }
     const p = getActivePlan(client);
-    if (!confirm(`¿Eliminar el plan "${p.nombre}"? Esta acción no se puede deshacer.`)) return;
+    if (!confirm(`¿Eliminar el plan "${p.nombre}" y todos sus días? Esta acción no se puede deshacer.`)) return;
     client.planes = client.planes.filter(x => x.id !== p.id);
     client.activePlanId = client.planes[0].id;
     saveClientsToStorage();
     renderDietPlan();
 }
 
-function planTotals(plan) {
-    let day = { kcal:0, prot:0, hc:0, lip:0, fibra:0 };
+/* ---- Gestión de DÍAS ---- */
+function addNewDia() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const nombre = prompt('Nombre del día:', 'Día ' + (plan.dias.length + 1));
+    if (nombre === null) return;
+    const d = { id: 'dia_' + Date.now(), nombre: nombre.trim() || ('Día ' + (plan.dias.length + 1)), meals: {} };
+    plan.dias.push(d);
+    plan.activeDiaId = d.id;
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+function duplicateCurrentDia() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const src = getActiveDia(plan);
+    const nombre = prompt('Nombre del día duplicado:', src.nombre + ' (copia)');
+    if (nombre === null) return;
+    const copy = JSON.parse(JSON.stringify(src));
+    copy.id = 'dia_' + Date.now();
+    copy.nombre = nombre.trim() || (src.nombre + ' (copia)');
+    plan.dias.push(copy);
+    plan.activeDiaId = copy.id;
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+function renameCurrentDia() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const d = getActiveDia(plan);
+    const nombre = prompt('Nuevo nombre del día:', d.nombre);
+    if (nombre === null) return;
+    d.nombre = nombre.trim() || d.nombre;
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+function deleteCurrentDia() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    if (plan.dias.length <= 1) { alert('El plan debe tener al menos un día. Añade otro antes de eliminar este.'); return; }
+    const d = getActiveDia(plan);
+    if (!confirm(`¿Eliminar el día "${d.nombre}"?`)) return;
+    plan.dias = plan.dias.filter(x => x.id !== d.id);
+    plan.activeDiaId = plan.dias[0].id;
+    saveClientsToStorage();
+    renderDietPlan();
+}
+
+function diaTotals(dia) {
+    let t = { kcal:0, prot:0, hc:0, lip:0, fibra:0 };
     MEALS.forEach(meal => {
-        (plan.meals[meal.key] || []).forEach(it => {
-            day.kcal += it.kcal; day.prot += it.proteinas; day.hc += it.hcTotales; day.lip += it.lipidos; day.fibra += (it.fibra || 0);
+        (dia.meals[meal.key] || []).forEach(it => {
+            t.kcal += it.kcal; t.prot += it.proteinas; t.hc += it.hcTotales; t.lip += it.lipidos; t.fibra += (it.fibra || 0);
         });
     });
-    return day;
+    return t;
 }
 
 function renderDietPlan() {
@@ -1212,16 +1307,25 @@ function renderDietPlan() {
     if (!client) { cont.innerHTML = ''; return; }
     ensurePlanes(client);
     const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
 
     const n = computeNutrition(client);
     document.getElementById('planTargetBadge').innerHTML =
         `<span class="pill">Objetivo: ${fmt(n.getMod,0)} kcal/día</span>`;
 
-    // Pestañas de planes
+    // Pestañas de planes (la meta muestra nº de días)
     document.getElementById('planTabsBar').innerHTML = client.planes.map(p => {
-        const t = planTotals(p);
+        const nd = (p.dias || []).length;
         return `<div class="plan-tab ${p.id === client.activePlanId ? 'active' : ''}" onclick="selectPlan('${p.id}')">
-                    ${p.nombre}<span class="pt-meta">${fmt(t.kcal,0)} kcal</span>
+                    ${p.nombre}<span class="pt-meta">${nd} día${nd === 1 ? '' : 's'}</span>
+                </div>`;
+    }).join('');
+
+    // Sub-pestañas de días del plan activo (la meta muestra kcal del día)
+    document.getElementById('planDiasBar').innerHTML = plan.dias.map(dd => {
+        const t = diaTotals(dd);
+        return `<div class="dia-tab ${dd.id === plan.activeDiaId ? 'active' : ''}" onclick="selectDia('${dd.id}')">
+                    ${dd.nombre}<span class="dt-meta">${fmt(t.kcal,0)} kcal</span>
                 </div>`;
     }).join('');
 
@@ -1235,7 +1339,7 @@ function renderDietPlan() {
     let dayTot = { kcal:0, prot:0, hc:0, lip:0 };
 
     cont.innerHTML = MEALS.map(meal => {
-        const items = plan.meals[meal.key] || [];
+        const items = dia.meals[meal.key] || [];
         let mt = { kcal:0, prot:0, hc:0, lip:0 };
         const rows = items.map((it, idx) => {
             mt.kcal += it.kcal; mt.prot += it.proteinas; mt.hc += it.hcTotales; mt.lip += it.lipidos;
@@ -1271,7 +1375,7 @@ function renderDietPlan() {
     }).join('');
 
     document.getElementById('planDayTotals').innerHTML = `
-        <div class="section-title" style="margin-top:0;">Totales del Día · ${plan.nombre}</div>
+        <div class="section-title" style="margin-top:0;">Totales · ${plan.nombre} › ${dia.nombre}</div>
         <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
         <div class="calc-result"><span>Proteínas</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g)</span></div>
         <div class="calc-result"><span>Hidratos</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g)</span></div>
@@ -1295,77 +1399,95 @@ function downloadPlanPDF() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF({ unit: 'pt', format: 'a4' });
     const pageW = doc.internal.pageSize.getWidth();
+    const pageH = doc.internal.pageSize.getHeight();
     const marginX = 40;
-    let y = 48;
 
-    // Cabecera
-    doc.setFillColor(102, 126, 234);
-    doc.rect(0, 0, pageW, 70, 'F');
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(18); doc.setFont(undefined, 'bold');
-    doc.text('Plan de Dieta', marginX, 34);
-    doc.setFontSize(11); doc.setFont(undefined, 'normal');
-    doc.text(`${client.name} ${client.lastName || ''}`.trim(), marginX, 54);
-    doc.setFontSize(10);
-    doc.text(new Date().toLocaleDateString('es-ES'), pageW - marginX, 54, { align: 'right' });
+    const peso = client.weight ? fmt(client.weight, 1) + ' kg' : '—';
+    const grasa = client.fat ? fmt(client.fat, 1) + ' %' : '—';
+    const imc = calcIMC(client.weight, client.height);
 
-    y = 92;
-    doc.setTextColor(45, 55, 72);
-    doc.setFontSize(13); doc.setFont(undefined, 'bold');
-    doc.text(plan.nombre, marginX, y);
-    y += 16;
-    doc.setFontSize(9); doc.setFont(undefined, 'normal'); doc.setTextColor(90, 100, 120);
-    doc.text(`Objetivo energético: ${fmt(n.getMod,0)} kcal/día  ·  HC ${fmt(n.macros.hc.gr,0)} g  ·  Líp ${fmt(n.macros.lip.gr,0)} g  ·  Prot ${fmt(n.macros.prot.gr,0)} g`, marginX, y);
-    y += 12;
+    function header() {
+        doc.setFillColor(102, 126, 234);
+        doc.rect(0, 0, pageW, 84, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(18); doc.setFont(undefined, 'bold');
+        doc.text('Plan de Dieta', marginX, 30);
+        doc.setFontSize(12); doc.setFont(undefined, 'normal');
+        doc.text(`${client.name} ${client.lastName || ''}`.trim(), marginX, 50);
+        // Datos de la persona: peso y % de grasa
+        doc.setFontSize(10);
+        doc.text(`Peso: ${peso}   ·   % Grasa: ${grasa}   ·   IMC: ${imc ? fmt(imc,1) : '—'}`, marginX, 68);
+        doc.setFontSize(10);
+        doc.text(new Date().toLocaleDateString('es-ES'), pageW - marginX, 50, { align: 'right' });
+        doc.text(plan.nombre, pageW - marginX, 68, { align: 'right' });
+    }
 
-    let dayTot = { kcal:0, prot:0, hc:0, lip:0 };
+    header();
+    let y = 104;
+    doc.setTextColor(90, 100, 120); doc.setFontSize(9);
+    doc.text(`Objetivo: ${fmt(n.getMod,0)} kcal/día  ·  HC ${fmt(n.macros.hc.gr,0)} g  ·  Líp ${fmt(n.macros.lip.gr,0)} g  ·  Prot ${fmt(n.macros.prot.gr,0)} g`, marginX, y);
+    y += 8;
 
-    MEALS.forEach(meal => {
-        const items = plan.meals[meal.key] || [];
-        if (items.length === 0) return;
-        let mt = { kcal:0, prot:0, hc:0, lip:0 };
-        const body = items.map(it => {
-            mt.kcal += it.kcal; mt.prot += it.proteinas; mt.hc += it.hcTotales; mt.lip += it.lipidos;
-            return [it.name, fmt(it.gramos,0) + ' g', fmt(it.kcal,0), fmt(it.proteinas,1), fmt(it.hcTotales,1), fmt(it.lipidos,1)];
+    plan.dias.forEach((dia, di) => {
+        // Título del día
+        if (y > pageH - 120) { doc.addPage(); header(); y = 104; }
+        y += 18;
+        doc.setTextColor(43, 108, 176); doc.setFontSize(13); doc.setFont(undefined, 'bold');
+        doc.text(`${dia.nombre}`, marginX, y);
+        doc.setFont(undefined, 'normal');
+        y += 4;
+
+        let dayTot = { kcal:0, prot:0, hc:0, lip:0 };
+        let printedSomething = false;
+
+        MEALS.forEach(meal => {
+            const items = dia.meals[meal.key] || [];
+            if (items.length === 0) return;
+            printedSomething = true;
+            let mt = { kcal:0, prot:0, hc:0, lip:0 };
+            const body = items.map(it => {
+                mt.kcal += it.kcal; mt.prot += it.proteinas; mt.hc += it.hcTotales; mt.lip += it.lipidos;
+                return [it.name, fmt(it.gramos,0) + ' g', fmt(it.kcal,0), fmt(it.proteinas,1), fmt(it.hcTotales,1), fmt(it.lipidos,1)];
+            });
+            body.push([
+                { content: 'Subtotal ' + meal.label, styles: { fontStyle: 'bold' } },
+                '', { content: fmt(mt.kcal,0), styles: { fontStyle: 'bold' } },
+                { content: fmt(mt.prot,1), styles: { fontStyle: 'bold' } },
+                { content: fmt(mt.hc,1), styles: { fontStyle: 'bold' } },
+                { content: fmt(mt.lip,1), styles: { fontStyle: 'bold' } }
+            ]);
+            dayTot.kcal += mt.kcal; dayTot.prot += mt.prot; dayTot.hc += mt.hc; dayTot.lip += mt.lip;
+
+            doc.autoTable({
+                startY: y + 8,
+                head: [[meal.label, 'Cantidad', 'Kcal', 'Prot (g)', 'HC (g)', 'Líp (g)']],
+                body: body,
+                theme: 'striped',
+                headStyles: { fillColor: [102, 126, 234], fontSize: 9 },
+                bodyStyles: { fontSize: 9 },
+                margin: { left: marginX, right: marginX },
+                columnStyles: { 0: { cellWidth: 200 } }
+            });
+            y = doc.lastAutoTable.finalY;
         });
-        body.push([
-            { content: 'Subtotal ' + meal.label, styles: { fontStyle: 'bold' } },
-            { content: '', styles: {} },
-            { content: fmt(mt.kcal,0), styles: { fontStyle: 'bold' } },
-            { content: fmt(mt.prot,1), styles: { fontStyle: 'bold' } },
-            { content: fmt(mt.hc,1), styles: { fontStyle: 'bold' } },
-            { content: fmt(mt.lip,1), styles: { fontStyle: 'bold' } }
-        ]);
-        dayTot.kcal += mt.kcal; dayTot.prot += mt.prot; dayTot.hc += mt.hc; dayTot.lip += mt.lip;
 
-        doc.autoTable({
-            startY: y + 10,
-            head: [[meal.label, 'Cantidad', 'Kcal', 'Prot (g)', 'HC (g)', 'Líp (g)']],
-            body: body,
-            theme: 'striped',
-            headStyles: { fillColor: [102, 126, 234], fontSize: 9 },
-            bodyStyles: { fontSize: 9 },
-            margin: { left: marginX, right: marginX },
-            columnStyles: { 0: { cellWidth: 200 } }
-        });
-        y = doc.lastAutoTable.finalY;
-    });
-
-    // Totales del día
-    doc.autoTable({
-        startY: y + 14,
-        head: [['TOTALES DEL DÍA', 'Energía', 'Prot (g)', 'HC (g)', 'Líp (g)']],
-        body: [[
-            '',
-            fmt(dayTot.kcal,0) + ' kcal',
-            fmt(dayTot.prot,1),
-            fmt(dayTot.hc,1),
-            fmt(dayTot.lip,1)
-        ]],
-        theme: 'grid',
-        headStyles: { fillColor: [45, 55, 72], fontSize: 9 },
-        bodyStyles: { fontSize: 10, fontStyle: 'bold' },
-        margin: { left: marginX, right: marginX }
+        if (!printedSomething) {
+            doc.setTextColor(150,150,150); doc.setFontSize(9);
+            doc.text('(Sin alimentos en este día)', marginX, y + 18);
+            y += 24;
+        } else {
+            doc.autoTable({
+                startY: y + 6,
+                body: [[
+                    { content: 'TOTAL ' + dia.nombre, styles: { fontStyle: 'bold' } },
+                    fmt(dayTot.kcal,0) + ' kcal', fmt(dayTot.prot,1) + ' g', fmt(dayTot.hc,1) + ' g', fmt(dayTot.lip,1) + ' g'
+                ]],
+                theme: 'grid',
+                bodyStyles: { fontSize: 9, fontStyle: 'bold', fillColor: [237, 242, 247] },
+                margin: { left: marginX, right: marginX }
+            });
+            y = doc.lastAutoTable.finalY;
+        }
     });
 
     const safe = s => (s || 'plan').replace(/[^a-z0-9_-]+/gi, '_');
@@ -1431,9 +1553,9 @@ function addFoodToMeal(flatIdx) {
     if (!g || g <= 0) { alert('Introduce una cantidad válida en gramos.'); return; }
 
     const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    if (!plan.meals[currentMealKey]) plan.meals[currentMealKey] = [];
-    plan.meals[currentMealKey].push(scaleFood(food, g));
+    const dia = getActiveDia(getActivePlan(client));
+    if (!dia.meals[currentMealKey]) dia.meals[currentMealKey] = [];
+    dia.meals[currentMealKey].push(scaleFood(food, g));
 
     saveClientsToStorage();
     closeFoodModal();
@@ -1443,13 +1565,12 @@ function addFoodToMeal(flatIdx) {
 function updateFoodGrams(mealKey, idx, value) {
     const g = parseFloat(value);
     const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    const item = plan.meals[mealKey][idx];
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[mealKey][idx];
     if (!item || !g || g <= 0) return;
-    // Reescalar desde el alimento base original buscándolo por nombre+categoría
     const base = FOODS_FLAT.find(f => f.name === item.name && f.categoria === item.categoria);
-    if (base) plan.meals[mealKey][idx] = scaleFood(base, g);
-    else { // fallback proporcional
+    if (base) dia.meals[mealKey][idx] = scaleFood(base, g);
+    else {
         const factor = g / item.gramos;
         ['kcal','proteinas','pVegetales','pAnimales','hcTotales','almidon','azucares','fibra','lipidos','ags','agm','agp','colesterol','na']
             .forEach(k => item[k] = (item[k] || 0) * factor);
@@ -1461,8 +1582,8 @@ function updateFoodGrams(mealKey, idx, value) {
 
 function removeFood(mealKey, idx) {
     const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    plan.meals[mealKey].splice(idx, 1);
+    const dia = getActiveDia(getActivePlan(client));
+    dia.meals[mealKey].splice(idx, 1);
     saveClientsToStorage();
     renderDietPlan();
 }
