@@ -218,7 +218,7 @@
             font-size: 18px;
         }
 
-        .plan-item {
+        .plan-item, .tracking-item {
             background: #f9fafb;
             padding: 15px;
             border-radius: 6px;
@@ -226,12 +226,12 @@
             margin-bottom: 10px;
         }
 
-        .plan-item h4 {
+        .plan-item h4, .tracking-item h4 {
             margin: 0 0 8px 0;
             color: #1f2937;
         }
 
-        .plan-item p {
+        .plan-item p, .tracking-item p {
             margin: 5px 0;
             color: #6b7280;
             font-size: 14px;
@@ -373,7 +373,7 @@
         .modal-overlay {
             display: none;
             position: fixed;
-            top: 0;
+ top: 0;
             left: 0;
             right: 0;
             bottom: 0;
@@ -406,6 +406,31 @@
             grid-template-columns: 1fr 1fr;
             gap: 10px;
             margin-top: 20px;
+        }
+
+        /* Vista de Impresión/PDF */
+        #printView {
+            display: none;
+            background: white;
+            color: black;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        @media print {
+            body {
+                background: white !important;
+                padding: 0;
+            }
+            .container, .modal-overlay {
+                display: none !important;
+            }
+            #printView {
+                display: block !important;
+            }
+            .no-print {
+                display: none !important;
+            }
         }
 
         @media (max-width: 600px) {
@@ -457,10 +482,11 @@
             <div id="clientsList"></div>
         </div>
 
-        <!-- New Client Form -->
+        <!-- New / Edit Client Form -->
         <div id="newClientForm" class="hidden form-container">
             <button class="btn-back" onclick="showMainView()">← Volver</button>
-            <h2>Crear Nuevo Cliente</h2>
+            <h2 id="formClientTitle">Crear Nuevo Cliente</h2>
+            <input type="hidden" id="editingClientId" value="">
 
             <div class="form-group">
                 <label>Nombre Completo</label>
@@ -570,7 +596,10 @@
                     <h2 id="detailClientName"></h2>
                     <p id="detailClientInfo" style="color: #6b7280;"></p>
                 </div>
-                <button class="btn-danger" onclick="deleteCurrentClient()">🗑️ Eliminar Cliente</button>
+                <div style="display: flex; gap: 10px;">
+                    <button class="btn-secondary" onclick="editCurrentClient()">✏️ Editar Datos</button>
+                    <button class="btn-danger" onclick="deleteCurrentClient()">🗑️ Eliminar</button>
+                </div>
             </div>
 
             <!-- Información Metabólica -->
@@ -623,7 +652,27 @@
 
             <!-- Tracking Tab -->
             <div id="trackingTab" class="hidden">
-                <p style="color: #6b7280; text-align: center; padding: 40px;">Próximamente: Seguimiento de peso, medidas y progreso</p>
+                <div style="background: #f3f4f6; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                    <h4 style="margin-bottom: 10px;">Añadir Entrada de Seguimiento</h4>
+                    <div class="form-group">
+                        <label>Nota / Evolución del plan</label>
+                        <textarea id="trackNotes" rows="3" placeholder="Escribe el progreso del cliente, sensaciones, cambios realizados en el plan..."></textarea>
+                    </div>
+                    <div class="form-row-3" style="margin-bottom: 10px;">
+                        <div class="form-group">
+                            <label>Nuevo Peso (kg)</label>
+                            <input type="number" step="0.1" id="trackWeight" placeholder="Ej: 74.5">
+                        </div>
+                        <div class="form-group">
+                            <label>Nuevo % Grasa</label>
+                            <input type="number" step="0.1" id="trackFat" placeholder="Ej: 21.2">
+                        </div>
+                        <div class="form-group" style="display: flex; align-items: flex-end;">
+                            <button class="btn-primary" onclick="addTrackingEntry()" style="width: 100%; justify-content: center;">Añadir</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="trackingList"></div>
             </div>
         </div>
 
@@ -686,6 +735,9 @@
         </div>
     </div>
 
+    <!-- Contenedor Oculto Exclusivo para Generación de PDF/Impresión -->
+    <div id="printView"></div>
+
     <!-- Modal para subir archivo -->
     <div class="modal-overlay" id="uploadModal">
         <div class="modal">
@@ -710,16 +762,14 @@
 
         // ===== CARGAR DATOS =====
         async function loadAllData() {
-    // Cargar base de datos de alimentos
-    try {
-        const response = await fetch('./alimentos.json');  // ← CAMBIA AQUÍ (añade el ./)
-        foodsDatabase = await response.json();
-        populateCategoryFilter();
-    } catch (e) {
-        console.log('Nota: alimentos.json no disponible. Modo offline.');
-    }
+            try {
+                const response = await fetch('./alimentos.json');
+                foodsDatabase = await response.json();
+                populateCategoryFilter();
+            } catch (e) {
+                console.log('Nota: alimentos.json no disponible. Modo offline.');
+            }
 
-            // Cargar clientes
             const saved = localStorage.getItem('dietClients');
             clients = saved ? JSON.parse(saved) : [];
             renderClients();
@@ -751,7 +801,22 @@
             document.getElementById('mainView').classList.add('hidden');
             document.getElementById('newClientForm').classList.remove('hidden');
             document.getElementById('clientDetailView').classList.add('hidden');
-            setToday('clientStartDate');
+            
+            // Resetear inputs para nuevo cliente
+            document.getElementById('editingClientId').value = "";
+            document.getElementById('formClientTitle').textContent = "Crear Nuevo Cliente";
+            
+            document.getElementById('clientFullName').value = "";
+            document.getElementById('clientGender').value = "";
+            document.getElementById('clientAge').value = "";
+            document.getElementById('clientHeight').value = "";
+            document.getElementById('clientWeight').value = "";
+            document.getElementById('clientBodyFat').value = "";
+            document.getElementById('clientClothing').value = "";
+            document.getElementById('clientActivityLevel').value = "";
+            document.getElementById('clientAllergies').value = "";
+            document.getElementById('clientDislikes').value = "";
+            document.getElementById('metabolicBox').style.display = 'none';
         }
 
         function showClientDetail(clientId) {
@@ -765,11 +830,18 @@
 
             renderClientDetail();
             renderPlansList();
+            renderTrackingList();
         }
 
         function showNewPlanForm() {
             document.getElementById('clientDetailView').classList.add('hidden');
             document.getElementById('newPlanForm').classList.remove('hidden');
+            
+            // Limpiar inputs del plan
+            document.getElementById('planName').value = "";
+            document.getElementById('planObjective').value = "";
+            document.getElementById('planDuration').value = "7";
+            document.getElementById('planCalories').value = "";
             
             currentMeals = [];
             selectedFoods = [];
@@ -791,6 +863,7 @@
             } else {
                 document.getElementById('trackingTab').classList.remove('hidden');
                 tabs[1].classList.add('active');
+                renderTrackingList();
             }
         }
 
@@ -807,10 +880,8 @@
                 return;
             }
 
-            // Cálculo IMC
             const imc = weight / ((height / 100) ** 2);
 
-            // Harris-Benedict GEB
             let geb;
             if (gender === 'M') {
                 geb = 66.47 + (13.75 * weight) + (5 * height) - (6.76 * age);
@@ -818,16 +889,13 @@
                 geb = 665.10 + (9.56 * weight) + (1.85 * height) - (4.68 * age);
             }
 
-            // Actividad
             const activityCal = (geb * activity) / 100;
-            const get = geb + activityCal + (geb * 0.1); // +10% por termodinámica
+            const get = geb + activityCal + (geb * 0.1);
 
-            // Macronutrientes
-            const proteins = weight * 1.6; // 1.6g por kg
-            const carbsPercentage = (get * 0.5) / 4; // 50% de calorías, 4 kcal por gramo
-            const fatsPercentage = (get * 0.3) / 9; // 30% de calorías, 9 kcal por gramo
+            const proteins = weight * 1.6;
+            const carbsPercentage = (get * 0.5) / 4;
+            const fatsPercentage = (get * 0.3) / 9;
 
-            // Mostrar resultados
             document.getElementById('metabolicBox').style.display = 'block';
             document.getElementById('calcIMC').textContent = imc.toFixed(1);
             document.getElementById('calcGEB').textContent = Math.round(geb);
@@ -836,8 +904,8 @@
             document.getElementById('calcProtein').textContent = proteins.toFixed(0);
             document.getElementById('calcCarbs').textContent = carbsPercentage.toFixed(0);
 
-            // Guardar en el cliente
-            currentClient = currentClient || {};
+            // Almacenar temporalmente en la instancia activa
+            if (!currentClient) currentClient = {};
             currentClient.metabolic = {
                 imc: imc.toFixed(1),
                 geb: Math.round(geb),
@@ -849,50 +917,97 @@
             };
         }
 
-        // ===== GESTIÓN DE CLIENTES =====
+        // ===== GESTIÓN DE CLIENTES (CREAR, EDITAR, ACTUALIZAR) =====
+        function editCurrentClient() {
+            if (!currentClient) return;
+            
+            document.getElementById('mainView').classList.add('hidden');
+            document.getElementById('clientDetailView').classList.add('hidden');
+            document.getElementById('newClientForm').classList.remove('hidden');
+            
+            document.getElementById('formClientTitle').textContent = "Editar Cliente";
+            document.getElementById('editingClientId').value = currentClient.id;
+
+            // Rellenar los campos actuales
+            document.getElementById('clientFullName').value = currentClient.name;
+            document.getElementById('clientGender').value = currentClient.gender;
+            document.getElementById('clientAge').value = currentClient.age;
+            document.getElementById('clientHeight').value = currentClient.height;
+            document.getElementById('clientWeight').value = currentClient.weight;
+            document.getElementById('clientBodyFat').value = currentClient.bodyFat || "";
+            document.getElementById('clientClothing').value = currentClient.clothing || "";
+            document.getElementById('clientActivityLevel').value = currentClient.activityLevel || "";
+            document.getElementById('clientAllergies').value = currentClient.allergies || "";
+            document.getElementById('clientDislikes').value = currentClient.dislikes || "";
+            
+            calculateMetabolicData();
+        }
+
         function saveNewClient() {
             const name = document.getElementById('clientFullName').value.trim();
             const gender = document.getElementById('clientGender').value;
             const age = parseInt(document.getElementById('clientAge').value);
             const height = parseInt(document.getElementById('clientHeight').value);
             const weight = parseFloat(document.getElementById('clientWeight').value);
-            const bodyFat = parseFloat(document.getElementById('clientBodyFat').value);
+            const bodyFat = parseFloat(document.getElementById('clientBodyFat').value) || 0;
             const clothing = document.getElementById('clientClothing').value;
+            const activityLevel = document.getElementById('clientActivityLevel').value;
             const allergies = document.getElementById('clientAllergies').value;
             const dislikes = document.getElementById('clientDislikes').value;
+            const editingId = document.getElementById('editingClientId').value;
 
             if (!name || !gender || !age || !height || !weight) {
                 alert('Por favor completa todos los campos obligatorios');
                 return;
             }
 
-            const client = {
-                id: Date.now(),
-                name,
-                gender,
-                age,
-                height,
-                weight,
-                bodyFat,
-                clothing,
-                allergies,
-                dislikes,
-                metabolic: currentClient?.metabolic || {},
-                plans: [],
-                createdDate: new Date().toLocaleDateString('es-ES')
-            };
+            if (editingId) {
+                // Modo Edición: Localizar y actualizar preservando planes y seguimientos
+                const index = clients.findIndex(c => c.id === parseInt(editingId));
+                if (index >= 0) {
+                    clients[index].name = name;
+                    clients[index].gender = gender;
+                    clients[index].age = age;
+                    clients[index].height = height;
+                    clients[index].weight = weight;
+                    clients[index].bodyFat = bodyFat;
+                    clients[index].clothing = clothing;
+                    clients[index].activityLevel = activityLevel;
+                    clients[index].allergies = allergies;
+                    clients[index].dislikes = dislikes;
+                    clients[index].metabolic = currentClient?.metabolic || clients[index].metabolic;
+                }
+            } else {
+                // Modo Nuevo Registro
+                const client = {
+                    id: Date.now(),
+                    name,
+                    gender,
+                    age,
+                    height,
+                    weight,
+                    bodyFat,
+                    clothing,
+                    activityLevel,
+                    allergies,
+                    dislikes,
+                    metabolic: currentClient?.metabolic || {},
+                    plans: [],
+                    tracking: [],
+                    createdDate: new Date().toLocaleDateString('es-ES')
+                };
+                clients.unshift(client);
+            }
 
-            clients.unshift(client);
             saveClients();
             
-            // Limpiar formulario
-            document.getElementById('newClientForm').reset();
-            document.getElementById('metabolicBox').style.display = 'none';
+            // Volver directamente a la pantalla principal (Index de clientes)
+            document.getElementById('newClientForm').classList.add('hidden');
             showMainView();
         }
 
         function deleteCurrentClient() {
-            if (confirm('¿Estás seguro de que quieres eliminar este cliente y todos sus planes?')) {
+            if (confirm('¿Estás seguro de que quieres eliminar este cliente y todos sus datos?')) {
                 clients = clients.filter(c => c.id !== currentClient.id);
                 saveClients();
                 showMainView();
@@ -919,7 +1034,7 @@
                             </div>
                         </div>
                         <div class="client-card-actions">
-                            <button class="btn-secondary" onclick="showClientDetail(${client.id})">Ver Detalles</button>
+                            <button class="btn-secondary" onclick="showClientDetail(${client.id})">Ver Detalles / Plan</button>
                             <button class="btn-danger" onclick="if(confirm('¿Eliminar este cliente?')) { clients = clients.filter(c => c.id !== ${client.id}); saveClients(); renderClients(); }">🗑️</button>
                         </div>
                     </div>
@@ -956,7 +1071,6 @@
                 document.getElementById('dislikesBox').style.display = 'none';
             }
 
-            // Resetear tabs
             switchTab('plans');
         }
 
@@ -987,7 +1101,6 @@
             if (!currentClient.plans) currentClient.plans = [];
             currentClient.plans.unshift(plan);
             
-            // Actualizar en el array de clientes
             const index = clients.findIndex(c => c.id === currentClient.id);
             if (index >= 0) clients[index] = currentClient;
             
@@ -996,16 +1109,6 @@
             selectedFoods = [];
             
             showClientDetail(currentClient.id);
-        }
-
-        function deleteCurrentPlan() {
-            if (confirm('¿Estás seguro de que quieres eliminar este plan?')) {
-                currentClient.plans = currentClient.plans.filter(p => p.id !== currentPlan.id);
-                const index = clients.findIndex(c => c.id === currentClient.id);
-                if (index >= 0) clients[index] = currentClient;
-                saveClients();
-                showClientDetail(currentClient.id);
-            }
         }
 
         function renderPlansList() {
@@ -1019,7 +1122,7 @@
                         <p><strong>Duración:</strong> ${plan.duration} días | <strong>Calorías:</strong> ${plan.caloriesTarget || '-'} kcal</p>
                         <p><strong>Comidas:</strong> ${plan.meals?.length || 0} | <strong>Creado:</strong> ${plan.createdDate}</p>
                         <div style="display: flex; gap: 10px; margin-top: 10px;">
-                            <button class="btn-secondary" onclick="viewPlan(${plan.id})">👁️ Ver</button>
+                            <button class="btn-primary" onclick="downloadPlanPDF(${plan.id})">🖨️ Exportar PDF</button>
                             <button class="btn-danger" onclick="if(confirm('¿Eliminar este plan?')) { currentClient.plans = currentClient.plans.filter(p => p.id !== ${plan.id}); let idx = clients.findIndex(c => c.id === currentClient.id); if(idx >= 0) clients[idx] = currentClient; saveClients(); renderPlansList(); }">🗑️</button>
                         </div>
                     </div>
@@ -1028,10 +1131,139 @@
             document.getElementById('plansList').innerHTML = html;
         }
 
-        function viewPlan(planId) {
-            currentPlan = currentClient.plans.find(p => p.id === planId);
-            // TODO: Mostrar vista detallada del plan
-            alert(`Plan: ${currentPlan.name}\nMeals: ${currentPlan.meals.length}`);
+        // ===== EXPORTAR PLAN + CLIENTE A PDF NATIVO =====
+        function downloadPlanPDF(planId) {
+            const plan = currentClient.plans.find(p => p.id === planId);
+            if (!plan) return;
+
+            // Construir estructura estructurada limpia para la hoja física
+            let html = `
+                <div style="padding:30px; font-family:Arial,sans-serif;">
+                    <h1 style="color:#1f2937; border-bottom:3px solid #3b82f6; padding-bottom:10px;">🥗 Plan Dietético: ${plan.name}</h1>
+                    
+                    <h2 style="margin-top:20px; color:#3b82f6;">👤 Datos del Cliente</h2>
+                    <table style="width:100%; border-collapse: collapse; margin-top:10px;">
+                        <tr>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>Nombre:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${currentClient.name}</td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>Edad:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${currentClient.age} años</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>Peso actual:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${currentClient.weight} kg</td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>Altura:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${currentClient.height} cm</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>IMC:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${currentClient.metabolic?.imc || '-'}</td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;"><strong>Calorías Objetivo:</strong></td>
+                            <td style="padding:8px; border:1px solid #e5e7eb;">${plan.caloriesTarget || '-'} Kcal/día</td>
+                        </tr>
+                    </table>
+            `;
+
+            if(currentClient.allergies) {
+                html += `<p style="margin-top:15px; color:#ef4444;"><strong>⚠️ Alergias/Restricciones:</strong> ${currentClient.allergies}</p>`;
+            }
+
+            html += `
+                <h2 style="margin-top:30px; color:#3b82f6; border-bottom:1px solid #3b82f6; padding-bottom:5px;">📋 Distribución de Comidas</h2>
+            `;
+
+            if (!plan.meals || plan.meals.length === 0) {
+                html += '<p>No se han añadido alimentos a este plan.</p>';
+            } else {
+                plan.meals.forEach(meal => {
+                    html += `
+                        <div style="margin-top:15px; padding:15px; background:#f9fafb; border-left:4px solid #10b981; border-radius:4px;">
+                            <h3 style="margin:0 0 5px 0; color:#1f2937;">${meal.type} - (Día ${meal.day})</h3>
+                            <ul style="margin:5px 0 0 20px; padding:0;">
+                    `;
+                    meal.foods.forEach(f => {
+                        html += `<li style="margin-bottom:4px;"><strong>${f.food}</strong> - ${f.gramos}g (${f.kcal} kcal) <span style="font-size:12px; color:#6b7280;">[P: ${f.proteinas}g, HC: ${f.hc}g, L: ${f.lipidos}g]</span></li>`;
+                    });
+                    html += `</ul></div>`;
+                });
+            }
+
+            html += `</div>`;
+
+            // Asignar contenido al render de impresión e invocar diálogo de guardado del sistema
+            document.getElementById('printView').innerHTML = html;
+            window.print();
+        }
+
+        // ===== LISTADO Y GESTIÓN DE SEGUIMIENTOS =====
+        function addTrackingEntry() {
+            const notes = document.getElementById('trackNotes').value.trim();
+            const weight = parseFloat(document.getElementById('trackWeight').value);
+            const fat = parseFloat(document.getElementById('trackFat').value);
+
+            if (!notes) {
+                alert('Por favor, escribe una anotación o nota sobre el progreso.');
+                return;
+            }
+
+            const entry = {
+                id: Date.now(),
+                date: new Date().toLocaleDateString('es-ES'),
+                notes,
+                weight: weight || null,
+                fat: fat || null
+            };
+
+            if (!currentClient.tracking) currentClient.tracking = [];
+            currentClient.tracking.unshift(entry);
+
+            // Actualizar peso base del cliente si se introduce uno nuevo
+            if (weight) currentClient.weight = weight;
+            if (fat) currentClient.bodyFat = fat;
+
+            const index = clients.findIndex(c => c.id === currentClient.id);
+            if (index >= 0) clients[index] = currentClient;
+
+            saveClients();
+            
+            // Limpiar formulario interno
+            document.getElementById('trackNotes').value = "";
+            document.getElementById('trackWeight').value = "";
+            document.getElementById('trackFat').value = "";
+
+            renderClientDetail();
+            renderTrackingList();
+        }
+
+        function renderTrackingList() {
+            const tracking = currentClient.tracking || [];
+            const html = tracking.length === 0
+                ? '<p style="color: #9ca3af; text-align: center; padding: 20px;">No hay registros de seguimiento aún.</p>'
+                : tracking.map(item => `
+                    <div class="tracking-item">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                            <strong>📅 Fecha: ${item.date}</strong>
+                            <button class="btn-danger" style="padding: 2px 8px; font-size:12px;" onclick="deleteTracking(${item.id})">✕</button>
+                        </div>
+                        <p style="color:#1f2937; background:white; padding:8px; border-radius:4px; border: 1px solid #e5e7eb; margin-bottom:5px;">${item.notes}</p>
+                        <div style="font-size:13px; color:#4b5563;">
+                            ${item.weight ? `<b>Peso:</b> ${item.weight} kg ` : ''} 
+                            ${item.fat ? `| <b>Grasa:</b> ${item.fat} %` : ''}
+                        </div>
+                    </div>
+                `).join('');
+
+            document.getElementById('trackingList').innerHTML = html;
+        }
+
+        function deleteTracking(id) {
+            if (confirm('¿Eliminar esta anotación de seguimiento?')) {
+                currentClient.tracking = currentClient.tracking.filter(t => t.id !== id);
+                const index = clients.findIndex(c => c.id === currentClient.id);
+                if (index >= 0) clients[index] = currentClient;
+                saveClients();
+                renderTrackingList();
+            }
         }
 
         // ===== BÚSQUEDA Y ALIMENTOS =====
@@ -1043,15 +1275,11 @@
                 const category = document.getElementById('categoryFilter').value;
                 const search = document.getElementById('foodSearch').value.toLowerCase();
 
-                const categoriesToSearch = category 
-                    ? [category] 
-                    : Object.keys(foodsDatabase);
+                const categoriesToSearch = category ? [category] : Object.keys(foodsDatabase);
 
                 categoriesToSearch.forEach(cat => {
                     const foods = foodsDatabase[cat] || [];
-                    const filtered = foods.filter(f => 
-                        !search || f.name.toLowerCase().includes(search)
-                    );
+                    const filtered = foods.filter(f => !search || f.name.toLowerCase().includes(search));
 
                     if (filtered.length > 0) {
                         resultsHtml += `<div style="padding: 10px 0; border-bottom: 1px solid #d1d5db;">
@@ -1131,7 +1359,6 @@
             renderPlanMeals();
         }
 
-        // ===== COMIDAS DEL PLAN =====
         function addMealToPlan() {
             currentMeals.push({
                 id: Date.now(),
@@ -1200,12 +1427,7 @@
 
         // ===== BACKUP Y RESTAURACIÓN =====
         function downloadBackup() {
-            const backup = {
-                clients: clients,
-                exportDate: new Date().toISOString(),
-                version: '1.0'
-            };
-
+            const backup = { clients: clients, exportDate: new Date().toISOString(), version: '1.0' };
             const json = JSON.stringify(backup, null, 2);
             const blob = new Blob([json], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
@@ -1219,14 +1441,12 @@
         function uploadBackup() {
             const file = document.getElementById('uploadInput').files[0];
             if (!file) return;
-
             pendingFile = file;
             document.getElementById('uploadModal').classList.add('active');
         }
 
         function confirmUpload() {
             if (!pendingFile) return;
-
             const reader = new FileReader();
             reader.onload = (e) => {
                 try {
@@ -1244,7 +1464,6 @@
                     alert('❌ Error al leer el archivo: ' + error.message);
                 }
             };
-
             reader.readAsText(pendingFile);
             pendingFile = null;
         }
@@ -1254,14 +1473,12 @@
             document.getElementById('uploadInput').value = '';
         }
 
-        // ===== UTILIDADES =====
         function setToday(inputId) {
             const today = new Date().toISOString().split('T')[0];
             const input = document.getElementById(inputId);
             if (input) input.value = today;
         }
 
-        // ===== INICIALIZAR =====
         window.addEventListener('load', () => {
             loadAllData();
         });
