@@ -1702,17 +1702,17 @@ function renderDietPlan() {
                     <th rowspan="2"></th>
                   </tr>
                   <tr>
-                    <th style="background:#eef2fb;">Tot<br>0/${fmt(targetProt * 1,0)}</th>
-                    <th style="background:#eef2fb;color:#555;">Veg<br>0/${fmt(targetProt * 0.5,0)}</th>
-                    <th style="background:#eef2fb;color:#555;">Ani<br>0/${fmt(targetProt * 0.5,0)}</th>
-                    <th style="background:#f0faf3;">Tot<br>0/${fmt(targetHC * 1,0)}</th>
-                    <th style="background:#f0faf3;color:#555;">Alm<br>0/${fmt(targetHC * 0.75,0)}</th>
-                    <th style="background:#f0faf3;color:#555;">Azu<br>0/${fmt(targetHC * 0.20,0)}</th>
-                    <th style="background:#f0faf3;color:#555;">Fib<br>0/${fmt(targetHC * 0.15,0)}</th>
-                    <th style="background:#fdf6ec;">Tot<br>0/${fmt(targetLip * 1,0)}</th>
-                    <th style="background:#fdf6ec;color:#555;">AGS<br>0/${fmt(targetLip * 0.25,0)}</th>
-                    <th style="background:#fdf6ec;color:#555;">AGM<br>0/${fmt(targetLip * 0.50,0)}</th>
-                    <th style="background:#fdf6ec;color:#555;">AGP<br>0/${fmt(targetLip * 0.25,0)}</th>
+                    <th style="background:#eef2fb;">Tot<br>${fmt(mt.prot,1)}/${fmt(targetProt * 1,0)}</th>
+                    <th style="background:#eef2fb;color:#555;">Veg<br>${fmt(mt.pVeg,1)}/${fmt(targetProt * 0.5,0)}</th>
+                    <th style="background:#eef2fb;color:#555;">Ani<br>${fmt(mt.pAni,1)}/${fmt(targetProt * 0.5,0)}</th>
+                    <th style="background:#f0faf3;">Tot<br>${fmt(mt.hc,1)}/${fmt(targetHC * 1,0)}</th>
+                    <th style="background:#f0faf3;color:#555;">Alm<br>${fmt(mt.almidon,1)}/${fmt(targetHC * 0.75,0)}</th>
+                    <th style="background:#f0faf3;color:#555;">Azu<br>${fmt(mt.azucares,1)}/${fmt(targetHC * 0.20,0)}</th>
+                    <th style="background:#f0faf3;color:#555;">Fib<br>${fmt(mt.fibra,1)}/${fmt(targetHC * 0.15,0)}</th>
+                    <th style="background:#fdf6ec;">Tot<br>${fmt(mt.lip,1)}/${fmt(targetLip * 1,0)}</th>
+                    <th style="background:#fdf6ec;color:#555;">AGS<br>${fmt(mt.ags,1)}/${fmt(targetLip * 0.25,0)}</th>
+                    <th style="background:#fdf6ec;color:#555;">AGM<br>${fmt(mt.agm,1)}/${fmt(targetLip * 0.50,0)}</th>
+                    <th style="background:#fdf6ec;color:#555;">AGP<br>${fmt(mt.agp,1)}/${fmt(targetLip * 0.25,0)}</th>
                   </tr>
                 </thead>
                 <tbody>${rows}</tbody>
@@ -1867,7 +1867,7 @@ function downloadPlanPDF() {
                 if (y > pageH - 60) { doc.addPage(); header(); y = 104; }
                 y += 6;
                 doc.setTextColor(102, 126, 234); doc.setFontSize(9); doc.setFont(undefined, 'bold');
-                doc.text('📝 Notas ' + meal.label + ':', marginX, y);
+                doc.text('Notas ' + meal.label + ':', marginX, y);
                 y += 4;
                 doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(8);
                 const splitText = doc.splitTextToSize(dia.mealNotes[meal.key], pageW - 2 * marginX);
@@ -1898,7 +1898,7 @@ function downloadPlanPDF() {
                 if (y > pageH - 60) { doc.addPage(); header(); y = 104; }
                 y += 8;
                 doc.setTextColor(102, 126, 234); doc.setFontSize(9); doc.setFont(undefined, 'bold');
-                doc.text('📝 Notas del Día:', marginX, y);
+                doc.text('Notas del Día:', marginX, y);
                 y += 4;
                 doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(8);
                 const splitText = doc.splitTextToSize(dia.dayNotes, pageW - 2 * marginX);
