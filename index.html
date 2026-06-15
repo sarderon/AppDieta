@@ -757,6 +757,9 @@ function computeNutrition(c) {
         else getMod = get;
         objetivoTxt = obj;
         var ade_v = ade;
+        
+        // DEBUG
+        console.log(`[ADE DEBUG] GEB=${geb}, FA=${fa}, ADE_calculado=${ade}, ADE_esperado=${(geb*fa)*10/100}`);
     }
 
     // Reparto de macros (% configurables; en gestación por defecto 50/25/25)
