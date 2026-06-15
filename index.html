@@ -38,6 +38,10 @@
         .btn-danger { background: #e53e3e; color: white; }
         .btn-danger:hover { background: #c53030; }
         .btn-sm { padding: 4px 10px; font-size: 12px; }
+        .btn-note { background: #f6ad55; color: white; }
+        .btn-note:hover { background: #ed8936; }
+        .btn-add-food { background: #48bb78; color: white; }
+        .btn-add-food:hover { background: #38a169; }
 
         .card {
             background: white; border-radius: 12px; padding: 25px;
@@ -125,6 +129,10 @@
 
         .hidden { display: none !important; }
         .small-note { font-size: 12px; color:#718096; margin-top:4px; }
+        .progress-display { font-size: 18px; font-weight: bold; color: #667eea; margin: 15px 0; padding: 15px; background: #f0f4ff; border-radius: 8px; text-align: center; }
+        .food-notes { background: #fef5e7; border-left: 4px solid #f6ad55; padding: 12px; margin: 10px 0; border-radius: 4px; font-size: 13px; color: #744210; }
+        .food-description { background: #eef6fc; border-left: 4px solid #667eea; padding: 10px; margin: 8px 0; border-radius: 4px; font-size: 12px; color: #2c5282; }
+        .btn-meal-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
         @media (max-width: 640px){ .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -523,6 +531,105 @@
             <div style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn btn-secondary" onclick="closeUploadModal()">Cancelar</button>
                 <button class="btn" onclick="confirmUpload()">Restaurar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL NOTAS DEL DÍA ===================== -->
+    <div id="dayNotesModal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 15px;">📝 Notas del Día</h3>
+            <div class="form-group">
+                <label>Descripción de recetas, ingredientes y recomendaciones:</label>
+                <textarea id="dayNotesInput" class="form-control" rows="6" placeholder="Ej: Pollo asado con limón, comino y sal. Se puede acompañar con ensalada de rúcula y tomate..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeDayNotesModal()">Cancelar</button>
+                <button class="btn" onclick="saveDayNotes()">Guardar Notas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL NOTAS DE COMIDA ===================== -->
+    <div id="mealNotesModal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 15px;">📝 Notas de Receta</h3>
+            <div class="form-group">
+                <label>Descripción de la receta e ingredientes:</label>
+                <textarea id="mealNotesInput" class="form-control" rows="6" placeholder="Describe los ingredientes, preparación y recomendaciones..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeMealNotesModal()">Cancelar</button>
+                <button class="btn" onclick="saveMealNotes()">Guardar Notas</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL DESCRIPCIÓN DE ALIMENTO ===================== -->
+    <div id="foodDescriptionModal" class="modal">
+        <div class="modal-content">
+            <h3 id="foodDescTitle" style="margin-bottom: 15px;">📝 Descripción del Alimento</h3>
+            <div class="form-group">
+                <label>Descripción (preparación, variante, recomendaciones):</label>
+                <textarea id="foodDescInput" class="form-control" rows="6" placeholder="Ej: Cocido al horno sin aceite, con especias al gusto..."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeFoodDescriptionModal()">Cancelar</button>
+                <button class="btn" onclick="saveFoodDescription()">Guardar Descripción</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===================== MODAL AGREGAR ALIMENTO MANUAL ===================== -->
+    <div id="addFoodManualModal" class="modal">
+        <div class="modal-content">
+            <h3 style="margin-bottom: 15px;">➕ Agregar Alimento Manual</h3>
+            <div class="form-group">
+                <label>Nombre del Alimento *</label>
+                <input type="text" id="manualFoodName" class="form-control" placeholder="Ej: Almendra tostada">
+            </div>
+            <div class="form-group">
+                <label>Categoría *</label>
+                <input type="text" id="manualFoodCategory" class="form-control" placeholder="Ej: Frutos secos">
+            </div>
+            <div class="form-group">
+                <label>Gramos</label>
+                <input type="number" id="manualFoodGrams" class="form-control" value="100" min="1" step="5">
+            </div>
+            <div class="section-title">Valores Nutricionales (por 100g)</div>
+            <div class="grid-3" style="margin-bottom: 15px;">
+                <div class="form-group">
+                    <label>Energía (kcal)</label>
+                    <input type="number" id="manualKcal" class="form-control" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Proteínas (g)</label>
+                    <input type="number" id="manualProt" class="form-control" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>H.C. Totales (g)</label>
+                    <input type="number" id="manualHC" class="form-control" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Lípidos (g)</label>
+                    <input type="number" id="manualLip" class="form-control" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Fibra (g)</label>
+                    <input type="number" id="manualFibra" class="form-control" value="0" step="0.1">
+                </div>
+                <div class="form-group">
+                    <label>Sodio (mg)</label>
+                    <input type="number" id="manualSodio" class="form-control" value="0" step="1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Descripción (opcional)</label>
+                <textarea id="manualFoodDesc" class="form-control" rows="3" placeholder="Ej: Selecciona una variante específica, método de cocción, etc."></textarea>
+            </div>
+            <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                <button class="btn btn-secondary" onclick="closeAddFoodManualModal()">Cancelar</button>
+                <button class="btn btn-add-food" onclick="saveManualFood()">Agregar Alimento</button>
             </div>
         </div>
     </div>
@@ -1530,9 +1637,10 @@ function renderDietPlan() {
                 <td style="color:#555;">${fmt(it.na,0)}</td>
                 <td class="actions-cell">
                     <button class="btn btn-secondary btn-sm" title="Ver todos los detalles" onclick="showFoodDetailItem('${meal.key}',${idx})">ℹ️</button>
+                    <button class="btn btn-sm btn-note" title="Agregar descripción" onclick="openFoodDescriptionModal('${meal.key}',${idx})">📝</button>
                     <button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button>
                 </td>
-            </tr>`;
+            </tr>` + (it.description ? `<tr style="background:#f9f9f9;"><td colspan="17"><div class="food-description">📌 ${escapeHtml(it.description)}</div></td></tr>` : '');
         }).join('');
 
         dayTot.kcal     += mt.kcal;     dayTot.prot    += mt.prot;
@@ -1548,9 +1656,12 @@ function renderDietPlan() {
         <div class="meal-card">
             <div class="meal-head">
                 <h4>${meal.label}</h4>
-                <div style="display:flex; gap:8px; align-items:center;">
+                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
                     <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,1)} HC:${fmt(mt.hc,1)} L:${fmt(mt.lip,1)} g</span>
-                    <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
+                    <div style="display:flex; gap:6px;">
+                        <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
+                        <button class="btn btn-sm btn-note" onclick="openMealNotesModal('${meal.key}')" title="Notas de receta">📝</button>
+                    </div>
                 </div>
             </div>
             ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
@@ -1599,6 +1710,14 @@ function renderDietPlan() {
 
     document.getElementById('planDayTotals').innerHTML = `
         <div class="section-title" style="margin-top:0;">Totales · ${plan.nombre} › ${dia.nombre}</div>
+        <div class="progress-display">
+            ${fmt(dayTot.kcal,0)} / ${fmt(n.getMod,0)} kcal · P:${fmt(dayTot.prot,1)} HC:${fmt(dayTot.hc,1)} L:${fmt(dayTot.lip,1)} g
+        </div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:15px;">
+            <button class="btn btn-add-food" onclick="openAddFoodManualModal()">➕ Agregar Alimento Manual</button>
+            <button class="btn btn-note" onclick="openDayNotesModal()">📝 Notas del Día</button>
+        </div>
+        ${dia.dayNotes ? `<div class="food-notes"><strong>Notas:</strong> ${dia.dayNotes}</div>` : ''}
         <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
         <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Veg: ${fmt(dayTot.pVeg,1)} g · Ani: ${fmt(dayTot.pAni,1)} g</span></div>
         <div class="calc-result"><span>Hidratos totales</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g) · Almidón: ${fmt(dayTot.almidon,1)} g · Azúcares: ${fmt(dayTot.azucares,1)} g · Fibra: ${fmt(dayTot.fibra,1)} g</span></div>
@@ -1734,7 +1853,141 @@ function openFoodModal(mealKey) {
 }
 function closeFoodModal() { document.getElementById('foodModal').classList.remove('active'); }
 
-/* ---- Detalle completo de un alimento (15 campos de TABLAD) ---- */
+/* ---- FUNCIONES PARA NOTAS DEL DÍA ---- */
+function openDayNotesModal() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    document.getElementById('dayNotesInput').value = dia.dayNotes || '';
+    document.getElementById('dayNotesModal').classList.add('active');
+}
+function closeDayNotesModal() { document.getElementById('dayNotesModal').classList.remove('active'); }
+function saveDayNotes() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    dia.dayNotes = document.getElementById('dayNotesInput').value.trim();
+    saveClientsToStorage();
+    renderDietPlan();
+    closeDayNotesModal();
+}
+
+/* ---- FUNCIONES PARA NOTAS DE COMIDA ---- */
+let currentMealKeyForNotes = null;
+function openMealNotesModal(mealKey) {
+    currentMealKeyForNotes = mealKey;
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    if (!dia.mealNotes) dia.mealNotes = {};
+    document.getElementById('mealNotesInput').value = dia.mealNotes[mealKey] || '';
+    const mealLabel = MEALS.find(m => m.key === mealKey)?.label || mealKey;
+    document.querySelector('#mealNotesModal h3').textContent = '📝 Notas de Receta - ' + mealLabel;
+    document.getElementById('mealNotesModal').classList.add('active');
+}
+function closeMealNotesModal() { document.getElementById('mealNotesModal').classList.remove('active'); }
+function saveMealNotes() {
+    const client = clients.find(c => c.id === currentClientId);
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    if (!dia.mealNotes) dia.mealNotes = {};
+    dia.mealNotes[currentMealKeyForNotes] = document.getElementById('mealNotesInput').value.trim();
+    saveClientsToStorage();
+    renderDietPlan();
+    closeMealNotesModal();
+}
+
+/* ---- FUNCIONES PARA DESCRIPCIÓN DE ALIMENTO ---- */
+let currentFoodMealKey = null;
+let currentFoodIdx = null;
+function openFoodDescriptionModal(mealKey, idx) {
+    currentFoodMealKey = mealKey;
+    currentFoodIdx = idx;
+    const client = clients.find(c => c.id === currentClientId);
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[mealKey][idx];
+    if (!item) return;
+    document.getElementById('foodDescTitle').textContent = '📝 Descripción - ' + item.name;
+    document.getElementById('foodDescInput').value = item.description || '';
+    document.getElementById('foodDescriptionModal').classList.add('active');
+}
+function closeFoodDescriptionModal() { document.getElementById('foodDescriptionModal').classList.remove('active'); }
+function saveFoodDescription() {
+    const client = clients.find(c => c.id === currentClientId);
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[currentFoodMealKey][currentFoodIdx];
+    if (item) {
+        item.description = document.getElementById('foodDescInput').value.trim();
+        saveClientsToStorage();
+        renderDietPlan();
+    }
+    closeFoodDescriptionModal();
+}
+
+/* ---- FUNCIONES PARA AGREGAR ALIMENTO MANUAL ---- */
+let currentMealKeyForManual = null;
+function openAddFoodManualModal() {
+    // Si hay un modal abierto de buscar alimentos, usar esa comida
+    currentMealKeyForManual = currentMealKey || 'almuerzo';
+    document.getElementById('manualFoodName').value = '';
+    document.getElementById('manualFoodCategory').value = '';
+    document.getElementById('manualFoodGrams').value = '100';
+    document.getElementById('manualKcal').value = '0';
+    document.getElementById('manualProt').value = '0';
+    document.getElementById('manualHC').value = '0';
+    document.getElementById('manualLip').value = '0';
+    document.getElementById('manualFibra').value = '0';
+    document.getElementById('manualSodio').value = '0';
+    document.getElementById('manualFoodDesc').value = '';
+    document.getElementById('addFoodManualModal').classList.add('active');
+}
+function closeAddFoodManualModal() { document.getElementById('addFoodManualModal').classList.remove('active'); }
+function saveManualFood() {
+    const name = document.getElementById('manualFoodName').value.trim();
+    const categoria = document.getElementById('manualFoodCategory').value.trim();
+    const gramos = parseFloat(document.getElementById('manualFoodGrams').value) || 100;
+    
+    if (!name || !categoria) {
+        alert('Por favor completa el nombre y categoría del alimento');
+        return;
+    }
+
+    const food = {
+        name: name,
+        categoria: categoria,
+        gramos: gramos,
+        kcal: parseFloat(document.getElementById('manualKcal').value) || 0,
+        proteinas: parseFloat(document.getElementById('manualProt').value) || 0,
+        hcTotales: parseFloat(document.getElementById('manualHC').value) || 0,
+        lipidos: parseFloat(document.getElementById('manualLip').value) || 0,
+        fibra: parseFloat(document.getElementById('manualFibra').value) || 0,
+        na: parseFloat(document.getElementById('manualSodio').value) || 0,
+        pVegetales: 0,
+        pAnimales: 0,
+        almidon: 0,
+        azucares: 0,
+        ags: 0,
+        agm: 0,
+        agp: 0,
+        colesterol: 0,
+        description: document.getElementById('manualFoodDesc').value.trim()
+    };
+
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client || !currentMealKeyForManual) return;
+    
+    const dia = getActiveDia(getActivePlan(client));
+    if (!dia.meals[currentMealKeyForManual]) {
+        dia.meals[currentMealKeyForManual] = [];
+    }
+    
+    dia.meals[currentMealKeyForManual].push(food);
+    saveClientsToStorage();
+    closeAddFoodManualModal();
+    renderDietPlan();
+}
+
+
 function renderFoodDetail(food, subtitulo) {
     const rows = FOOD_FIELDS.map(([key, label, unit]) => {
         const val = parseFloat(food[key]) || 0;
