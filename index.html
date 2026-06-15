@@ -286,12 +286,13 @@
                             </select>
                         </div>
                         <div class="form-group"><label>% Déficit/Aumento</label><input type="number" step="1" id="clientObjPct" class="form-control" value="15" oninput="recalcForm()"></div>
-                        <div class="form-group"><label>% HC</label><input type="number" step="1" id="macroHC" class="form-control" value="55" oninput="recalcForm()"></div>
-                        <div class="form-group"><label>% Lípidos</label><input type="number" step="1" id="macroLip" class="form-control" value="30" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>% HC</label><input type="number" step="1" min="0" max="100" id="macroHC" class="form-control" value="55" oninput="validateMacros(); recalcForm()"></div>
+                        <div class="form-group"><label>% Lípidos</label><input type="number" step="1" min="0" max="100" id="macroLip" class="form-control" value="30" oninput="validateMacros(); recalcForm()"></div>
                     </div>
                     <div class="grid-4">
-                        <div class="form-group"><label>% Proteínas</label><input type="number" step="1" id="macroProt" class="form-control" value="15" oninput="recalcForm()"></div>
+                        <div class="form-group"><label>% Proteínas</label><input type="number" step="1" min="0" max="100" id="macroProt" class="form-control" value="15" oninput="validateMacros(); recalcForm()"></div>
                     </div>
+                    <div id="macroWarning" style="margin-bottom:15px;"></div>
 
                     <div class="calc-box" id="formCalcSummary" style="margin-top:15px;"></div>
 
@@ -760,6 +761,7 @@ function computeNutrition(c) {
         
         // DEBUG
         console.log(`[ADE DEBUG] GEB=${geb}, FA=${fa}, ADE_calculado=${ade}, ADE_esperado=${(geb*fa)*10/100}`);
+        console.log(`[ADE FINAL] ade_v=${ade_v} que se retorna como n.ade`);
     }
 
     // Reparto de macros (% configurables; en gestación por defecto 50/25/25)
@@ -890,6 +892,22 @@ function onPregnantChange() {
 }
 
 // Recalcula en vivo todo el bloque del formulario
+function validateMacros() {
+    const hc = parseFloat(document.getElementById('macroHC').value) || 0;
+    const lip = parseFloat(document.getElementById('macroLip').value) || 0;
+    const prot = parseFloat(document.getElementById('macroProt').value) || 0;
+    const total = hc + lip + prot;
+    
+    const warning = document.getElementById('macroWarning');
+    if (total === 100) {
+        warning.innerHTML = '<div class="small-note" style="color:#276749;background:#e8f5e9;padding:10px;border-radius:6px;">✅ Macronutrientes correctos (100%)</div>';
+    } else if (total > 0) {
+        warning.innerHTML = `<div class="small-note" style="color:#c05621;background:#fff3e0;padding:10px;border-radius:6px;">⚠️ Macronutrientes suman ${fmt(total,0)}% (deberían sumar 100%)</div>`;
+    } else {
+        warning.innerHTML = '';
+    }
+}
+
 function recalcForm() {
     const sex = document.getElementById('clientSex').value;
     const edad = document.getElementById('clientAge').value;
@@ -1117,16 +1135,16 @@ function renderCalculos() {
                 <tbody>
                 ${mealRows.map(meal => {
                     const k = n.getMod * meal.pct;
-                    const prot_total = (k * 0.15) / 4;
-                    const prot_ani = (k * 0.075) / 4;
-                    const prot_veg = (k * 0.075) / 4;
-                    const hc_total = (k * 0.55) / 4;
-                    const hc_alm = (k * 0.45) / 4;
-                    const hc_azu = (k * 0.10) / 4;
+                    const prot_total = (k * n.macros.prot.pct) / 4;
+                    const prot_ani = (k * n.macros.prot.pct * 0.5) / 4;
+                    const prot_veg = (k * n.macros.prot.pct * 0.5) / 4;
+                    const hc_total = (k * n.macros.hc.pct) / 4;
+                    const hc_alm = (k * n.macros.hc.pct * 0.818) / 4;  // 81.8% de HC es almidón
+                    const hc_azu = (k * n.macros.hc.pct * 0.182) / 4;  // 18.2% azúcares
                     const hc_fib = hc_total * 0.20; // Aproximadamente 20% de fibra del total
-                    const lip_total = (k * 0.30) / 9;
-                    const lip_ags = (k * 0.075) / 9;
-                    const lip_agm = (k * 0.15) / 9;
+                    const lip_total = (k * n.macros.lip.pct) / 9;
+                    const lip_ags = (k * n.macros.lip.pct * 0.25) / 9;
+                    const lip_agm = (k * n.macros.lip.pct * 0.50) / 9;
                     const lip_agp = lip_total - lip_ags - lip_agm;
                     return `<tr>
                         <td><strong>${meal.label}</strong></td>
@@ -1669,9 +1687,9 @@ function renderDietPlan() {
 
         const targetKcal = n.getMod * ((client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct);
         const mealPct = (client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct;
-        const targetProt = (n.getMod * mealPct * 0.15) / 4;
-        const targetHC = (n.getMod * mealPct * 0.55) / 4;
-        const targetLip = (n.getMod * mealPct * 0.30) / 9;
+        const targetProt = (n.getMod * mealPct * n.macros.prot.pct) / 4;
+        const targetHC = (n.getMod * mealPct * n.macros.hc.pct) / 4;
+        const targetLip = (n.getMod * mealPct * n.macros.lip.pct) / 9;
         
         return `
         <div class="meal-card">
