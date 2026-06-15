@@ -1660,6 +1660,7 @@ function renderDietPlan() {
                     <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,1)} HC:${fmt(mt.hc,1)} L:${fmt(mt.lip,1)} g</span>
                     <div style="display:flex; gap:6px;">
                         <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
+                        <button class="btn btn-sm btn-add-food" onclick="openAddFoodManualModalForMeal('${meal.key}')" title="Agregar manual">➕</button>
                         <button class="btn btn-sm btn-note" onclick="openMealNotesModal('${meal.key}')" title="Notas de receta">📝</button>
                     </div>
                 </div>
@@ -1711,7 +1712,30 @@ function renderDietPlan() {
     document.getElementById('planDayTotals').innerHTML = `
         <div class="section-title" style="margin-top:0;">Totales · ${plan.nombre} › ${dia.nombre}</div>
         <div class="progress-display">
-            ${fmt(dayTot.kcal,0)} / ${fmt(n.getMod,0)} kcal · P:${fmt(dayTot.prot,1)} HC:${fmt(dayTot.hc,1)} L:${fmt(dayTot.lip,1)} g
+            ${fmt(dayTot.kcal,0)} / ${fmt(n.getMod,0)} kcal
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:15px;">
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#667eea;">Proteínas</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.prot,1)} / ${fmt(n.macros.prot.gr,0)} g</div>
+                <div style="font-size:12px; color:#718096;">
+                    🥩 Anim: ${fmt(dayTot.pAni,1)}g | 🌱 Veg: ${fmt(dayTot.pVeg,1)}g
+                </div>
+            </div>
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#48bb78;">Hidratos (HC)</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.hc,1)} / ${fmt(n.macros.hc.gr,0)} g</div>
+                <div style="font-size:12px; color:#718096;">
+                    🌾 Alm: ${fmt(dayTot.almidon,1)}g | 🍯 Azu: ${fmt(dayTot.azucares,1)}g
+                </div>
+            </div>
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#ed8936;">Lípidos</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.lip,1)} / ${fmt(n.macros.lip.gr,0)} g</div>
+                <div style="font-size:12px; color:#718096;">
+                    AGM: ${fmt(dayTot.agm,1)}g | AGS: ${fmt(dayTot.ags,1)}g
+                </div>
+            </div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:15px;">
             <button class="btn btn-add-food" onclick="openAddFoodManualModal()">➕ Agregar Alimento Manual</button>
@@ -1724,6 +1748,66 @@ function renderDietPlan() {
         <div class="calc-result"><span>Lípidos totales</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g) · AGS: ${fmt(dayTot.ags,1)} g · AGM: ${fmt(dayTot.agm,1)} g · AGP: ${fmt(dayTot.agp,1)} g</span></div>
         <div class="calc-result"><span>Colesterol</span><strong>${fmt(dayTot.col,0)} mg</strong></div>
         <div class="calc-result"><span>Sodio (Na)</span><strong>${fmt(dayTot.na,0)} mg</strong></div>
+        
+        <div class="section-title">📊 Distribución de Macronutrientes por Comida</div>
+        <div style="overflow-x:auto; margin-top:15px;">
+            <table style="font-size:11px; width:100%;">
+                <thead>
+                    <tr style="background:#667eea; color:white;">
+                        <th style="padding:8px; text-align:left;">Comida</th>
+                        <th style="padding:8px; text-align:center;">Kcal</th>
+                        <th colspan="2" style="padding:8px; text-align:center; background:#5a67d8;">Proteínas (g)</th>
+                        <th colspan="2" style="padding:8px; text-align:center; background:#48bb78;">HC (g)</th>
+                        <th colspan="2" style="padding:8px; text-align:center; background:#ed8936;">Lípidos (g)</th>
+                    </tr>
+                    <tr style="background:#ebf8ff;">
+                        <th style="padding:6px;"></th>
+                        <th style="padding:6px;"></th>
+                        <th style="padding:6px; font-size:10px;">Anim</th>
+                        <th style="padding:6px; font-size:10px;">Veg</th>
+                        <th style="padding:6px; font-size:10px;">Alm</th>
+                        <th style="padding:6px; font-size:10px;">Azu</th>
+                        <th style="padding:6px; font-size:10px;">AGM</th>
+                        <th style="padding:6px; font-size:10px;">AGS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${MEALS.map(meal => {
+                        const mealItems = dia.meals[meal.key] || [];
+                        let mt = { kcal:0, pAni:0, pVeg:0, almidon:0, azucares:0, agm:0, ags:0 };
+                        mealItems.forEach(it => {
+                            mt.kcal += it.kcal || 0;
+                            mt.pAni += it.pAnimales || 0;
+                            mt.pVeg += it.pVegetales || 0;
+                            mt.almidon += it.almidon || 0;
+                            mt.azucares += it.azucares || 0;
+                            mt.agm += it.agm || 0;
+                            mt.ags += it.ags || 0;
+                        });
+                        return mealItems.length > 0 ? `<tr style="border-bottom:1px solid #e2e8f0;">
+                            <td style="padding:6px; font-weight:bold;">${meal.label}</td>
+                            <td style="padding:6px; text-align:center;">${fmt(mt.kcal,0)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.pAni,1)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.pVeg,1)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.almidon,1)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.azucares,1)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.agm,1)}</td>
+                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.ags,1)}</td>
+                        </tr>` : '';
+                    }).join('')}
+                    <tr style="background:#f7fafc; font-weight:bold; border-top:2px solid #667eea;">
+                        <td style="padding:6px;">TOTAL</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.kcal,0)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.pAni,1)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.pVeg,1)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.almidon,1)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.azucares,1)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.agm,1)}</td>
+                        <td style="padding:6px; text-align:center;">${fmt(dayTot.ags,1)}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     `;
 }
 
@@ -1831,6 +1915,36 @@ function downloadPlanPDF() {
                 margin: { left: marginX, right: marginX }
             });
             y = doc.lastAutoTable.finalY;
+            
+            // Mostrar notas del día si existen
+            if (dia.dayNotes && dia.dayNotes.trim()) {
+                if (y > pageH - 80) { doc.addPage(); header(); y = 104; }
+                y += 8;
+                doc.setTextColor(102, 126, 234); doc.setFontSize(10); doc.setFont(undefined, 'bold');
+                doc.text('📝 Notas del Día:', marginX, y);
+                y += 4;
+                doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(9);
+                const splitText = doc.splitTextToSize(dia.dayNotes, pageW - 2 * marginX);
+                doc.text(splitText, marginX, y);
+                y += splitText.length * 4 + 4;
+            }
+            
+            // Mostrar notas de comidas si existen
+            if (dia.mealNotes && Object.keys(dia.mealNotes).length > 0) {
+                MEALS.forEach(meal => {
+                    if (dia.mealNotes[meal.key] && dia.mealNotes[meal.key].trim()) {
+                        if (y > pageH - 80) { doc.addPage(); header(); y = 104; }
+                        y += 8;
+                        doc.setTextColor(102, 126, 234); doc.setFontSize(10); doc.setFont(undefined, 'bold');
+                        doc.text('📝 ' + meal.label + ':', marginX, y);
+                        y += 4;
+                        doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(9);
+                        const splitText = doc.splitTextToSize(dia.mealNotes[meal.key], pageW - 2 * marginX);
+                        doc.text(splitText, marginX, y);
+                        y += splitText.length * 4 + 4;
+                    }
+                });
+            }
         }
     });
 
@@ -1929,6 +2043,13 @@ let currentMealKeyForManual = null;
 function openAddFoodManualModal() {
     // Si hay un modal abierto de buscar alimentos, usar esa comida
     currentMealKeyForManual = currentMealKey || 'almuerzo';
+    openAddFoodManualModalForm();
+}
+function openAddFoodManualModalForMeal(mealKey) {
+    currentMealKeyForManual = mealKey;
+    openAddFoodManualModalForm();
+}
+function openAddFoodManualModalForm() {
     document.getElementById('manualFoodName').value = '';
     document.getElementById('manualFoodCategory').value = '';
     document.getElementById('manualFoodGrams').value = '100';
