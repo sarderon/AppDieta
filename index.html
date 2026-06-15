@@ -132,7 +132,6 @@
         .progress-display { font-size: 18px; font-weight: bold; color: #667eea; margin: 15px 0; padding: 15px; background: #f0f4ff; border-radius: 8px; text-align: center; }
         .food-notes { background: #fef5e7; border-left: 4px solid #f6ad55; padding: 12px; margin: 10px 0; border-radius: 4px; font-size: 13px; color: #744210; }
         .food-description { background: #eef6fc; border-left: 4px solid #667eea; padding: 10px; margin: 8px 0; border-radius: 4px; font-size: 12px; color: #2c5282; }
-        .btn-meal-actions { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
         @media (max-width: 640px){ .grid-2 { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -541,7 +540,7 @@
             <h3 style="margin-bottom: 15px;">📝 Notas del Día</h3>
             <div class="form-group">
                 <label>Descripción de recetas, ingredientes y recomendaciones:</label>
-                <textarea id="dayNotesInput" class="form-control" rows="6" placeholder="Ej: Pollo asado con limón, comino y sal. Se puede acompañar con ensalada de rúcula y tomate..."></textarea>
+                <textarea id="dayNotesInput" class="form-control" rows="6" placeholder="Ej: Pollo asado con limón..."></textarea>
             </div>
             <div style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn btn-secondary" onclick="closeDayNotesModal()">Cancelar</button>
@@ -550,32 +549,17 @@
         </div>
     </div>
 
-    <!-- ===================== MODAL NOTAS DE COMIDA ===================== -->
-    <div id="mealNotesModal" class="modal">
-        <div class="modal-content">
-            <h3 style="margin-bottom: 15px;">📝 Notas de Receta</h3>
-            <div class="form-group">
-                <label>Descripción de la receta e ingredientes:</label>
-                <textarea id="mealNotesInput" class="form-control" rows="6" placeholder="Describe los ingredientes, preparación y recomendaciones..."></textarea>
-            </div>
-            <div style="display: flex; gap: 10px; justify-content: flex-end;">
-                <button class="btn btn-secondary" onclick="closeMealNotesModal()">Cancelar</button>
-                <button class="btn" onclick="saveMealNotes()">Guardar Notas</button>
-            </div>
-        </div>
-    </div>
-
     <!-- ===================== MODAL DESCRIPCIÓN DE ALIMENTO ===================== -->
     <div id="foodDescriptionModal" class="modal">
         <div class="modal-content">
-            <h3 id="foodDescTitle" style="margin-bottom: 15px;">📝 Descripción del Alimento</h3>
+            <h3 id="foodDescTitle" style="margin-bottom: 15px;">📝 Descripción</h3>
             <div class="form-group">
-                <label>Descripción (preparación, variante, recomendaciones):</label>
-                <textarea id="foodDescInput" class="form-control" rows="6" placeholder="Ej: Cocido al horno sin aceite, con especias al gusto..."></textarea>
+                <label>Descripción:</label>
+                <textarea id="foodDescInput" class="form-control" rows="4" placeholder="Ej: Sin aceite..."></textarea>
             </div>
             <div style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn btn-secondary" onclick="closeFoodDescriptionModal()">Cancelar</button>
-                <button class="btn" onclick="saveFoodDescription()">Guardar Descripción</button>
+                <button class="btn" onclick="saveFoodDescription()">Guardar</button>
             </div>
         </div>
     </div>
@@ -585,7 +569,7 @@
         <div class="modal-content">
             <h3 style="margin-bottom: 15px;">➕ Agregar Alimento Manual</h3>
             <div class="form-group">
-                <label>Nombre del Alimento *</label>
+                <label>Nombre *</label>
                 <input type="text" id="manualFoodName" class="form-control" placeholder="Ej: Almendra tostada">
             </div>
             <div class="form-group">
@@ -597,7 +581,7 @@
                 <input type="number" id="manualFoodGrams" class="form-control" value="100" min="1" step="5">
             </div>
             <div class="section-title">Valores Nutricionales (por 100g)</div>
-            <div class="grid-3" style="margin-bottom: 15px;">
+            <div class="grid-2" style="margin-bottom: 15px;">
                 <div class="form-group">
                     <label>Energía (kcal)</label>
                     <input type="number" id="manualKcal" class="form-control" value="0" step="0.1">
@@ -614,22 +598,10 @@
                     <label>Lípidos (g)</label>
                     <input type="number" id="manualLip" class="form-control" value="0" step="0.1">
                 </div>
-                <div class="form-group">
-                    <label>Fibra (g)</label>
-                    <input type="number" id="manualFibra" class="form-control" value="0" step="0.1">
-                </div>
-                <div class="form-group">
-                    <label>Sodio (mg)</label>
-                    <input type="number" id="manualSodio" class="form-control" value="0" step="1">
-                </div>
-            </div>
-            <div class="form-group">
-                <label>Descripción (opcional)</label>
-                <textarea id="manualFoodDesc" class="form-control" rows="3" placeholder="Ej: Selecciona una variante específica, método de cocción, etc."></textarea>
             </div>
             <div style="display: flex; gap: 10px; justify-content: flex-end;">
                 <button class="btn btn-secondary" onclick="closeAddFoodManualModal()">Cancelar</button>
-                <button class="btn btn-add-food" onclick="saveManualFood()">Agregar Alimento</button>
+                <button class="btn btn-add-food" onclick="saveManualFood()">Agregar</button>
             </div>
         </div>
     </div>
@@ -1562,45 +1534,6 @@ function diaTotals(dia) {
     return t;
 }
 
-function getMacroTargets(client) {
-    const n = computeNutrition(client);
-    // Distribución de macronutrientes en porcentaje de calorías
-    const targets = {
-        prot_total: (n.getMod * 0.15) / 4,           // 15% → gramos (4 kcal/g)
-        prot_animal: (n.getMod * 0.075) / 4,         // 7.5%
-        prot_vegetal: (n.getMod * 0.075) / 4,        // 7.5%
-        hc_total: (n.getMod * 0.55) / 4,             // 55% → gramos (4 kcal/g)
-        hc_almidon: (n.getMod * 0.45) / 4,           // 45%
-        hc_azucares: (n.getMod * 0.10) / 4,          // 10%
-        lip_total: (n.getMod * 0.30) / 9,            // 30% → gramos (9 kcal/g)
-        lip_agm: (n.getMod * 0.15) / 9,              // 15%
-        lip_ags: (n.getMod * 0.075) / 9              // 7.5%
-    };
-    return targets;
-}
-
-function getMealTargets(client, mealKey) {
-    const n = computeNutrition(client);
-    const meal = MEALS.find(m => m.key === mealKey);
-    if (!meal) return null;
-    const pct = (client.reparto && client.reparto[mealKey] != null) ? client.reparto[mealKey] : meal.pct;
-    const mealKcal = n.getMod * pct;
-    
-    const targets = getMacroTargets(client);
-    return {
-        kcal: mealKcal,
-        prot_total: targets.prot_total * pct / meal.pct,
-        prot_animal: targets.prot_animal * pct / meal.pct,
-        prot_vegetal: targets.prot_vegetal * pct / meal.pct,
-        hc_total: targets.hc_total * pct / meal.pct,
-        hc_almidon: targets.hc_almidon * pct / meal.pct,
-        hc_azucares: targets.hc_azucares * pct / meal.pct,
-        lip_total: targets.lip_total * pct / meal.pct,
-        lip_agm: targets.lip_agm * pct / meal.pct,
-        lip_ags: targets.lip_ags * pct / meal.pct
-    };
-}
-
 function renderDietPlan() {
     const client = clients.find(c => c.id === currentClientId);
     const cont = document.getElementById('planMealsContainer');
@@ -1676,7 +1609,7 @@ function renderDietPlan() {
                 <td style="color:#555;">${fmt(it.na,0)}</td>
                 <td class="actions-cell">
                     <button class="btn btn-secondary btn-sm" title="Ver todos los detalles" onclick="showFoodDetailItem('${meal.key}',${idx})">ℹ️</button>
-                    <button class="btn btn-sm btn-note" title="Agregar descripción" onclick="openFoodDescriptionModal('${meal.key}',${idx})">📝</button>
+                    <button class="btn btn-sm btn-note" title="Descripción" onclick="openFoodDescriptionModal('${meal.key}',${idx})">📝</button>
                     <button class="btn btn-danger btn-sm" onclick="removeFood('${meal.key}',${idx})">✕</button>
                 </td>
             </tr>` + (it.description ? `<tr style="background:#f9f9f9;"><td colspan="17"><div class="food-description">📌 ${escapeHtml(it.description)}</div></td></tr>` : '');
@@ -1691,73 +1624,19 @@ function renderDietPlan() {
         dayTot.col      += mt.col;      dayTot.na      += mt.na;
 
         const targetKcal = n.getMod * ((client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct);
-        const mealTargets = getMealTargets(client, meal.key);
         return `
         <div class="meal-card">
             <div class="meal-head">
                 <h4>${meal.label}</h4>
                 <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal</span>
+                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,1)} HC:${fmt(mt.hc,1)} L:${fmt(mt.lip,1)} g</span>
                     <div style="display:flex; gap:6px;">
                         <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
                         <button class="btn btn-sm btn-add-food" onclick="openAddFoodManualModalForMeal('${meal.key}')" title="Agregar manual">➕</button>
-                        <button class="btn btn-sm btn-note" onclick="openMealNotesModal('${meal.key}')" title="Notas de receta">📝</button>
+                        <button class="btn btn-sm btn-note" onclick="openDayNotesModal()" title="Notas">📝</button>
                     </div>
                 </div>
             </div>
-            <div style="font-size:11px; background:#f7fafc; padding:10px; border-radius:6px; margin-bottom:12px; line-height:1.6;">
-                <div style="color:#667eea; font-weight:bold; margin-bottom:6px;">📊 Desglose de Objetivos:</div>
-                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:8px;">
-                    <div><strong style="color:#667eea;">🥬 Proteína Anim:</strong> ${fmt(mt.pAni,1)} / ${fmt(mealTargets.prot_animal,1)} g</div>
-                    <div><strong style="color:#667eea;">🌱 Proteína Veg:</strong> ${fmt(mt.pVeg,1)} / ${fmt(mealTargets.prot_vegetal,1)} g</div>
-                    <div><strong style="color:#48bb78;">🌾 HC Almidón:</strong> ${fmt(mt.almidon,1)} / ${fmt(mealTargets.hc_almidon,1)} g</div>
-                    <div><strong style="color:#48bb78;">🍯 HC Azúcares:</strong> ${fmt(mt.azucares,1)} / ${fmt(mealTargets.hc_azucares,1)} g</div>
-                    <div><strong style="color:#ed8936;">🧈 Lípidos AGM:</strong> ${fmt(mt.agm,1)} / ${fmt(mealTargets.lip_agm,1)} g</div>
-                    <div><strong style="color:#ed8936;">🚫 Lípidos AGS:</strong> ${fmt(mt.ags,1)} / ${fmt(mealTargets.lip_ags,1)} g</div>
-                </div>
-            </div>
-            ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
-                <thead>
-                  <tr>
-                    <th rowspan="2">Alimento</th>
-                    <th rowspan="2">Cantidad</th>
-                    <th rowspan="2">Kcal</th>
-                    <th colspan="3" style="text-align:center;background:#eef2fb;">Proteínas (g)</th>
-                    <th colspan="4" style="text-align:center;background:#f0faf3;">HC (g)</th>
-                    <th colspan="4" style="text-align:center;background:#fdf6ec;">Lípidos (g)</th>
-                    <th rowspan="2">Col<br>(mg)</th>
-                    <th rowspan="2">Na<br>(mg)</th>
-                    <th rowspan="2"></th>
-                  </tr>
-                  <tr>
-                    <th style="background:#eef2fb;">Tot</th>
-                    <th style="background:#eef2fb;color:#555;">Veg</th>
-                    <th style="background:#eef2fb;color:#555;">Ani</th>
-                    <th style="background:#f0faf3;">Tot</th>
-                    <th style="background:#f0faf3;color:#555;">Alm</th>
-                    <th style="background:#f0faf3;color:#555;">Azu</th>
-                    <th style="background:#f0faf3;color:#555;">Fib</th>
-                    <th style="background:#fdf6ec;">Tot</th>
-                    <th style="background:#fdf6ec;color:#555;">AGS</th>
-                    <th style="background:#fdf6ec;color:#555;">AGM</th>
-                    <th style="background:#fdf6ec;color:#555;">AGP</th>
-                  </tr>
-                </thead>
-                <tbody>${rows}</tbody>
-                <tfoot>
-                  <tr style="background:#f7fafc;font-weight:bold;">
-                    <td>Subtotal</td><td></td>
-                    <td>${fmt(mt.kcal,0)}</td>
-                    <td>${fmt(mt.prot,1)}</td><td style="color:#555;">${fmt(mt.pVeg,1)}</td><td style="color:#555;">${fmt(mt.pAni,1)}</td>
-                    <td>${fmt(mt.hc,1)}</td><td style="color:#555;">${fmt(mt.almidon,1)}</td><td style="color:#555;">${fmt(mt.azucares,1)}</td><td style="color:#555;">${fmt(mt.fibra,1)}</td>
-                    <td>${fmt(mt.lip,1)}</td><td style="color:#555;">${fmt(mt.ags,1)}</td><td style="color:#555;">${fmt(mt.agm,1)}</td><td style="color:#555;">${fmt(mt.agp,1)}</td>
-                    <td style="color:#555;">${fmt(mt.col,0)}</td><td style="color:#555;">${fmt(mt.na,0)}</td>
-                    <td></td>
-                  </tr>
-                </tfoot>
-                </table></div>`
-                : `<p class="small-note">Sin alimentos. Pulsa "＋ Alimento" para buscar en la base de datos.</p>`}
-        </div>`;
             ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
                 <thead>
                   <tr>
@@ -1804,106 +1683,12 @@ function renderDietPlan() {
 
     document.getElementById('planDayTotals').innerHTML = `
         <div class="section-title" style="margin-top:0;">Totales · ${plan.nombre} › ${dia.nombre}</div>
-        <div class="progress-display">
-            ${fmt(dayTot.kcal,0)} / ${fmt(n.getMod,0)} kcal
-        </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:15px;">
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#667eea;">🥬 Proteína Animal</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.pAni,1)} / ${fmt(getMacroTargets(client).prot_animal,0)} g</div>
-            </div>
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#667eea;">🌱 Proteína Vegetal</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.pVeg,1)} / ${fmt(getMacroTargets(client).prot_vegetal,0)} g</div>
-            </div>
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#48bb78;">🌾 HC Almidón</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.almidon,1)} / ${fmt(getMacroTargets(client).hc_almidon,0)} g</div>
-            </div>
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#48bb78;">🍯 HC Azúcares</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.azucares,1)} / ${fmt(getMacroTargets(client).hc_azucares,0)} g</div>
-            </div>
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#ed8936;">🧈 Lípidos AGM</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.agm,1)} / ${fmt(getMacroTargets(client).lip_agm,0)} g</div>
-            </div>
-            <div class="calc-box" style="padding:12px;">
-                <strong style="color:#ed8936;">🚫 Lípidos AGS</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.ags,1)} / ${fmt(getMacroTargets(client).lip_ags,0)} g</div>
-            </div>
-        </div>
-        <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:15px;">
-            <button class="btn btn-add-food" onclick="openAddFoodManualModal()">➕ Agregar Alimento Manual</button>
-            <button class="btn btn-note" onclick="openDayNotesModal()">📝 Notas del Día</button>
-        </div>
-        ${dia.dayNotes ? `<div class="food-notes"><strong>Notas:</strong> ${dia.dayNotes}</div>` : ''}
         <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
-        <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Anim: ${fmt(dayTot.pAni,1)} g · Veg: ${fmt(dayTot.pVeg,1)} g</span></div>
+        <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Veg: ${fmt(dayTot.pVeg,1)} g · Ani: ${fmt(dayTot.pAni,1)} g</span></div>
         <div class="calc-result"><span>Hidratos totales</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g) · Almidón: ${fmt(dayTot.almidon,1)} g · Azúcares: ${fmt(dayTot.azucares,1)} g · Fibra: ${fmt(dayTot.fibra,1)} g</span></div>
         <div class="calc-result"><span>Lípidos totales</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g) · AGS: ${fmt(dayTot.ags,1)} g · AGM: ${fmt(dayTot.agm,1)} g · AGP: ${fmt(dayTot.agp,1)} g</span></div>
         <div class="calc-result"><span>Colesterol</span><strong>${fmt(dayTot.col,0)} mg</strong></div>
         <div class="calc-result"><span>Sodio (Na)</span><strong>${fmt(dayTot.na,0)} mg</strong></div>
-        
-        <div class="section-title">📊 Distribución de Macronutrientes por Comida</div>
-        <div style="overflow-x:auto; margin-top:15px;">
-            <table style="font-size:11px; width:100%;">
-                <thead>
-                    <tr style="background:#667eea; color:white;">
-                        <th style="padding:8px; text-align:left;">Comida</th>
-                        <th style="padding:8px; text-align:center;">Kcal</th>
-                        <th colspan="2" style="padding:8px; text-align:center; background:#5a67d8;">Proteínas (g)</th>
-                        <th colspan="2" style="padding:8px; text-align:center; background:#48bb78;">HC (g)</th>
-                        <th colspan="2" style="padding:8px; text-align:center; background:#ed8936;">Lípidos (g)</th>
-                    </tr>
-                    <tr style="background:#ebf8ff;">
-                        <th style="padding:6px;"></th>
-                        <th style="padding:6px;"></th>
-                        <th style="padding:6px; font-size:10px;">Anim</th>
-                        <th style="padding:6px; font-size:10px;">Veg</th>
-                        <th style="padding:6px; font-size:10px;">Alm</th>
-                        <th style="padding:6px; font-size:10px;">Azu</th>
-                        <th style="padding:6px; font-size:10px;">AGM</th>
-                        <th style="padding:6px; font-size:10px;">AGS</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    ${MEALS.map(meal => {
-                        const mealItems = dia.meals[meal.key] || [];
-                        let mt = { kcal:0, pAni:0, pVeg:0, almidon:0, azucares:0, agm:0, ags:0 };
-                        mealItems.forEach(it => {
-                            mt.kcal += it.kcal || 0;
-                            mt.pAni += it.pAnimales || 0;
-                            mt.pVeg += it.pVegetales || 0;
-                            mt.almidon += it.almidon || 0;
-                            mt.azucares += it.azucares || 0;
-                            mt.agm += it.agm || 0;
-                            mt.ags += it.ags || 0;
-                        });
-                        return mealItems.length > 0 ? `<tr style="border-bottom:1px solid #e2e8f0;">
-                            <td style="padding:6px; font-weight:bold;">${meal.label}</td>
-                            <td style="padding:6px; text-align:center;">${fmt(mt.kcal,0)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.pAni,1)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.pVeg,1)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.almidon,1)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.azucares,1)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.agm,1)}</td>
-                            <td style="padding:6px; text-align:center; color:#555;">${fmt(mt.ags,1)}</td>
-                        </tr>` : '';
-                    }).join('')}
-                    <tr style="background:#f7fafc; font-weight:bold; border-top:2px solid #667eea;">
-                        <td style="padding:6px;">TOTAL</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.kcal,0)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.pAni,1)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.pVeg,1)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.almidon,1)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.azucares,1)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.agm,1)}</td>
-                        <td style="padding:6px; text-align:center;">${fmt(dayTot.ags,1)}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
     `;
 }
 
@@ -2011,36 +1796,6 @@ function downloadPlanPDF() {
                 margin: { left: marginX, right: marginX }
             });
             y = doc.lastAutoTable.finalY;
-            
-            // Mostrar notas del día si existen
-            if (dia.dayNotes && dia.dayNotes.trim()) {
-                if (y > pageH - 80) { doc.addPage(); header(); y = 104; }
-                y += 8;
-                doc.setTextColor(102, 126, 234); doc.setFontSize(10); doc.setFont(undefined, 'bold');
-                doc.text('📝 Notas del Día:', marginX, y);
-                y += 4;
-                doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(9);
-                const splitText = doc.splitTextToSize(dia.dayNotes, pageW - 2 * marginX);
-                doc.text(splitText, marginX, y);
-                y += splitText.length * 4 + 4;
-            }
-            
-            // Mostrar notas de comidas si existen
-            if (dia.mealNotes && Object.keys(dia.mealNotes).length > 0) {
-                MEALS.forEach(meal => {
-                    if (dia.mealNotes[meal.key] && dia.mealNotes[meal.key].trim()) {
-                        if (y > pageH - 80) { doc.addPage(); header(); y = 104; }
-                        y += 8;
-                        doc.setTextColor(102, 126, 234); doc.setFontSize(10); doc.setFont(undefined, 'bold');
-                        doc.text('📝 ' + meal.label + ':', marginX, y);
-                        y += 4;
-                        doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(9);
-                        const splitText = doc.splitTextToSize(dia.mealNotes[meal.key], pageW - 2 * marginX);
-                        doc.text(splitText, marginX, y);
-                        y += splitText.length * 4 + 4;
-                    }
-                });
-            }
         }
     });
 
@@ -2063,148 +1818,7 @@ function openFoodModal(mealKey) {
 }
 function closeFoodModal() { document.getElementById('foodModal').classList.remove('active'); }
 
-/* ---- FUNCIONES PARA NOTAS DEL DÍA ---- */
-function openDayNotesModal() {
-    const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    const dia = getActiveDia(plan);
-    document.getElementById('dayNotesInput').value = dia.dayNotes || '';
-    document.getElementById('dayNotesModal').classList.add('active');
-}
-function closeDayNotesModal() { document.getElementById('dayNotesModal').classList.remove('active'); }
-function saveDayNotes() {
-    const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    const dia = getActiveDia(plan);
-    dia.dayNotes = document.getElementById('dayNotesInput').value.trim();
-    saveClientsToStorage();
-    renderDietPlan();
-    closeDayNotesModal();
-}
-
-/* ---- FUNCIONES PARA NOTAS DE COMIDA ---- */
-let currentMealKeyForNotes = null;
-function openMealNotesModal(mealKey) {
-    currentMealKeyForNotes = mealKey;
-    const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    const dia = getActiveDia(plan);
-    if (!dia.mealNotes) dia.mealNotes = {};
-    document.getElementById('mealNotesInput').value = dia.mealNotes[mealKey] || '';
-    const mealLabel = MEALS.find(m => m.key === mealKey)?.label || mealKey;
-    document.querySelector('#mealNotesModal h3').textContent = '📝 Notas de Receta - ' + mealLabel;
-    document.getElementById('mealNotesModal').classList.add('active');
-}
-function closeMealNotesModal() { document.getElementById('mealNotesModal').classList.remove('active'); }
-function saveMealNotes() {
-    const client = clients.find(c => c.id === currentClientId);
-    const plan = getActivePlan(client);
-    const dia = getActiveDia(plan);
-    if (!dia.mealNotes) dia.mealNotes = {};
-    dia.mealNotes[currentMealKeyForNotes] = document.getElementById('mealNotesInput').value.trim();
-    saveClientsToStorage();
-    renderDietPlan();
-    closeMealNotesModal();
-}
-
-/* ---- FUNCIONES PARA DESCRIPCIÓN DE ALIMENTO ---- */
-let currentFoodMealKey = null;
-let currentFoodIdx = null;
-function openFoodDescriptionModal(mealKey, idx) {
-    currentFoodMealKey = mealKey;
-    currentFoodIdx = idx;
-    const client = clients.find(c => c.id === currentClientId);
-    const dia = getActiveDia(getActivePlan(client));
-    const item = dia.meals[mealKey][idx];
-    if (!item) return;
-    document.getElementById('foodDescTitle').textContent = '📝 Descripción - ' + item.name;
-    document.getElementById('foodDescInput').value = item.description || '';
-    document.getElementById('foodDescriptionModal').classList.add('active');
-}
-function closeFoodDescriptionModal() { document.getElementById('foodDescriptionModal').classList.remove('active'); }
-function saveFoodDescription() {
-    const client = clients.find(c => c.id === currentClientId);
-    const dia = getActiveDia(getActivePlan(client));
-    const item = dia.meals[currentFoodMealKey][currentFoodIdx];
-    if (item) {
-        item.description = document.getElementById('foodDescInput').value.trim();
-        saveClientsToStorage();
-        renderDietPlan();
-    }
-    closeFoodDescriptionModal();
-}
-
-/* ---- FUNCIONES PARA AGREGAR ALIMENTO MANUAL ---- */
-let currentMealKeyForManual = null;
-function openAddFoodManualModal() {
-    // Si hay un modal abierto de buscar alimentos, usar esa comida
-    currentMealKeyForManual = currentMealKey || 'almuerzo';
-    openAddFoodManualModalForm();
-}
-function openAddFoodManualModalForMeal(mealKey) {
-    currentMealKeyForManual = mealKey;
-    openAddFoodManualModalForm();
-}
-function openAddFoodManualModalForm() {
-    document.getElementById('manualFoodName').value = '';
-    document.getElementById('manualFoodCategory').value = '';
-    document.getElementById('manualFoodGrams').value = '100';
-    document.getElementById('manualKcal').value = '0';
-    document.getElementById('manualProt').value = '0';
-    document.getElementById('manualHC').value = '0';
-    document.getElementById('manualLip').value = '0';
-    document.getElementById('manualFibra').value = '0';
-    document.getElementById('manualSodio').value = '0';
-    document.getElementById('manualFoodDesc').value = '';
-    document.getElementById('addFoodManualModal').classList.add('active');
-}
-function closeAddFoodManualModal() { document.getElementById('addFoodManualModal').classList.remove('active'); }
-function saveManualFood() {
-    const name = document.getElementById('manualFoodName').value.trim();
-    const categoria = document.getElementById('manualFoodCategory').value.trim();
-    const gramos = parseFloat(document.getElementById('manualFoodGrams').value) || 100;
-    
-    if (!name || !categoria) {
-        alert('Por favor completa el nombre y categoría del alimento');
-        return;
-    }
-
-    const food = {
-        name: name,
-        categoria: categoria,
-        gramos: gramos,
-        kcal: parseFloat(document.getElementById('manualKcal').value) || 0,
-        proteinas: parseFloat(document.getElementById('manualProt').value) || 0,
-        hcTotales: parseFloat(document.getElementById('manualHC').value) || 0,
-        lipidos: parseFloat(document.getElementById('manualLip').value) || 0,
-        fibra: parseFloat(document.getElementById('manualFibra').value) || 0,
-        na: parseFloat(document.getElementById('manualSodio').value) || 0,
-        pVegetales: 0,
-        pAnimales: 0,
-        almidon: 0,
-        azucares: 0,
-        ags: 0,
-        agm: 0,
-        agp: 0,
-        colesterol: 0,
-        description: document.getElementById('manualFoodDesc').value.trim()
-    };
-
-    const client = clients.find(c => c.id === currentClientId);
-    if (!client || !currentMealKeyForManual) return;
-    
-    const dia = getActiveDia(getActivePlan(client));
-    if (!dia.meals[currentMealKeyForManual]) {
-        dia.meals[currentMealKeyForManual] = [];
-    }
-    
-    dia.meals[currentMealKeyForManual].push(food);
-    saveClientsToStorage();
-    closeAddFoodManualModal();
-    renderDietPlan();
-}
-
-
+/* ---- Detalle completo de un alimento (15 campos de TABLAD) ---- */
 function renderFoodDetail(food, subtitulo) {
     const rows = FOOD_FIELDS.map(([key, label, unit]) => {
         const val = parseFloat(food[key]) || 0;
@@ -2417,6 +2031,128 @@ function confirmUpload() {
         } catch (error) { alert('❌ Error al procesar el archivo'); }
     };
     reader.readAsText(fileInput.files[0]);
+}
+
+
+/* ============================================================
+   FUNCIONES PARA NOTAS Y ALIMENTOS MANUALES
+   ============================================================ */
+function openDayNotesModal() {
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client) return;
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    document.getElementById('dayNotesInput').value = dia.dayNotes || '';
+    document.getElementById('dayNotesModal').classList.add('active');
+}
+function closeDayNotesModal() { 
+    document.getElementById('dayNotesModal').classList.remove('active'); 
+}
+function saveDayNotes() {
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client) return;
+    const plan = getActivePlan(client);
+    const dia = getActiveDia(plan);
+    dia.dayNotes = document.getElementById('dayNotesInput').value.trim();
+    saveClientsToStorage();
+    renderDietPlan();
+    closeDayNotesModal();
+}
+
+let currentFoodMealKey = null;
+let currentFoodIdx = null;
+function openFoodDescriptionModal(mealKey, idx) {
+    currentFoodMealKey = mealKey;
+    currentFoodIdx = idx;
+    const client = clients.find(c => c.id === currentClientId);
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[mealKey][idx];
+    if (!item) return;
+    document.getElementById('foodDescTitle').textContent = '📝 ' + item.name;
+    document.getElementById('foodDescInput').value = item.description || '';
+    document.getElementById('foodDescriptionModal').classList.add('active');
+}
+function closeFoodDescriptionModal() { 
+    document.getElementById('foodDescriptionModal').classList.remove('active'); 
+}
+function saveFoodDescription() {
+    const client = clients.find(c => c.id === currentClientId);
+    const dia = getActiveDia(getActivePlan(client));
+    const item = dia.meals[currentFoodMealKey][currentFoodIdx];
+    if (item) {
+        item.description = document.getElementById('foodDescInput').value.trim();
+        saveClientsToStorage();
+        renderDietPlan();
+    }
+    closeFoodDescriptionModal();
+}
+
+let currentMealKeyForManual = null;
+function openAddFoodManualModal() {
+    currentMealKeyForManual = currentMealKey || 'almuerzo';
+    limpiarModalAlimento();
+    document.getElementById('addFoodManualModal').classList.add('active');
+}
+function openAddFoodManualModalForMeal(mealKey) {
+    currentMealKeyForManual = mealKey;
+    limpiarModalAlimento();
+    document.getElementById('addFoodManualModal').classList.add('active');
+}
+function limpiarModalAlimento() {
+    document.getElementById('manualFoodName').value = '';
+    document.getElementById('manualFoodCategory').value = '';
+    document.getElementById('manualFoodGrams').value = '100';
+    document.getElementById('manualKcal').value = '0';
+    document.getElementById('manualProt').value = '0';
+    document.getElementById('manualHC').value = '0';
+    document.getElementById('manualLip').value = '0';
+}
+function closeAddFoodManualModal() { 
+    document.getElementById('addFoodManualModal').classList.remove('active'); 
+}
+function saveManualFood() {
+    const name = document.getElementById('manualFoodName').value.trim();
+    const categoria = document.getElementById('manualFoodCategory').value.trim();
+    const gramos = parseFloat(document.getElementById('manualFoodGrams').value) || 100;
+    
+    if (!name || !categoria) {
+        alert('Por favor completa el nombre y categoría');
+        return;
+    }
+
+    const food = {
+        name: name,
+        categoria: categoria,
+        gramos: gramos,
+        kcal: parseFloat(document.getElementById('manualKcal').value) || 0,
+        proteinas: parseFloat(document.getElementById('manualProt').value) || 0,
+        hcTotales: parseFloat(document.getElementById('manualHC').value) || 0,
+        lipidos: parseFloat(document.getElementById('manualLip').value) || 0,
+        pVegetales: 0,
+        pAnimales: 0,
+        almidon: 0,
+        azucares: 0,
+        fibra: 0,
+        ags: 0,
+        agm: 0,
+        agp: 0,
+        colesterol: 0,
+        na: 0,
+        description: ''
+    };
+
+    const client = clients.find(c => c.id === currentClientId);
+    if (!client || !currentMealKeyForManual) return;
+    
+    const dia = getActiveDia(getActivePlan(client));
+    if (!dia.meals[currentMealKeyForManual]) {
+        dia.meals[currentMealKeyForManual] = [];
+    }
+    
+    dia.meals[currentMealKeyForManual].push(food);
+    saveClientsToStorage();
+    closeAddFoodManualModal();
+    renderDietPlan();
 }
 
 window.addEventListener('load', loadAllData);
