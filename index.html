@@ -1562,6 +1562,45 @@ function diaTotals(dia) {
     return t;
 }
 
+function getMacroTargets(client) {
+    const n = computeNutrition(client);
+    // Distribución de macronutrientes en porcentaje de calorías
+    const targets = {
+        prot_total: (n.getMod * 0.15) / 4,           // 15% → gramos (4 kcal/g)
+        prot_animal: (n.getMod * 0.075) / 4,         // 7.5%
+        prot_vegetal: (n.getMod * 0.075) / 4,        // 7.5%
+        hc_total: (n.getMod * 0.55) / 4,             // 55% → gramos (4 kcal/g)
+        hc_almidon: (n.getMod * 0.45) / 4,           // 45%
+        hc_azucares: (n.getMod * 0.10) / 4,          // 10%
+        lip_total: (n.getMod * 0.30) / 9,            // 30% → gramos (9 kcal/g)
+        lip_agm: (n.getMod * 0.15) / 9,              // 15%
+        lip_ags: (n.getMod * 0.075) / 9              // 7.5%
+    };
+    return targets;
+}
+
+function getMealTargets(client, mealKey) {
+    const n = computeNutrition(client);
+    const meal = MEALS.find(m => m.key === mealKey);
+    if (!meal) return null;
+    const pct = (client.reparto && client.reparto[mealKey] != null) ? client.reparto[mealKey] : meal.pct;
+    const mealKcal = n.getMod * pct;
+    
+    const targets = getMacroTargets(client);
+    return {
+        kcal: mealKcal,
+        prot_total: targets.prot_total * pct / meal.pct,
+        prot_animal: targets.prot_animal * pct / meal.pct,
+        prot_vegetal: targets.prot_vegetal * pct / meal.pct,
+        hc_total: targets.hc_total * pct / meal.pct,
+        hc_almidon: targets.hc_almidon * pct / meal.pct,
+        hc_azucares: targets.hc_azucares * pct / meal.pct,
+        lip_total: targets.lip_total * pct / meal.pct,
+        lip_agm: targets.lip_agm * pct / meal.pct,
+        lip_ags: targets.lip_ags * pct / meal.pct
+    };
+}
+
 function renderDietPlan() {
     const client = clients.find(c => c.id === currentClientId);
     const cont = document.getElementById('planMealsContainer');
@@ -1652,12 +1691,13 @@ function renderDietPlan() {
         dayTot.col      += mt.col;      dayTot.na      += mt.na;
 
         const targetKcal = n.getMod * ((client.reparto && client.reparto[meal.key] != null) ? client.reparto[meal.key] : meal.pct);
+        const mealTargets = getMealTargets(client, meal.key);
         return `
         <div class="meal-card">
             <div class="meal-head">
                 <h4>${meal.label}</h4>
                 <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
-                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal · P:${fmt(mt.prot,1)} HC:${fmt(mt.hc,1)} L:${fmt(mt.lip,1)} g</span>
+                    <span class="meal-total">${fmt(mt.kcal,0)} / ${fmt(targetKcal,0)} kcal</span>
                     <div style="display:flex; gap:6px;">
                         <button class="btn btn-sm" onclick="openFoodModal('${meal.key}')">＋ Alimento</button>
                         <button class="btn btn-sm btn-add-food" onclick="openAddFoodManualModalForMeal('${meal.key}')" title="Agregar manual">➕</button>
@@ -1665,6 +1705,59 @@ function renderDietPlan() {
                     </div>
                 </div>
             </div>
+            <div style="font-size:11px; background:#f7fafc; padding:10px; border-radius:6px; margin-bottom:12px; line-height:1.6;">
+                <div style="color:#667eea; font-weight:bold; margin-bottom:6px;">📊 Desglose de Objetivos:</div>
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr)); gap:8px;">
+                    <div><strong style="color:#667eea;">🥬 Proteína Anim:</strong> ${fmt(mt.pAni,1)} / ${fmt(mealTargets.prot_animal,1)} g</div>
+                    <div><strong style="color:#667eea;">🌱 Proteína Veg:</strong> ${fmt(mt.pVeg,1)} / ${fmt(mealTargets.prot_vegetal,1)} g</div>
+                    <div><strong style="color:#48bb78;">🌾 HC Almidón:</strong> ${fmt(mt.almidon,1)} / ${fmt(mealTargets.hc_almidon,1)} g</div>
+                    <div><strong style="color:#48bb78;">🍯 HC Azúcares:</strong> ${fmt(mt.azucares,1)} / ${fmt(mealTargets.hc_azucares,1)} g</div>
+                    <div><strong style="color:#ed8936;">🧈 Lípidos AGM:</strong> ${fmt(mt.agm,1)} / ${fmt(mealTargets.lip_agm,1)} g</div>
+                    <div><strong style="color:#ed8936;">🚫 Lípidos AGS:</strong> ${fmt(mt.ags,1)} / ${fmt(mealTargets.lip_ags,1)} g</div>
+                </div>
+            </div>
+            ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
+                <thead>
+                  <tr>
+                    <th rowspan="2">Alimento</th>
+                    <th rowspan="2">Cantidad</th>
+                    <th rowspan="2">Kcal</th>
+                    <th colspan="3" style="text-align:center;background:#eef2fb;">Proteínas (g)</th>
+                    <th colspan="4" style="text-align:center;background:#f0faf3;">HC (g)</th>
+                    <th colspan="4" style="text-align:center;background:#fdf6ec;">Lípidos (g)</th>
+                    <th rowspan="2">Col<br>(mg)</th>
+                    <th rowspan="2">Na<br>(mg)</th>
+                    <th rowspan="2"></th>
+                  </tr>
+                  <tr>
+                    <th style="background:#eef2fb;">Tot</th>
+                    <th style="background:#eef2fb;color:#555;">Veg</th>
+                    <th style="background:#eef2fb;color:#555;">Ani</th>
+                    <th style="background:#f0faf3;">Tot</th>
+                    <th style="background:#f0faf3;color:#555;">Alm</th>
+                    <th style="background:#f0faf3;color:#555;">Azu</th>
+                    <th style="background:#f0faf3;color:#555;">Fib</th>
+                    <th style="background:#fdf6ec;">Tot</th>
+                    <th style="background:#fdf6ec;color:#555;">AGS</th>
+                    <th style="background:#fdf6ec;color:#555;">AGM</th>
+                    <th style="background:#fdf6ec;color:#555;">AGP</th>
+                  </tr>
+                </thead>
+                <tbody>${rows}</tbody>
+                <tfoot>
+                  <tr style="background:#f7fafc;font-weight:bold;">
+                    <td>Subtotal</td><td></td>
+                    <td>${fmt(mt.kcal,0)}</td>
+                    <td>${fmt(mt.prot,1)}</td><td style="color:#555;">${fmt(mt.pVeg,1)}</td><td style="color:#555;">${fmt(mt.pAni,1)}</td>
+                    <td>${fmt(mt.hc,1)}</td><td style="color:#555;">${fmt(mt.almidon,1)}</td><td style="color:#555;">${fmt(mt.azucares,1)}</td><td style="color:#555;">${fmt(mt.fibra,1)}</td>
+                    <td>${fmt(mt.lip,1)}</td><td style="color:#555;">${fmt(mt.ags,1)}</td><td style="color:#555;">${fmt(mt.agm,1)}</td><td style="color:#555;">${fmt(mt.agp,1)}</td>
+                    <td style="color:#555;">${fmt(mt.col,0)}</td><td style="color:#555;">${fmt(mt.na,0)}</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+                </table></div>`
+                : `<p class="small-note">Sin alimentos. Pulsa "＋ Alimento" para buscar en la base de datos.</p>`}
+        </div>`;
             ${items.length ? `<div style="overflow-x:auto;"><table style="font-size:12px;">
                 <thead>
                   <tr>
@@ -1714,27 +1807,30 @@ function renderDietPlan() {
         <div class="progress-display">
             ${fmt(dayTot.kcal,0)} / ${fmt(n.getMod,0)} kcal
         </div>
-        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:12px; margin-bottom:15px;">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; margin-bottom:15px;">
             <div class="calc-box" style="padding:12px;">
-                <strong style="color:#667eea;">Proteínas</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.prot,1)} / ${fmt(n.macros.prot.gr,0)} g</div>
-                <div style="font-size:12px; color:#718096;">
-                    🥩 Anim: ${fmt(dayTot.pAni,1)}g | 🌱 Veg: ${fmt(dayTot.pVeg,1)}g
-                </div>
+                <strong style="color:#667eea;">🥬 Proteína Animal</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.pAni,1)} / ${fmt(getMacroTargets(client).prot_animal,0)} g</div>
             </div>
             <div class="calc-box" style="padding:12px;">
-                <strong style="color:#48bb78;">Hidratos (HC)</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.hc,1)} / ${fmt(n.macros.hc.gr,0)} g</div>
-                <div style="font-size:12px; color:#718096;">
-                    🌾 Alm: ${fmt(dayTot.almidon,1)}g | 🍯 Azu: ${fmt(dayTot.azucares,1)}g
-                </div>
+                <strong style="color:#667eea;">🌱 Proteína Vegetal</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.pVeg,1)} / ${fmt(getMacroTargets(client).prot_vegetal,0)} g</div>
             </div>
             <div class="calc-box" style="padding:12px;">
-                <strong style="color:#ed8936;">Lípidos</strong>
-                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.lip,1)} / ${fmt(n.macros.lip.gr,0)} g</div>
-                <div style="font-size:12px; color:#718096;">
-                    AGM: ${fmt(dayTot.agm,1)}g | AGS: ${fmt(dayTot.ags,1)}g
-                </div>
+                <strong style="color:#48bb78;">🌾 HC Almidón</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.almidon,1)} / ${fmt(getMacroTargets(client).hc_almidon,0)} g</div>
+            </div>
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#48bb78;">🍯 HC Azúcares</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.azucares,1)} / ${fmt(getMacroTargets(client).hc_azucares,0)} g</div>
+            </div>
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#ed8936;">🧈 Lípidos AGM</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.agm,1)} / ${fmt(getMacroTargets(client).lip_agm,0)} g</div>
+            </div>
+            <div class="calc-box" style="padding:12px;">
+                <strong style="color:#ed8936;">🚫 Lípidos AGS</strong>
+                <div style="font-size:16px; margin:8px 0;">${fmt(dayTot.ags,1)} / ${fmt(getMacroTargets(client).lip_ags,0)} g</div>
             </div>
         </div>
         <div style="display:flex; gap:8px; flex-wrap:wrap; margin-bottom:15px;">
@@ -1743,7 +1839,7 @@ function renderDietPlan() {
         </div>
         ${dia.dayNotes ? `<div class="food-notes"><strong>Notas:</strong> ${dia.dayNotes}</div>` : ''}
         <div class="calc-result"><span>Energía total</span><strong>${fmt(dayTot.kcal,0)} kcal</strong> <span style="color:#718096;">(objetivo ${fmt(n.getMod,0)})</span></div>
-        <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Veg: ${fmt(dayTot.pVeg,1)} g · Ani: ${fmt(dayTot.pAni,1)} g</span></div>
+        <div class="calc-result"><span>Proteínas totales</span><strong>${fmt(dayTot.prot,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.prot.gr,0)} g) · Anim: ${fmt(dayTot.pAni,1)} g · Veg: ${fmt(dayTot.pVeg,1)} g</span></div>
         <div class="calc-result"><span>Hidratos totales</span><strong>${fmt(dayTot.hc,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.hc.gr,0)} g) · Almidón: ${fmt(dayTot.almidon,1)} g · Azúcares: ${fmt(dayTot.azucares,1)} g · Fibra: ${fmt(dayTot.fibra,1)} g</span></div>
         <div class="calc-result"><span>Lípidos totales</span><strong>${fmt(dayTot.lip,1)} g</strong> <span style="color:#718096;">(objetivo ${fmt(n.macros.lip.gr,0)} g) · AGS: ${fmt(dayTot.ags,1)} g · AGM: ${fmt(dayTot.agm,1)} g · AGP: ${fmt(dayTot.agp,1)} g</span></div>
         <div class="calc-result"><span>Colesterol</span><strong>${fmt(dayTot.col,0)} mg</strong></div>
