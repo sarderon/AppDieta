@@ -1871,7 +1871,7 @@ function downloadPlanPDF() {
                 y += 10;
                 doc.setTextColor(102, 126, 234); doc.setFontSize(9); doc.setFont(undefined, 'bold');
                 doc.text('Notas ' + meal.label + ':', marginX, y);
-                y += 6;
+                y += 8;
                 doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(8);
                 const splitText = doc.splitTextToSize(dia.mealNotes[meal.key], pageW - 2 * marginX);
                 doc.text(splitText, marginX, y);
@@ -1902,7 +1902,7 @@ function downloadPlanPDF() {
                 y += 12;
                 doc.setTextColor(102, 126, 234); doc.setFontSize(9); doc.setFont(undefined, 'bold');
                 doc.text('Notas del Día:', marginX, y);
-                y += 6;
+                y += 8;
                 doc.setTextColor(90, 100, 120); doc.setFont(undefined, 'normal'); doc.setFontSize(8);
                 const splitText = doc.splitTextToSize(dia.dayNotes, pageW - 2 * marginX);
                 doc.text(splitText, marginX, y);
